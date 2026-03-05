@@ -1,0 +1,18 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "AssetPool",
+  "menuTitle": "Pools",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "AssetPoolPanel",
+          "_type": "subscreens-active",
+          "defaultItem": "FindAssetPool"
+        }
+      ]
+    }
+  ]
+}

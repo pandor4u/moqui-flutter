@@ -1,0 +1,46 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "dashboard",
+  "menuTitle": "HR Dashboard",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Employees",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "roleTypeId": "Employee"
+          },
+          "url": "/fapps/marble/Party/FindParty",
+          "isAnchorLink": true
+        },
+        {
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Labor Rates",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "url": "/fapps/marble/HumanRes/EditRateAmounts",
+          "isAnchorLink": true
+        }
+      ]
+    }
+  ]
+}

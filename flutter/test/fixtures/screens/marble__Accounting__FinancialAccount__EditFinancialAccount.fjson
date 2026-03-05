@@ -1,0 +1,714 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditFinancialAccount",
+  "menuTitle": "Financial Account",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "StatementDialog",
+          "_type": "container-dialog",
+          "buttonText": "Statement PDF",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "StatementForm",
+              "_type": "form-single",
+              "formName": "StatementForm",
+              "transition": "FinancialAccountStatement.pdf",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "finAccountId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Fin Account ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "100001"
+                },
+                {
+                  "name": "year",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Year",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "2026",
+                          "text": "2026"
+                        },
+                        {
+                          "key": "2025",
+                          "text": "2025"
+                        },
+                        {
+                          "key": "2024",
+                          "text": "2024"
+                        },
+                        {
+                          "key": "2023",
+                          "text": "2023"
+                        },
+                        {
+                          "key": "2022",
+                          "text": "2022"
+                        },
+                        {
+                          "key": "2021",
+                          "text": "2021"
+                        },
+                        {
+                          "key": "2020",
+                          "text": "2020"
+                        },
+                        {
+                          "key": "2019",
+                          "text": "2019"
+                        },
+                        {
+                          "key": "2018",
+                          "text": "2018"
+                        },
+                        {
+                          "key": "2017",
+                          "text": "2017"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "month",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Month",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "01",
+                          "text": "January"
+                        },
+                        {
+                          "key": "02",
+                          "text": "February"
+                        },
+                        {
+                          "key": "03",
+                          "text": "March"
+                        },
+                        {
+                          "key": "04",
+                          "text": "April"
+                        },
+                        {
+                          "key": "05",
+                          "text": "May"
+                        },
+                        {
+                          "key": "06",
+                          "text": "June"
+                        },
+                        {
+                          "key": "07",
+                          "text": "July"
+                        },
+                        {
+                          "key": "08",
+                          "text": "August"
+                        },
+                        {
+                          "key": "09",
+                          "text": "September"
+                        },
+                        {
+                          "key": "10",
+                          "text": "October"
+                        },
+                        {
+                          "key": "11",
+                          "text": "November"
+                        },
+                        {
+                          "key": "12",
+                          "text": "December"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Get Statement",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Full History PDF",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "finAccountId": "100001"
+          },
+          "url": "/fapps/marble/Accounting/FinancialAccount/EditFinancialAccount/FinancialAccountStatement.pdf",
+          "isAnchorLink": true
+        },
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "6",
+              "md": "",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "UpdateFinancialAccountForm",
+                  "_type": "form-single",
+                  "formName": "UpdateFinancialAccountForm",
+                  "transition": "updateFinancialAccount",
+                  "map": "financialAccount",
+                  "fields": [
+                    {
+                      "name": "finAccountId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Fin Account ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "hidden",
+                          "defaultValue": ""
+                        }
+                      ],
+                      "currentValue": "100001"
+                    },
+                    {
+                      "name": "finAccountTypeId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Type",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "CustomerCredit",
+                              "text": "Customer Credit"
+                            },
+                            {
+                              "key": "DepositAccount",
+                              "text": "Deposit"
+                            },
+                            {
+                              "key": "Replenish",
+                              "text": "Deposit Replenish"
+                            },
+                            {
+                              "key": "EmployeeAdvance",
+                              "text": "Employee Advance"
+                            },
+                            {
+                              "key": "GiftCard",
+                              "text": "Gift Card"
+                            },
+                            {
+                              "key": "GiftCertificate",
+                              "text": "Gift Certificate"
+                            },
+                            {
+                              "key": "LoanAccount",
+                              "text": "Loan"
+                            },
+                            {
+                              "key": "ServiceCredit",
+                              "text": "Service Credit"
+                            },
+                            {
+                              "key": "SupplierDeposit",
+                              "text": "Supplier Deposit"
+                            }
+                          ]
+                        }
+                      ],
+                      "currentValue": "DepositAccount"
+                    },
+                    {
+                      "name": "organizationPartyId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Organization",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display-entity",
+                          "entity-name": "mantle.party.PartyDetail",
+                          "also-hidden": "false",
+                          "text": "PartyNameTemplate",
+                          "entityName": "mantle.party.PartyDetail",
+                          "keyFieldName": "",
+                          "alsoHidden": "false",
+                          "useCache": "true",
+                          "defaultText": ""
+                        }
+                      ],
+                      "currentValue": "ORG_ZIZI_CORP"
+                    },
+                    {
+                      "name": "ownerPartyId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Account Owner",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [],
+                          "dynamicOptions": {
+                            "transition": "searchPartyList",
+                            "serverSearch": "true",
+                            "minLength": "1"
+                          }
+                        }
+                      ],
+                      "currentValue": "CustJqp"
+                    },
+                    {
+                      "name": "finAccountName",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Account Name",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "50",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "Demo Account"
+                    },
+                    {
+                      "name": "finAccountCode",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Account #",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "format": "",
+                          "currencyUnitField": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "negativeBalanceLimit",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Credit Limit",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "12",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "0"
+                    },
+                    {
+                      "name": "actualBalance",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Balance",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "currency-unit-field": "currencyUomId",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "format": "",
+                          "currencyUnitField": "currencyUomId"
+                        }
+                      ],
+                      "currentValue": "0"
+                    },
+                    {
+                      "name": "availableBalance",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Available",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "currency-unit-field": "currencyUomId",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "format": "",
+                          "currencyUnitField": "currencyUomId"
+                        }
+                      ],
+                      "currentValue": "0"
+                    },
+                    {
+                      "name": "submitButton",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Update",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "6",
+              "md": "",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "StatusChangeSection",
+                  "_type": "section-include",
+                  "sectionName": "StatusChangeSection",
+                  "widgets": [
+                    {
+                      "style": "shaded-area condensed",
+                      "type": "span",
+                      "_type": "container",
+                      "containerType": "span",
+                      "children": [
+                        {
+                          "style": "float-plain condensed",
+                          "type": "ul",
+                          "_type": "container",
+                          "containerType": "ul",
+                          "children": [
+                            {
+                              "type": "li",
+                              "_type": "container",
+                              "containerType": "li",
+                              "children": [
+                                {
+                                  "_type": "container",
+                                  "containerType": "div",
+                                  "children": [
+                                    {
+                                      "type": "strong",
+                                      "_type": "label",
+                                      "text": "Status",
+                                      "resolvedText": "Status",
+                                      "labelType": "strong",
+                                      "encode": "true"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "_type": "container",
+                                  "containerType": "div",
+                                  "children": [
+                                    {
+                                      "type": "strong",
+                                      "style": "text-info",
+                                      "_type": "label",
+                                      "text": "Active",
+                                      "resolvedText": "Active",
+                                      "labelType": "strong",
+                                      "encode": "true"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "StatusChangeLinkSection",
+                              "_type": "section-iterate",
+                              "sectionName": "StatusChangeLinkSection",
+                              "iterations": [
+                                [
+                                  {
+                                    "type": "li",
+                                    "_type": "container",
+                                    "containerType": "li",
+                                    "children": [
+                                      {
+                                        "_type": "link",
+                                        "urlType": "transition",
+                                        "text": "StatusTransitionNameTemplate",
+                                        "linkType": "auto",
+                                        "icon": "",
+                                        "badge": "",
+                                        "confirmation": "Change status to Cancelled?",
+                                        "tooltip": "",
+                                        "btnType": "",
+                                        "targetWindow": "",
+                                        "dynamicLoadId": "",
+                                        "parameterMap": {
+                                          "statusId": "FaCancelled",
+                                          "finAccountId": "100001"
+                                        },
+                                        "url": "/fapps/marble/Accounting/FinancialAccount/EditFinancialAccount/updateStatus",
+                                        "isAnchorLink": false,
+                                        "parameterFromFields": {
+                                          "statusId": "statusTransition"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ],
+                                [
+                                  {
+                                    "type": "li",
+                                    "_type": "container",
+                                    "containerType": "li",
+                                    "children": [
+                                      {
+                                        "_type": "link",
+                                        "urlType": "transition",
+                                        "text": "StatusTransitionNameTemplate",
+                                        "linkType": "auto",
+                                        "icon": "",
+                                        "badge": "",
+                                        "confirmation": "Change status to Manually Frozen?",
+                                        "tooltip": "",
+                                        "btnType": "",
+                                        "targetWindow": "",
+                                        "dynamicLoadId": "",
+                                        "parameterMap": {
+                                          "statusId": "FaManFrozen",
+                                          "finAccountId": "100001"
+                                        },
+                                        "url": "/fapps/marble/Accounting/FinancialAccount/EditFinancialAccount/updateStatus",
+                                        "isAnchorLink": false,
+                                        "parameterFromFields": {
+                                          "statusId": "statusTransition"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ],
+                                [
+                                  {
+                                    "type": "li",
+                                    "_type": "container",
+                                    "containerType": "li",
+                                    "children": [
+                                      {
+                                        "_type": "link",
+                                        "urlType": "transition",
+                                        "text": "StatusTransitionNameTemplate",
+                                        "linkType": "auto",
+                                        "icon": "",
+                                        "badge": "",
+                                        "confirmation": "Change status to Negative Pending Replenishment?",
+                                        "tooltip": "",
+                                        "btnType": "",
+                                        "targetWindow": "",
+                                        "dynamicLoadId": "",
+                                        "parameterMap": {
+                                          "statusId": "FaNegPendRepl",
+                                          "finAccountId": "100001"
+                                        },
+                                        "url": "/fapps/marble/Accounting/FinancialAccount/EditFinancialAccount/updateStatus",
+                                        "isAnchorLink": false,
+                                        "parameterFromFields": {
+                                          "statusId": "statusTransition"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "StatusHistorySection",
+                  "_type": "section-include",
+                  "sectionName": "StatusHistorySection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Status History",
+                      "header": [],
+                      "body": [
+                        {
+                          "name": "StatusHistoryTable",
+                          "_type": "section-iterate",
+                          "sectionName": "StatusHistoryTable",
+                          "iterations": [
+                            [
+                              {
+                                "_type": "container-row",
+                                "columns": [
+                                  {
+                                    "lg": "",
+                                    "md": "",
+                                    "sm": "7",
+                                    "xs": "",
+                                    "style": "",
+                                    "children": [
+                                      {
+                                        "type": "strong",
+                                        "style": "text-nowrap",
+                                        "_type": "label",
+                                        "text": "2026-03-03 20:02",
+                                        "resolvedText": "2026-03-03 20:02",
+                                        "labelType": "strong",
+                                        "encode": "true"
+                                      },
+                                      {
+                                        "condition": "userAccount",
+                                        "style": "text-nowrap",
+                                        "_type": "label",
+                                        "text": "by  []",
+                                        "resolvedText": "by  []",
+                                        "labelType": "span",
+                                        "encode": "true"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "lg": "",
+                                    "md": "",
+                                    "sm": "5",
+                                    "xs": "",
+                                    "style": "",
+                                    "children": [
+                                      {
+                                        "type": "p",
+                                        "style": "text-success",
+                                        "condition": "statusHistory_index == 0",
+                                        "_type": "label",
+                                        "text": "Active",
+                                        "resolvedText": "Active",
+                                        "labelType": "p",
+                                        "encode": "true"
+                                      },
+                                      {
+                                        "type": "p",
+                                        "condition": "statusHistory_index",
+                                        "_type": "label",
+                                        "text": "Active",
+                                        "resolvedText": "Active",
+                                        "labelType": "p",
+                                        "encode": "true"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

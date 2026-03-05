@@ -1,0 +1,1394 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "PartyTimeEntries",
+  "menuTitle": "Time",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "name": "ClockInOutSection",
+          "_type": "section",
+          "sectionName": "ClockInOutSection",
+          "widgets": [
+            {
+              "name": "ClockInOutInnerSection",
+              "condition": "openTimeEntry != null",
+              "_type": "section",
+              "sectionName": "ClockInOutInnerSection",
+              "failWidgets": [
+                {
+                  "id": "ClockInDialog",
+                  "type": "success",
+                  "_type": "container-dialog",
+                  "buttonText": "Clock In",
+                  "dialogTitle": "",
+                  "width": "",
+                  "icon": "",
+                  "btnType": "success",
+                  "children": [
+                    {
+                      "name": "ClockInForm",
+                      "_type": "form-single",
+                      "formName": "ClockInForm",
+                      "transition": "clockInTimeEntry",
+                      "map": "fieldValues",
+                      "fields": [
+                        {
+                          "name": "partyId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Party ID",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "hidden",
+                              "defaultValue": ""
+                            }
+                          ],
+                          "currentValue": "CustJqp"
+                        },
+                        {
+                          "name": "clientPartyId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Employer",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "drop-down",
+                              "allow-empty": "true",
+                              "allowEmpty": "true",
+                              "allowMultiple": "false",
+                              "submitOnSelect": "false",
+                              "current": "selected",
+                              "showNot": "false",
+                              "options": [
+                                {
+                                  "key": "ORG_ZIZI_HR",
+                                  "text": "ZIHR: Ziziwork Human Resources"
+                                },
+                                {
+                                  "key": "ORG_ZIZI_CORP",
+                                  "text": "ZICORP: Ziziwork Industries"
+                                },
+                                {
+                                  "key": "ORG_ZIZI_RETAIL",
+                                  "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                },
+                                {
+                                  "key": "ORG_ZIZI_SALES",
+                                  "text": "ZISAL: Ziziwork Sales"
+                                },
+                                {
+                                  "key": "ORG_ZIZI_SERVICES",
+                                  "text": "ZISER: Ziziwork Services"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "workEffortId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Task",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "drop-down",
+                              "allow-empty": "true",
+                              "allowEmpty": "true",
+                              "allowMultiple": "false",
+                              "submitOnSelect": "false",
+                              "current": "selected",
+                              "showNot": "false",
+                              "options": [],
+                              "dynamicOptions": {
+                                "transition": "getTaskList",
+                                "serverSearch": "true",
+                                "minLength": "0"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "name": "facilityId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Facility",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "drop-down",
+                              "allow-empty": "true",
+                              "allowEmpty": "true",
+                              "allowMultiple": "false",
+                              "submitOnSelect": "false",
+                              "current": "selected",
+                              "showNot": "false",
+                              "options": [],
+                              "dynamicOptions": {
+                                "transition": "getFacilityList",
+                                "serverSearch": "true",
+                                "minLength": "0"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "name": "workTypeEnumId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Work Type",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "drop-down",
+                              "allowEmpty": "true",
+                              "allowMultiple": "false",
+                              "submitOnSelect": "false",
+                              "current": "selected",
+                              "showNot": "false",
+                              "options": [
+                                {
+                                  "key": "WktpGeneralLabor",
+                                  "text": "General Labor"
+                                },
+                                {
+                                  "key": "WktpGeneralOffice",
+                                  "text": "General Office"
+                                },
+                                {
+                                  "key": "WktpManagement",
+                                  "text": "Management"
+                                },
+                                {
+                                  "key": "WktpPaidBreak",
+                                  "text": "Paid Break"
+                                },
+                                {
+                                  "key": "WktpPaidNpt",
+                                  "text": "Paid Non-productive Time"
+                                },
+                                {
+                                  "key": "WktpProgramming",
+                                  "text": "Programming"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "emplPositionClassId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Position Class",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "drop-down",
+                              "allow-empty": "true",
+                              "allowEmpty": "true",
+                              "allowMultiple": "false",
+                              "submitOnSelect": "false",
+                              "current": "selected",
+                              "showNot": "false",
+                              "options": [
+                                {
+                                  "key": "GeneralManager",
+                                  "text": "General Manager"
+                                },
+                                {
+                                  "key": "Programmer",
+                                  "text": "Programmer"
+                                },
+                                {
+                                  "key": "ProjectManager",
+                                  "text": "Project Manager"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "rateTypeEnumId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Rate Type",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "drop-down",
+                              "allow-empty": "${allowEmpty ?: 'false'}",
+                              "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                              "style": "${style?:''}",
+                              "allow-multiple": "${allowMultiple ?: 'false'}",
+                              "show-not": "${showNot ?: 'false'}",
+                              "allowEmpty": "false",
+                              "allowMultiple": "false",
+                              "submitOnSelect": "false",
+                              "current": "selected",
+                              "showNot": "${showNot ?: 'false'}",
+                              "options": [
+                                {
+                                  "key": "RatpStandard",
+                                  "text": "Standard"
+                                },
+                                {
+                                  "key": "RatpPaidBreakStd",
+                                  "text": "Paid Break STD"
+                                },
+                                {
+                                  "key": "RatpPaidBreakRrp",
+                                  "text": "Paid Break RRP"
+                                },
+                                {
+                                  "key": "RatpPaidNptStd",
+                                  "text": "NPT - STD"
+                                },
+                                {
+                                  "key": "RatpPaidNptRrp",
+                                  "text": "NPT - RRP"
+                                },
+                                {
+                                  "key": "RatpVacation",
+                                  "text": "PTO - Vacation"
+                                },
+                                {
+                                  "key": "RatpHoliday",
+                                  "text": "PTO - Holiday"
+                                },
+                                {
+                                  "key": "RatpSick",
+                                  "text": "PTO - Sick"
+                                },
+                                {
+                                  "key": "RatpPtoOther",
+                                  "text": "PTO - Other"
+                                },
+                                {
+                                  "key": "RatpEvening",
+                                  "text": "Shift - Evening"
+                                },
+                                {
+                                  "key": "RatpNight",
+                                  "text": "Shift - Night"
+                                },
+                                {
+                                  "key": "RatpWeekend",
+                                  "text": "Shift - Weekend"
+                                },
+                                {
+                                  "key": "RatpShHoliday",
+                                  "text": "Shift - Holiday"
+                                },
+                                {
+                                  "key": "RatpOnsite",
+                                  "text": "On-site"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "comments",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Comments",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "text-area",
+                              "cols": "100",
+                              "rows": "3",
+                              "maxlength": "",
+                              "readOnly": "false",
+                              "editorType": "",
+                              "autogrow": "false"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "fromDate",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "From",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "date-time",
+                              "minute-stepping": "1",
+                              "dateType": "timestamp",
+                              "format": "",
+                              "minuteStepping": "1"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "submitButton",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Clock In",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "submit",
+                              "text": "",
+                              "confirmation": "",
+                              "btnType": "",
+                              "icon": ""
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "AddTimeDialogDyn",
+          "_type": "dynamic-dialog",
+          "dialogId": "AddTimeDialogDyn",
+          "buttonText": "Record Time",
+          "transition": "EditTimeEntry",
+          "dialogTitle": "",
+          "width": "",
+          "height": "",
+          "icon": ""
+        },
+        {
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Auto Update Rates",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "partyId": "CustJqp"
+          },
+          "url": "/fapps/marble/Party/PartyTimeEntries/resetAndGetTimeEntryRates",
+          "isAnchorLink": false,
+          "parameterFromFields": {
+            "partyId": "partyId"
+          }
+        },
+        {
+          "id": "WorkerInvoiceDialog",
+          "_type": "container-dialog",
+          "buttonText": "Worker Invoice",
+          "dialogTitle": "",
+          "width": "700",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "WorkerInvoice",
+              "_type": "form-single",
+              "formName": "WorkerInvoice",
+              "transition": "createWorkerInvoiceItems",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "partyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Party ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "CustJqp"
+                },
+                {
+                  "name": "workerPartyId",
+                  "from": "partyId",
+                  "hide": "",
+                  "align": "",
+                  "title": "Worker Party ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "CustJqp"
+                },
+                {
+                  "name": "ratePurposeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Rate Purpose Enum ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "default-value": "RaprVendor",
+                      "defaultValue": "RaprVendor"
+                    }
+                  ]
+                },
+                {
+                  "name": "vendorPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Employer",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "ZIHR: Ziziwork Human Resources"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "ZICORP: Ziziwork Industries"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "ZISAL: Ziziwork Sales"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "ZISER: Ziziwork Services"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "thruDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Thru Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "type": "date-time",
+                      "dateType": "date-time",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Existing Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getOpenVendorInvoicesByFromParty",
+                        "serverSearch": "true",
+                        "minLength": "0",
+                        "dependsOnField": "workerPartyId",
+                        "dependsOnParameter": ""
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice Time",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "TimeEntryList",
+          "_type": "form-list",
+          "formName": "TimeEntryList",
+          "transition": "recordTimeEntry",
+          "list": "timeEntryList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "true",
+          "savedFinds": "true",
+          "showCsvButton": "",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "",
+          "editUrl": "editFacility",
+          "headerFields": [
+            {
+              "name": "partyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Party ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "fromDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "thruDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Thru Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "clientPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Employer",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "ORG_ZIZI_HR",
+                      "text": "ZIHR: Ziziwork Human Resources"
+                    },
+                    {
+                      "key": "ORG_ZIZI_CORP",
+                      "text": "ZICORP: Ziziwork Industries"
+                    },
+                    {
+                      "key": "ORG_ZIZI_RETAIL",
+                      "text": "ZIRET: Ziziwork Retail & Wholesale"
+                    },
+                    {
+                      "key": "ORG_ZIZI_SALES",
+                      "text": "ZISAL: Ziziwork Sales"
+                    },
+                    {
+                      "key": "ORG_ZIZI_SERVICES",
+                      "text": "ZISER: Ziziwork Services"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "workEffortId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Task",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getTaskList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "facilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getFacilityList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "workTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Work Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "WktpGeneralLabor",
+                      "text": "General Labor"
+                    },
+                    {
+                      "key": "WktpGeneralOffice",
+                      "text": "General Office"
+                    },
+                    {
+                      "key": "WktpManagement",
+                      "text": "Management"
+                    },
+                    {
+                      "key": "WktpPaidBreak",
+                      "text": "Paid Break"
+                    },
+                    {
+                      "key": "WktpPaidNpt",
+                      "text": "Paid Non-productive Time"
+                    },
+                    {
+                      "key": "WktpProgramming",
+                      "text": "Programming"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "emplPositionClassId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Position Class",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "GeneralManager",
+                      "text": "General Manager"
+                    },
+                    {
+                      "key": "Programmer",
+                      "text": "Programmer"
+                    },
+                    {
+                      "key": "ProjectManager",
+                      "text": "Project Manager"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "rateTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Rate Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumGroupDropDown"
+                }
+              ]
+            },
+            {
+              "name": "hasModifiedRates",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Mod",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "Y",
+                      "text": "Y"
+                    },
+                    {
+                      "key": "N",
+                      "text": "N"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "findButton",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "partyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Party ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "timeEntryId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Time Entry ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "fromDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "thruDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Thru Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "hours",
+              "from": "",
+              "hide": "",
+              "align": "center",
+              "title": "Hours",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "breakHours",
+              "from": "",
+              "hide": "",
+              "align": "center",
+              "title": "Break",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "pieceCount",
+              "from": "",
+              "hide": "",
+              "align": "center",
+              "title": "Piece Count",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "clientPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Employer",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.PartyDetail",
+                  "text": "PartyNameTemplate",
+                  "entityName": "mantle.party.PartyDetail",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "workEffortId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Task",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.work.effort.WorkEffort",
+                  "text": "WorkEffortNameTemplate",
+                  "entityName": "mantle.work.effort.WorkEffort",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "facilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "FacilityNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": "CustJqp"
+                  },
+                  "url": "editFacility",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "workTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Work Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "emplPositionClassId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Position Class",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.humanres.position.EmplPositionClass",
+                  "text": "${title}",
+                  "entityName": "mantle.humanres.position.EmplPositionClass",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "rateTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Rate Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "key-field-name": "enumId",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "enumId",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "clientHourRate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Client Hour Rate",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "0.00#",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "rateAmountId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Client Hour Calc",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "text": "C: ${ec.l10n.format(rateAmount, '0.00')} (${rateAmountId})",
+                  "entity-name": "mantle.humanres.rate.RateAmount",
+                  "entityName": "mantle.humanres.rate.RateAmount",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "vendorHourRate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Worker Hour Rate",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "0.00",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "vendorRateAmountId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Worker Hour Calc",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "text": "W: ${ec.l10n.format(rateAmount, '0.00')} (${rateAmountId})",
+                  "entity-name": "mantle.humanres.rate.RateAmount",
+                  "entityName": "mantle.humanres.rate.RateAmount",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "pieceRateTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Piece Rate Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "key-field-name": "enumId",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "enumId",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "clientPieceRate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Client Piece Rate",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "0.00#",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "pieceRateAmountId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Client Piece Calc",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "text": "C: ${ec.l10n.format(rateAmount, '0.00')} (${rateAmountId})",
+                  "entity-name": "mantle.humanres.rate.RateAmount",
+                  "entityName": "mantle.humanres.rate.RateAmount",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "vendorPieceRate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Worker Piece Rate",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "0.00#",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "vendorPieceRateAmountId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Worker Piece Calc",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "text": "W: ${ec.l10n.format(rateAmount, '0.00')} (${rateAmountId})",
+                  "entity-name": "mantle.humanres.rate.RateAmount",
+                  "entityName": "mantle.humanres.rate.RateAmount",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "hasModifiedRates",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Mod",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "comments",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Comments",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "invoiceId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Client Invoice",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "condition": "invoiceId",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "C: null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": "CustJqp",
+                    "invoiceId": ""
+                  },
+                  "url": "/fapps/marble/Party/PartyTimeEntries/editInvoice",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "invoiceId": "invoiceId"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "vendorInvoiceId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Worker Invoice",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "condition": "vendorInvoiceId",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "W: null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": "CustJqp",
+                    "invoiceId": ""
+                  },
+                  "url": "/fapps/marble/Party/PartyTimeEntries/editInvoice",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "invoiceId": "vendorInvoiceId"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "findButton",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "id": "EditTimeEntryDialog",
+                  "_type": "dynamic-dialog",
+                  "dialogId": "EditTimeEntryDialog",
+                  "buttonText": "Edit",
+                  "transition": "EditTimeEntry",
+                  "dialogTitle": "",
+                  "width": "",
+                  "height": "",
+                  "icon": "fa fa-pencil"
+                }
+              ]
+            }
+          ],
+          "listData": [],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 0,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 0
+          }
+        }
+      ]
+    }
+  ]
+}

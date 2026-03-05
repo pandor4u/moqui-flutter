@@ -1,0 +1,914 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditAssocs",
+  "menuTitle": "Associated",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "7",
+              "md": "",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "_type": "container-box",
+                  "boxTitle": "Associated",
+                  "header": [],
+                  "toolbar": [
+                    {
+                      "id": "AddAssocToDialog",
+                      "_type": "container-dialog",
+                      "buttonText": "Add Assoc",
+                      "dialogTitle": "",
+                      "width": "",
+                      "icon": "",
+                      "btnType": "",
+                      "children": [
+                        {
+                          "name": "AddAssocToForm",
+                          "_type": "form-single",
+                          "formName": "AddAssocToForm",
+                          "transition": "createProductAssoc",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "productId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Product ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ],
+                              "currentValue": "DEMO_1_1"
+                            },
+                            {
+                              "name": "toProductId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Product",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [],
+                                  "dynamicOptions": {
+                                    "transition": "getProductList",
+                                    "serverSearch": "true",
+                                    "minLength": "2"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "name": "productAssocTypeEnumId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Assoc. Type",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "no-current-selected-key": "PatMfgBom",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "PatAccessory",
+                                      "text": "Accessory"
+                                    },
+                                    {
+                                      "key": "PatComponent",
+                                      "text": "Actual Product Component"
+                                    },
+                                    {
+                                      "key": "PatAddOn",
+                                      "text": "Add On For"
+                                    },
+                                    {
+                                      "key": "PatAlsoBought",
+                                      "text": "Also Bought"
+                                    },
+                                    {
+                                      "key": "PatAlternativePkg",
+                                      "text": "Alternative Packaging"
+                                    },
+                                    {
+                                      "key": "PatAutoReorder",
+                                      "text": "Auto Reorder (needs recurrenceInfoId)"
+                                    },
+                                    {
+                                      "key": "PatConfigInstance",
+                                      "text": "Configurable Product Instance"
+                                    },
+                                    {
+                                      "key": "PatCrossSell",
+                                      "text": "Cross-Sell (Complementary)"
+                                    },
+                                    {
+                                      "key": "PatDownSell",
+                                      "text": "Down-Sell (Downgrade)"
+                                    },
+                                    {
+                                      "key": "PatEngBom",
+                                      "text": "Engineering Bill of Materials"
+                                    },
+                                    {
+                                      "key": "PatEquivalent",
+                                      "text": "Equivalent or Substitute"
+                                    },
+                                    {
+                                      "key": "PatIncompatible",
+                                      "text": "Incompatible"
+                                    },
+                                    {
+                                      "key": "PatMfgBom",
+                                      "text": "Manufacturing Bill of Materials"
+                                    },
+                                    {
+                                      "key": "PatReplacement",
+                                      "text": "New Version, Replacement"
+                                    },
+                                    {
+                                      "key": "PatPackagingFor",
+                                      "text": "Packaging For"
+                                    },
+                                    {
+                                      "key": "PatMfgAs",
+                                      "text": "Product Manufactured As"
+                                    },
+                                    {
+                                      "key": "PatVariant",
+                                      "text": "Product Variant"
+                                    },
+                                    {
+                                      "key": "PatRefurbished",
+                                      "text": "Refurbished Equivalent"
+                                    },
+                                    {
+                                      "key": "PatRepairService",
+                                      "text": "Repair Service"
+                                    },
+                                    {
+                                      "key": "PatRequires",
+                                      "text": "Requires"
+                                    },
+                                    {
+                                      "key": "PatRevision",
+                                      "text": "Revision"
+                                    },
+                                    {
+                                      "key": "PatUniqueItem",
+                                      "text": "Unique Item"
+                                    },
+                                    {
+                                      "key": "PatUpsell",
+                                      "text": "Up-Sell (Upgrade)"
+                                    },
+                                    {
+                                      "key": "PatUsedToProduce",
+                                      "text": "Used to Produce"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "quantity",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Quantity",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "text-line",
+                                  "size": "10",
+                                  "inputType": "text",
+                                  "maxlength": "",
+                                  "mask": "",
+                                  "prefix": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "fromDate",
+                              "from": "ec.user.nowTimestamp",
+                              "hide": "",
+                              "align": "",
+                              "title": "From Date",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ],
+                              "currentValue": "2026-03-04 13:30:05.94"
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Add",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "body": [
+                    {
+                      "name": "AssocToListForm",
+                      "_type": "form-list",
+                      "formName": "AssocToListForm",
+                      "transition": "updateProductAssoc",
+                      "list": "paatList",
+                      "paginate": "true",
+                      "headerDialog": "",
+                      "selectColumns": "",
+                      "savedFinds": "",
+                      "showCsvButton": "",
+                      "showXlsxButton": "",
+                      "showPageSize": "",
+                      "skipForm": "",
+                      "editUrl": "editProduct",
+                      "headerFields": [],
+                      "fields": [
+                        {
+                          "name": "productId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Product ID",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "hidden",
+                              "defaultValue": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "toProductId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Product",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "text": " ",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "format": "",
+                              "currencyUnitField": "",
+                              "resolvedText": " "
+                            },
+                            {
+                              "_type": "link",
+                              "urlType": "transition",
+                              "text": "null [null]",
+                              "linkType": "anchor",
+                              "icon": "",
+                              "badge": "",
+                              "confirmation": "",
+                              "tooltip": "",
+                              "btnType": "",
+                              "targetWindow": "",
+                              "dynamicLoadId": "",
+                              "parameterMap": {
+                                "productId": ""
+                              },
+                              "url": "/fapps/marble/Catalog/Product/EditAssocs/editProduct",
+                              "isAnchorLink": true,
+                              "parameterFromFields": {
+                                "productId": "toProductId"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "name": "productTypeEnumId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Type",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display-entity",
+                              "entity-name": "moqui.basic.Enumeration",
+                              "entityName": "moqui.basic.Enumeration",
+                              "keyFieldName": "",
+                              "alsoHidden": "true",
+                              "useCache": "true",
+                              "defaultText": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "productAssocTypeEnumId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Assoc. Type",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display-entity",
+                              "entity-name": "moqui.basic.Enumeration",
+                              "entityName": "moqui.basic.Enumeration",
+                              "keyFieldName": "",
+                              "alsoHidden": "true",
+                              "useCache": "true",
+                              "defaultText": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "quantity",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Qty",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "text-line",
+                              "size": "8",
+                              "format": "0.######",
+                              "inputType": "text",
+                              "maxlength": "",
+                              "mask": "",
+                              "prefix": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "fromDate",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "From Date",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "hidden",
+                              "defaultValue": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "submitButton",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Update",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "submit",
+                              "text": "",
+                              "confirmation": "",
+                              "btnType": "",
+                              "icon": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "removeButton",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Remove Button",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "link",
+                              "urlType": "transition",
+                              "text": "X",
+                              "linkType": "auto",
+                              "icon": "",
+                              "badge": "",
+                              "confirmation": "Remove this association?",
+                              "tooltip": "",
+                              "btnType": "",
+                              "targetWindow": "",
+                              "dynamicLoadId": "",
+                              "parameterMap": {
+                                "fromDate": "",
+                                "productId": "DEMO_1_1",
+                                "productAssocTypeEnumId": "",
+                                "toProductId": "",
+                                "thruDate": "1772659805950"
+                              },
+                              "url": "/fapps/marble/Catalog/Product/EditAssocs/updateProductAssoc",
+                              "isAnchorLink": false,
+                              "parameterFromFields": {
+                                "productId": "productId",
+                                "toProductId": "toProductId",
+                                "productAssocTypeEnumId": "productAssocTypeEnumId",
+                                "fromDate": "fromDate",
+                                "thruDate": "ec"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "listData": [
+                        {
+                          "productId": "DEMO_1_1",
+                          "toProductId": "DEMO_RM_1",
+                          "toProductId_display": " ",
+                          "productTypeEnumId": "PtAsset",
+                          "productTypeEnumId_display": "Asset (Good)",
+                          "productAssocTypeEnumId": "PatMfgBom",
+                          "productAssocTypeEnumId_display": "Manufacturing Bill of Materials",
+                          "quantity": "4",
+                          "fromDate": "1265184000000",
+                          "toProductId_linkText": "Demo Raw Material 1 [DEMO_RM_1]"
+                        },
+                        {
+                          "productId": "DEMO_1_1",
+                          "toProductId": "DEMO_SA_1",
+                          "toProductId_display": " ",
+                          "productTypeEnumId": "PtAsset",
+                          "productTypeEnumId_display": "Asset (Good)",
+                          "productAssocTypeEnumId": "PatMfgBom",
+                          "productAssocTypeEnumId_display": "Manufacturing Bill of Materials",
+                          "quantity": "1",
+                          "fromDate": "1265184000000",
+                          "toProductId_linkText": "Demo Sub Assembly One [DEMO_SA_1]"
+                        },
+                        {
+                          "productId": "DEMO_1_1",
+                          "toProductId": "DEMO_SA_2",
+                          "toProductId_display": " ",
+                          "productTypeEnumId": "PtAsset",
+                          "productTypeEnumId_display": "Asset (Good)",
+                          "productAssocTypeEnumId": "PatMfgBom",
+                          "productAssocTypeEnumId_display": "Manufacturing Bill of Materials",
+                          "quantity": "2",
+                          "fromDate": "1265184000000",
+                          "toProductId_linkText": "Demo Sub Assembly Two [DEMO_SA_2]"
+                        }
+                      ],
+                      "paginateInfo": {
+                        "pageIndex": 0,
+                        "pageSize": 20,
+                        "count": 3,
+                        "pageMaxIndex": 0,
+                        "pageRangeLow": 1,
+                        "pageRangeHigh": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "_type": "container-box",
+                  "boxTitle": "Associated From",
+                  "header": [],
+                  "body": [
+                    {
+                      "name": "AssocFromListForm",
+                      "_type": "form-list",
+                      "formName": "AssocFromListForm",
+                      "transition": "",
+                      "list": "paafList",
+                      "paginate": "true",
+                      "headerDialog": "",
+                      "selectColumns": "",
+                      "savedFinds": "",
+                      "showCsvButton": "",
+                      "showXlsxButton": "",
+                      "showPageSize": "",
+                      "skipForm": "true",
+                      "editUrl": "editProduct",
+                      "headerFields": [],
+                      "fields": [
+                        {
+                          "name": "productId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Product",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "link",
+                              "urlType": "transition",
+                              "text": "null [null]",
+                              "linkType": "anchor",
+                              "icon": "",
+                              "badge": "",
+                              "confirmation": "",
+                              "tooltip": "",
+                              "btnType": "",
+                              "targetWindow": "",
+                              "dynamicLoadId": "",
+                              "parameterMap": {
+                                "productId": "DEMO_1_1"
+                              },
+                              "url": "/fapps/marble/Catalog/Product/EditAssocs/editProduct",
+                              "isAnchorLink": true,
+                              "parameterFromFields": {
+                                "productId": "productId"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "name": "productTypeEnumId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Type",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display-entity",
+                              "entity-name": "moqui.basic.Enumeration",
+                              "entityName": "moqui.basic.Enumeration",
+                              "keyFieldName": "",
+                              "alsoHidden": "true",
+                              "useCache": "true",
+                              "defaultText": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "productAssocTypeEnumId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Assoc. Type",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display-entity",
+                              "entity-name": "moqui.basic.Enumeration",
+                              "entityName": "moqui.basic.Enumeration",
+                              "keyFieldName": "",
+                              "alsoHidden": "true",
+                              "useCache": "true",
+                              "defaultText": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "quantity",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Qty",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "format": "0.######",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "currencyUnitField": ""
+                            }
+                          ]
+                        }
+                      ],
+                      "listData": [
+                        {
+                          "productTypeEnumId": "PtPickAssembly",
+                          "productTypeEnumId_display": "Pick Assembly",
+                          "productAssocTypeEnumId": "PatMfgBom",
+                          "productAssocTypeEnumId_display": "Manufacturing Bill of Materials",
+                          "quantity": "1",
+                          "quantity_display": "1",
+                          "productId": "DEMO_PA",
+                          "productId_linkText": "Demo Bundle One [DEMO_PA]"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "5",
+              "md": "",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "_type": "container-box",
+                  "boxTitle": "Selectable Features",
+                  "header": [],
+                  "toolbar": [
+                    {
+                      "id": "CreateVariantsDialog",
+                      "_type": "container-dialog",
+                      "buttonText": "Create Variants",
+                      "dialogTitle": "",
+                      "width": "",
+                      "icon": "",
+                      "btnType": "",
+                      "children": [
+                        {
+                          "name": "CreateVariantsForm",
+                          "_type": "form-single",
+                          "formName": "CreateVariantsForm",
+                          "transition": "createVariants",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "productId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Product ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ],
+                              "currentValue": "DEMO_1_1"
+                            },
+                            {
+                              "name": "copyCategoryMembers",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Copy Category Members",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "default-value": "true",
+                                  "defaultValue": "true"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "productTypeEnumId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Variant Type",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "",
+                                      "text": "Same"
+                                    },
+                                    {
+                                      "key": "PtAsset",
+                                      "text": "Asset (Good)"
+                                    },
+                                    {
+                                      "key": "PtAssetUse",
+                                      "text": "Asset Use"
+                                    },
+                                    {
+                                      "key": "PtConfigurable",
+                                      "text": "Configurable Good"
+                                    },
+                                    {
+                                      "key": "PtDigital",
+                                      "text": "Digital (download)"
+                                    },
+                                    {
+                                      "key": "PtDigitalAsset",
+                                      "text": "Digital and Asset"
+                                    },
+                                    {
+                                      "key": "PtFacilityUse",
+                                      "text": "Facility Use"
+                                    },
+                                    {
+                                      "key": "PtFinished",
+                                      "text": "Finished Good"
+                                    },
+                                    {
+                                      "key": "PtPickAssembly",
+                                      "text": "Pick Assembly"
+                                    },
+                                    {
+                                      "key": "PtService",
+                                      "text": "Service"
+                                    },
+                                    {
+                                      "key": "PtVirtual",
+                                      "text": "Virtual (with variants)"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "productFeatureGroupIdSet",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Feature Group(s)",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allow-multiple": "true",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "true",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": []
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Create All Variants",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "body": [
+                    {
+                      "name": "AllSelectableFeaturesForm",
+                      "_type": "form-list",
+                      "formName": "AllSelectableFeaturesForm",
+                      "transition": "",
+                      "list": "selectableFeatureList",
+                      "paginate": "true",
+                      "headerDialog": "",
+                      "selectColumns": "",
+                      "savedFinds": "",
+                      "showCsvButton": "",
+                      "showXlsxButton": "",
+                      "showPageSize": "",
+                      "skipForm": "true",
+                      "editUrl": "editFeature",
+                      "headerFields": [],
+                      "fields": [
+                        {
+                          "name": "productFeatureTypeEnumId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Type",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display-entity",
+                              "entity-name": "moqui.basic.Enumeration",
+                              "entityName": "moqui.basic.Enumeration",
+                              "keyFieldName": "",
+                              "alsoHidden": "true",
+                              "useCache": "true",
+                              "defaultText": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "productFeatureId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Feature",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "link",
+                              "urlType": "transition",
+                              "text": "null [null]",
+                              "linkType": "anchor",
+                              "icon": "",
+                              "badge": "",
+                              "confirmation": "",
+                              "tooltip": "",
+                              "btnType": "",
+                              "targetWindow": "",
+                              "dynamicLoadId": "",
+                              "parameterMap": {
+                                "productId": "DEMO_1_1"
+                              },
+                              "url": "/fapps/marble/Catalog/Product/EditAssocs/editFeature",
+                              "isAnchorLink": true
+                            }
+                          ]
+                        },
+                        {
+                          "name": "productFeatureGroupId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "conditionalFields": [
+                            {
+                              "condition": "featureGroup",
+                              "conditionResult": false,
+                              "title": "",
+                              "widgets": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "${featureGroup.description} [${productFeatureGroupId}]",
+                                  "linkType": "anchor",
+                                  "icon": "",
+                                  "badge": "",
+                                  "confirmation": "",
+                                  "tooltip": "",
+                                  "btnType": "",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "resolvedText": "${featureGroup.description} [${productFeatureGroupId}]",
+                                  "parameterMap": {
+                                    "productId": "DEMO_1_1"
+                                  },
+                                  "url": "/fapps/marble/Catalog/Product/EditAssocs/editFeatureGroup",
+                                  "isAnchorLink": true
+                                }
+                              ]
+                            }
+                          ],
+                          "title": "Feature Group",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "text": "",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "format": "",
+                              "currencyUnitField": ""
+                            }
+                          ]
+                        }
+                      ],
+                      "listData": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

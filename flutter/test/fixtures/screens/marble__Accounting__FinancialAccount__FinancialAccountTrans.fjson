@@ -1,0 +1,482 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FinancialAccountTrans",
+  "menuTitle": "Transactions",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "name": "AdjustSection",
+          "condition": "financialAccount.statusId in ['FaNegPendRepl', 'FaActive']",
+          "_type": "section",
+          "sectionName": "AdjustSection",
+          "widgets": [
+            {
+              "id": "AdjustDialog",
+              "_type": "container-dialog",
+              "buttonText": "Add Adjustment",
+              "dialogTitle": "",
+              "width": "700",
+              "icon": "",
+              "btnType": "",
+              "children": [
+                {
+                  "name": "AdjustFinancialAccount",
+                  "_type": "form-single",
+                  "formName": "AdjustFinancialAccount",
+                  "transition": "adjustFinancialAccount",
+                  "map": "fieldValues",
+                  "fields": [
+                    {
+                      "name": "finAccountId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Fin Account ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "hidden",
+                          "defaultValue": ""
+                        }
+                      ],
+                      "currentValue": "100001"
+                    },
+                    {
+                      "name": "amount",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Amount",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "8",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "reasonEnumId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Reason",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "FatrTransfer",
+                              "text": "Account Transfer"
+                            },
+                            {
+                              "key": "FatrCsCredit",
+                              "text": "Customer Service Credit"
+                            },
+                            {
+                              "key": "FatrDisbursement",
+                              "text": "Disbursement"
+                            },
+                            {
+                              "key": "FatrErrorAdjust",
+                              "text": "Error Adjustment"
+                            },
+                            {
+                              "key": "FatrInitDeposit",
+                              "text": "Initial Deposit"
+                            },
+                            {
+                              "key": "FatrPurchase",
+                              "text": "Purchase"
+                            },
+                            {
+                              "key": "FatrRefund",
+                              "text": "Refund"
+                            },
+                            {
+                              "key": "FatrReplenish",
+                              "text": "Replenishment"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "comments",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Comments",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-area",
+                          "cols": "60",
+                          "rows": "4",
+                          "maxlength": "",
+                          "readOnly": "false",
+                          "editorType": "",
+                          "autogrow": "false"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "submitButton",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Add",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "strong",
+          "_type": "label",
+          "text": "Balance: $0.00, Available: $0.00",
+          "resolvedText": "Balance: $0.00, Available: $0.00",
+          "labelType": "strong",
+          "encode": "true"
+        },
+        {
+          "name": "TransactionList",
+          "_type": "form-list",
+          "formName": "TransactionList",
+          "transition": "",
+          "list": "financialAccountTransList",
+          "paginate": "true",
+          "headerDialog": "",
+          "selectColumns": "",
+          "savedFinds": "",
+          "showCsvButton": "true",
+          "showXlsxButton": "true",
+          "showPageSize": "",
+          "skipForm": "true",
+          "headerFields": [
+            {
+              "name": "finAccountId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Fin Account ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "transactionDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "comments",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Comments",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "hide-options": "true",
+                  "size": "20",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "fromPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "toPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "To",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "findButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "finAccountTransId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "transactionDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "reasonEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Reason",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "comments",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Comments",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "fromPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.PartyDetail",
+                  "text": "${organizationName?:''}${firstName?:''} ${lastName?:''} [${pseudoId}]",
+                  "entityName": "mantle.party.PartyDetail",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "toPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "To",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.PartyDetail",
+                  "text": "${organizationName?:''}${firstName?:''} ${lastName?:''} [${pseudoId}]",
+                  "entityName": "mantle.party.PartyDetail",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "performedByUserId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Performed By",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.PersonAndUserAccount",
+                  "text": "${username} - ${firstName?:''} ${lastName?:''}",
+                  "entityName": "mantle.party.PersonAndUserAccount",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "amount",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Amount",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "currency-unit-field": "financialAccount.currencyUomId",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "financialAccount.currencyUomId"
+                }
+              ]
+            },
+            {
+              "name": "findButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": " ",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": " "
+                }
+              ]
+            }
+          ],
+          "listData": [],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 0,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 0
+          },
+          "exportBaseUrl": "/fapps/marble/Accounting/FinancialAccount/FinancialAccountTrans"
+        }
+      ]
+    }
+  ]
+}

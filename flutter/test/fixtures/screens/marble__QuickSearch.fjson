@@ -1,0 +1,389 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "QuickSearch",
+  "menuTitle": "Quick Search",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container",
+          "containerType": "div",
+          "children": [
+            {
+              "type": "strong",
+              "_type": "label",
+              "text": "Search + Lookup by ID",
+              "resolvedText": "Search + Lookup by ID",
+              "labelType": "strong",
+              "encode": "true"
+            },
+            {
+              "_type": "label",
+              "text": " for Asset, Facility, Invoice, Order, Return, Party, Badge, Payment, Product, Shipment, Work Effort (Project, Task, Picklist, Production Run), GL Transaction",
+              "resolvedText": " for Asset, Facility, Invoice, Order, Return, Party, Badge, Payment, Product, Shipment, Work Effort (Project, Task, Picklist, Production Run), GL Transaction",
+              "labelType": "span",
+              "encode": "true"
+            }
+          ]
+        },
+        {
+          "name": "SearchOptions",
+          "_type": "form-single",
+          "formName": "SearchOptions",
+          "transition": ".",
+          "map": "fieldValues",
+          "fieldLayout": {
+            "_type": "field-layout",
+            "rows": [
+              {
+                "_type": "field-row-big"
+              }
+            ]
+          },
+          "fields": [
+            {
+              "name": "documentType",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Document Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "no-current-selected-key": " ",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": " ",
+                      "text": "Any Type"
+                    },
+                    {
+                      "key": "MantleCommunicationEvent",
+                      "text": "Communication Event"
+                    },
+                    {
+                      "key": "MantleEvent",
+                      "text": "Event"
+                    },
+                    {
+                      "key": "MantleFacility",
+                      "text": "Facility"
+                    },
+                    {
+                      "key": "MantleParty",
+                      "text": "Party"
+                    },
+                    {
+                      "key": "MantleProduct",
+                      "text": "Product"
+                    },
+                    {
+                      "key": "MantleProject",
+                      "text": "Project"
+                    },
+                    {
+                      "key": "MantleRequest",
+                      "text": "Request"
+                    },
+                    {
+                      "key": "MantleTask",
+                      "text": "Task"
+                    },
+                    {
+                      "key": "MantleWikiPage",
+                      "text": "Wiki Page"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "queryString",
+              "from": "originalQueryString",
+              "hide": "",
+              "align": "",
+              "title": "Query String",
+              "tooltip": "Matches whole words, use the asterisk (*) wildcard to match partial words; use field:term to search a specific field",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "60",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Search",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AssetSection",
+          "_type": "section-include",
+          "sectionName": "AssetSection"
+        },
+        {
+          "name": "FacilitySection",
+          "_type": "section-include",
+          "sectionName": "FacilitySection"
+        },
+        {
+          "name": "InvoiceSection",
+          "_type": "section-include",
+          "sectionName": "InvoiceSection"
+        },
+        {
+          "name": "OrderSection",
+          "_type": "section-include",
+          "sectionName": "OrderSection"
+        },
+        {
+          "name": "ReturnSection",
+          "_type": "section-include",
+          "sectionName": "ReturnSection"
+        },
+        {
+          "name": "PartySection",
+          "_type": "section-include",
+          "sectionName": "PartySection"
+        },
+        {
+          "name": "PaymentSection",
+          "_type": "section-include",
+          "sectionName": "PaymentSection"
+        },
+        {
+          "name": "ProductSection",
+          "_type": "section-include",
+          "sectionName": "ProductSection",
+          "widgets": [
+            {
+              "_type": "container-box",
+              "boxTitle": "Product: ${ec.resource.expand('ProductNameTemplate','',product)}",
+              "header": [],
+              "toolbar": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Product",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "editProduct",
+                  "isAnchorLink": false,
+                  "parameterFromFields": {
+                    "productId": "product"
+                  }
+                }
+              ],
+              "body": [
+                {
+                  "_type": "container-row",
+                  "columns": [
+                    {
+                      "lg": "",
+                      "md": "1",
+                      "sm": "",
+                      "xs": "",
+                      "style": "",
+                      "children": [
+                        {
+                          "type": "strong",
+                          "_type": "label",
+                          "text": "Type",
+                          "resolvedText": "Type",
+                          "labelType": "strong",
+                          "encode": "true"
+                        }
+                      ]
+                    },
+                    {
+                      "lg": "",
+                      "md": "2",
+                      "sm": "",
+                      "xs": "",
+                      "style": "",
+                      "children": [
+                        {
+                          "_type": "label",
+                          "text": "${product.'ProductType#moqui.basic.Enumeration'?.description?:''}",
+                          "resolvedText": "${product.'ProductType#moqui.basic.Enumeration'?.description?:''}",
+                          "labelType": "span",
+                          "encode": "true"
+                        }
+                      ]
+                    },
+                    {
+                      "lg": "",
+                      "md": "1",
+                      "sm": "",
+                      "xs": "",
+                      "style": "",
+                      "children": [
+                        {
+                          "type": "strong",
+                          "_type": "label",
+                          "text": "Amount/UOM",
+                          "resolvedText": "Amount/UOM",
+                          "labelType": "strong",
+                          "encode": "true"
+                        }
+                      ]
+                    },
+                    {
+                      "lg": "",
+                      "md": "2",
+                      "sm": "",
+                      "xs": "",
+                      "style": "",
+                      "children": [
+                        {
+                          "_type": "label",
+                          "text": "ProductAmountNameTemplate",
+                          "resolvedText": "ProductAmountNameTemplate",
+                          "labelType": "span",
+                          "encode": "true"
+                        }
+                      ]
+                    },
+                    {
+                      "lg": "",
+                      "md": "1",
+                      "sm": "",
+                      "xs": "",
+                      "style": "",
+                      "children": [
+                        {
+                          "type": "strong",
+                          "_type": "label",
+                          "text": "Description",
+                          "resolvedText": "Description",
+                          "labelType": "strong",
+                          "encode": "true"
+                        }
+                      ]
+                    },
+                    {
+                      "lg": "",
+                      "md": "5",
+                      "sm": "",
+                      "xs": "",
+                      "style": "",
+                      "children": [
+                        {
+                          "_type": "label",
+                          "text": "${product.description?:''}",
+                          "resolvedText": "${product.description?:''}",
+                          "labelType": "span",
+                          "encode": "true"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ShipmentSection",
+          "_type": "section-include",
+          "sectionName": "ShipmentSection"
+        },
+        {
+          "name": "WorkEffortSection",
+          "_type": "section-include",
+          "sectionName": "WorkEffortSection"
+        },
+        {
+          "name": "AcctgTransSection",
+          "_type": "section-include",
+          "sectionName": "AcctgTransSection"
+        },
+        {
+          "name": "messageInfos",
+          "_type": "section-iterate",
+          "sectionName": "messageInfos",
+          "iterations": []
+        },
+        {
+          "_type": "container-box",
+          "boxTitle": "Search Results",
+          "header": [],
+          "bodyNoPad": [
+            {
+              "name": "SearchResults",
+              "_type": "form-list",
+              "formName": "SearchResults",
+              "transition": "",
+              "list": "documentList",
+              "paginate": "true",
+              "headerDialog": "",
+              "selectColumns": "",
+              "savedFinds": "",
+              "showCsvButton": "",
+              "showXlsxButton": "",
+              "showPageSize": "",
+              "skipForm": "",
+              "headerFields": [],
+              "fields": [],
+              "listData": []
+            },
+            {
+              "type": "p",
+              "_type": "label",
+              "text": "Full search string: ",
+              "resolvedText": "Full search string: ",
+              "labelType": "p",
+              "encode": "true"
+            },
+            {
+              "_type": "link",
+              "urlType": "plain",
+              "text": "Search String Reference",
+              "linkType": "anchor",
+              "icon": "",
+              "badge": "",
+              "confirmation": "",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "_blank",
+              "dynamicLoadId": "",
+              "url": "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax",
+              "isAnchorLink": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

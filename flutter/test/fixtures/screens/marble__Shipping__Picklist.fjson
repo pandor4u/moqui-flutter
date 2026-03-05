@@ -1,0 +1,707 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Picklist",
+  "menuTitle": "Picklists",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "PicklistPanel",
+          "type": "tab",
+          "_type": "subscreens-panel",
+          "menuType": "tab",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "PicklistDetail",
+              "menuTitle": "Picklist",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "AddOrder",
+              "menuTitle": "Add Orders",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "AddShipment",
+              "menuTitle": "Add Shipments",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "FindPicklist",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "FindPicklist",
+            "menuTitle": "Picklists",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "_type": "container",
+                    "containerType": "div",
+                    "children": [
+                      {
+                        "id": "NewPicklistContainer",
+                        "_type": "container-dialog",
+                        "buttonText": "New Picklist",
+                        "dialogTitle": "",
+                        "width": "",
+                        "icon": "",
+                        "btnType": "",
+                        "children": [
+                          {
+                            "name": "NewPicklist",
+                            "_type": "form-single",
+                            "formName": "NewPicklist",
+                            "transition": "createPicklist",
+                            "map": "fieldValues",
+                            "fields": [
+                              {
+                                "name": "facilityId",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Facility",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "drop-down",
+                                    "allowEmpty": "true",
+                                    "allowMultiple": "false",
+                                    "submitOnSelect": "false",
+                                    "current": "selected",
+                                    "showNot": "false",
+                                    "options": [],
+                                    "dynamicOptions": {
+                                      "transition": "getFacilityList",
+                                      "serverSearch": "true",
+                                      "minLength": "0"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "ownerPartyId",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Owner Org",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "drop-down",
+                                    "allow-empty": "true",
+                                    "allowEmpty": "true",
+                                    "allowMultiple": "false",
+                                    "submitOnSelect": "false",
+                                    "current": "selected",
+                                    "showNot": "false",
+                                    "options": [
+                                      {
+                                        "key": "ORG_ZIZI_HR",
+                                        "text": "ZIHR: Ziziwork Human Resources"
+                                      },
+                                      {
+                                        "key": "ORG_ZIZI_CORP",
+                                        "text": "ZICORP: Ziziwork Industries"
+                                      },
+                                      {
+                                        "key": "ORG_ZIZI_RETAIL",
+                                        "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                      },
+                                      {
+                                        "key": "ORG_ZIZI_SALES",
+                                        "text": "ZISAL: Ziziwork Sales"
+                                      },
+                                      {
+                                        "key": "ORG_ZIZI_SERVICES",
+                                        "text": "ZISER: Ziziwork Services"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "productStoreId",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Store",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "drop-down",
+                                    "allow-empty": "true",
+                                    "allowEmpty": "true",
+                                    "allowMultiple": "false",
+                                    "submitOnSelect": "false",
+                                    "current": "selected",
+                                    "showNot": "false",
+                                    "options": [
+                                      {
+                                        "key": "POPC_DEFAULT",
+                                        "text": "POPC_DEFAULT: Ziziwork Retail Store"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "workEffortName",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Name",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "text-line",
+                                    "size": "40",
+                                    "inputType": "text",
+                                    "maxlength": "",
+                                    "mask": "",
+                                    "prefix": ""
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "estimatedStartDate",
+                                "from": "ec.user.nowTimestamp",
+                                "hide": "",
+                                "align": "",
+                                "title": "Est. Start",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "date-time",
+                                    "dateType": "timestamp",
+                                    "format": "",
+                                    "minuteStepping": ""
+                                  }
+                                ],
+                                "currentValue": "2026-03-04 13:30:16.568"
+                              },
+                              {
+                                "name": "estimatedWorkDuration",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Est. Hours",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "text-line",
+                                    "size": "8",
+                                    "default-value": "1",
+                                    "inputType": "text",
+                                    "maxlength": "",
+                                    "mask": "",
+                                    "prefix": ""
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "submitButton",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Create",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "submit",
+                                    "text": "",
+                                    "confirmation": "",
+                                    "btnType": "",
+                                    "icon": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "_type": "link",
+                        "urlType": "transition",
+                        "text": "Bulk Create Picklists",
+                        "linkType": "auto",
+                        "icon": "",
+                        "badge": "",
+                        "confirmation": "",
+                        "tooltip": "",
+                        "btnType": "",
+                        "targetWindow": "",
+                        "dynamicLoadId": "",
+                        "url": "../BulkPicklist",
+                        "isAnchorLink": true
+                      }
+                    ]
+                  },
+                  {
+                    "name": "PicklistList",
+                    "_type": "form-list",
+                    "formName": "PicklistList",
+                    "transition": "",
+                    "list": "picklistList",
+                    "paginate": "true",
+                    "headerDialog": "true",
+                    "selectColumns": "true",
+                    "savedFinds": "true",
+                    "showCsvButton": "",
+                    "showXlsxButton": "",
+                    "showPageSize": "",
+                    "skipForm": "true",
+                    "editUrl": "picklistDetail",
+                    "headerFields": [
+                      {
+                        "name": "statusId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Status",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "widget-template-include",
+                            "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#statusDropDown"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "estimatedStartDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Start Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "date-period",
+                            "allowEmpty": "true",
+                            "time": "false"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "workEffortId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Picklist",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "10",
+                            "hide-options": "true",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "facilityId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Facility",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getFacilityList",
+                              "serverSearch": "true",
+                              "minLength": "0"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "productStoreId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Store",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "POPC_DEFAULT",
+                                "text": "POPC_DEFAULT: Ziziwork Retail Store"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ownerPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Owner Org",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "ORG_ZIZI_HR",
+                                "text": "ZIHR: Ziziwork Human Resources"
+                              },
+                              {
+                                "key": "ORG_ZIZI_CORP",
+                                "text": "ZICORP: Ziziwork Industries"
+                              },
+                              {
+                                "key": "ORG_ZIZI_RETAIL",
+                                "text": "ZIRET: Ziziwork Retail & Wholesale"
+                              },
+                              {
+                                "key": "ORG_ZIZI_SALES",
+                                "text": "ZISAL: Ziziwork Sales"
+                              },
+                              {
+                                "key": "ORG_ZIZI_SERVICES",
+                                "text": "ZISER: Ziziwork Services"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "partyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Person",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "searchPartyList",
+                              "serverSearch": "true",
+                              "minLength": "0"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "assetId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Equipment",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getAssetList",
+                              "serverSearch": "true",
+                              "minLength": "0"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "shipmentId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Shipments",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "10",
+                            "hide-options": "true",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "submitButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "submit",
+                            "text": "",
+                            "confirmation": "",
+                            "btnType": "",
+                            "icon": ""
+                          }
+                        ]
+                      }
+                    ],
+                    "fields": [
+                      {
+                        "name": "statusId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Status",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.StatusItem",
+                            "entityName": "moqui.basic.StatusItem",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "estimatedStartDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Start Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "workEffortId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Picklist",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "WorkEffortNameTemplate",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "picklistDetail",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "facilityId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Facility",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "FacilityNameTemplate",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editFacility",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "productStoreId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Store",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "mantle.product.store.ProductStore",
+                            "text": "${productStoreId}: ${storeName}",
+                            "entityName": "mantle.product.store.ProductStore",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ownerPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Owner Org",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "mantle.party.PartyDetail",
+                            "text": "PartyNameTemplate",
+                            "entityName": "mantle.party.PartyDetail",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "partyList",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "People",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "section-iterate",
+                            "name": "PartyList",
+                            "list": "weapdList",
+                            "entry": "weapd"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "assetList",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Equipment",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "section-iterate",
+                            "name": "AssetList",
+                            "list": "assetList",
+                            "entry": "asset"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "shipmentList",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Shipments",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "section-iterate",
+                            "name": "ShipmentList",
+                            "list": "shipmentList",
+                            "entry": "shipment"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "submitButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "text": " ",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "resolvedText": " "
+                          }
+                        ]
+                      }
+                    ],
+                    "listData": [],
+                    "paginateInfo": {
+                      "pageIndex": 0,
+                      "pageSize": 20,
+                      "count": 0,
+                      "pageMaxIndex": 0,
+                      "pageRangeLow": 1,
+                      "pageRangeHigh": 0
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "FindPicklist"
+        }
+      ]
+    }
+  ]
+}

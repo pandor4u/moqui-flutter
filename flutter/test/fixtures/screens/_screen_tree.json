@@ -1,0 +1,265 @@
+{
+  "marble": [
+    "marble/Accounting",
+    "marble/Asset",
+    "marble/Catalog",
+    "marble/Customer",
+    "marble/Facility",
+    "marble/HumanRes",
+    "marble/Manufacturing",
+    "marble/Order",
+    "marble/Party",
+    "marble/ProductStore",
+    "marble/Project",
+    "marble/QuickSearch",
+    "marble/QuickViewReport",
+    "marble/Request",
+    "marble/Return",
+    "marble/Shipment",
+    "marble/Shipping",
+    "marble/SimpleReport",
+    "marble/Supplier",
+    "marble/Survey",
+    "marble/Task",
+    "marble/Wiki",
+    "marble/dashboard"
+  ],
+  "marble/Accounting": [
+    "marble/Accounting/Budget",
+    "marble/Accounting/FinancialAccount",
+    "marble/Accounting/FindJournal",
+    "marble/Accounting/GlAccount",
+    "marble/Accounting/Invoice",
+    "marble/Accounting/Payment",
+    "marble/Accounting/Reports",
+    "marble/Accounting/TimePeriod",
+    "marble/Accounting/Transaction",
+    "marble/Accounting/dashboard"
+  ],
+  "marble/Accounting/Budget": [
+    "marble/Accounting/Budget/EditBudget",
+    "marble/Accounting/Budget/FindBudget"
+  ],
+  "marble/Accounting/Budget/EditBudget": [],
+  "marble/Accounting/Budget/FindBudget": [],
+  "marble/Accounting/FinancialAccount": [
+    "marble/Accounting/FinancialAccount/EditFinancialAccount",
+    "marble/Accounting/FinancialAccount/FinancialAccountTrans",
+    "marble/Accounting/FinancialAccount/FindFinancialAccount"
+  ],
+  "marble/Accounting/FinancialAccount/EditFinancialAccount": [],
+  "marble/Accounting/FinancialAccount/FinancialAccountTrans": [],
+  "marble/Accounting/FinancialAccount/FindFinancialAccount": [],
+  "marble/Accounting/FindJournal": [],
+  "marble/Accounting/GlAccount": [],
+  "marble/Accounting/Invoice": [
+    "marble/Accounting/Invoice/FindInvoice"
+  ],
+  "marble/Accounting/Invoice/FindInvoice": [],
+  "marble/Accounting/Payment": [],
+  "marble/Accounting/Reports": [
+    "marble/Accounting/Reports/ReportList"
+  ],
+  "marble/Accounting/Reports/ReportList": [],
+  "marble/Accounting/TimePeriod": [
+    "marble/Accounting/TimePeriod/EditTimePeriod",
+    "marble/Accounting/TimePeriod/FindTimePeriod",
+    "marble/Accounting/TimePeriod/ViewPeriodGlAccounts"
+  ],
+  "marble/Accounting/TimePeriod/EditTimePeriod": [],
+  "marble/Accounting/TimePeriod/FindTimePeriod": [],
+  "marble/Accounting/TimePeriod/ViewPeriodGlAccounts": [],
+  "marble/Accounting/Transaction": [],
+  "marble/Accounting/dashboard": [],
+  "marble/Asset": [
+    "marble/Asset/Asset",
+    "marble/Asset/AssetPool",
+    "marble/Asset/Container",
+    "marble/Asset/PhysicalInventory",
+    "marble/Asset/dashboard"
+  ],
+  "marble/Asset/Asset": [
+    "marble/Asset/Asset/FindSummary"
+  ],
+  "marble/Asset/Asset/FindSummary": [],
+  "marble/Asset/AssetPool": [],
+  "marble/Asset/Container": [
+    "marble/Asset/Container/FindContainer"
+  ],
+  "marble/Asset/Container/FindContainer": [],
+  "marble/Asset/PhysicalInventory": [
+    "marble/Asset/PhysicalInventory/FindPhysicalInventory"
+  ],
+  "marble/Asset/PhysicalInventory/FindPhysicalInventory": [],
+  "marble/Asset/dashboard": [],
+  "marble/Catalog": [
+    "marble/Catalog/Category",
+    "marble/Catalog/Feature",
+    "marble/Catalog/FeatureGroup",
+    "marble/Catalog/Product",
+    "marble/Catalog/Search",
+    "marble/Catalog/dashboard"
+  ],
+  "marble/Catalog/Category": [
+    "marble/Catalog/Category/EditCategory",
+    "marble/Catalog/Category/FindCategory"
+  ],
+  "marble/Catalog/Category/EditCategory": [],
+  "marble/Catalog/Category/FindCategory": [],
+  "marble/Catalog/Feature": [],
+  "marble/Catalog/FeatureGroup": [],
+  "marble/Catalog/Product": [
+    "marble/Catalog/Product/Content",
+    "marble/Catalog/Product/EditAssocs",
+    "marble/Catalog/Product/EditCategories",
+    "marble/Catalog/Product/EditPrices",
+    "marble/Catalog/Product/EditProduct",
+    "marble/Catalog/Product/FindProduct"
+  ],
+  "marble/Catalog/Product/Content": [],
+  "marble/Catalog/Product/EditAssocs": [],
+  "marble/Catalog/Product/EditCategories": [],
+  "marble/Catalog/Product/EditPrices": [],
+  "marble/Catalog/Product/EditProduct": [],
+  "marble/Catalog/Product/FindProduct": [],
+  "marble/Catalog/Search": [],
+  "marble/Catalog/dashboard": [],
+  "marble/Customer": [
+    "marble/Customer/EditCustomer",
+    "marble/Customer/FinancialInfo",
+    "marble/Customer/FindCustomer"
+  ],
+  "marble/Customer/EditCustomer": [],
+  "marble/Customer/FinancialInfo": [],
+  "marble/Customer/FindCustomer": [],
+  "marble/Facility": [
+    "marble/Facility/EditFacility",
+    "marble/Facility/FacilityCalendar",
+    "marble/Facility/FindFacility"
+  ],
+  "marble/Facility/EditFacility": [],
+  "marble/Facility/FacilityCalendar": [],
+  "marble/Facility/FindFacility": [],
+  "marble/HumanRes": [
+    "marble/HumanRes/EditRateAmounts",
+    "marble/HumanRes/dashboard"
+  ],
+  "marble/HumanRes/EditRateAmounts": [],
+  "marble/HumanRes/dashboard": [],
+  "marble/Manufacturing": [
+    "marble/Manufacturing/Run",
+    "marble/Manufacturing/dashboard"
+  ],
+  "marble/Manufacturing/Run": [
+    "marble/Manufacturing/Run/FindRun"
+  ],
+  "marble/Manufacturing/Run/FindRun": [],
+  "marble/Manufacturing/dashboard": [],
+  "marble/Order": [
+    "marble/Order/FindOrder",
+    "marble/Order/OrderDetail",
+    "marble/Order/OrderItems",
+    "marble/Order/QuickItems"
+  ],
+  "marble/Order/FindOrder": [],
+  "marble/Order/OrderDetail": [],
+  "marble/Order/OrderItems": [],
+  "marble/Order/QuickItems": [],
+  "marble/Party": [
+    "marble/Party/EditParty",
+    "marble/Party/FinancialInfo",
+    "marble/Party/FindParty",
+    "marble/Party/PartyAgreements",
+    "marble/Party/PartyCalendar",
+    "marble/Party/PartyEmails",
+    "marble/Party/PartyMessages",
+    "marble/Party/PartyProjects",
+    "marble/Party/PartyRelated",
+    "marble/Party/PartyRequests",
+    "marble/Party/PartyTasks",
+    "marble/Party/PartyTimeEntries"
+  ],
+  "marble/Party/EditParty": [],
+  "marble/Party/FinancialInfo": [],
+  "marble/Party/FindParty": [],
+  "marble/Party/PartyAgreements": [],
+  "marble/Party/PartyCalendar": [],
+  "marble/Party/PartyEmails": [],
+  "marble/Party/PartyMessages": [],
+  "marble/Party/PartyProjects": [],
+  "marble/Party/PartyRelated": [],
+  "marble/Party/PartyRequests": [],
+  "marble/Party/PartyTasks": [],
+  "marble/Party/PartyTimeEntries": [],
+  "marble/ProductStore": [
+    "marble/ProductStore/EditProductStore",
+    "marble/ProductStore/FindProductStore"
+  ],
+  "marble/ProductStore/EditProductStore": [],
+  "marble/ProductStore/FindProductStore": [],
+  "marble/Project": [
+    "marble/Project/EditProject",
+    "marble/Project/FindProject",
+    "marble/Project/ProjectSummary"
+  ],
+  "marble/Project/EditProject": [],
+  "marble/Project/FindProject": [],
+  "marble/Project/ProjectSummary": [],
+  "marble/QuickSearch": [],
+  "marble/QuickViewReport": [],
+  "marble/Request": [
+    "marble/Request/EditRequest",
+    "marble/Request/FindRequest"
+  ],
+  "marble/Request/EditRequest": [],
+  "marble/Request/FindRequest": [],
+  "marble/Return": [
+    "marble/Return/EditReturn",
+    "marble/Return/FindReturn"
+  ],
+  "marble/Return/EditReturn": [],
+  "marble/Return/FindReturn": [],
+  "marble/Shipment": [
+    "marble/Shipment/FindShipment",
+    "marble/Shipment/ShipmentDetail",
+    "marble/Shipment/ShipmentItems",
+    "marble/Shipment/ShipmentPackages"
+  ],
+  "marble/Shipment/FindShipment": [],
+  "marble/Shipment/ShipmentDetail": [],
+  "marble/Shipment/ShipmentItems": [],
+  "marble/Shipment/ShipmentPackages": [],
+  "marble/Shipping": [
+    "marble/Shipping/PickLocationMoves",
+    "marble/Shipping/Picklist",
+    "marble/Shipping/dashboard"
+  ],
+  "marble/Shipping/PickLocationMoves": [],
+  "marble/Shipping/Picklist": [
+    "marble/Shipping/Picklist/FindPicklist"
+  ],
+  "marble/Shipping/Picklist/FindPicklist": [],
+  "marble/Shipping/dashboard": [],
+  "marble/SimpleReport": [
+    "marble/SimpleReport/FindReport"
+  ],
+  "marble/SimpleReport/FindReport": [],
+  "marble/Supplier": [
+    "marble/Supplier/FinancialInfo",
+    "marble/Supplier/FindSupplier"
+  ],
+  "marble/Supplier/FinancialInfo": [],
+  "marble/Supplier/FindSupplier": [],
+  "marble/Survey": [
+    "marble/Survey/FindSurvey"
+  ],
+  "marble/Survey/FindSurvey": [],
+  "marble/Task": [
+    "marble/Task/EditTask",
+    "marble/Task/FindTask"
+  ],
+  "marble/Task/EditTask": [],
+  "marble/Task/FindTask": [],
+  "marble/Wiki": [],
+  "marble/dashboard": []
+}

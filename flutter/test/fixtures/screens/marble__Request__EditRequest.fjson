@@ -1,0 +1,1672 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditRequest",
+  "menuTitle": "Request",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "",
+              "md": "7",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "type": "h4",
+                  "_type": "label",
+                  "text": "Request #100000",
+                  "resolvedText": "Request #100000",
+                  "labelType": "h4",
+                  "encode": "true"
+                },
+                {
+                  "name": "EditRequest",
+                  "_type": "form-single",
+                  "formName": "EditRequest",
+                  "transition": "updateRequest",
+                  "map": "request",
+                  "fieldLayout": {
+                    "_type": "field-layout",
+                    "rows": [
+                      {
+                        "_type": "field-row",
+                        "fields": [
+                          {
+                            "name": "requestId"
+                          },
+                          {
+                            "name": "requestDate"
+                          }
+                        ]
+                      },
+                      {
+                        "_type": "field-row",
+                        "fields": [
+                          {
+                            "name": "filedByPartyId"
+                          }
+                        ]
+                      },
+                      {
+                        "_type": "field-row",
+                        "fields": [
+                          {
+                            "name": "displayCustomerId"
+                          },
+                          {
+                            "name": "displayAssigneeId"
+                          }
+                        ]
+                      },
+                      {
+                        "_type": "field-row",
+                        "fields": [
+                          {
+                            "name": "productStoreId"
+                          },
+                          {
+                            "name": "assignToPartyId"
+                          }
+                        ]
+                      },
+                      {
+                        "_type": "field-row",
+                        "fields": [
+                          {
+                            "name": "rootWorkEffortId"
+                          },
+                          {
+                            "name": "facilityId"
+                          }
+                        ]
+                      },
+                      {
+                        "_type": "field-row",
+                        "fields": [
+                          {
+                            "name": "priority"
+                          },
+                          {
+                            "name": "responseRequiredDate"
+                          }
+                        ]
+                      },
+                      {
+                        "_type": "field-row",
+                        "fields": [
+                          {
+                            "name": "requestTypeEnumId"
+                          },
+                          {
+                            "name": "requestResolutionEnumId"
+                          }
+                        ]
+                      },
+                      {
+                        "_type": "fields-not-referenced"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "name": "requestId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Request ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "format": "",
+                          "currencyUnitField": ""
+                        }
+                      ],
+                      "currentValue": "100000"
+                    },
+                    {
+                      "name": "requestDate",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Request Date",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "format": "",
+                          "currencyUnitField": ""
+                        }
+                      ],
+                      "currentValue": "2026-03-03 17:59:52.38"
+                    },
+                    {
+                      "name": "filedByPartyId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Filed By",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display-entity",
+                          "entity-name": "mantle.party.PartyDetail",
+                          "text": "PartyNameTemplate",
+                          "entityName": "mantle.party.PartyDetail",
+                          "keyFieldName": "",
+                          "alsoHidden": "true",
+                          "useCache": "true",
+                          "defaultText": ""
+                        }
+                      ],
+                      "currentValue": "EX_JOHN_DOE"
+                    },
+                    {
+                      "name": "displayCustomerId",
+                      "from": "customerRp?.partyId",
+                      "hide": "",
+                      "align": "",
+                      "title": "Customer",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display-entity",
+                          "entity-name": "mantle.party.PartyDetail",
+                          "text": "PartyNameTemplate",
+                          "entityName": "mantle.party.PartyDetail",
+                          "keyFieldName": "",
+                          "alsoHidden": "true",
+                          "useCache": "true",
+                          "defaultText": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "productStoreId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Store",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "POPC_DEFAULT",
+                              "text": "Ziziwork Retail Store"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "rootWorkEffortId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Project",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "100000",
+                              "text": "100000: Demo Test Project"
+                            },
+                            {
+                              "key": "100001",
+                              "text": "100001: Demo Test Project"
+                            },
+                            {
+                              "key": "100004",
+                              "text": "100004: Demo Test Project"
+                            },
+                            {
+                              "key": "100006",
+                              "text": "100006: Playwright Test Project"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "facilityId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Facility",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "ZIRET_WH",
+                              "text": "ZIRET_WH: Ziziwork Retail Warehouse"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "displayAssigneeId",
+                      "from": "assignToRp?.partyId",
+                      "hide": "",
+                      "align": "",
+                      "title": "Assignee",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display-entity",
+                          "entity-name": "mantle.party.PartyDetail",
+                          "text": "PartyNameTemplate",
+                          "entityName": "mantle.party.PartyDetail",
+                          "keyFieldName": "",
+                          "alsoHidden": "true",
+                          "useCache": "true",
+                          "defaultText": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "assignToPartyId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Set Assignee",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [],
+                          "dynamicOptions": {
+                            "transition": "searchPartyList",
+                            "serverSearch": "true",
+                            "minLength": "2"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "priority",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Priority",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "1",
+                              "text": "1"
+                            },
+                            {
+                              "key": "2",
+                              "text": "2"
+                            },
+                            {
+                              "key": "3",
+                              "text": "3"
+                            },
+                            {
+                              "key": "4",
+                              "text": "4"
+                            },
+                            {
+                              "key": "5",
+                              "text": "5"
+                            },
+                            {
+                              "key": "6",
+                              "text": "6"
+                            },
+                            {
+                              "key": "7",
+                              "text": "7"
+                            },
+                            {
+                              "key": "8",
+                              "text": "8"
+                            },
+                            {
+                              "key": "9",
+                              "text": "9"
+                            }
+                          ]
+                        }
+                      ],
+                      "currentValue": "5"
+                    },
+                    {
+                      "name": "responseRequiredDate",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Due Date",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "date-time",
+                          "type": "date-time",
+                          "dateType": "date-time",
+                          "format": "",
+                          "minuteStepping": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "requestTypeEnumId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Type",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "${allowEmpty ?: 'false'}",
+                          "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                          "style": "${style?:''}",
+                          "allow-multiple": "${allowMultiple ?: 'false'}",
+                          "show-not": "${showNot ?: 'false'}",
+                          "allowEmpty": "false",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "${showNot ?: 'false'}",
+                          "options": [
+                            {
+                              "key": "RqtBugFix",
+                              "text": "Bug Fix"
+                            },
+                            {
+                              "key": "RqtContact",
+                              "text": "Contact Us"
+                            },
+                            {
+                              "key": "RqtInformation",
+                              "text": "Information"
+                            },
+                            {
+                              "key": "RqtInventory",
+                              "text": "Inventory"
+                            },
+                            {
+                              "key": "RqtNewFeature",
+                              "text": "New Feature"
+                            },
+                            {
+                              "key": "RqtProposal",
+                              "text": "Proposal"
+                            },
+                            {
+                              "key": "RqtPurchase",
+                              "text": "Purchase"
+                            },
+                            {
+                              "key": "RqtQuote",
+                              "text": "Quote"
+                            },
+                            {
+                              "key": "RqtSupport",
+                              "text": "Support"
+                            }
+                          ]
+                        }
+                      ],
+                      "currentValue": "RqtSupport"
+                    },
+                    {
+                      "name": "requestResolutionEnumId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Resolution",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "${allowEmpty ?: 'false'}",
+                          "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                          "style": "${style?:''}",
+                          "allow-multiple": "${allowMultiple ?: 'false'}",
+                          "show-not": "${showNot ?: 'false'}",
+                          "allowEmpty": "false",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "${showNot ?: 'false'}",
+                          "options": [
+                            {
+                              "key": "RrCantReproduce",
+                              "text": "Can't Reproduce"
+                            },
+                            {
+                              "key": "RrCompleted",
+                              "text": "Completed"
+                            },
+                            {
+                              "key": "RrDuplicate",
+                              "text": "Duplicate"
+                            },
+                            {
+                              "key": "RrFixed",
+                              "text": "Fixed"
+                            },
+                            {
+                              "key": "RrInsufficient",
+                              "text": "Insufficient Information"
+                            },
+                            {
+                              "key": "RrRejected",
+                              "text": "Rejected"
+                            },
+                            {
+                              "key": "RrUnresolved",
+                              "text": "Unresolved"
+                            },
+                            {
+                              "key": "RrWontFix",
+                              "text": "Won't Fix"
+                            }
+                          ]
+                        }
+                      ],
+                      "currentValue": "RrUnresolved"
+                    },
+                    {
+                      "name": "requestName",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Name",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "inputType": "text",
+                          "size": "",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "Demo Support Request"
+                    },
+                    {
+                      "name": "description",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Description",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-area",
+                          "rows": "20",
+                          "cols": "60",
+                          "maxlength": "",
+                          "readOnly": "false",
+                          "editorType": "",
+                          "autogrow": "false"
+                        }
+                      ],
+                      "currentValue": "Test request"
+                    },
+                    {
+                      "name": "submitButton",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Update",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "CommentsSection",
+                  "_type": "section",
+                  "sectionName": "CommentsSection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Comments",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "AddCommentDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Add Comment",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "AddCommentForm",
+                              "_type": "form-single",
+                              "formName": "AddCommentForm",
+                              "transition": "addComment",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "requestId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Request ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "100000"
+                                },
+                                {
+                                  "name": "subject",
+                                  "from": "request.requestName",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Subject",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "text-line",
+                                      "inputType": "text",
+                                      "size": "",
+                                      "maxlength": "",
+                                      "mask": "",
+                                      "prefix": ""
+                                    }
+                                  ],
+                                  "currentValue": "Demo Support Request"
+                                },
+                                {
+                                  "name": "body",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Comment",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "text-area",
+                                      "rows": "10",
+                                      "cols": "60",
+                                      "maxlength": "",
+                                      "readOnly": "false",
+                                      "editorType": "",
+                                      "autogrow": "false"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Add",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "body": [
+                        {
+                          "name": "CommentList",
+                          "_type": "section-iterate",
+                          "sectionName": "CommentList",
+                          "iterations": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "",
+              "md": "5",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "StatusChangeSection",
+                  "_type": "section-include",
+                  "sectionName": "StatusChangeSection",
+                  "widgets": [
+                    {
+                      "style": "shaded-area condensed",
+                      "type": "span",
+                      "_type": "container",
+                      "containerType": "span",
+                      "children": [
+                        {
+                          "style": "float-plain condensed",
+                          "type": "ul",
+                          "_type": "container",
+                          "containerType": "ul",
+                          "children": [
+                            {
+                              "type": "li",
+                              "_type": "container",
+                              "containerType": "li",
+                              "children": [
+                                {
+                                  "_type": "container",
+                                  "containerType": "div",
+                                  "children": [
+                                    {
+                                      "type": "strong",
+                                      "_type": "label",
+                                      "text": "Status",
+                                      "resolvedText": "Status",
+                                      "labelType": "strong",
+                                      "encode": "true"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "_type": "container",
+                                  "containerType": "div",
+                                  "children": [
+                                    {
+                                      "type": "strong",
+                                      "style": "text-info",
+                                      "_type": "label",
+                                      "text": "Submitted",
+                                      "resolvedText": "Submitted",
+                                      "labelType": "strong",
+                                      "encode": "true"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "StatusChangeLinkSection",
+                              "_type": "section-iterate",
+                              "sectionName": "StatusChangeLinkSection",
+                              "iterations": [
+                                [
+                                  {
+                                    "type": "li",
+                                    "_type": "container",
+                                    "containerType": "li",
+                                    "children": [
+                                      {
+                                        "_type": "link",
+                                        "urlType": "transition",
+                                        "text": "StatusTransitionNameTemplate",
+                                        "linkType": "auto",
+                                        "icon": "",
+                                        "badge": "",
+                                        "confirmation": "Change status to Cancelled?",
+                                        "tooltip": "",
+                                        "btnType": "",
+                                        "targetWindow": "",
+                                        "dynamicLoadId": "",
+                                        "parameterMap": {
+                                          "statusId": "ReqCancelled",
+                                          "requestId": "100000"
+                                        },
+                                        "url": "/fapps/marble/Request/EditRequest/updateStatus",
+                                        "isAnchorLink": false,
+                                        "parameterFromFields": {
+                                          "statusId": "statusTransition"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ],
+                                [
+                                  {
+                                    "type": "li",
+                                    "_type": "container",
+                                    "containerType": "li",
+                                    "children": [
+                                      {
+                                        "_type": "link",
+                                        "urlType": "transition",
+                                        "text": "StatusTransitionNameTemplate",
+                                        "linkType": "auto",
+                                        "icon": "",
+                                        "badge": "",
+                                        "confirmation": "Change status to Completed?",
+                                        "tooltip": "",
+                                        "btnType": "",
+                                        "targetWindow": "",
+                                        "dynamicLoadId": "",
+                                        "parameterMap": {
+                                          "statusId": "ReqCompleted",
+                                          "requestId": "100000"
+                                        },
+                                        "url": "/fapps/marble/Request/EditRequest/updateStatus",
+                                        "isAnchorLink": false,
+                                        "parameterFromFields": {
+                                          "statusId": "statusTransition"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ],
+                                [
+                                  {
+                                    "type": "li",
+                                    "_type": "container",
+                                    "containerType": "li",
+                                    "children": [
+                                      {
+                                        "_type": "link",
+                                        "urlType": "transition",
+                                        "text": "StatusTransitionNameTemplate",
+                                        "linkType": "auto",
+                                        "icon": "",
+                                        "badge": "",
+                                        "confirmation": "Change status to Reviewed?",
+                                        "tooltip": "",
+                                        "btnType": "",
+                                        "targetWindow": "",
+                                        "dynamicLoadId": "",
+                                        "parameterMap": {
+                                          "statusId": "ReqReviewed",
+                                          "requestId": "100000"
+                                        },
+                                        "url": "/fapps/marble/Request/EditRequest/updateStatus",
+                                        "isAnchorLink": false,
+                                        "parameterFromFields": {
+                                          "statusId": "statusTransition"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ],
+                                [
+                                  {
+                                    "type": "li",
+                                    "_type": "container",
+                                    "containerType": "li",
+                                    "children": [
+                                      {
+                                        "_type": "link",
+                                        "urlType": "transition",
+                                        "text": "StatusTransitionNameTemplate",
+                                        "linkType": "auto",
+                                        "icon": "",
+                                        "badge": "",
+                                        "confirmation": "Change status to In Progress?",
+                                        "tooltip": "",
+                                        "btnType": "",
+                                        "targetWindow": "",
+                                        "dynamicLoadId": "",
+                                        "parameterMap": {
+                                          "statusId": "ReqInProgress",
+                                          "requestId": "100000"
+                                        },
+                                        "url": "/fapps/marble/Request/EditRequest/updateStatus",
+                                        "isAnchorLink": false,
+                                        "parameterFromFields": {
+                                          "statusId": "statusTransition"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "StatusHistorySection",
+                  "_type": "section-include",
+                  "sectionName": "StatusHistorySection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Status History",
+                      "header": [],
+                      "body": [
+                        {
+                          "name": "StatusHistoryTable",
+                          "_type": "section-iterate",
+                          "sectionName": "StatusHistoryTable",
+                          "iterations": [
+                            [
+                              {
+                                "_type": "container-row",
+                                "columns": [
+                                  {
+                                    "lg": "",
+                                    "md": "",
+                                    "sm": "7",
+                                    "xs": "",
+                                    "style": "",
+                                    "children": [
+                                      {
+                                        "type": "strong",
+                                        "style": "text-nowrap",
+                                        "_type": "label",
+                                        "text": "2026-03-03 19:59",
+                                        "resolvedText": "2026-03-03 19:59",
+                                        "labelType": "strong",
+                                        "encode": "true"
+                                      },
+                                      {
+                                        "condition": "userAccount",
+                                        "style": "text-nowrap",
+                                        "_type": "label",
+                                        "text": "by  []",
+                                        "resolvedText": "by  []",
+                                        "labelType": "span",
+                                        "encode": "true"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "lg": "",
+                                    "md": "",
+                                    "sm": "5",
+                                    "xs": "",
+                                    "style": "",
+                                    "children": [
+                                      {
+                                        "type": "p",
+                                        "style": "text-success",
+                                        "condition": "statusHistory_index == 0",
+                                        "_type": "label",
+                                        "text": "Submitted",
+                                        "resolvedText": "Submitted",
+                                        "labelType": "p",
+                                        "encode": "true"
+                                      },
+                                      {
+                                        "type": "p",
+                                        "condition": "statusHistory_index",
+                                        "_type": "label",
+                                        "text": "Submitted",
+                                        "resolvedText": "Submitted",
+                                        "labelType": "p",
+                                        "encode": "true"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "_type": "container-box",
+                  "boxTitle": "Parties",
+                  "header": [],
+                  "toolbar": [
+                    {
+                      "id": "AddPartyDialog",
+                      "_type": "container-dialog",
+                      "buttonText": "Add Party",
+                      "dialogTitle": "",
+                      "width": "",
+                      "icon": "",
+                      "btnType": "",
+                      "children": [
+                        {
+                          "name": "AddPartyForm",
+                          "_type": "form-single",
+                          "formName": "AddPartyForm",
+                          "transition": "addParty",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "requestId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Request ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ],
+                              "currentValue": "100000"
+                            },
+                            {
+                              "name": "partyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Party",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allow-empty": "true",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [],
+                                  "dynamicOptions": {
+                                    "transition": "searchPartyList",
+                                    "serverSearch": "true",
+                                    "minLength": "2"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "name": "roleTypeId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Role",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "Assignee",
+                                      "text": "Assignee"
+                                    },
+                                    {
+                                      "key": "Customer",
+                                      "text": "Customer"
+                                    },
+                                    {
+                                      "key": "CustomerBillTo",
+                                      "text": "Customer - Bill To"
+                                    },
+                                    {
+                                      "key": "Manager",
+                                      "text": "Manager"
+                                    },
+                                    {
+                                      "key": "Reporter",
+                                      "text": "Reporter"
+                                    },
+                                    {
+                                      "key": "Watcher",
+                                      "text": "Watcher"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Add Party",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "bodyNoPad": [
+                    {
+                      "name": "UpdatePartyForm",
+                      "_type": "form-list",
+                      "formName": "UpdatePartyForm",
+                      "transition": "updateParty",
+                      "list": "rpapList",
+                      "paginate": "true",
+                      "headerDialog": "",
+                      "selectColumns": "",
+                      "savedFinds": "",
+                      "showCsvButton": "",
+                      "showXlsxButton": "",
+                      "showPageSize": "",
+                      "skipForm": "",
+                      "editUrl": "editParty",
+                      "headerFields": [],
+                      "fields": [
+                        {
+                          "name": "requestId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Request ID",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "hidden",
+                              "defaultValue": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "fromDate",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "From Date",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "hidden",
+                              "defaultValue": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "thruDate",
+                          "from": "ec.user.nowTimestamp",
+                          "hide": "",
+                          "align": "",
+                          "title": "Thru Date",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "hidden",
+                              "defaultValue": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "roleTypeId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Role",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display-entity",
+                              "entity-name": "mantle.party.RoleType",
+                              "text": "${description}",
+                              "entityName": "mantle.party.RoleType",
+                              "keyFieldName": "",
+                              "alsoHidden": "true",
+                              "useCache": "true",
+                              "defaultText": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "partyId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Name",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "link",
+                              "urlType": "transition",
+                              "text": "PartyNameTemplate",
+                              "linkType": "anchor",
+                              "icon": "",
+                              "badge": "",
+                              "confirmation": "",
+                              "tooltip": "",
+                              "btnType": "",
+                              "targetWindow": "",
+                              "dynamicLoadId": "",
+                              "parameterMap": {
+                                "requestId": "100000"
+                              },
+                              "url": "/fapps/marble/Request/EditRequest/editParty",
+                              "isAnchorLink": true
+                            },
+                            {
+                              "_type": "display",
+                              "text": "",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "format": "",
+                              "currencyUnitField": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "submitButton",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Submit Button",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "submit",
+                              "icon": "fa fa-trash",
+                              "text": "",
+                              "confirmation": "",
+                              "btnType": ""
+                            }
+                          ]
+                        }
+                      ],
+                      "listData": [
+                        {
+                          "requestId": "100000",
+                          "fromDate": "1772589592395",
+                          "thruDate": "1772659813877",
+                          "roleTypeId": "Reporter",
+                          "roleTypeId_display": "Reporter",
+                          "partyId": "EX_JOHN_DOE",
+                          "partyId_display": "EX_JOHN_DOE"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "NotesSection",
+                  "_type": "section",
+                  "sectionName": "NotesSection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Notes",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "NewNoteDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Add Note",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "NewNoteForm",
+                              "_type": "form-single",
+                              "formName": "NewNoteForm",
+                              "transition": "createNote",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "requestId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Request ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "100000"
+                                },
+                                {
+                                  "name": "noteText",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Note",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "text-area",
+                                      "cols": "60",
+                                      "rows": "6",
+                                      "maxlength": "",
+                                      "readOnly": "false",
+                                      "editorType": "",
+                                      "autogrow": "false"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Add Note",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "body": [
+                        {
+                          "name": "NoteIterateSection",
+                          "_type": "section-iterate",
+                          "sectionName": "NoteIterateSection",
+                          "iterations": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "ContentSection",
+                  "_type": "section",
+                  "sectionName": "ContentSection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Content",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "NewContentDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Add Content",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "NewContentForm",
+                              "_type": "form-single",
+                              "formName": "NewContentForm",
+                              "transition": "createContent",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "requestId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Request ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "100000"
+                                },
+                                {
+                                  "name": "contentTypeEnumId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Content Type",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allow-empty": "${allowEmpty ?: 'false'}",
+                                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                                      "style": "${style?:''}",
+                                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                                      "show-not": "${showNot ?: 'false'}",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "${showNot ?: 'false'}",
+                                      "options": [
+                                        {
+                                          "key": "RqCntDocumentation",
+                                          "text": "Documentation"
+                                        },
+                                        {
+                                          "key": "RqCntImage",
+                                          "text": "Image"
+                                        },
+                                        {
+                                          "key": "RqCntInternal",
+                                          "text": "Internal"
+                                        },
+                                        {
+                                          "key": "RqCntStory",
+                                          "text": "Story"
+                                        },
+                                        {
+                                          "key": "RqCntUserDefined",
+                                          "text": "User Defined"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "contentFile",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Content File",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "file",
+                                      "size": "",
+                                      "maxlength": "",
+                                      "multiple": "false",
+                                      "accept": ""
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "description",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Description",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "text-line",
+                                      "size": "60",
+                                      "inputType": "text",
+                                      "maxlength": "",
+                                      "mask": "",
+                                      "prefix": ""
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Add",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "body": [
+                        {
+                          "name": "ContentIterateSection",
+                          "_type": "section-iterate",
+                          "sectionName": "ContentIterateSection",
+                          "iterations": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "TasksSection",
+                  "_type": "section",
+                  "sectionName": "TasksSection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Tasks",
+                      "header": [],
+                      "bodyNoPad": [
+                        {
+                          "name": "RequestTaskList",
+                          "_type": "form-list",
+                          "formName": "RequestTaskList",
+                          "transition": "",
+                          "list": "requestWeDetailList",
+                          "paginate": "true",
+                          "headerDialog": "",
+                          "selectColumns": "",
+                          "savedFinds": "",
+                          "showCsvButton": "",
+                          "showXlsxButton": "",
+                          "showPageSize": "",
+                          "skipForm": "true",
+                          "editUrl": "taskSummary",
+                          "headerFields": [],
+                          "fields": [
+                            {
+                              "name": "priority",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Pri",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display",
+                                  "alsoHidden": "true",
+                                  "encode": "true",
+                                  "format": "",
+                                  "currencyUnitField": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "workEffortId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Task",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "null: null",
+                                  "linkType": "anchor",
+                                  "icon": "",
+                                  "badge": "",
+                                  "confirmation": "",
+                                  "tooltip": "",
+                                  "btnType": "",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "requestId": "100000"
+                                  },
+                                  "url": "/fapps/marble/Request/EditRequest/taskSummary",
+                                  "isAnchorLink": true
+                                }
+                              ]
+                            },
+                            {
+                              "name": "rootWorkEffortId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Project",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "condition": "rootWorkEffortId",
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "null",
+                                  "linkType": "anchor",
+                                  "icon": "",
+                                  "badge": "",
+                                  "confirmation": "",
+                                  "tooltip": "",
+                                  "btnType": "",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "requestId": "100000"
+                                  },
+                                  "url": "/fapps/marble/Request/EditRequest/projectSummary",
+                                  "isAnchorLink": true,
+                                  "parameters": [
+                                    {
+                                      "name": "workEffortId",
+                                      "value": "",
+                                      "from": "rootWorkEffortId"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "purposeEnumId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Purpose",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display-entity",
+                                  "entity-name": "moqui.basic.Enumeration",
+                                  "entityName": "moqui.basic.Enumeration",
+                                  "keyFieldName": "",
+                                  "alsoHidden": "true",
+                                  "useCache": "true",
+                                  "defaultText": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "statusId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Status",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display-entity",
+                                  "entity-name": "moqui.basic.StatusItem",
+                                  "entityName": "moqui.basic.StatusItem",
+                                  "keyFieldName": "",
+                                  "alsoHidden": "true",
+                                  "useCache": "true",
+                                  "defaultText": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "estimatedCompletionDate",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Due",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display",
+                                  "format": "yyyy-MM-dd",
+                                  "alsoHidden": "true",
+                                  "encode": "true",
+                                  "currencyUnitField": ""
+                                }
+                              ]
+                            }
+                          ],
+                          "listData": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

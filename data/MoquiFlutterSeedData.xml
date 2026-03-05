@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Moqui Flutter Component - Seed Data
+Registers the Flutter screen theme type and subscreen entry.
+-->
+<entity-facade-xml type="seed">
+    <!-- Flutter Screen Theme Type Enumeration -->
+    <moqui.basic.Enumeration description="Internal Applications - Flutter" enumId="STT_INTERNAL_FLUTTER"
+            enumTypeId="ScreenThemeType" enumCode="DEFAULT_FLUTTER"/>
+
+    <!-- Flutter Screen Theme Record -->
+    <moqui.screen.ScreenTheme screenThemeId="DEFAULT_FLUTTER" screenThemeTypeEnumId="STT_INTERNAL_FLUTTER"
+            description="Moqui Default Flutter Theme"/>
+
+    <!-- Register fapps as a subscreen of webroot -->
+    <moqui.screen.SubscreensItem screenLocation="component://webroot/screen/webroot.xml"
+            subscreenName="fapps" menuTitle="Flutter Apps" menuIndex="5" menuInclude="N"
+            subscreenLocation="component://moqui-flutter/screen/fapps.xml"/>
+</entity-facade-xml>

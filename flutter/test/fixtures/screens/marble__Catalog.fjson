@@ -1,0 +1,154 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Catalog",
+  "menuTitle": "Catalog",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "CatalogPanel",
+          "type": "popup",
+          "_type": "subscreens-panel",
+          "menuType": "popup",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "dashboard",
+              "menuTitle": "Dashboard",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Product",
+              "menuTitle": "Products",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Search",
+              "menuTitle": "Search Products",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Category",
+              "menuTitle": "Categories",
+              "menuIndex": 4,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Feature",
+              "menuTitle": "Features",
+              "menuIndex": 6,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "FeatureGroup",
+              "menuTitle": "Feature Groups",
+              "menuIndex": 7,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "dashboard",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "dashboard",
+            "menuTitle": "Dashboard",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Products",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "../Product",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Search Products",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "../Search",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Categories",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "../Category",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Features",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "../Feature",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Feature Groups",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "../FeatureGroup",
+                    "isAnchorLink": true
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "dashboard"
+        }
+      ]
+    }
+  ]
+}

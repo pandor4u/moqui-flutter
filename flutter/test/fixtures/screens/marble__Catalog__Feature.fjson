@@ -1,0 +1,17 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Feature",
+  "menuTitle": "Features",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "subscreens-active",
+          "defaultItem": "FindFeature"
+        }
+      ]
+    }
+  ]
+}

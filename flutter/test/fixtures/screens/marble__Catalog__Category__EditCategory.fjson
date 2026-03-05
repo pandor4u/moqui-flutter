@@ -1,0 +1,1421 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditCategory",
+  "menuTitle": "Category",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "",
+              "md": "7",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "EditCategoryForm",
+                  "_type": "form-single",
+                  "formName": "EditCategoryForm",
+                  "transition": "updateCategory",
+                  "map": "category",
+                  "fields": [
+                    {
+                      "name": "productCategoryId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Product Category ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "hidden",
+                          "defaultValue": ""
+                        }
+                      ],
+                      "currentValue": "PopcAllProducts"
+                    },
+                    {
+                      "name": "pseudoId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "15",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "PopcAllProducts"
+                    },
+                    {
+                      "name": "categoryName",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Name",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "60",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "POPC All Products Category"
+                    },
+                    {
+                      "name": "productCategoryTypeEnumId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Type",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "${allowEmpty ?: 'false'}",
+                          "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                          "style": "${style?:''}",
+                          "allow-multiple": "${allowMultiple ?: 'false'}",
+                          "show-not": "${showNot ?: 'false'}",
+                          "allowEmpty": "false",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "${showNot ?: 'false'}",
+                          "options": [
+                            {
+                              "key": "PctBestSelling",
+                              "text": "Best Selling"
+                            },
+                            {
+                              "key": "PctCatalog",
+                              "text": "Catalog"
+                            },
+                            {
+                              "key": "PctCrossSell",
+                              "text": "Cross Sell"
+                            },
+                            {
+                              "key": "PctGiftCard",
+                              "text": "Gift Card"
+                            },
+                            {
+                              "key": "PctIndustry",
+                              "text": "Industry"
+                            },
+                            {
+                              "key": "PctInternal",
+                              "text": "Internal"
+                            },
+                            {
+                              "key": "PctInventoryGroup",
+                              "text": "Inventory Group"
+                            },
+                            {
+                              "key": "PctMaterials",
+                              "text": "Materials"
+                            },
+                            {
+                              "key": "PctMixMatch",
+                              "text": "Mix and Match"
+                            },
+                            {
+                              "key": "PctQuickAdd",
+                              "text": "Quick Add"
+                            },
+                            {
+                              "key": "PctSearch",
+                              "text": "Search"
+                            },
+                            {
+                              "key": "PctTax",
+                              "text": "Tax"
+                            },
+                            {
+                              "key": "PctUsage",
+                              "text": "Usage"
+                            }
+                          ]
+                        }
+                      ],
+                      "currentValue": "PctCatalog"
+                    },
+                    {
+                      "name": "ownerPartyId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Owned By Org",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "_NA_",
+                              "text": "N/A"
+                            },
+                            {
+                              "key": "ORG_ZIZI_HR",
+                              "text": "ZIHR: Ziziwork Human Resources"
+                            },
+                            {
+                              "key": "ORG_ZIZI_CORP",
+                              "text": "ZICORP: Ziziwork Industries"
+                            },
+                            {
+                              "key": "ORG_ZIZI_RETAIL",
+                              "text": "ZIRET: Ziziwork Retail & Wholesale"
+                            },
+                            {
+                              "key": "ORG_ZIZI_SALES",
+                              "text": "ZISAL: Ziziwork Sales"
+                            },
+                            {
+                              "key": "ORG_ZIZI_SERVICES",
+                              "text": "ZISER: Ziziwork Services"
+                            }
+                          ]
+                        }
+                      ],
+                      "currentValue": "_NA_"
+                    },
+                    {
+                      "name": "description",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Description",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-area",
+                          "cols": "65",
+                          "rows": "4",
+                          "maxlength": "",
+                          "readOnly": "false",
+                          "editorType": "",
+                          "autogrow": "false"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "submitButton",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Update",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "ChildCategorySection",
+                  "_type": "section",
+                  "sectionName": "ChildCategorySection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Child Categories",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "AddChildDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Add Child Category",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "AddChild",
+                              "_type": "form-single",
+                              "formName": "AddChild",
+                              "transition": "createProductCategoryRollup",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "curProductCategoryId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Cur Product Category ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "PopcAllProducts"
+                                },
+                                {
+                                  "name": "parentProductCategoryId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Parent Product Category ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "PopcAllProducts"
+                                },
+                                {
+                                  "name": "childProductCategoryId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Child",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [],
+                                      "dynamicOptions": {
+                                        "transition": "getCategoryList",
+                                        "serverSearch": "true",
+                                        "minLength": "0"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "fromDate",
+                                  "from": "ec.user.nowTimestamp",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "From Date",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "date-time",
+                                      "dateType": "timestamp",
+                                      "format": "",
+                                      "minuteStepping": ""
+                                    }
+                                  ],
+                                  "currentValue": "2026-03-04 13:30:05.395"
+                                },
+                                {
+                                  "name": "thruDate",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Thru Date",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "date-time",
+                                      "dateType": "timestamp",
+                                      "format": "",
+                                      "minuteStepping": ""
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Add",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "bodyNoPad": [
+                        {
+                          "name": "ChildCategoriesForm",
+                          "_type": "form-list",
+                          "formName": "ChildCategoriesForm",
+                          "transition": "updateProductCategoryRollup",
+                          "list": "pccList",
+                          "paginate": "true",
+                          "headerDialog": "",
+                          "selectColumns": "",
+                          "savedFinds": "",
+                          "showCsvButton": "",
+                          "showXlsxButton": "",
+                          "showPageSize": "",
+                          "skipForm": "",
+                          "editUrl": ".",
+                          "headerFields": [],
+                          "fields": [
+                            {
+                              "name": "curProductCategoryId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Cur Product Category ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "parentProductCategoryId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Parent Product Category ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "childProductCategoryId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Child Product Category ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "sequenceNum",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Sequence Num",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "text-line",
+                                  "size": "4",
+                                  "inputType": "text",
+                                  "maxlength": "",
+                                  "mask": "",
+                                  "prefix": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "pseudoId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "null",
+                                  "linkType": "anchor",
+                                  "icon": "",
+                                  "badge": "",
+                                  "confirmation": "",
+                                  "tooltip": "",
+                                  "btnType": "",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "productCategoryId": ""
+                                  },
+                                  "url": "/fapps/marble/Catalog/Category/EditCategory",
+                                  "isAnchorLink": true,
+                                  "parameterFromFields": {
+                                    "productCategoryId": "childProductCategoryId"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "name": "categoryName",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Category Name",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "null",
+                                  "linkType": "anchor",
+                                  "icon": "",
+                                  "badge": "",
+                                  "confirmation": "",
+                                  "tooltip": "",
+                                  "btnType": "",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "productCategoryId": ""
+                                  },
+                                  "url": "/fapps/marble/Catalog/Category/EditCategory",
+                                  "isAnchorLink": true,
+                                  "parameterFromFields": {
+                                    "productCategoryId": "childProductCategoryId"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "name": "fromDate",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "From Date",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display",
+                                  "alsoHidden": "true",
+                                  "encode": "true",
+                                  "format": "",
+                                  "currencyUnitField": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "thruDate",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Thru Date",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "date-time",
+                                  "dateType": "timestamp",
+                                  "format": "",
+                                  "minuteStepping": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Update",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "delete",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Delete",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "",
+                                  "linkType": "auto",
+                                  "icon": "fa fa-trash",
+                                  "badge": "",
+                                  "confirmation": "Delete record of child within category?",
+                                  "tooltip": "",
+                                  "btnType": "",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "fromDate": "",
+                                    "productCategoryId": "PopcAllProducts",
+                                    "parentProductCategoryId": "PopcAllProducts",
+                                    "childProductCategoryId": ""
+                                  },
+                                  "url": "/fapps/marble/Catalog/Category/EditCategory/deleteProductCategoryRollup",
+                                  "isAnchorLink": false,
+                                  "parameterFromFields": {
+                                    "childProductCategoryId": "childProductCategoryId",
+                                    "parentProductCategoryId": "parentProductCategoryId",
+                                    "fromDate": "fromDate"
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "listData": []
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Category Identification",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "name": "GenerateCategoryIdent",
+                          "_type": "form-single",
+                          "formName": "GenerateCategoryIdent",
+                          "transition": "generateUrlSlugCategoryIdent",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "productCategoryId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Product Category ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ],
+                              "currentValue": "PopcAllProducts"
+                            },
+                            {
+                              "name": "categoryName",
+                              "from": "category?.categoryName",
+                              "hide": "",
+                              "align": "",
+                              "title": "Category Name",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ],
+                              "currentValue": "POPC All Products Category"
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Generate Url Slug",
+                              "tooltip": "Generate Url Slug from the Category's Name",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "AddCategoryIdentDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "New Category Identification",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "AddCategoryIdentForm",
+                              "_type": "form-single",
+                              "formName": "AddCategoryIdentForm",
+                              "transition": "createProductCategoryIdent",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "productCategoryId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Product Category ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "PopcAllProducts"
+                                },
+                                {
+                                  "name": "productCategoryIdentId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Product Category Ident ID",
+                                  "tooltip": "Id of Product Category to Product Category Ident Relationship",
+                                  "widgets": [
+                                    {
+                                      "_type": "text"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "identTypeEnumId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Identity Type",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [
+                                        {
+                                          "key": "PcitUrlSlug",
+                                          "text": "URL Slug"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "productStoreId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Product Store",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allow-empty": "true",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [
+                                        {
+                                          "key": "POPC_DEFAULT",
+                                          "text": "Ziziwork Retail Store"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "marketSegmentId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Market Segment ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allow-empty": "true",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "idValue",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "ID Value",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "text-line",
+                                      "size": "20",
+                                      "inputType": "text",
+                                      "maxlength": "",
+                                      "mask": "",
+                                      "prefix": ""
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Apply",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "body": [
+                        {
+                          "name": "CategoryIdentForm",
+                          "_type": "form-list",
+                          "formName": "CategoryIdentForm",
+                          "transition": "updateProductCategoryIdent",
+                          "list": "pciList",
+                          "paginate": "true",
+                          "headerDialog": "",
+                          "selectColumns": "",
+                          "savedFinds": "",
+                          "showCsvButton": "",
+                          "showXlsxButton": "",
+                          "showPageSize": "",
+                          "skipForm": "",
+                          "editUrl": "deleteProductCategoryIdent",
+                          "headerFields": [],
+                          "fields": [
+                            {
+                              "name": "productCategoryIdentId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Product Category Ident ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "productCategoryId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Product Category ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "identTypeEnumId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Identity Type",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "size": "4",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "PcitUrlSlug",
+                                      "text": "URL Slug"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "productStoreId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Product Store",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "size": "4",
+                                  "allow-empty": "true",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "POPC_DEFAULT",
+                                      "text": "Ziziwork Retail Store"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "marketSegmentId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Market Segment",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "size": "4",
+                                  "allow-empty": "true",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": []
+                                }
+                              ]
+                            },
+                            {
+                              "name": "idValue",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "ID Value",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "text-line",
+                                  "size": "20",
+                                  "inputType": "text",
+                                  "maxlength": "",
+                                  "mask": "",
+                                  "prefix": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Update",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "delete",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Delete",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "",
+                                  "linkType": "auto",
+                                  "icon": "fa fa-trash",
+                                  "badge": "",
+                                  "confirmation": "Delete Product Category Identity Record?",
+                                  "tooltip": "",
+                                  "btnType": "",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "productCategoryId": "PopcAllProducts"
+                                  },
+                                  "url": "/fapps/marble/Catalog/Category/EditCategory/deleteProductCategoryIdent",
+                                  "isAnchorLink": false
+                                }
+                              ]
+                            }
+                          ],
+                          "listData": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "",
+              "md": "5",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "_type": "container-box",
+                  "boxTitle": "Parent Categories",
+                  "header": [],
+                  "bodyNoPad": [
+                    {
+                      "name": "ParentCategoriesForm",
+                      "_type": "form-list",
+                      "formName": "ParentCategoriesForm",
+                      "transition": "",
+                      "list": "pcpList",
+                      "paginate": "true",
+                      "headerDialog": "",
+                      "selectColumns": "",
+                      "savedFinds": "",
+                      "showCsvButton": "",
+                      "showXlsxButton": "",
+                      "showPageSize": "",
+                      "skipForm": "true",
+                      "editUrl": ".",
+                      "headerFields": [],
+                      "fields": [
+                        {
+                          "name": "pseudoId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "ID",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "link",
+                              "urlType": "transition",
+                              "text": "null",
+                              "linkType": "anchor",
+                              "icon": "",
+                              "badge": "",
+                              "confirmation": "",
+                              "tooltip": "",
+                              "btnType": "",
+                              "targetWindow": "",
+                              "dynamicLoadId": "",
+                              "parameterMap": {
+                                "productCategoryId": "PopcAllProducts"
+                              },
+                              "url": "/fapps/marble/Catalog/Category/EditCategory",
+                              "isAnchorLink": true,
+                              "parameterFromFields": {
+                                "productCategoryId": "parentProductCategoryId"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "name": "categoryName",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Category Name",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "link",
+                              "urlType": "transition",
+                              "text": "null",
+                              "linkType": "anchor",
+                              "icon": "",
+                              "badge": "",
+                              "confirmation": "",
+                              "tooltip": "",
+                              "btnType": "",
+                              "targetWindow": "",
+                              "dynamicLoadId": "",
+                              "parameterMap": {
+                                "productCategoryId": "PopcAllProducts"
+                              },
+                              "url": "/fapps/marble/Catalog/Category/EditCategory",
+                              "isAnchorLink": true,
+                              "parameterFromFields": {
+                                "productCategoryId": "parentProductCategoryId"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "name": "fromDate",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "From Date",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "format": "",
+                              "currencyUnitField": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "thruDate",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Thru Date",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "format": "",
+                              "currencyUnitField": ""
+                            }
+                          ]
+                        }
+                      ],
+                      "listData": []
+                    }
+                  ]
+                },
+                {
+                  "_type": "container-box",
+                  "boxTitle": "Feature Groups",
+                  "header": [],
+                  "toolbar": [
+                    {
+                      "id": "AddFeatureGroupDialog",
+                      "_type": "container-dialog",
+                      "buttonText": "Apply Feature Group",
+                      "dialogTitle": "",
+                      "width": "",
+                      "icon": "",
+                      "btnType": "",
+                      "children": [
+                        {
+                          "name": "AddFeatureGroupForm",
+                          "_type": "form-single",
+                          "formName": "AddFeatureGroupForm",
+                          "transition": "createProductCategoryFeatGrpAppl",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "productCategoryId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Product Category ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ],
+                              "currentValue": "PopcAllProducts"
+                            },
+                            {
+                              "name": "productFeatureGroupId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Group",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": []
+                                }
+                              ]
+                            },
+                            {
+                              "name": "applTypeEnumId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Appl. Type",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "no-current-selected-key": "PfatStandard",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "PfatDistinguishing",
+                                      "text": "Distinguishing"
+                                    },
+                                    {
+                                      "key": "PfatOptional",
+                                      "text": "Optional"
+                                    },
+                                    {
+                                      "key": "PfatSelectable",
+                                      "text": "Selectable"
+                                    },
+                                    {
+                                      "key": "PfatStandard",
+                                      "text": "Standard"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "fromDate",
+                              "from": "ec.user.nowTimestamp",
+                              "hide": "",
+                              "align": "",
+                              "title": "From Date",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ],
+                              "currentValue": "2026-03-04 13:30:05.46"
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Apply",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "body": [
+                    {
+                      "name": "FeatureGroupsForm",
+                      "_type": "form-list",
+                      "formName": "FeatureGroupsForm",
+                      "transition": "updateProductCategoryFeatGrpAppl",
+                      "list": "pfgacaList",
+                      "paginate": "true",
+                      "headerDialog": "",
+                      "selectColumns": "",
+                      "savedFinds": "",
+                      "showCsvButton": "",
+                      "showXlsxButton": "",
+                      "showPageSize": "",
+                      "skipForm": "",
+                      "editUrl": "editFeatureGroup",
+                      "headerFields": [],
+                      "fields": [
+                        {
+                          "name": "productCategoryId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Product Category ID",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "hidden",
+                              "defaultValue": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "productFeatureGroupId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Product Feature Group ID",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "hidden",
+                              "defaultValue": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "featureGroup",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Feature Group",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "link",
+                              "urlType": "transition",
+                              "text": "null [null]",
+                              "linkType": "anchor",
+                              "icon": "",
+                              "badge": "",
+                              "confirmation": "",
+                              "tooltip": "",
+                              "btnType": "",
+                              "targetWindow": "",
+                              "dynamicLoadId": "",
+                              "parameterMap": {
+                                "productCategoryId": "PopcAllProducts"
+                              },
+                              "url": "/fapps/marble/Catalog/Category/EditCategory/editFeatureGroup",
+                              "isAnchorLink": true
+                            }
+                          ]
+                        },
+                        {
+                          "name": "applTypeEnumId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Appl. Type",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display-entity",
+                              "entity-name": "moqui.basic.Enumeration",
+                              "entityName": "moqui.basic.Enumeration",
+                              "keyFieldName": "",
+                              "alsoHidden": "true",
+                              "useCache": "true",
+                              "defaultText": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "fromDate",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "From Date",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "hidden",
+                              "defaultValue": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "thruDate",
+                          "from": "ec.user.nowTimestamp",
+                          "hide": "",
+                          "align": "",
+                          "title": "Thru Date",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "hidden",
+                              "defaultValue": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "submitButton",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Unapply",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "submit",
+                              "text": "",
+                              "confirmation": "",
+                              "btnType": "",
+                              "icon": ""
+                            }
+                          ]
+                        }
+                      ],
+                      "listData": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

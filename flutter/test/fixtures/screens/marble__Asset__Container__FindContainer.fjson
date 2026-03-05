@@ -1,0 +1,627 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FindContainer",
+  "menuTitle": "Containers",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "CreateContainerDialog",
+          "_type": "container-dialog",
+          "buttonText": "Create Container",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "CreateContainerForm",
+              "_type": "form-single",
+              "formName": "CreateContainerForm",
+              "transition": "createContainer",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "containerTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "CtBinShelf",
+                          "text": "Bin - Shelf Std"
+                        },
+                        {
+                          "key": "CtContainerIso20",
+                          "text": "Container ISO 20ft"
+                        },
+                        {
+                          "key": "CtContainerIso40",
+                          "text": "Container ISO 40ft"
+                        },
+                        {
+                          "key": "CtPalletEur3",
+                          "text": "Pallet EUR3 1.0x1.2m"
+                        },
+                        {
+                          "key": "CtPalletIso0",
+                          "text": "Pallet ISO0/EUR6 0.8x0.6m"
+                        },
+                        {
+                          "key": "CtPalletIso1",
+                          "text": "Pallet ISO1/EUR1 0.8x1.2m"
+                        },
+                        {
+                          "key": "CtPalletIso2",
+                          "text": "Pallet ISO2/EUR2 1.2x1.0m"
+                        },
+                        {
+                          "key": "CtPalletUs4040",
+                          "text": "Pallet US 40x40in"
+                        },
+                        {
+                          "key": "CtPalletUs4048",
+                          "text": "Pallet US 40x48in"
+                        },
+                        {
+                          "key": "CtPalletUs4242",
+                          "text": "Pallet US 42x42in"
+                        },
+                        {
+                          "key": "CtPalletUs4840",
+                          "text": "Pallet US 48x40in"
+                        },
+                        {
+                          "key": "CtPalletUs4848",
+                          "text": "Pallet US 48x48in"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "description",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Description",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "40",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "serialNumber",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Serial Number",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "40",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "externalId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "External ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "20",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "facilityId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Facility",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getFacilityList",
+                        "serverSearch": "true",
+                        "minLength": "0"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "locationSeqId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Location",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getLocationList",
+                        "serverSearch": "true",
+                        "minLength": "0",
+                        "dependsOnField": "facilityId",
+                        "dependsOnParameter": ""
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ContainerList",
+          "_type": "form-list",
+          "formName": "ContainerList",
+          "transition": "",
+          "list": "containerList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "",
+          "savedFinds": "",
+          "showCsvButton": "",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "true",
+          "editUrl": "editContainer",
+          "headerFields": [
+            {
+              "name": "serialNumber",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Serial Number",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "containerId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Container ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "hide-options": "true",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "containerTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "description",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Description",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "facilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getFacilityList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "locationSeqId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Location",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getLocationList",
+                    "serverSearch": "true",
+                    "minLength": "0",
+                    "dependsOnField": "facilityId",
+                    "dependsOnParameter": ""
+                  }
+                }
+              ]
+            },
+            {
+              "name": "assetId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Asset",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getAssetList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "findButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "serialNumber",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Serial Number",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Asset/Container/FindContainer/editContainer",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "containerId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Container ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Asset/Container/FindContainer/editContainer",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "containerTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "description",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Description",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "facilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "FacilityNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Asset/Container/FindContainer/editFacility",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "locationSeqId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Location",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "condition": "locationSeqId",
+                  "_type": "label",
+                  "text": "FacilityLocationNameTemplate",
+                  "resolvedText": "FacilityLocationNameTemplate",
+                  "labelType": "span",
+                  "encode": "true"
+                }
+              ]
+            },
+            {
+              "name": "assetList",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "section-iterate",
+                  "name": "AssetListSection",
+                  "list": "assetList",
+                  "entry": "assetProduct"
+                }
+              ]
+            }
+          ],
+          "listData": [
+            {
+              "containerTypeEnumId": "CtBinShelf",
+              "containerTypeEnumId_display": "Bin - Shelf Std",
+              "description": "Test container 1234",
+              "description_display": "Test container 1234",
+              "locationSeqId": "01010101",
+              "assetList": "",
+              "serialNumber_linkText": "1234",
+              "containerId_linkText": "ZWH_1234"
+            },
+            {
+              "containerTypeEnumId": "CtBinShelf",
+              "containerTypeEnumId_display": "Bin - Shelf Std",
+              "description": "Test container 1235",
+              "description_display": "Test container 1235",
+              "locationSeqId": "01010101",
+              "assetList": "",
+              "serialNumber_linkText": "1235",
+              "containerId_linkText": "ZWH_1235"
+            },
+            {
+              "containerTypeEnumId": "CtBinShelf",
+              "containerTypeEnumId_display": "Bin - Shelf Std",
+              "description": "Test container 2234",
+              "description_display": "Test container 2234",
+              "locationSeqId": "01020101",
+              "assetList": "",
+              "serialNumber_linkText": "2234",
+              "containerId_linkText": "ZWH_2234"
+            },
+            {
+              "containerTypeEnumId": "CtBinShelf",
+              "containerTypeEnumId_display": "Bin - Shelf Std",
+              "description": "Test container 2235",
+              "description_display": "Test container 2235",
+              "locationSeqId": "01020201",
+              "assetList": "",
+              "serialNumber_linkText": "2235",
+              "containerId_linkText": "ZWH_2235"
+            },
+            {
+              "containerTypeEnumId": "CtPalletUs4048",
+              "containerTypeEnumId_display": "Pallet US 40x48in",
+              "description": "Test pallet P123",
+              "description_display": "Test pallet P123",
+              "locationSeqId": "01010102",
+              "assetList": "mantle.product.asset.AssetSummaryView:[quantityOnHandTotal:0,availableToPromiseTotal:0,null:null,null:null,null:null,null:null,pseudoId:DEMO_UNIT,null:null,productName:DemoProductOneUnit,null:null,null:null,null:null,null:null,null:null,null:null,null:null,null:null,null:null,null:null,null:null,productId:DEMO_UNIT]",
+              "serialNumber_linkText": "P123",
+              "containerId_linkText": "ZWH_P123"
+            },
+            {
+              "containerTypeEnumId": "CtPalletUs4048",
+              "containerTypeEnumId_display": "Pallet US 40x48in",
+              "description": "Test pallet P199",
+              "description_display": "Test pallet P199",
+              "locationSeqId": "01010502",
+              "assetList": "mantle.product.asset.AssetSummaryView:[quantityOnHandTotal:0,availableToPromiseTotal:0,null:null,null:null,null:null,null:null,pseudoId:DEMO_SA_1,null:null,productName:DemoSubAssemblyOne,null:null,null:null,null:null,null:null,null:null,null:null,null:null,null:null,null:null,null:null,null:null,productId:DEMO_SA_1]],[mantle.product.asset.AssetSummaryView:[quantityOnHandTotal:0,availableToPromiseTotal:0,null:null,null:null,null:null,null:null,pseudoId:DEMO_SA_2,null:null,productName:DemoSubAssemblyTwo,null:null,null:null,null:null,null:null,null:null,null:null,null:null,null:null,null:null,null:null,null:null,productId:DEMO_SA_2]",
+              "serialNumber_linkText": "P199",
+              "containerId_linkText": "ZWH_P199"
+            }
+          ],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 6,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 6
+          }
+        }
+      ]
+    }
+  ]
+}

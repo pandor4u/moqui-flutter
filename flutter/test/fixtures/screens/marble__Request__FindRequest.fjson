@@ -1,0 +1,1219 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FindRequest",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "NewRequestContainer",
+          "_type": "container-dialog",
+          "buttonText": "New Request",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "NewRequestForm",
+              "_type": "form-single",
+              "formName": "NewRequestForm",
+              "transition": "createRequest",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "customerPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Customer",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "productStoreId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Store",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "POPC_DEFAULT",
+                          "text": "POPC_DEFAULT: Ziziwork Retail Store"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "rootWorkEffortId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Project",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "100000",
+                          "text": "100000: Demo Test Project"
+                        },
+                        {
+                          "key": "100001",
+                          "text": "100001: Demo Test Project"
+                        },
+                        {
+                          "key": "100004",
+                          "text": "100004: Demo Test Project"
+                        },
+                        {
+                          "key": "100006",
+                          "text": "100006: Playwright Test Project"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "facilityId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Facility",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ZIRET_WH",
+                          "text": "ZIRET_WH: Ziziwork Retail Warehouse"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "assignToPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Assign To",
+                  "tooltip": "If empty will be assigned to current user",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "priority",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Priority",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "no-current-selected-key": "5",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "1",
+                          "text": "1"
+                        },
+                        {
+                          "key": "2",
+                          "text": "2"
+                        },
+                        {
+                          "key": "3",
+                          "text": "3"
+                        },
+                        {
+                          "key": "4",
+                          "text": "4"
+                        },
+                        {
+                          "key": "5",
+                          "text": "5"
+                        },
+                        {
+                          "key": "6",
+                          "text": "6"
+                        },
+                        {
+                          "key": "7",
+                          "text": "7"
+                        },
+                        {
+                          "key": "8",
+                          "text": "8"
+                        },
+                        {
+                          "key": "9",
+                          "text": "9"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "responseRequiredDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Due Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "type": "date-time",
+                      "dateType": "date-time",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "requestTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "false",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "RqtBugFix",
+                          "text": "Bug Fix"
+                        },
+                        {
+                          "key": "RqtContact",
+                          "text": "Contact Us"
+                        },
+                        {
+                          "key": "RqtInformation",
+                          "text": "Information"
+                        },
+                        {
+                          "key": "RqtInventory",
+                          "text": "Inventory"
+                        },
+                        {
+                          "key": "RqtNewFeature",
+                          "text": "New Feature"
+                        },
+                        {
+                          "key": "RqtProposal",
+                          "text": "Proposal"
+                        },
+                        {
+                          "key": "RqtPurchase",
+                          "text": "Purchase"
+                        },
+                        {
+                          "key": "RqtQuote",
+                          "text": "Quote"
+                        },
+                        {
+                          "key": "RqtSupport",
+                          "text": "Support"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "statusId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Initial Status",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "false",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "ReqDraft",
+                          "text": "Draft"
+                        },
+                        {
+                          "key": "ReqSubmitted",
+                          "text": "Submitted"
+                        },
+                        {
+                          "key": "ReqReviewed",
+                          "text": "Reviewed"
+                        },
+                        {
+                          "key": "ReqInProgress",
+                          "text": "In Progress"
+                        },
+                        {
+                          "key": "ReqCompleted",
+                          "text": "Completed"
+                        },
+                        {
+                          "key": "ReqCancelled",
+                          "text": "Cancelled"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "requestName",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Request Name",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "60",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "description",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Description",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-area",
+                      "rows": "10",
+                      "cols": "60",
+                      "maxlength": "",
+                      "readOnly": "false",
+                      "editorType": "",
+                      "autogrow": "false"
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ListRequests",
+          "_type": "form-list",
+          "formName": "ListRequests",
+          "transition": "",
+          "list": "requestList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "true",
+          "savedFinds": "true",
+          "showCsvButton": "",
+          "showXlsxButton": "",
+          "showPageSize": "true",
+          "skipForm": "true",
+          "editUrl": "editRequest",
+          "headerFields": [
+            {
+              "name": "findPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Party",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "roleTypeId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Has Role",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "Assignee",
+                      "text": "Assignee"
+                    },
+                    {
+                      "key": "Customer",
+                      "text": "Customer"
+                    },
+                    {
+                      "key": "CustomerBillTo",
+                      "text": "Customer - Bill To"
+                    },
+                    {
+                      "key": "Manager",
+                      "text": "Manager"
+                    },
+                    {
+                      "key": "Reporter",
+                      "text": "Reporter"
+                    },
+                    {
+                      "key": "Watcher",
+                      "text": "Watcher"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "priority",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Pri",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "1"
+                    },
+                    {
+                      "key": "2",
+                      "text": "2"
+                    },
+                    {
+                      "key": "3",
+                      "text": "3"
+                    },
+                    {
+                      "key": "4",
+                      "text": "4"
+                    },
+                    {
+                      "key": "5",
+                      "text": "5"
+                    },
+                    {
+                      "key": "6",
+                      "text": "6"
+                    },
+                    {
+                      "key": "7",
+                      "text": "7"
+                    },
+                    {
+                      "key": "8",
+                      "text": "8"
+                    },
+                    {
+                      "key": "9",
+                      "text": "9"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "requestId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "10",
+                  "hide-options": "true",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "requestName",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Name",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "30",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "productStoreId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Store",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "POPC_DEFAULT",
+                      "text": "POPC_DEFAULT: Ziziwork Retail Store"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "rootWorkEffortId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Project",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "100000",
+                      "text": "100000: Demo Test Project"
+                    },
+                    {
+                      "key": "100001",
+                      "text": "100001: Demo Test Project"
+                    },
+                    {
+                      "key": "100004",
+                      "text": "100004: Demo Test Project"
+                    },
+                    {
+                      "key": "100006",
+                      "text": "100006: Playwright Test Project"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "facilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "ZIRET_WH",
+                      "text": "ZIRET_WH: Ziziwork Retail Warehouse"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "requestTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#statusDropDown"
+                }
+              ]
+            },
+            {
+              "name": "requestResolutionEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Resolution",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "requestDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Request Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "responseRequiredDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Due Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "priority",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Pri",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "requestId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Request/FindRequest/editRequest",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "requestName",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Name",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Request/FindRequest/editRequest",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "productStoreId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Store",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Request/FindRequest/editStore",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "rootWorkEffortId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Project",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "WorkEffortNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Request/FindRequest/projectSummary",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "facilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "FacilityNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Request/FindRequest/editFacility",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "requestTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.StatusItem",
+                  "entityName": "moqui.basic.StatusItem",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "requestResolutionEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Resolution",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "requestDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Request Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "responseRequiredDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Due Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "customerPartyId",
+              "from": "customerRp?.partyId",
+              "hide": "",
+              "align": "",
+              "title": "Customer",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.PartyDetail",
+                  "text": "PartyNameTemplate",
+                  "entityName": "mantle.party.PartyDetail",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "assignToPartyId",
+              "from": "assigneeRp?.partyId",
+              "hide": "",
+              "align": "",
+              "title": "Assigned To",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.PartyDetail",
+                  "text": "PartyNameTemplate",
+                  "entityName": "mantle.party.PartyDetail",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            }
+          ],
+          "listData": [
+            {
+              "priority": "5",
+              "priority_display": "5",
+              "requestTypeEnumId": "RqtSupport",
+              "requestTypeEnumId_display": "Support",
+              "statusId": "ReqSubmitted",
+              "statusId_display": "Submitted",
+              "requestResolutionEnumId": "RrUnresolved",
+              "requestResolutionEnumId_display": "Unresolved",
+              "requestDate": "1772589592380",
+              "requestDate_display": "2026-03-03 19:59",
+              "responseRequiredDate": "",
+              "responseRequiredDate_display": "",
+              "customerPartyId": "",
+              "customerPartyId_display": "",
+              "assignToPartyId": "",
+              "assignToPartyId_display": "",
+              "requestId_linkText": "100000",
+              "requestName_linkText": "Demo Support Request",
+              "productStoreId_linkText": "null"
+            },
+            {
+              "priority": "5",
+              "priority_display": "5",
+              "requestTypeEnumId": "RqtSupport",
+              "requestTypeEnumId_display": "Support",
+              "statusId": "ReqSubmitted",
+              "statusId_display": "Submitted",
+              "requestResolutionEnumId": "RrUnresolved",
+              "requestResolutionEnumId_display": "Unresolved",
+              "requestDate": "1772589655126",
+              "requestDate_display": "2026-03-03 20:00",
+              "responseRequiredDate": "",
+              "responseRequiredDate_display": "",
+              "customerPartyId": "",
+              "customerPartyId_display": "",
+              "assignToPartyId": "",
+              "assignToPartyId_display": "",
+              "requestId_linkText": "100001",
+              "requestName_linkText": "Demo Support Request",
+              "productStoreId_linkText": "null"
+            },
+            {
+              "priority": "5",
+              "priority_display": "5",
+              "requestTypeEnumId": "RqtSupport",
+              "requestTypeEnumId_display": "Support",
+              "statusId": "ReqSubmitted",
+              "statusId_display": "Submitted",
+              "requestResolutionEnumId": "RrUnresolved",
+              "requestResolutionEnumId_display": "Unresolved",
+              "requestDate": "1772589742717",
+              "requestDate_display": "2026-03-03 20:02",
+              "responseRequiredDate": "",
+              "responseRequiredDate_display": "",
+              "customerPartyId": "",
+              "customerPartyId_display": "",
+              "assignToPartyId": "",
+              "assignToPartyId_display": "",
+              "requestId_linkText": "100002",
+              "requestName_linkText": "Demo Support Request",
+              "productStoreId_linkText": "null"
+            },
+            {
+              "priority": "5",
+              "priority_display": "5",
+              "requestTypeEnumId": "RqtSupport",
+              "requestTypeEnumId_display": "Support",
+              "statusId": "ReqSubmitted",
+              "statusId_display": "Submitted",
+              "requestResolutionEnumId": "RrUnresolved",
+              "requestResolutionEnumId_display": "Unresolved",
+              "requestDate": "1772589891867",
+              "requestDate_display": "2026-03-03 20:04",
+              "responseRequiredDate": "",
+              "responseRequiredDate_display": "",
+              "customerPartyId": "",
+              "customerPartyId_display": "",
+              "assignToPartyId": "",
+              "assignToPartyId_display": "",
+              "requestId_linkText": "100003",
+              "requestName_linkText": "Demo Request 2",
+              "productStoreId_linkText": "null"
+            },
+            {
+              "priority": "5",
+              "priority_display": "5",
+              "requestTypeEnumId": "RqtSupport",
+              "requestTypeEnumId_display": "Support",
+              "statusId": "ReqSubmitted",
+              "statusId_display": "Submitted",
+              "requestResolutionEnumId": "RrUnresolved",
+              "requestResolutionEnumId_display": "Unresolved",
+              "requestDate": "1772604000000",
+              "requestDate_display": "2026-03-04 00:00",
+              "responseRequiredDate": "",
+              "responseRequiredDate_display": "",
+              "customerPartyId": "100051",
+              "customerPartyId_display": "100051: PlaywrightUpdated TestCustomer",
+              "assignToPartyId": "",
+              "assignToPartyId_display": "",
+              "requestId_linkText": "100004",
+              "requestName_linkText": "Playwright Test Request",
+              "productStoreId_linkText": "null"
+            },
+            {
+              "priority": "5",
+              "priority_display": "5",
+              "requestTypeEnumId": "RqtSupport",
+              "requestTypeEnumId_display": "Support",
+              "statusId": "ReqDraft",
+              "statusId_display": "Draft",
+              "requestResolutionEnumId": "RrUnresolved",
+              "requestResolutionEnumId_display": "Unresolved",
+              "requestDate": "1772604000000",
+              "requestDate_display": "2026-03-04 00:00",
+              "responseRequiredDate": "",
+              "responseRequiredDate_display": "",
+              "customerPartyId": "",
+              "customerPartyId_display": "",
+              "assignToPartyId": "",
+              "assignToPartyId_display": "",
+              "requestId_linkText": "100007",
+              "requestName_linkText": "PW Request Final",
+              "productStoreId_linkText": "null"
+            },
+            {
+              "priority": "5",
+              "priority_display": "5",
+              "requestTypeEnumId": "RqtSupport",
+              "requestTypeEnumId_display": "Support",
+              "statusId": "ReqDraft",
+              "statusId_display": "Draft",
+              "requestResolutionEnumId": "RrUnresolved",
+              "requestResolutionEnumId_display": "Unresolved",
+              "requestDate": "1772604000000",
+              "requestDate_display": "2026-03-04 00:00",
+              "responseRequiredDate": "",
+              "responseRequiredDate_display": "",
+              "customerPartyId": "",
+              "customerPartyId_display": "",
+              "assignToPartyId": "",
+              "assignToPartyId_display": "",
+              "requestId_linkText": "100005",
+              "requestName_linkText": "PW Test Request",
+              "productStoreId_linkText": "null"
+            },
+            {
+              "priority": "5",
+              "priority_display": "5",
+              "requestTypeEnumId": "RqtSupport",
+              "requestTypeEnumId_display": "Support",
+              "statusId": "ReqDraft",
+              "statusId_display": "Draft",
+              "requestResolutionEnumId": "RrUnresolved",
+              "requestResolutionEnumId_display": "Unresolved",
+              "requestDate": "1772604000000",
+              "requestDate_display": "2026-03-04 00:00",
+              "responseRequiredDate": "",
+              "responseRequiredDate_display": "",
+              "customerPartyId": "",
+              "customerPartyId_display": "",
+              "assignToPartyId": "",
+              "assignToPartyId_display": "",
+              "requestId_linkText": "100006",
+              "requestName_linkText": "PW Test Request",
+              "productStoreId_linkText": "null"
+            }
+          ],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 8,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 8
+          }
+        }
+      ]
+    }
+  ]
+}

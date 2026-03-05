@@ -1,0 +1,59 @@
+name: moqui_flutter
+description: Flutter dynamic screen renderer for Moqui Framework — Web, iOS, Android from a single codebase.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+
+  # Networking
+  dio: ^5.4.3+1
+  dio_cookie_manager: ^3.1.1
+  cookie_jar: ^4.0.8
+
+  # Routing
+  go_router: ^14.2.0
+
+  # Storage
+  flutter_secure_storage: ^9.2.2
+  shared_preferences: ^2.2.3
+
+  # WebSocket
+  web_socket_channel: ^3.0.1
+
+  # UI
+  intl: ^0.19.0
+  file_picker: ^8.0.3
+  google_fonts: ^6.2.1
+
+  # HTML rendering for labels/display fields containing HTML fragments
+  flutter_widget_from_html_core: ^0.15.2
+
+  # URL launching (export downloads, external links)
+  url_launcher: ^6.2.5
+
+  # Utilities
+  json_annotation: ^4.9.0
+  equatable: ^2.0.5
+  collection: ^1.18.0
+  logging: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.2
+  build_runner: ^2.4.9
+  json_serializable: ^6.8.0
+  riverpod_generator: ^2.4.0
+  go_router_builder: ^2.5.0
+
+flutter:
+  uses-material-design: true

@@ -1,0 +1,665 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Project",
+  "menuTitle": "Projects",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "task-panel",
+          "type": "tab",
+          "_type": "subscreens-panel",
+          "menuType": "tab",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "ProjectSummary",
+              "menuTitle": "Project Summary",
+              "menuIndex": 0,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "EditProject",
+              "menuTitle": "Project",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "EditMilestones",
+              "menuTitle": "Milestones",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "EditUsers",
+              "menuTitle": "Parties",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "ProjectTimeEntries",
+              "menuTitle": "Time Entries",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "EditWikiPages",
+              "menuTitle": "Wiki Pages",
+              "menuIndex": 5,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "ProjectProgressReport",
+              "menuTitle": "Progress",
+              "menuIndex": 9,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "FindProject",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "FindProject",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "id": "NewProjectContainer",
+                    "_type": "container-dialog",
+                    "buttonText": "New Project",
+                    "dialogTitle": "",
+                    "width": "",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "name": "NewProject",
+                        "_type": "form-single",
+                        "formName": "NewProject",
+                        "transition": "createProject",
+                        "map": "fieldValues",
+                        "fields": [
+                          {
+                            "name": "workEffortId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "ID",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "8",
+                                "maxlength": "8",
+                                "inputType": "text",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "workEffortName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Project Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "inputType": "text",
+                                "size": "",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "clientPartyId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Client",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "searchPartyList",
+                                  "serverSearch": "true",
+                                  "minLength": "0"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "vendorPartyId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Vendor",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "searchPartyList",
+                                  "serverSearch": "true",
+                                  "minLength": "0"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "purposeEnumId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Purpose",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [
+                                  {
+                                    "key": "WepPrItSecurity",
+                                    "text": "IT Security"
+                                  },
+                                  {
+                                    "key": "WepPrMarketing",
+                                    "text": "Marketing"
+                                  },
+                                  {
+                                    "key": "WepPrOrgMgmt",
+                                    "text": "Organization Management"
+                                  },
+                                  {
+                                    "key": "WepPrProdDev",
+                                    "text": "Product Development"
+                                  },
+                                  {
+                                    "key": "WepPrProdFulfill",
+                                    "text": "Product Fulfillment"
+                                  },
+                                  {
+                                    "key": "WepPrTraining",
+                                    "text": "Training"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Create",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ListProjects",
+                    "_type": "form-list",
+                    "formName": "ListProjects",
+                    "transition": "",
+                    "list": "projectList",
+                    "paginate": "true",
+                    "headerDialog": "true",
+                    "selectColumns": "",
+                    "savedFinds": "true",
+                    "showCsvButton": "",
+                    "showXlsxButton": "",
+                    "showPageSize": "",
+                    "skipForm": "true",
+                    "editUrl": "projectSummary",
+                    "headerFields": [
+                      {
+                        "name": "workEffortId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Project",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "false"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "workEffortName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "false"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "priority",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Priority",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "range-find",
+                            "size": "",
+                            "maxlength": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "statusId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Status",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "widget-template-include",
+                            "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#statusDropDown"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "purposeEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Purpose",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "WepPrItSecurity",
+                                "text": "IT Security"
+                              },
+                              {
+                                "key": "WepPrMarketing",
+                                "text": "Marketing"
+                              },
+                              {
+                                "key": "WepPrOrgMgmt",
+                                "text": "Organization Management"
+                              },
+                              {
+                                "key": "WepPrProdDev",
+                                "text": "Product Development"
+                              },
+                              {
+                                "key": "WepPrProdFulfill",
+                                "text": "Product Fulfillment"
+                              },
+                              {
+                                "key": "WepPrTraining",
+                                "text": "Training"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "estimatedCompletionDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Due Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "date-period",
+                            "allowEmpty": "true",
+                            "time": "false"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "estimatedWorkTime",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Estimated Hours",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "range-find",
+                            "size": "",
+                            "maxlength": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "actualWorkTime",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Actual Hours",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "range-find",
+                            "size": "",
+                            "maxlength": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "searchButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find Project",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "submit",
+                            "text": "",
+                            "confirmation": "",
+                            "btnType": "",
+                            "icon": ""
+                          }
+                        ]
+                      }
+                    ],
+                    "fields": [
+                      {
+                        "name": "workEffortId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Project",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null",
+                            "linkType": "auto",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "projectSummary",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "workEffortName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "also-hidden": "false",
+                            "alsoHidden": "false",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "priority",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Priority",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "statusId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Status",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.StatusItem",
+                            "also-hidden": "false",
+                            "entityName": "moqui.basic.StatusItem",
+                            "keyFieldName": "",
+                            "alsoHidden": "false",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "purposeEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Purpose",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.Enumeration",
+                            "entityName": "moqui.basic.Enumeration",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "estimatedCompletionDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Due Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "format": "yyyy-MM-dd",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "estimatedWorkTime",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Estimated Hours",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "format": "0.00",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "actualWorkTime",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Actual Hours",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "format": "0.00",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      }
+                    ],
+                    "listData": [
+                      {
+                        "workEffortName_display": "Demo Test Project",
+                        "priority": "",
+                        "priority_display": "",
+                        "statusId_display": "In Planning",
+                        "purposeEnumId": "",
+                        "purposeEnumId_display": "",
+                        "estimatedCompletionDate": "1735624800000",
+                        "estimatedCompletionDate_display": "2024-12-31",
+                        "estimatedWorkTime": "",
+                        "estimatedWorkTime_display": "",
+                        "actualWorkTime": "",
+                        "actualWorkTime_display": "",
+                        "workEffortId_linkText": "100000"
+                      },
+                      {
+                        "workEffortName_display": "Demo Test Project",
+                        "priority": "",
+                        "priority_display": "",
+                        "statusId_display": "In Planning",
+                        "purposeEnumId": "",
+                        "purposeEnumId_display": "",
+                        "estimatedCompletionDate": "1735624800000",
+                        "estimatedCompletionDate_display": "2024-12-31",
+                        "estimatedWorkTime": "",
+                        "estimatedWorkTime_display": "",
+                        "actualWorkTime": "",
+                        "actualWorkTime_display": "",
+                        "workEffortId_linkText": "100001"
+                      },
+                      {
+                        "workEffortName_display": "Demo Test Project",
+                        "priority": "",
+                        "priority_display": "",
+                        "statusId_display": "In Planning",
+                        "purposeEnumId": "",
+                        "purposeEnumId_display": "",
+                        "estimatedCompletionDate": "1735624800000",
+                        "estimatedCompletionDate_display": "2024-12-31",
+                        "estimatedWorkTime": "8",
+                        "estimatedWorkTime_display": "8.00",
+                        "actualWorkTime": "0",
+                        "actualWorkTime_display": "0.00",
+                        "workEffortId_linkText": "100004"
+                      },
+                      {
+                        "workEffortName_display": "Playwright Test Project",
+                        "priority": "",
+                        "priority_display": "",
+                        "statusId_display": "In Planning",
+                        "purposeEnumId": "",
+                        "purposeEnumId_display": "",
+                        "estimatedCompletionDate": "",
+                        "estimatedCompletionDate_display": "",
+                        "estimatedWorkTime": "",
+                        "estimatedWorkTime_display": "",
+                        "actualWorkTime": "0",
+                        "actualWorkTime_display": "0.00",
+                        "workEffortId_linkText": "100006"
+                      }
+                    ],
+                    "paginateInfo": {
+                      "pageIndex": 0,
+                      "pageSize": 20,
+                      "count": 4,
+                      "pageMaxIndex": 0,
+                      "pageRangeLow": 1,
+                      "pageRangeHigh": 4
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "FindProject"
+        }
+      ]
+    }
+  ]
+}

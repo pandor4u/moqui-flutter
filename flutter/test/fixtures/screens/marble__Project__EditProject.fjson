@@ -1,0 +1,1295 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditProject",
+  "menuTitle": "Project",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "name": "ActiveProjectSection",
+          "_type": "section-include",
+          "sectionName": "ActiveProjectSection",
+          "widgets": [
+            {
+              "_type": "container-box",
+              "header": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "${project.workEffortId}",
+                  "linkType": "anchor-button",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "resolvedText": "${project.workEffortId}",
+                  "url": "projectSummary",
+                  "isAnchorLink": false,
+                  "parameterFromFields": {
+                    "workEffortId": "project"
+                  }
+                },
+                {
+                  "type": "h5",
+                  "_type": "label",
+                  "text": "${project.workEffortName}",
+                  "resolvedText": "${project.workEffortName}",
+                  "labelType": "h5",
+                  "encode": "true"
+                }
+              ],
+              "toolbar": [
+                {
+                  "style": "label ${pstats.projectDanger ? 'label-danger' : (pstats.projectWarning ? 'label-warning' : 'label-success')}",
+                  "_type": "label",
+                  "text": "On Track",
+                  "resolvedText": "On Track",
+                  "labelType": "span",
+                  "encode": "true"
+                }
+              ],
+              "body": [
+                {
+                  "_type": "container-row",
+                  "columns": [
+                    {
+                      "lg": "7",
+                      "md": "",
+                      "sm": "",
+                      "xs": "",
+                      "style": "",
+                      "children": [
+                        {
+                          "style": "shaded-area",
+                          "_type": "container",
+                          "containerType": "div",
+                          "children": [
+                            {
+                              "_type": "container-row",
+                              "columns": [
+                                {
+                                  "lg": "",
+                                  "md": "",
+                                  "sm": "2",
+                                  "xs": "",
+                                  "style": "",
+                                  "children": [
+                                    {
+                                      "type": "strong",
+                                      "_type": "label",
+                                      "text": "Hrs Est",
+                                      "resolvedText": "Hrs Est",
+                                      "labelType": "strong",
+                                      "encode": "true"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "lg": "",
+                                  "md": "",
+                                  "sm": "7",
+                                  "xs": "",
+                                  "style": "",
+                                  "children": [
+                                    {
+                                      "_type": "text",
+                                      "textType": "html,vuet",
+                                      "location": "",
+                                      "template": "true",
+                                      "content": "<div class=\"progress middle\">\n                                <div class=\"progress-bar <#if pstats.actualPlusRemainingOverEstimated>progress-bar-danger<#else>progress-bar-success</#if>\" style=\"width: ${estimatedCompletePercentString}%;\" aria-valuenow=\"${estimatedCompletePercentString}\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                <div class=\"progress-bar progress-bar-info\" style=\"width: ${estimatedRemainingPercentString}%;\" aria-valuenow=\"${estimatedRemainingPercentString}\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                            </div>"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "lg": "",
+                                  "md": "",
+                                  "sm": "3",
+                                  "xs": "",
+                                  "style": "",
+                                  "children": [
+                                    {
+                                      "_type": "label",
+                                      "text": "%",
+                                      "resolvedText": "%",
+                                      "labelType": "span",
+                                      "encode": "true"
+                                    },
+                                    {
+                                      "_type": "text",
+                                      "textType": "html,vuet,qvt",
+                                      "location": "",
+                                      "template": "true",
+                                      "content": "<i class=\"fa <#if pstats.actualPlusRemainingOverEstimated>fa-exclamation-circle text-danger<#else>fa-check-circle text-success</#if>\"></i>"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "TimeBudgetGraphs",
+                              "condition": "project.totalTimeAllowed",
+                              "_type": "section",
+                              "sectionName": "TimeBudgetGraphs"
+                            },
+                            {
+                              "name": "CostBudgetGraphs",
+                              "condition": "project.totalClientCostAllowed",
+                              "_type": "section",
+                              "sectionName": "CostBudgetGraphs"
+                            },
+                            {
+                              "_type": "container-row",
+                              "columns": [
+                                {
+                                  "lg": "",
+                                  "md": "",
+                                  "sm": "4",
+                                  "xs": "",
+                                  "style": "",
+                                  "children": [
+                                    {
+                                      "type": "strong",
+                                      "_type": "label",
+                                      "text": "Estimate ${ec.l10n.format(project.estimatedWorkTime, '#.#')} hrs",
+                                      "resolvedText": "Estimate ${ec.l10n.format(project.estimatedWorkTime, '#.#')} hrs",
+                                      "labelType": "strong",
+                                      "encode": "true"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "lg": "",
+                                  "md": "",
+                                  "sm": "4",
+                                  "xs": "",
+                                  "style": "",
+                                  "children": [
+                                    {
+                                      "type": "strong",
+                                      "style": "${pstats.actualPlusRemainingOverEstimated ? 'text-danger' : 'text-success'}",
+                                      "_type": "label",
+                                      "text": "Worked ${ec.l10n.format(project.actualWorkTime, '#.#')} hrs",
+                                      "resolvedText": "Worked ${ec.l10n.format(project.actualWorkTime, '#.#')} hrs",
+                                      "labelType": "strong",
+                                      "encode": "true"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "lg": "",
+                                  "md": "",
+                                  "sm": "4",
+                                  "xs": "",
+                                  "style": "",
+                                  "children": [
+                                    {
+                                      "type": "strong",
+                                      "style": "text-info",
+                                      "_type": "label",
+                                      "text": "Est Rem ${ec.l10n.format(project.remainingWorkTime, '#.#')} hrs",
+                                      "resolvedText": "Est Rem ${ec.l10n.format(project.remainingWorkTime, '#.#')} hrs",
+                                      "labelType": "strong",
+                                      "encode": "true"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "TimeBudgetStats",
+                              "condition": "project.totalTimeAllowed",
+                              "_type": "section",
+                              "sectionName": "TimeBudgetStats"
+                            },
+                            {
+                              "_type": "container-row",
+                              "columns": [
+                                {
+                                  "lg": "",
+                                  "md": "",
+                                  "sm": "4",
+                                  "xs": "",
+                                  "style": "",
+                                  "children": [
+                                    {
+                                      "type": "strong",
+                                      "_type": "label",
+                                      "text": "Avg Rate ${ec.l10n.formatCurrency(pstats.clientAverageHourCost, project.costUomId, 2)}",
+                                      "resolvedText": "Avg Rate ${ec.l10n.formatCurrency(pstats.clientAverageHourCost, project.costUomId, 2)}",
+                                      "labelType": "strong",
+                                      "encode": "true"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "lg": "",
+                                  "md": "",
+                                  "sm": "4",
+                                  "xs": "",
+                                  "style": "",
+                                  "children": [
+                                    {
+                                      "type": "strong",
+                                      "style": "${pstats.clientActualOverBudget ? 'text-danger' : 'text-success'}",
+                                      "_type": "label",
+                                      "text": "Actual Cost ${ec.l10n.formatCurrency(project.actualClientCost, project.costUomId, 2)}",
+                                      "resolvedText": "Actual Cost ${ec.l10n.formatCurrency(project.actualClientCost, project.costUomId, 2)}",
+                                      "labelType": "strong",
+                                      "encode": "true"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "lg": "",
+                                  "md": "",
+                                  "sm": "4",
+                                  "xs": "",
+                                  "style": "",
+                                  "children": [
+                                    {
+                                      "type": "strong",
+                                      "_type": "label",
+                                      "text": "Est Cost ${ec.l10n.formatCurrency(pstats.clientEstimatedCost, project.costUomId, 2)}",
+                                      "resolvedText": "Est Cost ${ec.l10n.formatCurrency(pstats.clientEstimatedCost, project.costUomId, 2)}",
+                                      "labelType": "strong",
+                                      "encode": "true"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "CostBudgetStats",
+                              "condition": "project.totalClientCostAllowed",
+                              "_type": "section",
+                              "sectionName": "CostBudgetStats"
+                            },
+                            {
+                              "_type": "container-row",
+                              "columns": [
+                                {
+                                  "lg": "",
+                                  "md": "",
+                                  "sm": "",
+                                  "xs": "6",
+                                  "style": "text-center",
+                                  "children": [
+                                    {
+                                      "type": "strong",
+                                      "_type": "label",
+                                      "text": "Provider Cost ${ec.l10n.formatCurrency(project.actualCost, project.costUomId, 2)}",
+                                      "resolvedText": "Provider Cost ${ec.l10n.formatCurrency(project.actualCost, project.costUomId, 2)}",
+                                      "labelType": "strong",
+                                      "encode": "true"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "lg": "",
+                                  "md": "",
+                                  "sm": "",
+                                  "xs": "6",
+                                  "style": "text-center",
+                                  "children": [
+                                    {
+                                      "type": "strong",
+                                      "_type": "label",
+                                      "text": "Profit ${ec.l10n.formatCurrency(pstats.actualProfit, project.costUomId, 2)}",
+                                      "resolvedText": "Profit ${ec.l10n.formatCurrency(pstats.actualProfit, project.costUomId, 2)}",
+                                      "labelType": "strong",
+                                      "encode": "true"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "lg": "5",
+                      "md": "",
+                      "sm": "",
+                      "xs": "",
+                      "style": "",
+                      "children": [
+                        {
+                          "style": "shaded-area",
+                          "_type": "container",
+                          "containerType": "div",
+                          "children": [
+                            {
+                              "_type": "container-row",
+                              "columns": [
+                                {
+                                  "lg": "",
+                                  "md": "",
+                                  "sm": "3",
+                                  "xs": "",
+                                  "style": "",
+                                  "children": [
+                                    {
+                                      "id": "status-chart",
+                                      "_type": "container",
+                                      "containerType": "div",
+                                      "children": []
+                                    },
+                                    {
+                                      "_type": "text",
+                                      "textType": "html,vuet,qvt",
+                                      "location": "",
+                                      "template": "true",
+                                      "content": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js\" type=\"text/javascript\"></script>\n                                <script>\n                                    $(\"#status-chart_${project_index}\").sparkline([${pstats.taskCountByStatusMap.WeApproved!'0'}, ${pstats.taskCountByStatusMap.WeOnHold!'0'}, ${pstats.taskCountByStatusMap.WeInProgress!'0'}, ${pstats.taskCountByStatusMap.WeClosed!'0' + pstats.taskCountByStatusMap.WeComplete!'0'}], {\n                                        type: 'pie', width: '80', height: '80', sliceColors: ['#8a6d3b', '#a94442', '#3c763d', '#31708f'], offset: 180,\n                                    });\n                                </script>"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "lg": "",
+                                  "md": "",
+                                  "sm": "9",
+                                  "xs": "",
+                                  "style": "",
+                                  "children": [
+                                    {
+                                      "_type": "container-row",
+                                      "columns": [
+                                        {
+                                          "lg": "",
+                                          "md": "",
+                                          "sm": "",
+                                          "xs": "12",
+                                          "style": "",
+                                          "children": [
+                                            {
+                                              "type": "strong",
+                                              "_type": "label",
+                                              "text": "null Tasks",
+                                              "resolvedText": "null Tasks",
+                                              "labelType": "strong",
+                                              "encode": "true"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "_type": "container-row",
+                                      "columns": [
+                                        {
+                                          "lg": "",
+                                          "md": "",
+                                          "sm": "5",
+                                          "xs": "",
+                                          "style": "",
+                                          "children": [
+                                            {
+                                              "style": "text-warning",
+                                              "_type": "link",
+                                              "urlType": "transition",
+                                              "text": "Approved - ${pstats.taskCountByStatusMap.WeApproved?:0}",
+                                              "linkType": "anchor",
+                                              "icon": "",
+                                              "badge": "",
+                                              "confirmation": "",
+                                              "tooltip": "",
+                                              "btnType": "",
+                                              "targetWindow": "",
+                                              "dynamicLoadId": "",
+                                              "resolvedText": "Approved - ${pstats.taskCountByStatusMap.WeApproved?:0}",
+                                              "url": "findTask",
+                                              "isAnchorLink": false,
+                                              "parameterFromFields": {
+                                                "rootWorkEffortId": "project"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "lg": "",
+                                          "md": "",
+                                          "sm": "7",
+                                          "xs": "",
+                                          "style": "",
+                                          "children": [
+                                            {
+                                              "style": "text-danger",
+                                              "_type": "link",
+                                              "urlType": "transition",
+                                              "text": "On Hold - ${pstats.taskCountByStatusMap.WeOnHold?:0}",
+                                              "linkType": "anchor",
+                                              "icon": "",
+                                              "badge": "",
+                                              "confirmation": "",
+                                              "tooltip": "",
+                                              "btnType": "",
+                                              "targetWindow": "",
+                                              "dynamicLoadId": "",
+                                              "resolvedText": "On Hold - ${pstats.taskCountByStatusMap.WeOnHold?:0}",
+                                              "url": "findTask",
+                                              "isAnchorLink": false,
+                                              "parameterFromFields": {
+                                                "rootWorkEffortId": "project"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "_type": "container-row",
+                                      "columns": [
+                                        {
+                                          "lg": "",
+                                          "md": "",
+                                          "sm": "5",
+                                          "xs": "",
+                                          "style": "",
+                                          "children": [
+                                            {
+                                              "style": "text-success",
+                                              "_type": "link",
+                                              "urlType": "transition",
+                                              "text": "In Progress - ${pstats.taskCountByStatusMap.WeInProgress?:0}",
+                                              "linkType": "anchor",
+                                              "icon": "",
+                                              "badge": "",
+                                              "confirmation": "",
+                                              "tooltip": "",
+                                              "btnType": "",
+                                              "targetWindow": "",
+                                              "dynamicLoadId": "",
+                                              "resolvedText": "In Progress - ${pstats.taskCountByStatusMap.WeInProgress?:0}",
+                                              "url": "findTask",
+                                              "isAnchorLink": false,
+                                              "parameterFromFields": {
+                                                "rootWorkEffortId": "project"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "lg": "",
+                                          "md": "",
+                                          "sm": "7",
+                                          "xs": "",
+                                          "style": "",
+                                          "children": [
+                                            {
+                                              "style": "text-info",
+                                              "_type": "link",
+                                              "urlType": "transition",
+                                              "text": "Complete/Closed - ${((pstats.taskCountByStatusMap.WeComplete?:0) as BigDecimal) + ((pstats.taskCountByStatusMap.WeClosed?:0) as BigDecimal)}",
+                                              "linkType": "anchor",
+                                              "icon": "",
+                                              "badge": "",
+                                              "confirmation": "",
+                                              "tooltip": "",
+                                              "btnType": "",
+                                              "targetWindow": "",
+                                              "dynamicLoadId": "",
+                                              "resolvedText": "Complete/Closed - ${((pstats.taskCountByStatusMap.WeComplete?:0) as BigDecimal) + ((pstats.taskCountByStatusMap.WeClosed?:0) as BigDecimal)}",
+                                              "url": "findTask",
+                                              "isAnchorLink": false,
+                                              "parameterFromFields": {
+                                                "rootWorkEffortId": "project"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "_type": "container-row",
+                                      "columns": [
+                                        {
+                                          "lg": "",
+                                          "md": "",
+                                          "sm": "5",
+                                          "xs": "",
+                                          "style": "",
+                                          "children": [
+                                            {
+                                              "_type": "link",
+                                              "urlType": "transition",
+                                              "text": "In Planning - ${pstats.taskCountByStatusMap.WeInPlanning?:0}",
+                                              "linkType": "anchor",
+                                              "icon": "",
+                                              "badge": "",
+                                              "confirmation": "",
+                                              "tooltip": "",
+                                              "btnType": "",
+                                              "targetWindow": "",
+                                              "dynamicLoadId": "",
+                                              "resolvedText": "In Planning - ${pstats.taskCountByStatusMap.WeInPlanning?:0}",
+                                              "url": "findTask",
+                                              "isAnchorLink": false,
+                                              "parameterFromFields": {
+                                                "rootWorkEffortId": "project"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "lg": "",
+                                          "md": "",
+                                          "sm": "7",
+                                          "xs": "",
+                                          "style": "",
+                                          "children": [
+                                            {
+                                              "_type": "link",
+                                              "urlType": "transition",
+                                              "text": "Cancelled - ${pstats.taskCountByStatusMap.WeCancelled?:0}",
+                                              "linkType": "anchor",
+                                              "icon": "",
+                                              "badge": "",
+                                              "confirmation": "",
+                                              "tooltip": "",
+                                              "btnType": "",
+                                              "targetWindow": "",
+                                              "dynamicLoadId": "",
+                                              "resolvedText": "Cancelled - ${pstats.taskCountByStatusMap.WeCancelled?:0}",
+                                              "url": "findTask",
+                                              "isAnchorLink": false,
+                                              "parameterFromFields": {
+                                                "rootWorkEffortId": "project"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "CloneProjectDialog",
+          "_type": "container-dialog",
+          "buttonText": "Clone Project",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "CloneProject",
+              "_type": "form-single",
+              "formName": "CloneProject",
+              "transition": "cloneProject",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "baseWorkEffortId",
+                  "from": "rootWorkEffortId",
+                  "hide": "",
+                  "align": "",
+                  "title": "Base Work Effort ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "100004"
+                },
+                {
+                  "name": "workEffortId",
+                  "from": "null",
+                  "hide": "",
+                  "align": "",
+                  "title": "New ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "8",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "workEffortName",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "New Name",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "40",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "priority",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Priority",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "no-current-selected-key": "5",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "1",
+                          "text": "1"
+                        },
+                        {
+                          "key": "2",
+                          "text": "2"
+                        },
+                        {
+                          "key": "3",
+                          "text": "3"
+                        },
+                        {
+                          "key": "4",
+                          "text": "4"
+                        },
+                        {
+                          "key": "5",
+                          "text": "5"
+                        },
+                        {
+                          "key": "6",
+                          "text": "6"
+                        },
+                        {
+                          "key": "7",
+                          "text": "7"
+                        },
+                        {
+                          "key": "8",
+                          "text": "8"
+                        },
+                        {
+                          "key": "9",
+                          "text": "9"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "estimatedStartDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Start Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "type": "date",
+                      "format": "yyyy-MM-dd",
+                      "dateType": "date",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "estimatedCompletionDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Due Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "type": "date",
+                      "format": "yyyy-MM-dd",
+                      "dateType": "date",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Deep Clone Project",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "confirmation": "Really clone the project?",
+                      "text": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "EditProject",
+          "_type": "form-single",
+          "formName": "EditProject",
+          "transition": "updateProject",
+          "map": "workEffort",
+          "fieldLayout": {
+            "_type": "field-layout",
+            "rows": [
+              {
+                "_type": "fields-not-referenced"
+              },
+              {
+                "_type": "field-row",
+                "fields": [
+                  {
+                    "name": "priority"
+                  },
+                  {
+                    "name": "visibilityEnumId"
+                  }
+                ]
+              },
+              {
+                "_type": "field-row",
+                "fields": [
+                  {
+                    "name": "statusId"
+                  },
+                  {
+                    "name": "statusFlowId"
+                  }
+                ]
+              },
+              {
+                "_type": "field-row",
+                "fields": [
+                  {
+                    "name": "estimatedStartDate"
+                  },
+                  {
+                    "name": "estimatedCompletionDate"
+                  }
+                ]
+              },
+              {
+                "_type": "field-row",
+                "fields": [
+                  {
+                    "name": "totalClientCostAllowed"
+                  },
+                  {
+                    "name": "totalTimeAllowed"
+                  }
+                ]
+              },
+              {
+                "_type": "field-ref",
+                "name": "description"
+              },
+              {
+                "_type": "field-ref",
+                "name": "submitButton"
+              }
+            ]
+          },
+          "fields": [
+            {
+              "name": "workEffortId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Project ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ],
+              "currentValue": "100004"
+            },
+            {
+              "name": "workEffortName",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Project Name",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "inputType": "text",
+                  "size": "",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ],
+              "currentValue": "Demo Test Project"
+            },
+            {
+              "name": "clientPartyId",
+              "from": "clientWep?.partyId",
+              "hide": "",
+              "align": "",
+              "title": "Client",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                },
+                {
+                  "condition": "clientWep",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Edit Client",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "workEffortId": "100004",
+                    "rootWorkEffortId": "100004"
+                  },
+                  "url": "/fapps/marble/Project/EditProject/editClient",
+                  "isAnchorLink": true,
+                  "parameters": [
+                    {
+                      "name": "partyId",
+                      "value": "",
+                      "from": "clientWep?.partyId"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "vendorPartyId",
+              "from": "vendorWep?.partyId",
+              "hide": "",
+              "align": "",
+              "title": "Vendor",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                },
+                {
+                  "condition": "vendorWep",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Edit Vendor",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "workEffortId": "100004",
+                    "rootWorkEffortId": "100004"
+                  },
+                  "url": "/fapps/marble/Project/EditProject/editVendor",
+                  "isAnchorLink": true,
+                  "parameters": [
+                    {
+                      "name": "partyId",
+                      "value": "",
+                      "from": "vendorWep?.partyId"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "purposeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Purpose",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "WepPrItSecurity",
+                      "text": "IT Security"
+                    },
+                    {
+                      "key": "WepPrMarketing",
+                      "text": "Marketing"
+                    },
+                    {
+                      "key": "WepPrOrgMgmt",
+                      "text": "Organization Management"
+                    },
+                    {
+                      "key": "WepPrProdDev",
+                      "text": "Product Development"
+                    },
+                    {
+                      "key": "WepPrProdFulfill",
+                      "text": "Product Fulfillment"
+                    },
+                    {
+                      "key": "WepPrTraining",
+                      "text": "Training"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "priority",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Priority",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "no-current-selected-key": "5",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "1"
+                    },
+                    {
+                      "key": "2",
+                      "text": "2"
+                    },
+                    {
+                      "key": "3",
+                      "text": "3"
+                    },
+                    {
+                      "key": "4",
+                      "text": "4"
+                    },
+                    {
+                      "key": "5",
+                      "text": "5"
+                    },
+                    {
+                      "key": "6",
+                      "text": "6"
+                    },
+                    {
+                      "key": "7",
+                      "text": "7"
+                    },
+                    {
+                      "key": "8",
+                      "text": "8"
+                    },
+                    {
+                      "key": "9",
+                      "text": "9"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "visibilityEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Visibility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "${allowEmpty ?: 'false'}",
+                  "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                  "style": "${style?:''}",
+                  "allow-multiple": "${allowMultiple ?: 'false'}",
+                  "show-not": "${showNot ?: 'false'}",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "${showNot ?: 'false'}",
+                  "options": [
+                    {
+                      "key": "WevAllUsers",
+                      "text": "All Users"
+                    },
+                    {
+                      "key": "WevGeneral",
+                      "text": "General (public access)"
+                    },
+                    {
+                      "key": "WevRestricted",
+                      "text": "Restricted (private access)"
+                    },
+                    {
+                      "key": "WevConfidential",
+                      "text": "Top Secret (confidential access)"
+                    },
+                    {
+                      "key": "WevWorkGroup",
+                      "text": "Work Group (group only access)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "false",
+                  "current-description": "${currentDescription?:''}",
+                  "style": "${style?:''}",
+                  "allowEmpty": "false",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "WeApproved",
+                      "text": "Approve (Approved)"
+                    },
+                    {
+                      "key": "WeInProgress",
+                      "text": "Begin (In Progress)"
+                    },
+                    {
+                      "key": "WeComplete",
+                      "text": "Complete"
+                    },
+                    {
+                      "key": "WeCancelled",
+                      "text": "Cancel (Cancelled)"
+                    }
+                  ]
+                }
+              ],
+              "currentValue": "WeInPlanning"
+            },
+            {
+              "name": "statusFlowId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status Flow",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "Default",
+                      "text": "Default status flow across entire system. [Default]"
+                    },
+                    {
+                      "key": "WorkEffortOther",
+                      "text": "Other, more lenient, status transitions for WorkEffort [WorkEffortOther]"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "estimatedStartDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Start Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-time",
+                  "type": "date",
+                  "format": "yyyy-MM-dd",
+                  "dateType": "date",
+                  "minuteStepping": ""
+                }
+              ],
+              "currentValue": "2023-12-31 22:00:00.0"
+            },
+            {
+              "name": "estimatedCompletionDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Due Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-time",
+                  "type": "date",
+                  "format": "yyyy-MM-dd",
+                  "dateType": "date",
+                  "minuteStepping": ""
+                }
+              ],
+              "currentValue": "2024-12-30 22:00:00.0"
+            },
+            {
+              "name": "totalClientCostAllowed",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Cost Budget",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "15",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ]
+            },
+            {
+              "name": "totalTimeAllowed",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Hours Budget",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "10",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ]
+            },
+            {
+              "name": "description",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Description",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-area",
+                  "rows": "12",
+                  "cols": "100",
+                  "maxlength": "",
+                  "readOnly": "false",
+                  "editorType": "",
+                  "autogrow": "false"
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Update",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditBudget",
+  "menuTitle": "Budget",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container-box",
+          "boxTitle": "Budget #${budgetId}",
+          "header": [],
+          "toolbar": [],
+          "body": [
+            {
+              "name": "UpdateBudgetForm",
+              "_type": "form-single",
+              "formName": "UpdateBudgetForm",
+              "transition": "updateBudget",
+              "map": "budget",
+              "fields": [
+                {
+                  "name": "budgetTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "false",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "BudgetCapital",
+                          "text": "Capital"
+                        },
+                        {
+                          "key": "BudgetOperating",
+                          "text": "Operating"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "partyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.party.PartyDetail",
+                      "text": "PartyNameTemplate",
+                      "entityName": "mantle.party.PartyDetail",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "timePeriodId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Time Period",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getOrgFiscalPeriods",
+                        "serverSearch": "false",
+                        "minLength": "1"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "subTimePeriodTypeId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Sub Period Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.party.time.TimePeriodType",
+                      "entityName": "mantle.party.time.TimePeriodType",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "description",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Description",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "60",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "comments",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Comments",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-area",
+                      "cols": "100",
+                      "rows": "6",
+                      "maxlength": "",
+                      "readOnly": "false",
+                      "editorType": "",
+                      "autogrow": "false"
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Update",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

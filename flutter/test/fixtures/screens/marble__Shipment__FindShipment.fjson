@@ -1,0 +1,1797 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FindShipment",
+  "menuTitle": "Find Shipments",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "NewOutgoingShipmentDialog",
+          "_type": "container-dialog",
+          "buttonText": "New Outgoing Shipment",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "NewOutgoingShipment",
+              "_type": "form-single",
+              "formName": "NewOutgoingShipment",
+              "transition": "createShipment",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "shipmentTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ShpTpOutgoing",
+                          "text": "Outgoing"
+                        },
+                        {
+                          "key": "ShpTpPurchaseReturn",
+                          "text": "Purchase Return"
+                        },
+                        {
+                          "key": "ShpTpSales",
+                          "text": "Sales Shipment"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "originFacilityId",
+                  "from": "originFacilityId ?: defaultFacilityId",
+                  "hide": "",
+                  "align": "",
+                  "title": "Origin Facility",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getFacilityList",
+                        "serverSearch": "true",
+                        "minLength": "0"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "toPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "To Party",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "estimatedReadyDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Ready Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "NewIncomingShipmentDialog",
+          "_type": "container-dialog",
+          "buttonText": "New Incoming Shipment",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "NewIncomingShipment",
+              "_type": "form-single",
+              "formName": "NewIncomingShipment",
+              "transition": "createShipment",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "shipmentTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ShpTpIncoming",
+                          "text": "Incoming"
+                        },
+                        {
+                          "key": "ShpTpPurchase",
+                          "text": "Purchase Shipment"
+                        },
+                        {
+                          "key": "ShpTpSalesReturn",
+                          "text": "Sales Return"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "fromPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Party",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "destinationFacilityId",
+                  "from": "destinationFacilityId ?: defaultFacilityId",
+                  "hide": "",
+                  "align": "",
+                  "title": "Destination Facility",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getFacilityList",
+                        "serverSearch": "true",
+                        "minLength": "0"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "estimatedArrivalDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Arrival Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "NewTransferShipmentDialog",
+          "_type": "container-dialog",
+          "buttonText": "New Transfer Shipment",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "NewTransferShipment",
+              "_type": "form-single",
+              "formName": "NewTransferShipment",
+              "transition": "createShipment",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "shipmentTypeEnumId",
+                  "from": "'ShpTpTransfer'",
+                  "hide": "",
+                  "align": "",
+                  "title": "Shipment Type Enum ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "ShpTpTransfer"
+                },
+                {
+                  "name": "originFacilityId",
+                  "from": "originFacilityId ?: defaultFacilityId",
+                  "hide": "",
+                  "align": "",
+                  "title": "Origin Facility",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getFacilityList",
+                        "serverSearch": "true",
+                        "minLength": "0"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "destinationFacilityId",
+                  "from": "destinationFacilityId ?: defaultFacilityId",
+                  "hide": "",
+                  "align": "",
+                  "title": "Destination Facility",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getFacilityList",
+                        "serverSearch": "true",
+                        "minLength": "0"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "toPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "To Party",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "estimatedReadyDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Ready Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Package Tracking",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "url": "/fapps/marble/Shipment/PackageTracking",
+          "isAnchorLink": true
+        },
+        {
+          "name": "ShipmentList",
+          "_type": "form-list",
+          "formName": "ShipmentList",
+          "transition": "",
+          "list": "shipmentList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "true",
+          "savedFinds": "true",
+          "showCsvButton": "true",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "true",
+          "editUrl": "shipmentDetail",
+          "headerFields": [
+            {
+              "name": "shipmentId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Shipment",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "10",
+                  "hide-options": "true",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "shipmentMethodEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Ship Method",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "shipmentTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "priority",
+              "from": "",
+              "hide": "",
+              "align": "center",
+              "title": "Priority",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "range-find",
+                  "size": "4",
+                  "maxlength": ""
+                }
+              ]
+            },
+            {
+              "name": "entryDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Entry Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#statusDropDown"
+                }
+              ]
+            },
+            {
+              "name": "shipWorkEffortId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Picklist",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "15",
+                  "hide-options": "true",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "findProductId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-multiple": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "true",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getProductList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "shipAfterDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Ship After",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "shipBeforeDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Ship Before",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "actualStartDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Actual Start",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "actualArrivalDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Actual Arrival",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "originFacilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Origin Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getFacilityList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "destinationFacilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Dest. Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getFacilityList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "productStoreId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Store",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "POPC_DEFAULT",
+                      "text": "POPC_DEFAULT: Ziziwork Retail Store"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "handlingInstructions",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Shipping Instructions",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "fromPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Party",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "toPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "To Party",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "customerClassificationId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Customer Class",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "CustBroker",
+                      "text": "Broker"
+                    },
+                    {
+                      "key": "CustConsumer",
+                      "text": "Consumer"
+                    },
+                    {
+                      "key": "CustDistributor",
+                      "text": "Distributor"
+                    },
+                    {
+                      "key": "CustDistributorPref",
+                      "text": "Distributor Preferred"
+                    },
+                    {
+                      "key": "CustEmployee",
+                      "text": "Employee"
+                    },
+                    {
+                      "key": "CustEnterprise",
+                      "text": "Enterprise"
+                    },
+                    {
+                      "key": "CustWholesale",
+                      "text": "Wholesale"
+                    },
+                    {
+                      "key": "CustProfessional",
+                      "text": "Wholesale - Professional"
+                    },
+                    {
+                      "key": "CustRetailStore",
+                      "text": "Wholesale - Retail Store"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "orderPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Order Party ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "orderRoleTypeId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Order Role Type ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "Affiliate",
+                      "text": "Affiliate"
+                    },
+                    {
+                      "key": "Agent",
+                      "text": "Agent"
+                    },
+                    {
+                      "key": "Buyer",
+                      "text": "Buyer"
+                    },
+                    {
+                      "key": "Carrier",
+                      "text": "Carrier"
+                    },
+                    {
+                      "key": "Cashier",
+                      "text": "Cashier"
+                    },
+                    {
+                      "key": "ClientBilling",
+                      "text": "Client Billing Rep"
+                    },
+                    {
+                      "key": "Competitor",
+                      "text": "Competitor"
+                    },
+                    {
+                      "key": "Customer",
+                      "text": "Customer"
+                    },
+                    {
+                      "key": "CustomerBillTo",
+                      "text": "Customer - Bill To"
+                    },
+                    {
+                      "key": "CustomerEndUser",
+                      "text": "Customer - End User"
+                    },
+                    {
+                      "key": "CustomerPlacing",
+                      "text": "Customer - Placing"
+                    },
+                    {
+                      "key": "CustomerShipTo",
+                      "text": "Customer - Ship To"
+                    },
+                    {
+                      "key": "OrderClerk",
+                      "text": "Order Clerk"
+                    },
+                    {
+                      "key": "Partner",
+                      "text": "Partner"
+                    },
+                    {
+                      "key": "Referrer",
+                      "text": "Referrer"
+                    },
+                    {
+                      "key": "Account",
+                      "text": "Sales Account"
+                    },
+                    {
+                      "key": "SalesRepresentative",
+                      "text": "Sales Representative"
+                    },
+                    {
+                      "key": "Supplier",
+                      "text": "Supplier"
+                    },
+                    {
+                      "key": "Vendor",
+                      "text": "Vendor"
+                    },
+                    {
+                      "key": "VendorBillFrom",
+                      "text": "Vendor - Bill From"
+                    },
+                    {
+                      "key": "VendorPickUpFrom",
+                      "text": "Vendor - Pick Up From"
+                    },
+                    {
+                      "key": "VendorShipFrom",
+                      "text": "Vendor - Ship From"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "trackingCode",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Tracking Code",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "default-operator": "begins",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "returnTrackingCode",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Return Tracking",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "default-operator": "begins",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "orderId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Order ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "default-operator": "begins",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "salesChannelEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Order Source",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "otherPartyOrderId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Their Order",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "20",
+                  "hide-options": "true",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "estimatedArrivalDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Est. Arrival",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "estimatedReadyDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Est. Ready",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "findButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "shipmentId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Shipment",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Shipment/FindShipment/shipmentDetail",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "shipmentMethodEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Ship Method",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "shipmentTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "priority",
+              "from": "",
+              "hide": "",
+              "align": "center",
+              "title": "Priority",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "${priority == 1 ? '-- ' : (priority == 2 || priority == 3 ? '- ' : '')}${priority?:''}${priority == 1 ? ' --' : (priority == 2 || priority == 3 ? ' -' : '')}",
+                  "style": "${priority == 1 ? 'text-strong text-danger' : (priority == 2 || priority == 3 ? 'text-strong text-warning' : '')}",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": ""
+                }
+              ]
+            },
+            {
+              "name": "entryDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Entry Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.StatusItem",
+                  "entityName": "moqui.basic.StatusItem",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "shipWorkEffortId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Picklist",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "condition": "shipWorkEffortId",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "workEffortId": ""
+                  },
+                  "url": "/fapps/marble/Shipment/FindShipment/picklistDetail",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "workEffortId": "shipWorkEffortId"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "shipAfterDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Ship After",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "shipBeforeDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Ship Before",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "actualStartDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Actual Start",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "actualArrivalDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Actual Arrival",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "originFacilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Origin Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "FacilityNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "facilityId": ""
+                  },
+                  "url": "/fapps/marble/Shipment/FindShipment/editFacility",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "facilityId": "originFacilityId"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "destinationFacilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Dest. Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "FacilityNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "facilityId": ""
+                  },
+                  "url": "/fapps/marble/Shipment/FindShipment/editFacility",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "facilityId": "destinationFacilityId"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "productStoreId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Store",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.product.store.ProductStore",
+                  "text": "${productStoreId}: ${storeName}",
+                  "entityName": "mantle.product.store.ProductStore",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "handlingInstructions",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Shipping Instructions",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "${handlingInstructions?.take(35)?:''}${handlingInstructions?.length() > 35 ? '...' : ''}",
+                  "style": "text-strong",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": ""
+                }
+              ]
+            },
+            {
+              "name": "fromPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Party",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "PartyNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": ""
+                  },
+                  "url": "/fapps/marble/Shipment/FindShipment/editSupplier",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "partyId": "fromPartyId"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "toPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "To Party",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "PartyNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": ""
+                  },
+                  "url": "/fapps/marble/Shipment/FindShipment/editCustomer",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "partyId": "toPartyId"
+                  }
+                },
+                {
+                  "condition": "custPcaaList",
+                  "_type": "label",
+                  "text": " - ${custPcaaList*.description.join(', ')}",
+                  "resolvedText": " - ${custPcaaList*.description.join(', ')}",
+                  "labelType": "span",
+                  "encode": "true"
+                }
+              ]
+            },
+            {
+              "name": "orderParties",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Order Parties",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "section-iterate",
+                  "name": "OtherPartyListSection",
+                  "list": "orderPartyList",
+                  "entry": "partParty"
+                }
+              ]
+            },
+            {
+              "name": "trackingCodes",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Tracking Codes",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "section-iterate",
+                  "name": "TrackingSprsList",
+                  "list": "sprsList",
+                  "entry": "sprs"
+                }
+              ]
+            },
+            {
+              "name": "orderIds",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Orders",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "section-iterate",
+                  "name": "OrderSisList",
+                  "list": "orderHeaderList",
+                  "entry": "orderHeader"
+                }
+              ]
+            },
+            {
+              "name": "otherPartyOrderId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Their Order",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "estimatedArrivalDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Est. Arrival",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "estimatedReadyDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Est. Ready",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "packScreenLink",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Pack",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Pack",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Shipment/FindShipment/packShipmentScreen",
+                  "isAnchorLink": true
+                }
+              ]
+            }
+          ],
+          "listData": [
+            {
+              "shipmentMethodEnumId": "",
+              "shipmentMethodEnumId_display": "",
+              "shipmentTypeEnumId": "ShpTpSales",
+              "shipmentTypeEnumId_display": "Sales Shipment",
+              "priority": "5",
+              "priority_display": "5",
+              "entryDate": "1772592035795",
+              "entryDate_display": "2026-03-03 20:40",
+              "statusId": "ShipInput",
+              "statusId_display": "Input",
+              "shipAfterDate": "",
+              "shipAfterDate_display": "",
+              "shipBeforeDate": "",
+              "shipBeforeDate_display": "",
+              "actualStartDate": "",
+              "actualStartDate_display": "",
+              "actualArrivalDate": "",
+              "actualArrivalDate_display": "",
+              "productStoreId": "",
+              "productStoreId_display": "",
+              "handlingInstructions": "",
+              "handlingInstructions_display": "",
+              "toPartyId": "100051",
+              "trackingCodes": "",
+              "orderIds": "",
+              "otherPartyOrderId": "",
+              "otherPartyOrderId_display": "",
+              "estimatedArrivalDate": "",
+              "estimatedArrivalDate_display": "",
+              "estimatedReadyDate": "",
+              "estimatedReadyDate_display": "",
+              "fromPartyId": "ORG_ZIZI_CORP",
+              "shipmentId_linkText": "100003",
+              "shipWorkEffortId_linkText": "null"
+            },
+            {
+              "shipmentMethodEnumId": "",
+              "shipmentMethodEnumId_display": "",
+              "shipmentTypeEnumId": "ShpTpSales",
+              "shipmentTypeEnumId_display": "Sales Shipment",
+              "priority": "5",
+              "priority_display": "5",
+              "entryDate": "1772589742599",
+              "entryDate_display": "2026-03-03 20:02",
+              "statusId": "ShipInput",
+              "statusId_display": "Input",
+              "shipAfterDate": "",
+              "shipAfterDate_display": "",
+              "shipBeforeDate": "",
+              "shipBeforeDate_display": "",
+              "actualStartDate": "",
+              "actualStartDate_display": "",
+              "actualArrivalDate": "",
+              "actualArrivalDate_display": "",
+              "productStoreId": "",
+              "productStoreId_display": "",
+              "handlingInstructions": "",
+              "handlingInstructions_display": "",
+              "toPartyId": "CustJqp",
+              "trackingCodes": "",
+              "orderIds": "",
+              "otherPartyOrderId": "",
+              "otherPartyOrderId_display": "",
+              "estimatedArrivalDate": "",
+              "estimatedArrivalDate_display": "",
+              "estimatedReadyDate": "",
+              "estimatedReadyDate_display": "",
+              "fromPartyId": "ORG_ZIZI_CORP",
+              "shipmentId_linkText": "100002",
+              "shipWorkEffortId_linkText": "null"
+            },
+            {
+              "shipmentMethodEnumId": "",
+              "shipmentMethodEnumId_display": "",
+              "shipmentTypeEnumId": "ShpTpSales",
+              "shipmentTypeEnumId_display": "Sales Shipment",
+              "priority": "5",
+              "priority_display": "5",
+              "entryDate": "1772589654987",
+              "entryDate_display": "2026-03-03 20:00",
+              "statusId": "ShipInput",
+              "statusId_display": "Input",
+              "shipAfterDate": "",
+              "shipAfterDate_display": "",
+              "shipBeforeDate": "",
+              "shipBeforeDate_display": "",
+              "actualStartDate": "",
+              "actualStartDate_display": "",
+              "actualArrivalDate": "",
+              "actualArrivalDate_display": "",
+              "productStoreId": "",
+              "productStoreId_display": "",
+              "handlingInstructions": "",
+              "handlingInstructions_display": "",
+              "toPartyId": "CustJqp",
+              "trackingCodes": "",
+              "orderIds": "",
+              "otherPartyOrderId": "",
+              "otherPartyOrderId_display": "",
+              "estimatedArrivalDate": "",
+              "estimatedArrivalDate_display": "",
+              "estimatedReadyDate": "",
+              "estimatedReadyDate_display": "",
+              "fromPartyId": "ORG_ZIZI_CORP",
+              "shipmentId_linkText": "100001",
+              "shipWorkEffortId_linkText": "null"
+            },
+            {
+              "shipmentMethodEnumId": "",
+              "shipmentMethodEnumId_display": "",
+              "shipmentTypeEnumId": "ShpTpSales",
+              "shipmentTypeEnumId_display": "Sales Shipment",
+              "priority": "5",
+              "priority_display": "5",
+              "entryDate": "1772589592247",
+              "entryDate_display": "2026-03-03 19:59",
+              "statusId": "ShipInput",
+              "statusId_display": "Input",
+              "shipAfterDate": "",
+              "shipAfterDate_display": "",
+              "shipBeforeDate": "",
+              "shipBeforeDate_display": "",
+              "actualStartDate": "",
+              "actualStartDate_display": "",
+              "actualArrivalDate": "",
+              "actualArrivalDate_display": "",
+              "productStoreId": "",
+              "productStoreId_display": "",
+              "handlingInstructions": "",
+              "handlingInstructions_display": "",
+              "toPartyId": "CustJqp",
+              "trackingCodes": "",
+              "orderIds": "",
+              "otherPartyOrderId": "",
+              "otherPartyOrderId_display": "",
+              "estimatedArrivalDate": "",
+              "estimatedArrivalDate_display": "",
+              "estimatedReadyDate": "",
+              "estimatedReadyDate_display": "",
+              "fromPartyId": "ORG_ZIZI_CORP",
+              "shipmentId_linkText": "100000",
+              "shipWorkEffortId_linkText": "null"
+            }
+          ],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 4,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 4
+          },
+          "exportBaseUrl": "/fapps/marble/Shipment/FindShipment"
+        }
+      ]
+    }
+  ]
+}

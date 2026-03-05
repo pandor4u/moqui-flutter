@@ -1,0 +1,452 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditCategories",
+  "menuTitle": "Categories",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "AddCategoryDialog",
+          "_type": "container-dialog",
+          "buttonText": "Add to Category",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "AddCategoryForm",
+              "_type": "form-single",
+              "formName": "AddCategoryForm",
+              "transition": "createProductCategoryMember",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "productId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Product ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "DEMO_1_1"
+                },
+                {
+                  "name": "productCategoryId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Category",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getCategoryList",
+                        "serverSearch": "true",
+                        "minLength": "0"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "fromDate",
+                  "from": "ec.user.nowTimestamp",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ],
+                  "currentValue": "2026-03-04 13:30:06.0"
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Add",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "CategoriesForm",
+          "_type": "form-list",
+          "formName": "CategoriesForm",
+          "transition": "updateProductCategoryMember",
+          "list": "pcamList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "",
+          "savedFinds": "",
+          "showCsvButton": "",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "",
+          "editUrl": "editCategory",
+          "headerFields": [
+            {
+              "name": "productId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "pseudoId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "10",
+                  "hide-options": "true",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "categoryName",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Name",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "30",
+                  "hide-options": "true",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "fromDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "thruDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Thru Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "productId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "productCategoryId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product Category ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "pseudoId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "productId": "DEMO_1_1"
+                  },
+                  "url": "/fapps/marble/Catalog/Product/EditCategories/editCategory",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "categoryName",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Name",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "productId": "DEMO_1_1"
+                  },
+                  "url": "/fapps/marble/Catalog/Product/EditCategories/editCategory",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "productCategoryTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "fromDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "thruDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Thru Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-time",
+                  "dateType": "timestamp",
+                  "format": "",
+                  "minuteStepping": ""
+                }
+              ]
+            },
+            {
+              "name": "sequenceNum",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Sequence Num",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "4",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ]
+            },
+            {
+              "name": "quantity",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Quantity",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "4",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Update",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "listData": [
+            {
+              "productId": "DEMO_1_1",
+              "productCategoryId": "DEMO_ONE",
+              "productCategoryTypeEnumId": "PctCatalog",
+              "productCategoryTypeEnumId_display": "Catalog",
+              "fromDate": "1265184000000",
+              "fromDate_display": "2010-02-03 02:00",
+              "thruDate": "",
+              "sequenceNum": "1",
+              "quantity": "",
+              "pseudoId_linkText": "DEMO_ONE",
+              "categoryName_linkText": "Demo Category One"
+            },
+            {
+              "productId": "DEMO_1_1",
+              "productCategoryId": "PopcAllProducts",
+              "productCategoryTypeEnumId": "PctCatalog",
+              "productCategoryTypeEnumId_display": "Catalog",
+              "fromDate": "1265184000000",
+              "fromDate_display": "2010-02-03 02:00",
+              "thruDate": "",
+              "sequenceNum": "",
+              "quantity": "",
+              "pseudoId_linkText": "PopcAllProducts",
+              "categoryName_linkText": "POPC All Products Category"
+            }
+          ],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 2,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 2
+          }
+        }
+      ]
+    }
+  ]
+}

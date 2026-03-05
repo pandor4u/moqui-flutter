@@ -1,0 +1,522 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Facility",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "type": "strong",
+          "condition": "facility",
+          "_type": "label",
+          "text": "FacilityNameTemplate",
+          "resolvedText": "FacilityNameTemplate",
+          "labelType": "strong",
+          "encode": "true"
+        },
+        {
+          "id": "FacilityPanel",
+          "type": "tab",
+          "_type": "subscreens-panel",
+          "menuType": "tab",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "EditFacility",
+              "menuTitle": "Facility",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "EditFacilityLocations",
+              "menuTitle": "Locations",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "FacilityCalendar",
+              "menuTitle": "Calendar",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "EditFacilityProducts",
+              "menuTitle": "Products",
+              "menuIndex": 4,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "FindFacility",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "FindFacility",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "id": "NewFacilityDialog",
+                    "_type": "container-dialog",
+                    "buttonText": "New Facility",
+                    "dialogTitle": "",
+                    "width": "",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "name": "NewFacilityForm",
+                        "_type": "form-single",
+                        "formName": "NewFacilityForm",
+                        "transition": "createFacility",
+                        "map": "fieldValues",
+                        "fields": [
+                          {
+                            "name": "pseudoId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "ID",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "15",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "facilityName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Facility Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "inputType": "text",
+                                "size": "",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "facilityTypeEnumId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Facility Type",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "${allowEmpty ?: 'false'}",
+                                "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                                "style": "${style?:''}",
+                                "allow-multiple": "${allowMultiple ?: 'false'}",
+                                "show-not": "${showNot ?: 'false'}",
+                                "allowEmpty": "false",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "${showNot ?: 'false'}",
+                                "options": [
+                                  {
+                                    "key": "FcTpBlock",
+                                    "text": "Block"
+                                  },
+                                  {
+                                    "key": "FcTpBlockGroup",
+                                    "text": "Block Group"
+                                  },
+                                  {
+                                    "key": "FcTpBuilding",
+                                    "text": "Building"
+                                  },
+                                  {
+                                    "key": "FcTpCallCenter",
+                                    "text": "Call Center"
+                                  },
+                                  {
+                                    "key": "FcTpDataCenter",
+                                    "text": "Data Center"
+                                  },
+                                  {
+                                    "key": "FcTpDock",
+                                    "text": "Dock"
+                                  },
+                                  {
+                                    "key": "FcTpFloor",
+                                    "text": "Floor"
+                                  },
+                                  {
+                                    "key": "FcTpLand",
+                                    "text": "Land"
+                                  },
+                                  {
+                                    "key": "FcTpOffice",
+                                    "text": "Office"
+                                  },
+                                  {
+                                    "key": "FcTpPlant",
+                                    "text": "Plant"
+                                  },
+                                  {
+                                    "key": "FcTpLine",
+                                    "text": "Production Line"
+                                  },
+                                  {
+                                    "key": "FcTpRetailStore",
+                                    "text": "Retail Store"
+                                  },
+                                  {
+                                    "key": "FcTpRoom",
+                                    "text": "Room"
+                                  },
+                                  {
+                                    "key": "FcTpWarehouse",
+                                    "text": "Warehouse"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "ownerPartyId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Owner",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "searchPartyList",
+                                  "serverSearch": "true",
+                                  "minLength": "2"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Create",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Box Types",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "../BoxTypes",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Carrier Ship Methods",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "../CarrierShipMethods",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "name": "FacilityListForm",
+                    "_type": "form-list",
+                    "formName": "FacilityListForm",
+                    "transition": "",
+                    "list": "facilityList",
+                    "paginate": "true",
+                    "headerDialog": "true",
+                    "selectColumns": "true",
+                    "savedFinds": "true",
+                    "showCsvButton": "true",
+                    "showXlsxButton": "",
+                    "showPageSize": "",
+                    "skipForm": "true",
+                    "editUrl": "editFacility",
+                    "headerFields": [
+                      {
+                        "name": "pseudoId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Facility ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "15",
+                            "hide-options": "true",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "facilityName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "50",
+                            "hide-options": "true",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "facilityTypeEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Type",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "widget-template-include",
+                            "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ownerPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Owner",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "searchPartyList",
+                              "serverSearch": "true",
+                              "minLength": "2"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "submitButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "submit",
+                            "text": "",
+                            "confirmation": "",
+                            "btnType": "",
+                            "icon": ""
+                          }
+                        ]
+                      }
+                    ],
+                    "fields": [
+                      {
+                        "name": "pseudoId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Facility ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editFacility",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "facilityName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editFacility",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "facilityTypeEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Type",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.Enumeration",
+                            "entityName": "moqui.basic.Enumeration",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ownerPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Owner",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "mantle.party.PartyDetail",
+                            "text": "PartyNameTemplate",
+                            "entityName": "mantle.party.PartyDetail",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "submitButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "text": " ",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "resolvedText": " "
+                          }
+                        ]
+                      }
+                    ],
+                    "listData": [
+                      {
+                        "facilityTypeEnumId": "FcTpWarehouse",
+                        "facilityTypeEnumId_display": "Warehouse",
+                        "ownerPartyId": "ORG_ZIZI_RETAIL",
+                        "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "pseudoId_linkText": "ZIRET_WH",
+                        "facilityName_linkText": "Ziziwork Retail Warehouse"
+                      }
+                    ],
+                    "paginateInfo": {
+                      "pageIndex": 0,
+                      "pageSize": 20,
+                      "count": 1,
+                      "pageMaxIndex": 0,
+                      "pageRangeLow": 1,
+                      "pageRangeHigh": 1
+                    },
+                    "exportBaseUrl": "/fapps/marble/Facility"
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "FindFacility"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "GlAccount",
+  "menuTitle": "GL Accounts",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "subscreens-active",
+          "defaultItem": "FindGlAccount"
+        }
+      ]
+    }
+  ]
+}

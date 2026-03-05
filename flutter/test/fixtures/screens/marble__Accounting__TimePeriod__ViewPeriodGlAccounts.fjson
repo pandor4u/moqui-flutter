@@ -1,0 +1,434 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "ViewPeriodGlAccounts",
+  "menuTitle": "Accounts",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "type": "h3",
+          "_type": "label",
+          "text": "Accounts for ZICORP FY2027 [100003]",
+          "resolvedText": "Accounts for ZICORP FY2027 [100003]",
+          "labelType": "h3",
+          "encode": "true"
+        },
+        {
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Recalc All",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "timePeriodId": "100003",
+            "organizationPartyId": "ORG_ZIZI_CORP"
+          },
+          "url": "/fapps/marble/Accounting/TimePeriod/ViewPeriodGlAccounts/recalculateAllAmounts",
+          "isAnchorLink": false,
+          "parameterFromFields": {
+            "organizationPartyId": "timePeriod"
+          }
+        },
+        {
+          "name": "PeriodCloseSection",
+          "condition": "timePeriod.isClosed == 'Y'",
+          "_type": "section",
+          "sectionName": "PeriodCloseSection",
+          "failWidgets": [
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "Recalc Period",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "parameterMap": {
+                "timePeriodId": "100003"
+              },
+              "url": "/fapps/marble/Accounting/TimePeriod/ViewPeriodGlAccounts/recalculateAmounts",
+              "isAnchorLink": false,
+              "parameterFromFields": {
+                "timePeriodId": "timePeriodId"
+              }
+            },
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "Post Depreciation",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "parameterMap": {
+                "timePeriodId": "100003"
+              },
+              "url": "/fapps/marble/Accounting/TimePeriod/ViewPeriodGlAccounts/postFaDepreciations",
+              "isAnchorLink": false
+            },
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "Close Period",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "Close period 100003: ZICORP FY2027?",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "parameterMap": {
+                "timePeriodId": "100003"
+              },
+              "url": "/fapps/marble/Accounting/TimePeriod/ViewPeriodGlAccounts/closePeriod",
+              "isAnchorLink": false
+            },
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "Close Period + Depends",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "Close period 100003: ZICORP FY2027 plus any previous or child periods that are not closed?",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "parameterMap": {
+                "timePeriodId": "100003",
+                "closePrevious": "true",
+                "closeChildren": "true"
+              },
+              "url": "/fapps/marble/Accounting/TimePeriod/ViewPeriodGlAccounts/closePeriod",
+              "isAnchorLink": false
+            }
+          ]
+        },
+        {
+          "id": "ClosingTransDialog",
+          "_type": "container-dialog",
+          "buttonText": "Net Income Closing Transactions",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "type": "p",
+              "_type": "label",
+              "text": "Creates a transaction for each income statement account class (Revenue, Cost of Sales, Expense, Non-Operating Income, Non-Operating Expense)",
+              "resolvedText": "Creates a transaction for each income statement account class (Revenue, Cost of Sales, Expense, Non-Operating Income, Non-Operating Expense)",
+              "labelType": "p",
+              "encode": "true"
+            },
+            {
+              "type": "p",
+              "_type": "label",
+              "text": "This can be run at any time, but best after a period is closed (Period Close type transactions may be posted after a period is closed)",
+              "resolvedText": "This can be run at any time, but best after a period is closed (Period Close type transactions may be posted after a period is closed)",
+              "labelType": "p",
+              "encode": "true"
+            },
+            {
+              "name": "ClosingTransForm",
+              "_type": "form-single",
+              "formName": "ClosingTransForm",
+              "transition": "createPeriodCloseAcctgTrans",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "timePeriodId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Time Period ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "100003"
+                },
+                {
+                  "name": "postTransactions",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Post Transactions",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "true",
+                          "text": "Yes"
+                        },
+                        {
+                          "key": "false",
+                          "text": "No"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "glJournalId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Journal",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": []
+                    }
+                  ]
+                },
+                {
+                  "name": "netIncomeGlAccountId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Net Income Account",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "850000000",
+                          "text": "850-000-000: Net Income (Period Profit/Loss)"
+                        },
+                        {
+                          "key": "335000000",
+                          "text": "335-000-000: Retained Earnings"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "PeriodGlAccountList",
+          "_type": "form-list",
+          "formName": "PeriodGlAccountList",
+          "transition": "",
+          "list": "gaotpList",
+          "paginate": "true",
+          "headerDialog": "",
+          "selectColumns": "",
+          "savedFinds": "",
+          "showCsvButton": "true",
+          "showXlsxButton": "true",
+          "showPageSize": "",
+          "skipForm": "true",
+          "headerFields": [],
+          "fields": [
+            {
+              "name": "glAccountId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "GL Account",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "GlAccountNameTemplate",
+                  "text-map": "glAccount",
+                  "style": "${rowStyle}",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": "000-000-000: null"
+                }
+              ]
+            },
+            {
+              "name": "postedDebits",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Debits",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "#,##0.00",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "postedCredits",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Credits",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "#,##0.00",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "postedDebitsNoClosing",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Deb - Close",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "#,##0.00",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "postedCreditsNoClosing",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Cred - Close",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "#,##0.00",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "beginningBalance",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Beginning",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "#,##0.00",
+                  "style": "${rowStyle}",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "endingBalance",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Ending",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "#,##0.00",
+                  "style": "${rowStyle}",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "balanceLastUpdated",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Amounts Updated",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            }
+          ],
+          "listData": [],
+          "exportBaseUrl": "/fapps/marble/Accounting/TimePeriod/ViewPeriodGlAccounts"
+        }
+      ]
+    }
+  ]
+}

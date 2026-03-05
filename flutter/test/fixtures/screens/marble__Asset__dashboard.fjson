@@ -1,0 +1,145 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "dashboard",
+  "menuTitle": "Dashboard",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container",
+          "containerType": "div",
+          "children": [
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "Asset Summary",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "url": "/fapps/marble/Asset/Asset/FindSummary",
+              "isAnchorLink": true
+            },
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "Assets",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "url": "/fapps/marble/Asset/Asset/FindAsset",
+              "isAnchorLink": true
+            },
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "Move Asset",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "url": "/fapps/marble/Asset/Asset/SelectAsset",
+              "isAnchorLink": true
+            },
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "Physical Inventory",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "url": "/fapps/marble/Asset/PhysicalInventory/FindPhysicalInventory",
+              "isAnchorLink": true
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "containerType": "div",
+          "children": [
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "Containers",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "url": "/fapps/marble/Asset/Container/FindContainer",
+              "isAnchorLink": true
+            },
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "Lots",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "url": "/fapps/marble/Asset/EditLots",
+              "isAnchorLink": true
+            },
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "Pools",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "url": "/fapps/marble/Asset/AssetPool/FindAssetPool",
+              "isAnchorLink": true
+            },
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "On Hand Report",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "url": "/fapps/marble/Asset/dashboard/assetOnHand",
+              "isAnchorLink": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Moqui Flutter - Root Screen (fapps)
+Serves as the entry point for Flutter app JSON screen requests.
+Mirrors qapps.xml but returns JSON instead of HTML/Vue templates.
+-->
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-3.xsd"
+        require-authentication="false" screen-theme-type-enum-id="STT_INTERNAL"
+        default-menu-title="Flutter Applications" allow-extra-path="true">
+
+    <pre-actions><script><![CDATA[
+        // If user not logged in, return 401 JSON instead of redirect (API-friendly)
+        if (!ec.user.userId) {
+            ec.web.response.setStatus(401)
+            ec.web.sendJsonResponse([authenticated: false, loginUrl: '/rest/login',
+                    message: 'Authentication required'])
+            sri.stopRender()
+            return
+        }
+    ]]></script></pre-actions>
+
+    <widgets>
+        <render-mode>
+            <text type="fjson"><![CDATA[${sri.renderSubscreen()}]]></text>
+            <!-- For non-fjson requests, return a simple JSON descriptor -->
+            <text type="html"><![CDATA[{"error": "Use renderMode=fjson for Flutter JSON output"}]]></text>
+        </render-mode>
+    </widgets>
+</screen>

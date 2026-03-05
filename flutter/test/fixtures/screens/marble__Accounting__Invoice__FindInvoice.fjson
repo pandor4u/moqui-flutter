@@ -1,0 +1,1892 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FindInvoice",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "NewPayableDialog",
+          "_type": "container-dialog",
+          "buttonText": "New Payable",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "NewPayableForm",
+              "_type": "form-single",
+              "formName": "NewPayableForm",
+              "transition": "createInvoice",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "fromPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Supplier",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "toPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "To Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "ZIHR: Ziziwork Human Resources"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "ZICORP: Ziziwork Industries"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "ZISAL: Ziziwork Sales"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "ZISER: Ziziwork Services"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "false",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "InvoiceCommission",
+                          "text": "Commission"
+                        },
+                        {
+                          "key": "InvoiceCreditMemo",
+                          "text": "Credit Memo"
+                        },
+                        {
+                          "key": "InvoiceGarnishment",
+                          "text": "Garnishment"
+                        },
+                        {
+                          "key": "InvoicePayroll",
+                          "text": "Payroll Employee"
+                        },
+                        {
+                          "key": "InvoicePayrollOther",
+                          "text": "Payroll Other"
+                        },
+                        {
+                          "key": "InvoiceReturn",
+                          "text": "Return"
+                        },
+                        {
+                          "key": "InvoiceSales",
+                          "text": "Sales/Purchase"
+                        },
+                        {
+                          "key": "InvoiceTax",
+                          "text": "Tax"
+                        },
+                        {
+                          "key": "InvoiceTemplate",
+                          "text": "Template"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "referenceNumber",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Reference Number",
+                  "tooltip": "Other party invoice reference number",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "20",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceDate",
+                  "from": "ec.user.nowTimestamp",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ],
+                  "currentValue": "2026-03-04 13:30:03.072"
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "NewReceivableDialog",
+          "_type": "container-dialog",
+          "buttonText": "New Receivable",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "NewReceivableForm",
+              "_type": "form-single",
+              "formName": "NewReceivableForm",
+              "transition": "createInvoice",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "fromPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "ZIHR: Ziziwork Human Resources"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "ZICORP: Ziziwork Industries"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "ZISAL: Ziziwork Sales"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "ZISER: Ziziwork Services"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "toPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "To Customer",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "false",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "InvoiceCommission",
+                          "text": "Commission"
+                        },
+                        {
+                          "key": "InvoiceCreditMemo",
+                          "text": "Credit Memo"
+                        },
+                        {
+                          "key": "InvoiceGarnishment",
+                          "text": "Garnishment"
+                        },
+                        {
+                          "key": "InvoicePayroll",
+                          "text": "Payroll Employee"
+                        },
+                        {
+                          "key": "InvoicePayrollOther",
+                          "text": "Payroll Other"
+                        },
+                        {
+                          "key": "InvoiceReturn",
+                          "text": "Return"
+                        },
+                        {
+                          "key": "InvoiceSales",
+                          "text": "Sales/Purchase"
+                        },
+                        {
+                          "key": "InvoiceTax",
+                          "text": "Tax"
+                        },
+                        {
+                          "key": "InvoiceTemplate",
+                          "text": "Template"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "referenceNumber",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Reference Number",
+                  "tooltip": "Other party invoice reference number",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "20",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceDate",
+                  "from": "ec.user.nowTimestamp",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ],
+                  "currentValue": "2026-03-04 13:30:03.076"
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "NewCustCreditDialog",
+          "_type": "container-dialog",
+          "buttonText": "Customer Credit Memo",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "type": "p",
+              "_type": "label",
+              "text": "A Customer Credit Memo is a Payable Invoice that may be applied to one or more Receivable Invoices",
+              "resolvedText": "A Customer Credit Memo is a Payable Invoice that may be applied to one or more Receivable Invoices",
+              "labelType": "p",
+              "encode": "true"
+            },
+            {
+              "name": "NewCustCreditForm",
+              "_type": "form-single",
+              "formName": "NewCustCreditForm",
+              "transition": "createInvoice",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "fromPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Customer",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "toPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "To Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "ZIHR: Ziziwork Human Resources"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "ZICORP: Ziziwork Industries"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "ZISAL: Ziziwork Sales"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "ZISER: Ziziwork Services"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceTypeEnumId",
+                  "from": "'InvoiceCreditMemo'",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "InvoiceCreditMemo"
+                },
+                {
+                  "name": "referenceNumber",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Reference Number",
+                  "tooltip": "Other party invoice reference number",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "20",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceDate",
+                  "from": "ec.user.nowTimestamp",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ],
+                  "currentValue": "2026-03-04 13:30:03.079"
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "NewSupCreditDialog",
+          "_type": "container-dialog",
+          "buttonText": "Supplier Credit Memo",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "type": "p",
+              "_type": "label",
+              "text": "A Supplier Credit Memo is a Receivable Invoice that may be applied to one or more Payable Invoices",
+              "resolvedText": "A Supplier Credit Memo is a Receivable Invoice that may be applied to one or more Payable Invoices",
+              "labelType": "p",
+              "encode": "true"
+            },
+            {
+              "name": "NewSupCreditForm",
+              "_type": "form-single",
+              "formName": "NewSupCreditForm",
+              "transition": "createInvoice",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "fromPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "ZIHR: Ziziwork Human Resources"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "ZICORP: Ziziwork Industries"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "ZISAL: Ziziwork Sales"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "ZISER: Ziziwork Services"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "toPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "To Supplier",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceTypeEnumId",
+                  "from": "'InvoiceCreditMemo'",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "InvoiceCreditMemo"
+                },
+                {
+                  "name": "referenceNumber",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Reference Number",
+                  "tooltip": "Other party invoice reference number",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "20",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceDate",
+                  "from": "ec.user.nowTimestamp",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ],
+                  "currentValue": "2026-03-04 13:30:03.081"
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ProjectInvoiceSection",
+          "_type": "section",
+          "sectionName": "ProjectInvoiceSection",
+          "widgets": [
+            {
+              "id": "ProjectInvoiceDialog",
+              "_type": "container-dialog",
+              "buttonText": "Project Client Invoice",
+              "dialogTitle": "",
+              "width": "700",
+              "icon": "",
+              "btnType": "",
+              "children": [
+                {
+                  "name": "ProjectInvoice",
+                  "_type": "form-single",
+                  "formName": "ProjectInvoice",
+                  "transition": "createProjectInvoiceItems",
+                  "map": "fieldValues",
+                  "fields": [
+                    {
+                      "name": "workEffortId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Project",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [],
+                          "dynamicOptions": {
+                            "transition": "getProjectList",
+                            "serverSearch": "true",
+                            "minLength": "0"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "thruDate",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Thru Date",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "date-time",
+                          "type": "date-time",
+                          "dateType": "date-time",
+                          "format": "",
+                          "minuteStepping": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "invoiceId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Existing Invoice",
+                      "tooltip": "If no existing invoice selected a new one will be created for Project Vendor and Customer parties",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [],
+                          "dynamicOptions": {
+                            "transition": "getOpenClientInvoicesByProject",
+                            "serverSearch": "true",
+                            "minLength": "0",
+                            "dependsOnField": "workEffortId",
+                            "dependsOnParameter": ""
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "entryGrouping",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Grouping",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "no-current-selected-key": "worker",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "entry",
+                              "text": "Item Per Time Entry"
+                            },
+                            {
+                              "key": "worker",
+                              "text": "Item Per Worker"
+                            },
+                            {
+                              "key": "all",
+                              "text": "Single Invoice Item"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "submitButton",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Invoice Time and Expenses",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "ProjectWorkerInvoiceDialog",
+              "_type": "container-dialog",
+              "buttonText": "Project Worker Invoice",
+              "dialogTitle": "",
+              "width": "700",
+              "icon": "",
+              "btnType": "",
+              "children": [
+                {
+                  "name": "ProjectWorkerInvoice",
+                  "_type": "form-single",
+                  "formName": "ProjectWorkerInvoice",
+                  "transition": "createProjectInvoiceItems",
+                  "map": "fieldValues",
+                  "fields": [
+                    {
+                      "name": "ratePurposeEnumId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Rate Purpose Enum ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "hidden",
+                          "default-value": "RaprVendor",
+                          "defaultValue": "RaprVendor"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "workEffortId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Project",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [],
+                          "dynamicOptions": {
+                            "transition": "getProjectList",
+                            "serverSearch": "true",
+                            "minLength": "0"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "workerPartyId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Worker",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [],
+                          "dynamicOptions": {
+                            "transition": "getProjectParties",
+                            "serverSearch": "true",
+                            "minLength": "0",
+                            "dependsOnField": "workEffortId",
+                            "dependsOnParameter": ""
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "thruDate",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Thru Date",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "date-time",
+                          "type": "date-time",
+                          "dateType": "date-time",
+                          "format": "",
+                          "minuteStepping": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "invoiceId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Existing Invoice",
+                      "tooltip": "If no existing invoice selected a new one will be created for Project Vendor and Worker parties",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [],
+                          "dynamicOptions": {
+                            "transition": "getOpenVendorInvoicesByFromParty",
+                            "serverSearch": "true",
+                            "minLength": "0",
+                            "dependsOnField": "workerPartyId",
+                            "dependsOnParameter": ""
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "submitButton",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Invoice Time",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "WorkerInvoiceDialog",
+          "_type": "container-dialog",
+          "buttonText": "Worker Invoice",
+          "dialogTitle": "",
+          "width": "700",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "WorkerInvoice",
+              "_type": "form-single",
+              "formName": "WorkerInvoice",
+              "transition": "createWorkerInvoiceItems",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "ratePurposeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Rate Purpose Enum ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "default-value": "RaprVendor",
+                      "defaultValue": "RaprVendor"
+                    }
+                  ]
+                },
+                {
+                  "name": "vendorPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Employer",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "ZIHR: Ziziwork Human Resources"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "ZICORP: Ziziwork Industries"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "ZISAL: Ziziwork Sales"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "ZISER: Ziziwork Services"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "workerPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Worker",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "thruDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Thru Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "type": "date-time",
+                      "dateType": "date-time",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Existing Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getOpenVendorInvoicesByFromParty",
+                        "serverSearch": "true",
+                        "minLength": "0",
+                        "dependsOnField": "workerPartyId",
+                        "dependsOnParameter": ""
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice Time",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "CustomerStatementDialog",
+          "_type": "container-dialog",
+          "buttonText": "Customer Statement PDF",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "CustomerStatementForm",
+              "_type": "form-single",
+              "formName": "CustomerStatementForm",
+              "transition": "receivableStatement",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "fromPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "ZIHR: Ziziwork Human Resources"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "ZICORP: Ziziwork Industries"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "ZISAL: Ziziwork Sales"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "ZISER: Ziziwork Services"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "toPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Customer",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "asOfDate",
+                  "from": "ec.user.nowTimestamp",
+                  "hide": "",
+                  "align": "",
+                  "title": "As Of Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "type": "date",
+                      "dateType": "date",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ],
+                  "currentValue": "2026-03-04 13:30:03.086"
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Download PDF",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "InvoiceList",
+          "_type": "form-list",
+          "formName": "InvoiceList",
+          "transition": "",
+          "list": "invoiceList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "true",
+          "savedFinds": "true",
+          "showCsvButton": "true",
+          "showXlsxButton": "true",
+          "showPageSize": "",
+          "skipForm": "true",
+          "editUrl": "editInvoice",
+          "headerFields": [
+            {
+              "name": "invoiceType",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Invoice Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "radio",
+                  "no-current-selected-key": "Any",
+                  "noCurrentSelectedKey": "Any",
+                  "options": [
+                    {
+                      "key": "Any",
+                      "text": "Any"
+                    },
+                    {
+                      "key": "Receivable",
+                      "text": "Receivable"
+                    },
+                    {
+                      "key": "Payable",
+                      "text": "Payable"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "invoiceId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Invoice",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "hide-options": "ignore-case",
+                  "default-operator": "begins",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "ignore-case"
+                }
+              ]
+            },
+            {
+              "name": "invoiceTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "referenceNumber",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Their Invoice",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "20",
+                  "default-operator": "begins",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "otherPartyOrderId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Their Order",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "20",
+                  "default-operator": "begins",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "invoiceDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Invoice Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "dueDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Due Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "receivableStatuses",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Receivable",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "In-Process, Finalized, Sent, Acknowledged, Payment Received",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": "In-Process, Finalized, Sent, Acknowledged, Payment Received"
+                }
+              ]
+            },
+            {
+              "name": "payableStatuses",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Payable",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "Incoming, Received, Approved, Payment Sent",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": "Incoming, Received, Approved, Payment Sent"
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#statusDropDown"
+                }
+              ]
+            },
+            {
+              "name": "fromPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "productStoreId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Store",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "POPC_DEFAULT",
+                      "text": "POPC_DEFAULT: Ziziwork Retail Store"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "toPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "To",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "invoiceTotal",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Total",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "range-find",
+                  "size": "",
+                  "maxlength": ""
+                }
+              ]
+            },
+            {
+              "name": "unpaidTotal",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Unpaid",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "range-find",
+                  "size": "",
+                  "maxlength": ""
+                }
+              ]
+            },
+            {
+              "name": "findButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "invoiceId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Invoice",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Accounting/Invoice/FindInvoice/editInvoice",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "invoiceTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "referenceNumber",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Their Invoice",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "otherPartyOrderId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Their Order",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "invoiceDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Invoice Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "yyyy-MM-dd",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "dueDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Due Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "yyyy-MM-dd",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.StatusItem",
+                  "entityName": "moqui.basic.StatusItem",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "fromPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "PartyNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": ""
+                  },
+                  "url": "/fapps/marble/Accounting/Invoice/FindInvoice/editParty",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "partyId": "fromPartyId"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "productStoreId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Store",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.product.store.ProductStore",
+                  "text": "${productStoreId}: ${storeName}",
+                  "entityName": "mantle.product.store.ProductStore",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "toPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "To",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "PartyNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": ""
+                  },
+                  "url": "/fapps/marble/Accounting/Invoice/FindInvoice/editParty",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "partyId": "toPartyId"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "invoiceTotal",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Total",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "currency-unit-field": "currencyUomId",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "currencyUomId",
+                  "showTotal": "true"
+                }
+              ]
+            },
+            {
+              "name": "unpaidTotal",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Unpaid",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "currency-unit-field": "currencyUomId",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "currencyUomId",
+                  "showTotal": "true"
+                }
+              ]
+            }
+          ],
+          "listData": [],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 0,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 0
+          },
+          "exportBaseUrl": "/fapps/marble/Accounting/Invoice/FindInvoice"
+        },
+        {
+          "name": "AgingSummarySection",
+          "condition": "hasReceivableAging.get() || hasPayableAging.get()",
+          "_type": "section",
+          "sectionName": "AgingSummarySection"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "ShipmentItems",
+  "menuTitle": "Items",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container-box",
+          "boxTitle": "Shipment Items",
+          "header": [],
+          "toolbar": [
+            {
+              "name": "PackShipmentSection",
+              "condition": "!isIncoming && shipment.statusId in ['ShipScheduled', 'ShipPicked']",
+              "_type": "section",
+              "sectionName": "PackShipmentSection"
+            },
+            {
+              "name": "DeliverShipmentSection",
+              "condition": "(anyReceived && shipment.statusId in ['ShipScheduled', 'ShipPacked', 'ShipShipped']) ||                     (isOutgoing && shipment.statusId in ['ShipPacked', 'ShipShipped'])",
+              "_type": "section",
+              "sectionName": "DeliverShipmentSection"
+            },
+            {
+              "name": "ShipItemInputSection",
+              "condition": "shipment.statusId in ['ShipInput', 'ShipScheduled'] && !(shipment.shipmentTypeEnumId in ['ShpTpSalesReturn', 'ShpTpPurchaseReturn'])",
+              "_type": "section",
+              "sectionName": "ShipItemInputSection",
+              "widgets": [
+                {
+                  "id": "AddItemContainer",
+                  "_type": "container-dialog",
+                  "buttonText": "Add Item",
+                  "dialogTitle": "",
+                  "width": "",
+                  "icon": "",
+                  "btnType": "",
+                  "children": [
+                    {
+                      "name": "AddItemForm",
+                      "_type": "form-single",
+                      "formName": "AddItemForm",
+                      "transition": "addItem",
+                      "map": "fieldValues",
+                      "fields": [
+                        {
+                          "name": "shipmentId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Shipment ID",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "hidden",
+                              "defaultValue": ""
+                            }
+                          ],
+                          "currentValue": "100002"
+                        },
+                        {
+                          "name": "productId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Product",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "drop-down",
+                              "allowEmpty": "true",
+                              "allowMultiple": "false",
+                              "submitOnSelect": "false",
+                              "current": "selected",
+                              "showNot": "false",
+                              "options": [],
+                              "dynamicOptions": {
+                                "transition": "getProductList",
+                                "serverSearch": "true",
+                                "minLength": "0"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "name": "quantity",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Quantity",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "text-line",
+                              "size": "10",
+                              "inputType": "text",
+                              "maxlength": "",
+                              "mask": "",
+                              "prefix": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "submitButton",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Add Item",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "submit",
+                              "confirmation": "WARNING: items added this way will not be associated with an order and will not count toward order item shipped quantity.",
+                              "text": "",
+                              "btnType": "",
+                              "icon": ""
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "body": [
+            {
+              "name": "ItemsOptionsForm",
+              "_type": "form-single",
+              "formName": "ItemsOptionsForm",
+              "transition": ".",
+              "map": "fieldValues",
+              "fieldLayout": {
+                "_type": "field-layout",
+                "rows": [
+                  {
+                    "_type": "field-row-big"
+                  }
+                ]
+              },
+              "fields": [
+                {
+                  "name": "filterProductId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Product",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": []
+                    }
+                  ]
+                },
+                {
+                  "name": "onlyRemaining",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Only Remaining",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "radio",
+                      "no-current-selected-key": "N",
+                      "noCurrentSelectedKey": "N",
+                      "options": [
+                        {
+                          "key": "Y",
+                          "text": "Y"
+                        },
+                        {
+                          "key": "N",
+                          "text": "N"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "submitBtn",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Filter",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "ShipmentItemsSection",
+              "_type": "section-iterate",
+              "sectionName": "ShipmentItemsSection",
+              "iterations": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

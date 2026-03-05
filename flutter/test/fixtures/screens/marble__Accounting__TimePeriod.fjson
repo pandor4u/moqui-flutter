@@ -1,0 +1,965 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "TimePeriod",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "TimePeriodPanel",
+          "type": "tab",
+          "_type": "subscreens-panel",
+          "menuType": "tab",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "EditTimePeriod",
+              "menuTitle": "Time Period",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "ViewPeriodGlAccounts",
+              "menuTitle": "Accounts",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "FindTimePeriod",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "FindTimePeriod",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "id": "CreatePeriodDialog",
+                    "_type": "container-dialog",
+                    "buttonText": "Create First Period",
+                    "dialogTitle": "",
+                    "width": "",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "type": "p",
+                        "_type": "label",
+                        "text": "Only create the first period in a series using this form. Use the Create Next Period buttons to create subsequent periods.",
+                        "resolvedText": "Only create the first period in a series using this form. Use the Create Next Period buttons to create subsequent periods.",
+                        "labelType": "p",
+                        "encode": "true"
+                      },
+                      {
+                        "type": "p",
+                        "_type": "label",
+                        "text": "Create parent periods (years, quarters, etc) then create child periods from parent period screen. ",
+                        "resolvedText": "Create parent periods (years, quarters, etc) then create child periods from parent period screen. ",
+                        "labelType": "p",
+                        "encode": "true"
+                      },
+                      {
+                        "name": "CreatePeriod",
+                        "_type": "form-single",
+                        "formName": "CreatePeriod",
+                        "transition": "createTimePeriod",
+                        "map": "fieldValues",
+                        "fields": [
+                          {
+                            "name": "partyId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Organization",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [
+                                  {
+                                    "key": "ORG_ZIZI_HR",
+                                    "text": "ZIHR: Ziziwork Human Resources"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_CORP",
+                                    "text": "ZICORP: Ziziwork Industries"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_RETAIL",
+                                    "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_SALES",
+                                    "text": "ZISAL: Ziziwork Sales"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_SERVICES",
+                                    "text": "ZISER: Ziziwork Services"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "timePeriodTypeId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Type",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [
+                                  {
+                                    "key": "FiscalBiWeek",
+                                    "text": "Fiscal Bi-Week"
+                                  },
+                                  {
+                                    "key": "FiscalMonth",
+                                    "text": "Fiscal Month"
+                                  },
+                                  {
+                                    "key": "FiscalQuarter",
+                                    "text": "Fiscal Quarter"
+                                  },
+                                  {
+                                    "key": "FiscalWeek",
+                                    "text": "Fiscal Week"
+                                  },
+                                  {
+                                    "key": "FiscalYear",
+                                    "text": "Fiscal Year"
+                                  },
+                                  {
+                                    "key": "PayrollBiWeek",
+                                    "text": "Payroll Bi-Week"
+                                  },
+                                  {
+                                    "key": "PayrollMonth",
+                                    "text": "Payroll Month"
+                                  },
+                                  {
+                                    "key": "PayrollQuarter",
+                                    "text": "Payroll Quarter"
+                                  },
+                                  {
+                                    "key": "PayrollSemiMonth",
+                                    "text": "Payroll Semi-Month"
+                                  },
+                                  {
+                                    "key": "PayrollSemiYear",
+                                    "text": "Payroll Semi-Year"
+                                  },
+                                  {
+                                    "key": "PayrollWeek",
+                                    "text": "Payroll Week"
+                                  },
+                                  {
+                                    "key": "PayrollYear",
+                                    "text": "Payroll Year"
+                                  },
+                                  {
+                                    "key": "SalesMonth",
+                                    "text": "Sales Month"
+                                  },
+                                  {
+                                    "key": "SalesQuarter",
+                                    "text": "Sales Quarter"
+                                  },
+                                  {
+                                    "key": "SalesYear",
+                                    "text": "Sales Year"
+                                  },
+                                  {
+                                    "key": "TaxMonth",
+                                    "text": "Tax Month"
+                                  },
+                                  {
+                                    "key": "TaxQuarter",
+                                    "text": "Tax Quarter"
+                                  },
+                                  {
+                                    "key": "TaxYear",
+                                    "text": "Tax Year"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "fromDate",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "From Date",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "date-time",
+                                "type": "date",
+                                "dateType": "date",
+                                "format": "",
+                                "minuteStepping": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "thruDate",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Thru Date",
+                            "tooltip": "Optional, leave empty to calculate with from date and period type",
+                            "widgets": [
+                              {
+                                "_type": "date-time",
+                                "type": "date",
+                                "dateType": "date",
+                                "format": "",
+                                "minuteStepping": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "createBtn",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Create",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "TimePeriodList",
+                    "_type": "form-list",
+                    "formName": "TimePeriodList",
+                    "transition": "",
+                    "list": "timePeriodList",
+                    "paginate": "true",
+                    "headerDialog": "true",
+                    "selectColumns": "true",
+                    "savedFinds": "true",
+                    "showCsvButton": "true",
+                    "showXlsxButton": "",
+                    "showPageSize": "",
+                    "skipForm": "true",
+                    "editUrl": "editTimePeriod",
+                    "headerFields": [
+                      {
+                        "name": "partyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Organization",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "ORG_ZIZI_HR",
+                                "text": "ZIHR: Ziziwork Human Resources"
+                              },
+                              {
+                                "key": "ORG_ZIZI_CORP",
+                                "text": "ZICORP: Ziziwork Industries"
+                              },
+                              {
+                                "key": "ORG_ZIZI_RETAIL",
+                                "text": "ZIRET: Ziziwork Retail & Wholesale"
+                              },
+                              {
+                                "key": "ORG_ZIZI_SALES",
+                                "text": "ZISAL: Ziziwork Sales"
+                              },
+                              {
+                                "key": "ORG_ZIZI_SERVICES",
+                                "text": "ZISER: Ziziwork Services"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "timePeriodTypeId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Type",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-multiple": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "true",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "FiscalBiWeek",
+                                "text": "Fiscal Bi-Week"
+                              },
+                              {
+                                "key": "FiscalMonth",
+                                "text": "Fiscal Month"
+                              },
+                              {
+                                "key": "FiscalQuarter",
+                                "text": "Fiscal Quarter"
+                              },
+                              {
+                                "key": "FiscalWeek",
+                                "text": "Fiscal Week"
+                              },
+                              {
+                                "key": "FiscalYear",
+                                "text": "Fiscal Year"
+                              },
+                              {
+                                "key": "PayrollBiWeek",
+                                "text": "Payroll Bi-Week"
+                              },
+                              {
+                                "key": "PayrollMonth",
+                                "text": "Payroll Month"
+                              },
+                              {
+                                "key": "PayrollQuarter",
+                                "text": "Payroll Quarter"
+                              },
+                              {
+                                "key": "PayrollSemiMonth",
+                                "text": "Payroll Semi-Month"
+                              },
+                              {
+                                "key": "PayrollSemiYear",
+                                "text": "Payroll Semi-Year"
+                              },
+                              {
+                                "key": "PayrollWeek",
+                                "text": "Payroll Week"
+                              },
+                              {
+                                "key": "PayrollYear",
+                                "text": "Payroll Year"
+                              },
+                              {
+                                "key": "SalesMonth",
+                                "text": "Sales Month"
+                              },
+                              {
+                                "key": "SalesQuarter",
+                                "text": "Sales Quarter"
+                              },
+                              {
+                                "key": "SalesYear",
+                                "text": "Sales Year"
+                              },
+                              {
+                                "key": "TaxMonth",
+                                "text": "Tax Month"
+                              },
+                              {
+                                "key": "TaxQuarter",
+                                "text": "Tax Quarter"
+                              },
+                              {
+                                "key": "TaxYear",
+                                "text": "Tax Year"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "thruDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Thru Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "date-find",
+                            "type": "date",
+                            "dateType": "date",
+                            "format": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "isClosed",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Closed",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "Y",
+                                "text": "Y"
+                              },
+                              {
+                                "key": "N",
+                                "text": "N"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "parentPeriodId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Parent",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getTimePeriodList",
+                              "serverSearch": "true",
+                              "minLength": "0",
+                              "dependsOnField": "partyId",
+                              "dependsOnParameter": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "previousPeriodId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Previous",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getTimePeriodList",
+                              "serverSearch": "true",
+                              "minLength": "0",
+                              "dependsOnField": "partyId",
+                              "dependsOnParameter": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "searchButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "submit",
+                            "text": "",
+                            "confirmation": "",
+                            "btnType": "",
+                            "icon": ""
+                          }
+                        ]
+                      }
+                    ],
+                    "fields": [
+                      {
+                        "name": "partyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Organization",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "mantle.party.PartyDetail",
+                            "also-hidden": "false",
+                            "key-field-name": "partyId",
+                            "text": "PartyNameTemplate",
+                            "entityName": "mantle.party.PartyDetail",
+                            "keyFieldName": "partyId",
+                            "alsoHidden": "false",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "periodName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Period Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editTimePeriod",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "timePeriodTypeId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Type",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "mantle.party.time.TimePeriodType",
+                            "entityName": "mantle.party.time.TimePeriodType",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "periodNum",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Period Num",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "format": "####",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "fromDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "From Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "thruDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Thru Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "isClosed",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Closed",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "parentPeriodId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Parent",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "condition": "parentPeriodId",
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null (Closed: null)",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "timePeriodId": ""
+                            },
+                            "url": "editTimePeriod",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "timePeriodId": "parentPeriodId"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "previousPeriodId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Previous",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "condition": "previousPeriodId",
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null (Closed: null)",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "timePeriodId": ""
+                            },
+                            "url": "editTimePeriod",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "timePeriodId": "previousPeriodId"
+                            }
+                          },
+                          {
+                            "condition": "!previousPeriodId",
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "Create Previous",
+                            "linkType": "auto",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "Really create previous period?",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "nextPeriodId": ""
+                            },
+                            "url": "createPreviousTimePeriod",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "nextPeriodId": "timePeriodId"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "nextPeriod",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Next",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "condition": "nextTimePeriod != null",
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "${nextTimePeriod.periodName}",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "resolvedText": "${nextTimePeriod.periodName}",
+                            "url": "editTimePeriod",
+                            "isAnchorLink": false,
+                            "parameterFromFields": {
+                              "timePeriodId": "nextTimePeriod"
+                            }
+                          },
+                          {
+                            "condition": "nextTimePeriod == null",
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "Create Next",
+                            "linkType": "auto",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "Really create next period?",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "previousPeriodId": ""
+                            },
+                            "url": "createNextTimePeriod",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "previousPeriodId": "timePeriodId"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "accounts",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Accounts",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "condition": "timePeriodTypeId?.startsWith('Fiscal')",
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "Accounts",
+                            "linkType": "auto",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "viewPeriodGlAccounts",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      }
+                    ],
+                    "listData": [
+                      {
+                        "partyId_display": "ZICORP: Ziziwork Industries",
+                        "timePeriodTypeId": "FiscalYear",
+                        "timePeriodTypeId_display": "Fiscal Year",
+                        "periodNum": "2027",
+                        "periodNum_display": "2027",
+                        "fromDate": "1798790400000",
+                        "fromDate_display": "2027-01-01",
+                        "thruDate": "1830240000000",
+                        "thruDate_display": "2027-12-31",
+                        "isClosed": "N",
+                        "isClosed_display": "N",
+                        "previousPeriodId": "100000",
+                        "timePeriodId": "100003",
+                        "periodName_linkText": "ZICORP FY2027",
+                        "parentPeriodId_linkText": "ZICORP FY2027 (Closed: N)",
+                        "previousPeriodId_linkText": "ZICORP FY2027 (Closed: N)",
+                        "nextPeriod_linkText": "${nextTimePeriod.periodName}"
+                      },
+                      {
+                        "partyId_display": "ZICORP: Ziziwork Industries",
+                        "timePeriodTypeId": "FiscalQuarter",
+                        "timePeriodTypeId_display": "Fiscal Quarter",
+                        "periodNum": "2",
+                        "periodNum_display": "2",
+                        "fromDate": "1775026800000",
+                        "fromDate_display": "2026-04-01",
+                        "thruDate": "1782802800000",
+                        "thruDate_display": "2026-06-30",
+                        "isClosed": "N",
+                        "isClosed_display": "N",
+                        "parentPeriodId": "100000",
+                        "previousPeriodId": "100001",
+                        "timePeriodId": "100004",
+                        "periodName_linkText": "ZICORP FY2026q02",
+                        "parentPeriodId_linkText": "ZICORP FY2026q02 (Closed: N)",
+                        "previousPeriodId_linkText": "ZICORP FY2026q02 (Closed: N)",
+                        "nextPeriod_linkText": "${nextTimePeriod.periodName}"
+                      },
+                      {
+                        "partyId_display": "ZICORP: Ziziwork Industries",
+                        "timePeriodTypeId": "FiscalMonth",
+                        "timePeriodTypeId_display": "Fiscal Month",
+                        "periodNum": "3",
+                        "periodNum_display": "3",
+                        "fromDate": "1772352000000",
+                        "fromDate_display": "2026-03-01",
+                        "thruDate": "1774940400000",
+                        "thruDate_display": "2026-03-31",
+                        "isClosed": "N",
+                        "isClosed_display": "N",
+                        "parentPeriodId": "100001",
+                        "previousPeriodId": "100002",
+                        "timePeriodId": "100005",
+                        "periodName_linkText": "ZICORP FY2026m03",
+                        "parentPeriodId_linkText": "ZICORP FY2026m03 (Closed: N)",
+                        "previousPeriodId_linkText": "ZICORP FY2026m03 (Closed: N)",
+                        "nextPeriod_linkText": "${nextTimePeriod.periodName}"
+                      },
+                      {
+                        "partyId_display": "ZICORP: Ziziwork Industries",
+                        "timePeriodTypeId": "FiscalMonth",
+                        "timePeriodTypeId_display": "Fiscal Month",
+                        "periodNum": "2",
+                        "periodNum_display": "2",
+                        "fromDate": "1769932800000",
+                        "fromDate_display": "2026-02-01",
+                        "thruDate": "1772265600000",
+                        "thruDate_display": "2026-02-28",
+                        "isClosed": "N",
+                        "isClosed_display": "N",
+                        "parentPeriodId": "100001",
+                        "timePeriodId": "100002",
+                        "nextTimePeriod": "[timePeriodTypeId:FiscalMonth, periodName:ZICORP FY2026m03, parentPeriodId:100001, partyId:ORG_ZIZI_CORP, previousPeriodId:100002, fromDate:2026-03-01, isClosed:N, thruDate:2026-03-31, lastUpdatedStamp:2026-02-27 13:56:45.663, timePeriodId:100005, periodNum:3]",
+                        "periodName_linkText": "ZICORP FY2026m02",
+                        "parentPeriodId_linkText": "ZICORP FY2026m02 (Closed: N)",
+                        "previousPeriodId_linkText": "ZICORP FY2026m02 (Closed: N)",
+                        "nextPeriod_linkText": "ZICORP FY2026m03"
+                      },
+                      {
+                        "partyId_display": "ZICORP: Ziziwork Industries",
+                        "timePeriodTypeId": "FiscalYear",
+                        "timePeriodTypeId_display": "Fiscal Year",
+                        "periodNum": "2026",
+                        "periodNum_display": "2026",
+                        "fromDate": "1767254400000",
+                        "fromDate_display": "2026-01-01",
+                        "thruDate": "1798704000000",
+                        "thruDate_display": "2026-12-31",
+                        "isClosed": "N",
+                        "isClosed_display": "N",
+                        "timePeriodId": "100000",
+                        "nextTimePeriod": "[fromDate:2027-01-01, previousPeriodId:100000, partyId:ORG_ZIZI_CORP, timePeriodTypeId:FiscalYear, periodNum:2027, isClosed:N, thruDate:2027-12-31, timePeriodId:100003, parentPeriodId:null, lastUpdatedStamp:2026-02-27 13:56:45.663, periodName:ZICORP FY2027]",
+                        "periodName_linkText": "ZICORP FY2026",
+                        "parentPeriodId_linkText": "ZICORP FY2026 (Closed: N)",
+                        "previousPeriodId_linkText": "ZICORP FY2026 (Closed: N)",
+                        "nextPeriod_linkText": "ZICORP FY2027"
+                      },
+                      {
+                        "partyId_display": "ZICORP: Ziziwork Industries",
+                        "timePeriodTypeId": "FiscalQuarter",
+                        "timePeriodTypeId_display": "Fiscal Quarter",
+                        "periodNum": "1",
+                        "periodNum_display": "1",
+                        "fromDate": "1767254400000",
+                        "fromDate_display": "2026-01-01",
+                        "thruDate": "1774940400000",
+                        "thruDate_display": "2026-03-31",
+                        "isClosed": "N",
+                        "isClosed_display": "N",
+                        "parentPeriodId": "100000",
+                        "timePeriodId": "100001",
+                        "nextTimePeriod": "[parentPeriodId:100000, partyId:ORG_ZIZI_CORP, periodNum:2, previousPeriodId:100001, periodName:ZICORP FY2026q02, fromDate:2026-04-01, isClosed:N, thruDate:2026-06-30, lastUpdatedStamp:2026-02-27 13:56:45.663, timePeriodId:100004, timePeriodTypeId:FiscalQuarter]",
+                        "periodName_linkText": "ZICORP FY2026q01",
+                        "parentPeriodId_linkText": "ZICORP FY2026q01 (Closed: N)",
+                        "previousPeriodId_linkText": "ZICORP FY2026q01 (Closed: N)",
+                        "nextPeriod_linkText": "ZICORP FY2026q02"
+                      }
+                    ],
+                    "paginateInfo": {
+                      "pageIndex": 0,
+                      "pageSize": 20,
+                      "count": 6,
+                      "pageMaxIndex": 0,
+                      "pageRangeLow": 1,
+                      "pageRangeHigh": 6
+                    },
+                    "exportBaseUrl": "/fapps/marble/Accounting/TimePeriod"
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "FindTimePeriod"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FindPhysicalInventory",
+  "menuTitle": "Find Physical Inventory",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "name": "PhysicalInventoryList",
+          "_type": "form-list",
+          "formName": "PhysicalInventoryList",
+          "transition": "",
+          "list": "physicalInventoryList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "",
+          "savedFinds": "",
+          "showCsvButton": "",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "true",
+          "editUrl": "editPhysicalInventory",
+          "headerFields": [
+            {
+              "name": "physicalInventoryId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Phys. Inv. ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "default-operator": "begins",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "physicalInventoryDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#statusDropDown"
+                }
+              ]
+            },
+            {
+              "name": "facilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getFacilityList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "comments",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Comments",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "findButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "physicalInventoryId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Phys. Inv. ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Asset/PhysicalInventory/FindPhysicalInventory/editPhysicalInventory",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "physicalInventoryDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.StatusItem",
+                  "entityName": "moqui.basic.StatusItem",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "facilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "FacilityNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Asset/PhysicalInventory/FindPhysicalInventory/editFacility",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "assetList",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Assets",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "section-iterate",
+                  "name": "AssetListSection",
+                  "list": "assetList",
+                  "entry": "assetProduct"
+                }
+              ]
+            },
+            {
+              "name": "comments",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Comments",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            }
+          ],
+          "listData": [],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 0,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 0
+          }
+        }
+      ]
+    }
+  ]
+}

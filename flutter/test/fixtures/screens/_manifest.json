@@ -1,0 +1,1013 @@
+{
+  "generated": "2026-03-04T15:30:18.507789",
+  "moqui_url": "http://localhost:8080",
+  "total_screens": 116,
+  "screens": [
+    {
+      "path": "marble",
+      "screenName": "marble",
+      "widgets": 177,
+      "forms": 1,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting",
+      "screenName": "Accounting",
+      "widgets": 21,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/Budget",
+      "screenName": "Budget",
+      "widgets": 29,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/Budget/EditBudget",
+      "screenName": "EditBudget",
+      "widgets": 11,
+      "forms": 1,
+      "dataRows": 0,
+      "params": {
+        "budgetId": "100000"
+      }
+    },
+    {
+      "path": "marble/Accounting/Budget/FindBudget",
+      "screenName": "FindBudget",
+      "widgets": 26,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/FinancialAccount",
+      "screenName": "FinancialAccount",
+      "widgets": 29,
+      "forms": 2,
+      "dataRows": 2,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/FinancialAccount/EditFinancialAccount",
+      "screenName": "EditFinancialAccount",
+      "widgets": 44,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {
+        "finAccountId": "100001"
+      }
+    },
+    {
+      "path": "marble/Accounting/FinancialAccount/FinancialAccountTrans",
+      "screenName": "FinancialAccountTrans",
+      "widgets": 27,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {
+        "finAccountId": "100001"
+      }
+    },
+    {
+      "path": "marble/Accounting/FinancialAccount/FindFinancialAccount",
+      "screenName": "FindFinancialAccount",
+      "widgets": 26,
+      "forms": 2,
+      "dataRows": 2,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/FindJournal",
+      "screenName": "FindJournal",
+      "widgets": 26,
+      "forms": 2,
+      "dataRows": 2,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/GlAccount",
+      "screenName": "GlAccount",
+      "widgets": 3,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/Invoice",
+      "screenName": "Invoice",
+      "widgets": 99,
+      "forms": 9,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/Invoice/FindInvoice",
+      "screenName": "FindInvoice",
+      "widgets": 96,
+      "forms": 9,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/Payment",
+      "screenName": "Payment",
+      "widgets": 3,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/Reports",
+      "screenName": "Reports",
+      "widgets": 144,
+      "forms": 11,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/Reports/ReportList",
+      "screenName": "ReportList",
+      "widgets": 141,
+      "forms": 11,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/TimePeriod",
+      "screenName": "TimePeriod",
+      "widgets": 35,
+      "forms": 2,
+      "dataRows": 6,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/TimePeriod/EditTimePeriod",
+      "screenName": "EditTimePeriod",
+      "widgets": 46,
+      "forms": 5,
+      "dataRows": 0,
+      "params": {
+        "timePeriodId": "100003"
+      }
+    },
+    {
+      "path": "marble/Accounting/TimePeriod/FindTimePeriod",
+      "screenName": "FindTimePeriod",
+      "widgets": 32,
+      "forms": 2,
+      "dataRows": 6,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/TimePeriod/ViewPeriodGlAccounts",
+      "screenName": "ViewPeriodGlAccounts",
+      "widgets": 27,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {
+        "timePeriodId": "100003"
+      }
+    },
+    {
+      "path": "marble/Accounting/Transaction",
+      "screenName": "Transaction",
+      "widgets": 3,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Accounting/dashboard",
+      "screenName": "dashboard",
+      "widgets": 18,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Asset",
+      "screenName": "Asset",
+      "widgets": 15,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Asset/Asset",
+      "screenName": "Asset",
+      "widgets": 101,
+      "forms": 3,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Asset/Asset/FindSummary",
+      "screenName": "FindSummary",
+      "widgets": 96,
+      "forms": 3,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Asset/AssetPool",
+      "screenName": "AssetPool",
+      "widgets": 3,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Asset/Container",
+      "screenName": "Container",
+      "widgets": 30,
+      "forms": 2,
+      "dataRows": 6,
+      "params": {}
+    },
+    {
+      "path": "marble/Asset/Container/FindContainer",
+      "screenName": "FindContainer",
+      "widgets": 27,
+      "forms": 2,
+      "dataRows": 6,
+      "params": {}
+    },
+    {
+      "path": "marble/Asset/PhysicalInventory",
+      "screenName": "PhysicalInventory",
+      "widgets": 18,
+      "forms": 1,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Asset/PhysicalInventory/FindPhysicalInventory",
+      "screenName": "FindPhysicalInventory",
+      "widgets": 15,
+      "forms": 1,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Asset/dashboard",
+      "screenName": "dashboard",
+      "widgets": 12,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Catalog",
+      "screenName": "Catalog",
+      "widgets": 10,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Catalog/Category",
+      "screenName": "Category",
+      "widgets": 22,
+      "forms": 2,
+      "dataRows": 13,
+      "params": {}
+    },
+    {
+      "path": "marble/Catalog/Category/EditCategory",
+      "screenName": "EditCategory",
+      "widgets": 77,
+      "forms": 9,
+      "dataRows": 0,
+      "params": {
+        "productCategoryId": "PopcAllProducts"
+      }
+    },
+    {
+      "path": "marble/Catalog/Category/FindCategory",
+      "screenName": "FindCategory",
+      "widgets": 19,
+      "forms": 2,
+      "dataRows": 13,
+      "params": {}
+    },
+    {
+      "path": "marble/Catalog/Feature",
+      "screenName": "Feature",
+      "widgets": 3,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Catalog/FeatureGroup",
+      "screenName": "FeatureGroup",
+      "widgets": 3,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Catalog/Product",
+      "screenName": "Product",
+      "widgets": 35,
+      "forms": 2,
+      "dataRows": 20,
+      "params": {}
+    },
+    {
+      "path": "marble/Catalog/Product/Content",
+      "screenName": "Content",
+      "widgets": 3,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {
+        "productId": "DEMO_1_1"
+      }
+    },
+    {
+      "path": "marble/Catalog/Product/EditAssocs",
+      "screenName": "EditAssocs",
+      "widgets": 41,
+      "forms": 5,
+      "dataRows": 4,
+      "params": {
+        "productId": "DEMO_1_1"
+      }
+    },
+    {
+      "path": "marble/Catalog/Product/EditCategories",
+      "screenName": "EditCategories",
+      "widgets": 25,
+      "forms": 2,
+      "dataRows": 2,
+      "params": {
+        "productId": "DEMO_1_1"
+      }
+    },
+    {
+      "path": "marble/Catalog/Product/EditPrices",
+      "screenName": "EditPrices",
+      "widgets": 43,
+      "forms": 2,
+      "dataRows": 5,
+      "params": {
+        "productId": "DEMO_1_1"
+      }
+    },
+    {
+      "path": "marble/Catalog/Product/EditProduct",
+      "screenName": "EditProduct",
+      "widgets": 164,
+      "forms": 16,
+      "dataRows": 1,
+      "params": {
+        "productId": "DEMO_1_1"
+      }
+    },
+    {
+      "path": "marble/Catalog/Product/FindProduct",
+      "screenName": "FindProduct",
+      "widgets": 31,
+      "forms": 2,
+      "dataRows": 20,
+      "params": {}
+    },
+    {
+      "path": "marble/Catalog/Search",
+      "screenName": "Search",
+      "widgets": 51,
+      "forms": 5,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Catalog/dashboard",
+      "screenName": "dashboard",
+      "widgets": 7,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Customer",
+      "screenName": "Customer",
+      "widgets": 68,
+      "forms": 5,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Customer/EditCustomer",
+      "screenName": "EditCustomer",
+      "widgets": 204,
+      "forms": 17,
+      "dataRows": 1,
+      "params": {
+        "partyId": "100051"
+      }
+    },
+    {
+      "path": "marble/Customer/FinancialInfo",
+      "screenName": "FinancialInfo",
+      "widgets": 139,
+      "forms": 8,
+      "dataRows": 4,
+      "params": {
+        "partyId": "CustJqp"
+      }
+    },
+    {
+      "path": "marble/Customer/FindCustomer",
+      "screenName": "FindCustomer",
+      "widgets": 64,
+      "forms": 5,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Facility",
+      "screenName": "Facility",
+      "widgets": 26,
+      "forms": 2,
+      "dataRows": 1,
+      "params": {}
+    },
+    {
+      "path": "marble/Facility/EditFacility",
+      "screenName": "EditFacility",
+      "widgets": 90,
+      "forms": 7,
+      "dataRows": 4,
+      "params": {
+        "facilityId": "ZIRET_WH"
+      }
+    },
+    {
+      "path": "marble/Facility/FacilityCalendar",
+      "screenName": "FacilityCalendar",
+      "widgets": 3,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {
+        "facilityId": "ZIRET_WH"
+      }
+    },
+    {
+      "path": "marble/Facility/FindFacility",
+      "screenName": "FindFacility",
+      "widgets": 22,
+      "forms": 2,
+      "dataRows": 1,
+      "params": {}
+    },
+    {
+      "path": "marble/HumanRes",
+      "screenName": "HumanRes",
+      "widgets": 7,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/HumanRes/EditRateAmounts",
+      "screenName": "EditRateAmounts",
+      "widgets": 40,
+      "forms": 2,
+      "dataRows": 5,
+      "params": {}
+    },
+    {
+      "path": "marble/HumanRes/dashboard",
+      "screenName": "dashboard",
+      "widgets": 4,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Manufacturing",
+      "screenName": "Manufacturing",
+      "widgets": 9,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Manufacturing/Run",
+      "screenName": "Run",
+      "widgets": 31,
+      "forms": 2,
+      "dataRows": 2,
+      "params": {}
+    },
+    {
+      "path": "marble/Manufacturing/Run/FindRun",
+      "screenName": "FindRun",
+      "widgets": 28,
+      "forms": 2,
+      "dataRows": 2,
+      "params": {}
+    },
+    {
+      "path": "marble/Manufacturing/dashboard",
+      "screenName": "dashboard",
+      "widgets": 6,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Order",
+      "screenName": "Order",
+      "widgets": 96,
+      "forms": 3,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Order/FindOrder",
+      "screenName": "FindOrder",
+      "widgets": 92,
+      "forms": 3,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Order/OrderDetail",
+      "screenName": "OrderDetail",
+      "widgets": 410,
+      "forms": 20,
+      "dataRows": 2,
+      "params": {
+        "orderId": "100006"
+      }
+    },
+    {
+      "path": "marble/Order/OrderItems",
+      "screenName": "OrderItems",
+      "widgets": 84,
+      "forms": 3,
+      "dataRows": 0,
+      "params": {
+        "orderId": "100006"
+      }
+    },
+    {
+      "path": "marble/Order/QuickItems",
+      "screenName": "QuickItems",
+      "widgets": 13,
+      "forms": 1,
+      "dataRows": 0,
+      "params": {
+        "orderId": "100006"
+      }
+    },
+    {
+      "path": "marble/Party",
+      "screenName": "Party",
+      "widgets": 131,
+      "forms": 8,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Party/EditParty",
+      "screenName": "EditParty",
+      "widgets": 317,
+      "forms": 24,
+      "dataRows": 4,
+      "params": {
+        "partyId": "CustJqp"
+      }
+    },
+    {
+      "path": "marble/Party/FinancialInfo",
+      "screenName": "FinancialInfo",
+      "widgets": 139,
+      "forms": 8,
+      "dataRows": 4,
+      "params": {
+        "partyId": "CustJqp"
+      }
+    },
+    {
+      "path": "marble/Party/FindParty",
+      "screenName": "FindParty",
+      "widgets": 127,
+      "forms": 8,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Party/PartyAgreements",
+      "screenName": "PartyAgreements",
+      "widgets": 3,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {
+        "partyId": "CustJqp"
+      }
+    },
+    {
+      "path": "marble/Party/PartyCalendar",
+      "screenName": "PartyCalendar",
+      "widgets": 3,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {
+        "partyId": "CustJqp"
+      }
+    },
+    {
+      "path": "marble/Party/PartyEmails",
+      "screenName": "PartyEmails",
+      "widgets": 19,
+      "forms": 1,
+      "dataRows": 0,
+      "params": {
+        "partyId": "CustJqp"
+      }
+    },
+    {
+      "path": "marble/Party/PartyMessages",
+      "screenName": "PartyMessages",
+      "widgets": 3,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {
+        "partyId": "CustJqp"
+      }
+    },
+    {
+      "path": "marble/Party/PartyProjects",
+      "screenName": "PartyProjects",
+      "widgets": 24,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {
+        "partyId": "CustJqp"
+      }
+    },
+    {
+      "path": "marble/Party/PartyRelated",
+      "screenName": "PartyRelated",
+      "widgets": 51,
+      "forms": 4,
+      "dataRows": 0,
+      "params": {
+        "partyId": "CustJqp"
+      }
+    },
+    {
+      "path": "marble/Party/PartyRequests",
+      "screenName": "PartyRequests",
+      "widgets": 20,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {
+        "partyId": "CustJqp"
+      }
+    },
+    {
+      "path": "marble/Party/PartyTasks",
+      "screenName": "PartyTasks",
+      "widgets": 27,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {
+        "partyId": "CustJqp"
+      }
+    },
+    {
+      "path": "marble/Party/PartyTimeEntries",
+      "screenName": "PartyTimeEntries",
+      "widgets": 66,
+      "forms": 3,
+      "dataRows": 0,
+      "params": {
+        "partyId": "CustJqp"
+      }
+    },
+    {
+      "path": "marble/ProductStore",
+      "screenName": "ProductStore",
+      "widgets": 23,
+      "forms": 2,
+      "dataRows": 1,
+      "params": {}
+    },
+    {
+      "path": "marble/ProductStore/EditProductStore",
+      "screenName": "EditProductStore",
+      "widgets": 109,
+      "forms": 10,
+      "dataRows": 2,
+      "params": {
+        "productStoreId": "POPC_DEFAULT"
+      }
+    },
+    {
+      "path": "marble/ProductStore/FindProductStore",
+      "screenName": "FindProductStore",
+      "widgets": 19,
+      "forms": 2,
+      "dataRows": 1,
+      "params": {}
+    },
+    {
+      "path": "marble/Project",
+      "screenName": "Project",
+      "widgets": 31,
+      "forms": 2,
+      "dataRows": 4,
+      "params": {}
+    },
+    {
+      "path": "marble/Project/EditProject",
+      "screenName": "EditProject",
+      "widgets": 79,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {
+        "workEffortId": "100004"
+      }
+    },
+    {
+      "path": "marble/Project/FindProject",
+      "screenName": "FindProject",
+      "widgets": 28,
+      "forms": 2,
+      "dataRows": 4,
+      "params": {}
+    },
+    {
+      "path": "marble/Project/ProjectSummary",
+      "screenName": "ProjectSummary",
+      "widgets": 94,
+      "forms": 4,
+      "dataRows": 1,
+      "params": {
+        "workEffortId": "100004"
+      }
+    },
+    {
+      "path": "marble/QuickSearch",
+      "screenName": "QuickSearch",
+      "widgets": 36,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/QuickViewReport",
+      "screenName": "QuickViewReport",
+      "widgets": 7,
+      "forms": 1,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Request",
+      "screenName": "Request",
+      "widgets": 47,
+      "forms": 2,
+      "dataRows": 8,
+      "params": {}
+    },
+    {
+      "path": "marble/Request/EditRequest",
+      "screenName": "EditRequest",
+      "widgets": 106,
+      "forms": 7,
+      "dataRows": 1,
+      "params": {
+        "requestId": "100000"
+      }
+    },
+    {
+      "path": "marble/Request/FindRequest",
+      "screenName": "FindRequest",
+      "widgets": 44,
+      "forms": 2,
+      "dataRows": 8,
+      "params": {}
+    },
+    {
+      "path": "marble/Return",
+      "screenName": "Return",
+      "widgets": 35,
+      "forms": 3,
+      "dataRows": 5,
+      "params": {}
+    },
+    {
+      "path": "marble/Return/EditReturn",
+      "screenName": "EditReturn",
+      "widgets": 40,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {
+        "returnId": "100002"
+      }
+    },
+    {
+      "path": "marble/Return/FindReturn",
+      "screenName": "FindReturn",
+      "widgets": 32,
+      "forms": 3,
+      "dataRows": 5,
+      "params": {}
+    },
+    {
+      "path": "marble/Shipment",
+      "screenName": "Shipment",
+      "widgets": 84,
+      "forms": 4,
+      "dataRows": 4,
+      "params": {}
+    },
+    {
+      "path": "marble/Shipment/FindShipment",
+      "screenName": "FindShipment",
+      "widgets": 80,
+      "forms": 4,
+      "dataRows": 4,
+      "params": {}
+    },
+    {
+      "path": "marble/Shipment/ShipmentDetail",
+      "screenName": "ShipmentDetail",
+      "widgets": 350,
+      "forms": 18,
+      "dataRows": 0,
+      "params": {
+        "shipmentId": "100002"
+      }
+    },
+    {
+      "path": "marble/Shipment/ShipmentItems",
+      "screenName": "ShipmentItems",
+      "widgets": 19,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {
+        "shipmentId": "100002"
+      }
+    },
+    {
+      "path": "marble/Shipment/ShipmentPackages",
+      "screenName": "ShipmentPackages",
+      "widgets": 17,
+      "forms": 1,
+      "dataRows": 0,
+      "params": {
+        "shipmentId": "100002"
+      }
+    },
+    {
+      "path": "marble/Shipping",
+      "screenName": "Shipping",
+      "widgets": 22,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Shipping/PickLocationMoves",
+      "screenName": "PickLocationMoves",
+      "widgets": 25,
+      "forms": 1,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Shipping/Picklist",
+      "screenName": "Picklist",
+      "widgets": 37,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Shipping/Picklist/FindPicklist",
+      "screenName": "FindPicklist",
+      "widgets": 34,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Shipping/dashboard",
+      "screenName": "dashboard",
+      "widgets": 19,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/SimpleReport",
+      "screenName": "SimpleReport",
+      "widgets": 20,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/SimpleReport/FindReport",
+      "screenName": "FindReport",
+      "widgets": 17,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Supplier",
+      "screenName": "Supplier",
+      "widgets": 31,
+      "forms": 4,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Supplier/FinancialInfo",
+      "screenName": "FinancialInfo",
+      "widgets": 139,
+      "forms": 8,
+      "dataRows": 4,
+      "params": {
+        "partyId": "CustJqp"
+      }
+    },
+    {
+      "path": "marble/Supplier/FindSupplier",
+      "screenName": "FindSupplier",
+      "widgets": 27,
+      "forms": 4,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Survey",
+      "screenName": "Survey",
+      "widgets": 23,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Survey/FindSurvey",
+      "screenName": "FindSurvey",
+      "widgets": 20,
+      "forms": 2,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/Task",
+      "screenName": "Task",
+      "widgets": 62,
+      "forms": 3,
+      "dataRows": 4,
+      "params": {}
+    },
+    {
+      "path": "marble/Task/EditTask",
+      "screenName": "EditTask",
+      "widgets": 31,
+      "forms": 1,
+      "dataRows": 0,
+      "params": {
+        "workEffortId": "100004-100000"
+      }
+    },
+    {
+      "path": "marble/Task/FindTask",
+      "screenName": "FindTask",
+      "widgets": 58,
+      "forms": 3,
+      "dataRows": 4,
+      "params": {}
+    },
+    {
+      "path": "marble/Wiki",
+      "screenName": "Wiki",
+      "widgets": 3,
+      "forms": 0,
+      "dataRows": 0,
+      "params": {}
+    },
+    {
+      "path": "marble/dashboard",
+      "screenName": "dashboard",
+      "widgets": 172,
+      "forms": 1,
+      "dataRows": 0,
+      "params": {}
+    }
+  ]
+}

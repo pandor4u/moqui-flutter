@@ -1,0 +1,454 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "PartyEmails",
+  "menuTitle": "Emails",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "name": "HasUserOrEmailAddress",
+          "condition": "userIdList || emailAddressSet",
+          "_type": "section",
+          "sectionName": "HasUserOrEmailAddress",
+          "widgets": [
+            {
+              "condition": "userAccountList",
+              "_type": "label",
+              "text": "User Accounts: joe@public.com",
+              "resolvedText": "User Accounts: joe@public.com",
+              "labelType": "span",
+              "encode": "true"
+            },
+            {
+              "condition": "emailAddressSet",
+              "_type": "label",
+              "text": "Email Addresses: joe@public.com",
+              "resolvedText": "Email Addresses: joe@public.com",
+              "labelType": "span",
+              "encode": "true"
+            },
+            {
+              "name": "EmailMessageList",
+              "_type": "form-list",
+              "formName": "EmailMessageList",
+              "transition": "",
+              "list": "emailMessageList",
+              "paginate": "true",
+              "headerDialog": "true",
+              "selectColumns": "",
+              "savedFinds": "",
+              "showCsvButton": "",
+              "showXlsxButton": "",
+              "showPageSize": "",
+              "skipForm": "true",
+              "editUrl": "EmailMessage",
+              "headerFields": [
+                {
+                  "name": "statusId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Status",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "widget-template-include",
+                      "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#statusDropDown"
+                    }
+                  ]
+                },
+                {
+                  "name": "sentDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Sent Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-period",
+                      "allowEmpty": "true",
+                      "time": "false"
+                    }
+                  ]
+                },
+                {
+                  "name": "receivedDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Received Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-period",
+                      "allowEmpty": "true",
+                      "time": "false"
+                    }
+                  ]
+                },
+                {
+                  "name": "emailTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Email Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-multiple": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "true",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "EMT_ACCOUNT_INVITE",
+                          "text": "Account Invitation"
+                        },
+                        {
+                          "key": "EMT_ADDED_EMAIL_AUTHC_FACTOR",
+                          "text": "Added Email Authentication Type"
+                        },
+                        {
+                          "key": "EMT_EMAIL_VERIFY",
+                          "text": "Email Address Verification"
+                        },
+                        {
+                          "key": "EMT_EMAIL_AUTHC_FACTOR_SENT",
+                          "text": "Email Authentication Code Sent"
+                        },
+                        {
+                          "key": "EMT_NOTIFICATION",
+                          "text": "Notification"
+                        },
+                        {
+                          "key": "EMT_PWD_RESET",
+                          "text": "Password Reset"
+                        },
+                        {
+                          "key": "EMT_REG_CONFIRM",
+                          "text": "Registration Confirmation"
+                        },
+                        {
+                          "key": "EMT_SCREEN_RENDER",
+                          "text": "Screen Render"
+                        },
+                        {
+                          "key": "EMT_SINGLE_USE_CODE",
+                          "text": "Single Use Code"
+                        },
+                        {
+                          "key": "EMT_SYSTEM",
+                          "text": "System"
+                        },
+                        {
+                          "key": "EMT_UPD_INFO_CONFIRM",
+                          "text": "Update Personal Info Confirmation"
+                        },
+                        {
+                          "key": "PsetBackOrder",
+                          "text": "Back-Order Notice"
+                        },
+                        {
+                          "key": "PsetGiftCardPurchase",
+                          "text": "Gift Card Purchase"
+                        },
+                        {
+                          "key": "PsetGiftCardReload",
+                          "text": "Gift Card Reload"
+                        },
+                        {
+                          "key": "PsetInvoiceFinalized",
+                          "text": "Invoice Finalized"
+                        },
+                        {
+                          "key": "PsetInvoicesPastDue",
+                          "text": "Invoices Past Due"
+                        },
+                        {
+                          "key": "PsetOrderApproved",
+                          "text": "Order Approved"
+                        },
+                        {
+                          "key": "PsetOrderChange",
+                          "text": "Order Change"
+                        },
+                        {
+                          "key": "PsetOrderComplete",
+                          "text": "Order Complete"
+                        },
+                        {
+                          "key": "PsetOrderPlaced",
+                          "text": "Order Placed"
+                        },
+                        {
+                          "key": "PsetOrderProposed",
+                          "text": "Order Quote Proposed"
+                        },
+                        {
+                          "key": "PsetOrderRequested",
+                          "text": "Order Quote Requested"
+                        },
+                        {
+                          "key": "PsetPaymentRetry",
+                          "text": "Payment Retry"
+                        },
+                        {
+                          "key": "PsetRegistration",
+                          "text": "Registration"
+                        },
+                        {
+                          "key": "PsetResetPassword",
+                          "text": "Reset Password"
+                        },
+                        {
+                          "key": "PsetReturnAccepted",
+                          "text": "Return Accepted"
+                        },
+                        {
+                          "key": "PsetReturnCancelled",
+                          "text": "Return Cancelled"
+                        },
+                        {
+                          "key": "PsetReturnCompleted",
+                          "text": "Return Completed"
+                        },
+                        {
+                          "key": "PsetShipmentDelivered",
+                          "text": "Shipment Delivered"
+                        },
+                        {
+                          "key": "PsetShipmentShipped",
+                          "text": "Shipment Shipped"
+                        },
+                        {
+                          "key": "PsetTellAFriend",
+                          "text": "Tell-A-Friend"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "findButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Find",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ],
+              "fields": [
+                {
+                  "name": "emailMessageId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "null",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "_blank",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "partyId": "CustJqp"
+                      },
+                      "url": "/fapps/marble/Party/PartyEmails/EmailMessage",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "name": "toAddresses",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "To Addresses",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "statusId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Status",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.StatusItem",
+                      "entityName": "moqui.basic.StatusItem",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "sentDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Sent Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "receivedDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Received Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "emailTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Email Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.Enumeration",
+                      "entityName": "moqui.basic.Enumeration",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "viewLink",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "View Link",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "View Message",
+                      "linkType": "anchor-button",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "_blank",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "partyId": "CustJqp",
+                        "emailMessageId": ""
+                      },
+                      "url": "/fapps/marble/Party/PartyEmails/EmailMessage",
+                      "isAnchorLink": true,
+                      "parameterFromFields": {
+                        "emailMessageId": "emailMessageId"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "sendLink",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Send Link",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "condition": "!(statusId in ['ES_DRAFT', 'ES_CANCELLED'])",
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Send/Resend",
+                      "linkType": "auto",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "Send this email message? Note that this may not include attachments from original email.",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "partyId": "CustJqp",
+                        "emailMessageId": ""
+                      },
+                      "url": "/fapps/marble/Party/PartyEmails/sendEmailMessage",
+                      "isAnchorLink": false,
+                      "parameterFromFields": {
+                        "emailMessageId": "emailMessageId"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "listData": [],
+              "paginateInfo": {
+                "pageIndex": 0,
+                "pageSize": 20,
+                "count": 0,
+                "pageMaxIndex": 0,
+                "pageRangeLow": 1,
+                "pageRangeHigh": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,623 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditTask",
+  "menuTitle": "Task",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "name": "EditTask",
+          "_type": "form-single",
+          "formName": "EditTask",
+          "transition": "updateTask",
+          "map": "task",
+          "fieldLayout": {
+            "_type": "field-layout",
+            "rows": [
+              {
+                "_type": "fields-not-referenced"
+              },
+              {
+                "_type": "field-row",
+                "fields": [
+                  {
+                    "name": "purposeEnumId"
+                  },
+                  {
+                    "name": "priority"
+                  }
+                ]
+              },
+              {
+                "_type": "field-row",
+                "fields": [
+                  {
+                    "name": "statusId"
+                  },
+                  {
+                    "name": "estimatedCompletionDate"
+                  }
+                ]
+              },
+              {
+                "_type": "field-ref",
+                "name": "resolutionEnumId"
+              },
+              {
+                "_type": "field-row",
+                "fields": [
+                  {
+                    "name": "estimatedWorkTime"
+                  },
+                  {
+                    "name": "remainingWorkTime"
+                  }
+                ]
+              },
+              {
+                "_type": "field-row",
+                "fields": [
+                  {
+                    "name": "actualWorkTime"
+                  },
+                  {
+                    "name": "totalTimeAllowed"
+                  }
+                ]
+              },
+              {
+                "_type": "field-ref",
+                "name": "description"
+              },
+              {
+                "_type": "field-ref",
+                "name": "submitButton"
+              }
+            ]
+          },
+          "fields": [
+            {
+              "name": "workEffortId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Task ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ],
+              "currentValue": "100004-100000"
+            },
+            {
+              "name": "rootWorkEffortId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Project",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getUserProjectList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                },
+                {
+                  "condition": "project",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Edit 100004",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "workEffortId": "100004"
+                  },
+                  "url": "/fapps/marble/Task/EditTask/projectSummary",
+                  "isAnchorLink": true,
+                  "parameters": [
+                    {
+                      "name": "workEffortId",
+                      "value": "",
+                      "from": "project.workEffortId"
+                    }
+                  ]
+                }
+              ],
+              "currentValue": "100004"
+            },
+            {
+              "name": "milestoneWorkEffortId",
+              "from": "milestoneAssoc?.workEffortId",
+              "hide": "",
+              "align": "",
+              "title": "Milestone",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getProjectMilestones",
+                    "serverSearch": "false",
+                    "minLength": "1",
+                    "dependsOnField": "rootWorkEffortId",
+                    "dependsOnParameter": ""
+                  }
+                },
+                {
+                  "condition": "milestoneAssoc",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Edit ${milestoneAssoc.workEffortId}",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "resolvedText": "Edit ${milestoneAssoc.workEffortId}",
+                  "parameterMap": {
+                    "workEffortId": "100004-100000"
+                  },
+                  "url": "/fapps/marble/Task/EditTask/milestoneSummary",
+                  "isAnchorLink": true,
+                  "parameters": [
+                    {
+                      "name": "milestoneWorkEffortId",
+                      "value": "",
+                      "from": "milestoneAssoc?.workEffortId"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "parentWorkEffortId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Parent Task",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getTaskList",
+                    "serverSearch": "true",
+                    "minLength": "2",
+                    "dependsOnField": "rootWorkEffortId",
+                    "dependsOnParameter": ""
+                  }
+                },
+                {
+                  "condition": "parentWorkEffortId",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Edit null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "workEffortId": "100004-100000"
+                  },
+                  "url": "/fapps/marble/Task/EditTask/taskSummary",
+                  "isAnchorLink": true,
+                  "parameters": [
+                    {
+                      "name": "workEffortId",
+                      "value": "",
+                      "from": "parentWorkEffortId"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "workEffortName",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Task Name",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "60",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ],
+              "currentValue": "Demo Test Task"
+            },
+            {
+              "name": "priority",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Priority",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "no-current-selected-key": "5",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "1"
+                    },
+                    {
+                      "key": "2",
+                      "text": "2"
+                    },
+                    {
+                      "key": "3",
+                      "text": "3"
+                    },
+                    {
+                      "key": "4",
+                      "text": "4"
+                    },
+                    {
+                      "key": "5",
+                      "text": "5"
+                    },
+                    {
+                      "key": "6",
+                      "text": "6"
+                    },
+                    {
+                      "key": "7",
+                      "text": "7"
+                    },
+                    {
+                      "key": "8",
+                      "text": "8"
+                    },
+                    {
+                      "key": "9",
+                      "text": "9"
+                    }
+                  ]
+                }
+              ],
+              "currentValue": "5"
+            },
+            {
+              "name": "purposeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Purpose",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "${allowEmpty ?: 'false'}",
+                  "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                  "style": "${style?:''}",
+                  "allow-multiple": "${allowMultiple ?: 'false'}",
+                  "show-not": "${showNot ?: 'false'}",
+                  "allowEmpty": "false",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "${showNot ?: 'false'}",
+                  "options": [
+                    {
+                      "key": "WepFix",
+                      "text": "Bug Fix"
+                    },
+                    {
+                      "key": "WepCommunication",
+                      "text": "Communication"
+                    },
+                    {
+                      "key": "WepDocument",
+                      "text": "Document"
+                    },
+                    {
+                      "key": "WepFeatureEnhance",
+                      "text": "Feature Enhancement"
+                    },
+                    {
+                      "key": "WepFeatureTest",
+                      "text": "Feature Test"
+                    },
+                    {
+                      "key": "WepNewFeature",
+                      "text": "New Feature"
+                    },
+                    {
+                      "key": "WepPlaceholder",
+                      "text": "Placeholder"
+                    },
+                    {
+                      "key": "WepTask",
+                      "text": "Task"
+                    },
+                    {
+                      "key": "WepToDo",
+                      "text": "To Do"
+                    }
+                  ]
+                }
+              ],
+              "currentValue": "WepTask"
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "false",
+                  "current-description": "${currentDescription?:''}",
+                  "style": "${style?:''}",
+                  "allowEmpty": "false",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "WeApproved",
+                      "text": "Approve (Approved)"
+                    },
+                    {
+                      "key": "WeInProgress",
+                      "text": "Begin (In Progress)"
+                    },
+                    {
+                      "key": "WeComplete",
+                      "text": "Complete"
+                    },
+                    {
+                      "key": "WeCancelled",
+                      "text": "Cancel (Cancelled)"
+                    }
+                  ]
+                }
+              ],
+              "currentValue": "WeInPlanning"
+            },
+            {
+              "name": "resolutionEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Resolution",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "${allowEmpty ?: 'false'}",
+                  "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                  "style": "${style?:''}",
+                  "allow-multiple": "${allowMultiple ?: 'false'}",
+                  "show-not": "${showNot ?: 'false'}",
+                  "allowEmpty": "false",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "${showNot ?: 'false'}",
+                  "options": [
+                    {
+                      "key": "WerCannotReproduce",
+                      "text": "Cannot Reproduce"
+                    },
+                    {
+                      "key": "WerCompleted",
+                      "text": "Completed"
+                    },
+                    {
+                      "key": "WerDuplicate",
+                      "text": "Duplicate"
+                    },
+                    {
+                      "key": "WerIncomplete",
+                      "text": "Incomplete"
+                    },
+                    {
+                      "key": "WerInsufficient",
+                      "text": "Insufficient Information"
+                    },
+                    {
+                      "key": "WerUnresolved",
+                      "text": "Unresolved"
+                    },
+                    {
+                      "key": "WerWontComplete",
+                      "text": "Won't Complete"
+                    }
+                  ]
+                }
+              ],
+              "currentValue": "WerUnresolved"
+            },
+            {
+              "name": "estimatedCompletionDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Due Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-time",
+                  "type": "date",
+                  "format": "yyyy-MM-dd",
+                  "dateType": "date",
+                  "minuteStepping": ""
+                }
+              ]
+            },
+            {
+              "name": "estimatedWorkTime",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Estimated Hours",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "5",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ],
+              "currentValue": "8"
+            },
+            {
+              "name": "remainingWorkTime",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Remaining Hours",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "5",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ],
+              "currentValue": "8"
+            },
+            {
+              "name": "actualWorkTime",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Actual Hours",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "0.00",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ],
+              "currentValue": "0"
+            },
+            {
+              "name": "totalTimeAllowed",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Hours Budget",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "5",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ]
+            },
+            {
+              "name": "description",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Description",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-area",
+                  "rows": "20",
+                  "cols": "100",
+                  "maxlength": "",
+                  "readOnly": "false",
+                  "editorType": "",
+                  "autogrow": "false"
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Update",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

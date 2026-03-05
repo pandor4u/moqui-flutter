@@ -1,0 +1,332 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Accounting",
+  "menuTitle": "Accounting",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "accounting-panel",
+          "type": "popup",
+          "_type": "subscreens-panel",
+          "menuType": "popup",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "dashboard",
+              "menuTitle": "Dashboard",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Invoice",
+              "menuTitle": "Invoices",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Payment",
+              "menuTitle": "Payments",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "FinancialAccount",
+              "menuTitle": "Financial Accounts",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Transaction",
+              "menuTitle": "Transactions",
+              "menuIndex": 4,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "FindJournal",
+              "menuTitle": "GL Journals",
+              "menuIndex": 5,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "TimePeriod",
+              "menuTitle": "Time Period",
+              "menuIndex": 6,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "GlAccount",
+              "menuTitle": "GL Accounts",
+              "menuIndex": 10,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Budget",
+              "menuTitle": "Budgets",
+              "menuIndex": 18,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Reports",
+              "menuTitle": "Reports",
+              "menuIndex": 20,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "dashboard",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "dashboard",
+            "menuTitle": "Dashboard",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "_type": "container-row",
+                    "columns": [
+                      {
+                        "lg": "",
+                        "md": "6",
+                        "sm": "",
+                        "xs": "",
+                        "style": "",
+                        "children": [
+                          {
+                            "_type": "container-box",
+                            "boxTitle": "Invoices and Payments",
+                            "header": [],
+                            "body": [
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "Invoices",
+                                "linkType": "auto",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "../Invoice/FindInvoice",
+                                "isAnchorLink": true
+                              },
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "Aging##Invoice",
+                                "linkType": "auto",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "../Invoice/Aging",
+                                "isAnchorLink": true
+                              },
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "Payments",
+                                "linkType": "auto",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "../Payment/FindPayment",
+                                "isAnchorLink": true
+                              },
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "Bulk Checks",
+                                "linkType": "auto",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "../Payment/BulkPaymentCheck",
+                                "isAnchorLink": true
+                              },
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "Financial Accounts",
+                                "linkType": "auto",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "../FinancialAccount/FindFinancialAccount",
+                                "isAnchorLink": true
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "lg": "",
+                        "md": "6",
+                        "sm": "",
+                        "xs": "",
+                        "style": "",
+                        "children": [
+                          {
+                            "_type": "container-box",
+                            "boxTitle": "General Ledger",
+                            "header": [],
+                            "toolbar": [
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "Reports",
+                                "linkType": "auto",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "../Reports",
+                                "isAnchorLink": true
+                              }
+                            ],
+                            "body": [
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "Transactions",
+                                "linkType": "auto",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "../Transaction",
+                                "isAnchorLink": true
+                              },
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "Transaction Entries",
+                                "linkType": "auto",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "../Transaction/FindTransactionEntry",
+                                "isAnchorLink": true
+                              },
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "GL Accounts",
+                                "linkType": "auto",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "../GlAccount",
+                                "isAnchorLink": true
+                              },
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "GL Journals",
+                                "linkType": "auto",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "../FindJournal",
+                                "isAnchorLink": true
+                              },
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "Time Periods",
+                                "linkType": "auto",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "../TimePeriod",
+                                "isAnchorLink": true
+                              },
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "Budgets",
+                                "linkType": "auto",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "../Budget",
+                                "isAnchorLink": true
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "OrgInternalSummary",
+                    "_type": "dynamic-container",
+                    "containerId": "OrgInternalSummary",
+                    "transition": "OrgInternalSummary"
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "dashboard"
+        }
+      ]
+    }
+  ]
+}

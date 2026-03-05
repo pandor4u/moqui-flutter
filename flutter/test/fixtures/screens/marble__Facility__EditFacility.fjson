@@ -1,0 +1,2539 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditFacility",
+  "menuTitle": "Facility",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "7",
+              "md": "",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "condition": "contactInfo.postalContactMech && (!contactInfo.postalContactMech.trustLevelEnumId || contactInfo.postalContactMech?.trustLevelEnumId == 'CmtlNew')",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Validate Address",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "contactMechId": "ORG_ZIZI_RTL_SA",
+                    "facilityId": "ZIRET_WH"
+                  },
+                  "url": "/fapps/marble/Facility/EditFacility/validateAddress",
+                  "isAnchorLink": false,
+                  "parameterFromFields": {
+                    "facilityId": "facilityId",
+                    "contactMechId": "contactInfo"
+                  }
+                },
+                {
+                  "name": "EditFacilityForm",
+                  "_type": "form-single",
+                  "formName": "EditFacilityForm",
+                  "transition": "updateFacility",
+                  "map": "facility",
+                  "fieldLayout": {
+                    "_type": "field-layout",
+                    "rows": [
+                      {
+                        "_type": "fields-not-referenced"
+                      },
+                      {
+                        "_type": "field-row",
+                        "fields": [
+                          {
+                            "name": "openedDate"
+                          },
+                          {
+                            "name": "closedDate"
+                          }
+                        ]
+                      },
+                      {
+                        "_type": "field-row-big"
+                      },
+                      {
+                        "_type": "field-row",
+                        "fields": [
+                          {
+                            "name": "assetAllowIssueOverQoh"
+                          },
+                          {
+                            "name": "assetAllowOtherOwner"
+                          }
+                        ]
+                      },
+                      {
+                        "_type": "field-row",
+                        "fields": [
+                          {
+                            "name": "assetInventoryLocRequire"
+                          },
+                          {
+                            "name": "defaultDaysToShip"
+                          }
+                        ]
+                      },
+                      {
+                        "_type": "field-ref",
+                        "name": "toName"
+                      },
+                      {
+                        "_type": "field-ref",
+                        "name": "attnName"
+                      },
+                      {
+                        "_type": "field-ref",
+                        "name": "address1"
+                      },
+                      {
+                        "_type": "field-ref",
+                        "name": "address2"
+                      },
+                      {
+                        "_type": "field-row-big"
+                      },
+                      {
+                        "_type": "field-row-big"
+                      },
+                      {
+                        "_type": "field-ref",
+                        "name": "addressTrust"
+                      },
+                      {
+                        "_type": "field-row-big"
+                      },
+                      {
+                        "_type": "field-row-big"
+                      },
+                      {
+                        "_type": "field-ref",
+                        "name": "emailAddress"
+                      },
+                      {
+                        "_type": "field-ref",
+                        "name": "description"
+                      },
+                      {
+                        "_type": "field-ref",
+                        "name": "submitButton"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "name": "facilityId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Facility ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "hidden",
+                          "defaultValue": ""
+                        }
+                      ],
+                      "currentValue": "ZIRET_WH"
+                    },
+                    {
+                      "name": "pseudoId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "15",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "ZIRET_WH"
+                    },
+                    {
+                      "name": "facilityName",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Name",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "50",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "Ziziwork Retail Warehouse"
+                    },
+                    {
+                      "name": "facilityTypeEnumId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Type",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "${allowEmpty ?: 'false'}",
+                          "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                          "style": "${style?:''}",
+                          "allow-multiple": "${allowMultiple ?: 'false'}",
+                          "show-not": "${showNot ?: 'false'}",
+                          "allowEmpty": "false",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "${showNot ?: 'false'}",
+                          "options": [
+                            {
+                              "key": "FcTpBlock",
+                              "text": "Block"
+                            },
+                            {
+                              "key": "FcTpBlockGroup",
+                              "text": "Block Group"
+                            },
+                            {
+                              "key": "FcTpBuilding",
+                              "text": "Building"
+                            },
+                            {
+                              "key": "FcTpCallCenter",
+                              "text": "Call Center"
+                            },
+                            {
+                              "key": "FcTpDataCenter",
+                              "text": "Data Center"
+                            },
+                            {
+                              "key": "FcTpDock",
+                              "text": "Dock"
+                            },
+                            {
+                              "key": "FcTpFloor",
+                              "text": "Floor"
+                            },
+                            {
+                              "key": "FcTpLand",
+                              "text": "Land"
+                            },
+                            {
+                              "key": "FcTpOffice",
+                              "text": "Office"
+                            },
+                            {
+                              "key": "FcTpPlant",
+                              "text": "Plant"
+                            },
+                            {
+                              "key": "FcTpLine",
+                              "text": "Production Line"
+                            },
+                            {
+                              "key": "FcTpRetailStore",
+                              "text": "Retail Store"
+                            },
+                            {
+                              "key": "FcTpRoom",
+                              "text": "Room"
+                            },
+                            {
+                              "key": "FcTpWarehouse",
+                              "text": "Warehouse"
+                            }
+                          ]
+                        }
+                      ],
+                      "currentValue": "FcTpWarehouse"
+                    },
+                    {
+                      "name": "ownerPartyId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Owner",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [],
+                          "dynamicOptions": {
+                            "transition": "searchPartyList",
+                            "serverSearch": "true",
+                            "minLength": "2"
+                          }
+                        }
+                      ],
+                      "currentValue": "ORG_ZIZI_RETAIL"
+                    },
+                    {
+                      "name": "parentFacilityId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Parent Facility",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [],
+                          "dynamicOptions": {
+                            "transition": "getFacilityList",
+                            "serverSearch": "true",
+                            "minLength": "0"
+                          }
+                        },
+                        {
+                          "condition": "parentFacilityId",
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "FacilityNameTemplate",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "facilityId": ""
+                          },
+                          "url": "/fapps/marble/Facility/EditFacility/editFacility",
+                          "isAnchorLink": true,
+                          "parameterFromFields": {
+                            "facilityId": "parentFacilityId"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "openedDate",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Opened",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "date-time",
+                          "type": "date",
+                          "dateType": "date",
+                          "format": "",
+                          "minuteStepping": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "closedDate",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Closed",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "date-time",
+                          "type": "date",
+                          "dateType": "date",
+                          "format": "",
+                          "minuteStepping": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "facilitySize",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Facility Size",
+                      "tooltip": "Facility Size",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "10",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "facilitySizeUomId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Facility Size Uom ID",
+                      "tooltip": "Size UOM",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "AREA_A",
+                              "text": "Acre"
+                            },
+                            {
+                              "key": "AREA_a",
+                              "text": "Are"
+                            },
+                            {
+                              "key": "AREA_ha",
+                              "text": "Hectare"
+                            },
+                            {
+                              "key": "AREA_cm2",
+                              "text": "Square Centimeter"
+                            },
+                            {
+                              "key": "AREA_ft2",
+                              "text": "Square Foot"
+                            },
+                            {
+                              "key": "AREA_in2",
+                              "text": "Square Inch"
+                            },
+                            {
+                              "key": "AREA_km2",
+                              "text": "Square Kilometer"
+                            },
+                            {
+                              "key": "AREA_m2",
+                              "text": "Square Meter"
+                            },
+                            {
+                              "key": "AREA_mi2",
+                              "text": "Square Mile"
+                            },
+                            {
+                              "key": "AREA_mm2",
+                              "text": "Square Millimeter"
+                            },
+                            {
+                              "key": "AREA_rd2",
+                              "text": "Square Rod"
+                            },
+                            {
+                              "key": "AREA_yd2",
+                              "text": "Square Yard"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "toName",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "To Name",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "50",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "Ziziwork Retail & Wholesale"
+                    },
+                    {
+                      "name": "attnName",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Attn Name",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "50",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "address1",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Address 1",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "50",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "51 W. Center St."
+                    },
+                    {
+                      "name": "address2",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Address 2",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "50",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "city",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "City",
+                      "tooltip": "City",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "30",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "Orem"
+                    },
+                    {
+                      "name": "postalCode",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Postal Code",
+                      "tooltip": "Zip/Postal Code",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "8",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "84057"
+                    },
+                    {
+                      "name": "postalCodeExt",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Postal Code Ext",
+                      "tooltip": "Zip/Postal Code Extension",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "4",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "4605"
+                    },
+                    {
+                      "name": "countryGeoId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Country Geo ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "no-current-selected-key": "USA",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "AFG",
+                              "text": "Afghanistan"
+                            },
+                            {
+                              "key": "ALB",
+                              "text": "Albania"
+                            },
+                            {
+                              "key": "DZA",
+                              "text": "Algeria"
+                            },
+                            {
+                              "key": "ASM",
+                              "text": "American Samoa"
+                            },
+                            {
+                              "key": "AND",
+                              "text": "Andorra"
+                            },
+                            {
+                              "key": "AGO",
+                              "text": "Angola"
+                            },
+                            {
+                              "key": "AIA",
+                              "text": "Anguilla"
+                            },
+                            {
+                              "key": "ATA",
+                              "text": "Antarctica"
+                            },
+                            {
+                              "key": "ATG",
+                              "text": "Antigua And Barbuda"
+                            },
+                            {
+                              "key": "ARG",
+                              "text": "Argentina"
+                            },
+                            {
+                              "key": "ARM",
+                              "text": "Armenia"
+                            },
+                            {
+                              "key": "ABW",
+                              "text": "Aruba"
+                            },
+                            {
+                              "key": "AUS",
+                              "text": "Australia"
+                            },
+                            {
+                              "key": "AUT",
+                              "text": "Austria"
+                            },
+                            {
+                              "key": "AZE",
+                              "text": "Azerbaijan"
+                            },
+                            {
+                              "key": "BHS",
+                              "text": "Bahamas"
+                            },
+                            {
+                              "key": "BHR",
+                              "text": "Bahrain"
+                            },
+                            {
+                              "key": "BGD",
+                              "text": "Bangladesh"
+                            },
+                            {
+                              "key": "BRB",
+                              "text": "Barbados"
+                            },
+                            {
+                              "key": "BLR",
+                              "text": "Belarus"
+                            },
+                            {
+                              "key": "BEL",
+                              "text": "Belgium"
+                            },
+                            {
+                              "key": "BLZ",
+                              "text": "Belize"
+                            },
+                            {
+                              "key": "BEN",
+                              "text": "Benin"
+                            },
+                            {
+                              "key": "BMU",
+                              "text": "Bermuda"
+                            },
+                            {
+                              "key": "BTN",
+                              "text": "Bhutan"
+                            },
+                            {
+                              "key": "BOL",
+                              "text": "Bolivia"
+                            },
+                            {
+                              "key": "BIH",
+                              "text": "Bosnia And Herzegowina"
+                            },
+                            {
+                              "key": "BWA",
+                              "text": "Botswana"
+                            },
+                            {
+                              "key": "BVT",
+                              "text": "Bouvet Island"
+                            },
+                            {
+                              "key": "BRA",
+                              "text": "Brazil"
+                            },
+                            {
+                              "key": "IOT",
+                              "text": "British Indian Ocean Territory"
+                            },
+                            {
+                              "key": "BRN",
+                              "text": "Brunei Darussalam"
+                            },
+                            {
+                              "key": "BGR",
+                              "text": "Bulgaria"
+                            },
+                            {
+                              "key": "BFA",
+                              "text": "Burkina Faso"
+                            },
+                            {
+                              "key": "BDI",
+                              "text": "Burundi"
+                            },
+                            {
+                              "key": "KHM",
+                              "text": "Cambodia"
+                            },
+                            {
+                              "key": "CMR",
+                              "text": "Cameroon"
+                            },
+                            {
+                              "key": "CAN",
+                              "text": "Canada"
+                            },
+                            {
+                              "key": "CPV",
+                              "text": "Cape Verde"
+                            },
+                            {
+                              "key": "CYM",
+                              "text": "Cayman Islands"
+                            },
+                            {
+                              "key": "CAF",
+                              "text": "Central African Republic"
+                            },
+                            {
+                              "key": "TCD",
+                              "text": "Chad"
+                            },
+                            {
+                              "key": "CHL",
+                              "text": "Chile"
+                            },
+                            {
+                              "key": "CHN",
+                              "text": "China"
+                            },
+                            {
+                              "key": "CXR",
+                              "text": "Christmas Island"
+                            },
+                            {
+                              "key": "CCK",
+                              "text": "Cocos (keeling) Islands"
+                            },
+                            {
+                              "key": "COL",
+                              "text": "Colombia"
+                            },
+                            {
+                              "key": "COM",
+                              "text": "Comoros"
+                            },
+                            {
+                              "key": "COG",
+                              "text": "Congo"
+                            },
+                            {
+                              "key": "COD",
+                              "text": "Congo, The Democratic Republic Of The"
+                            },
+                            {
+                              "key": "COK",
+                              "text": "Cook Islands"
+                            },
+                            {
+                              "key": "CRI",
+                              "text": "Costa Rica"
+                            },
+                            {
+                              "key": "CIV",
+                              "text": "Cote D'ivoire"
+                            },
+                            {
+                              "key": "HRV",
+                              "text": "Croatia (local Name: Hrvatska)"
+                            },
+                            {
+                              "key": "CUB",
+                              "text": "Cuba"
+                            },
+                            {
+                              "key": "CYP",
+                              "text": "Cyprus"
+                            },
+                            {
+                              "key": "CZE",
+                              "text": "Czech Republic"
+                            },
+                            {
+                              "key": "DNK",
+                              "text": "Denmark"
+                            },
+                            {
+                              "key": "DJI",
+                              "text": "Djibouti"
+                            },
+                            {
+                              "key": "DMA",
+                              "text": "Dominica"
+                            },
+                            {
+                              "key": "DOM",
+                              "text": "Dominican Republic"
+                            },
+                            {
+                              "key": "TLS",
+                              "text": "East Timor"
+                            },
+                            {
+                              "key": "ECU",
+                              "text": "Ecuador"
+                            },
+                            {
+                              "key": "EGY",
+                              "text": "Egypt"
+                            },
+                            {
+                              "key": "SLV",
+                              "text": "El Salvador"
+                            },
+                            {
+                              "key": "GNQ",
+                              "text": "Equatorial Guinea"
+                            },
+                            {
+                              "key": "ERI",
+                              "text": "Eritrea"
+                            },
+                            {
+                              "key": "EST",
+                              "text": "Estonia"
+                            },
+                            {
+                              "key": "ETH",
+                              "text": "Ethiopia"
+                            },
+                            {
+                              "key": "FLK",
+                              "text": "Falkland Islands (malvinas)"
+                            },
+                            {
+                              "key": "FRO",
+                              "text": "Faroe Islands"
+                            },
+                            {
+                              "key": "FJI",
+                              "text": "Fiji"
+                            },
+                            {
+                              "key": "FIN",
+                              "text": "Finland"
+                            },
+                            {
+                              "key": "FRA",
+                              "text": "France"
+                            },
+                            {
+                              "key": "FXX",
+                              "text": "France, Metropolitan"
+                            },
+                            {
+                              "key": "GUF",
+                              "text": "French Guiana"
+                            },
+                            {
+                              "key": "PYF",
+                              "text": "French Polynesia"
+                            },
+                            {
+                              "key": "ATF",
+                              "text": "French Southern Territories"
+                            },
+                            {
+                              "key": "GAB",
+                              "text": "Gabon"
+                            },
+                            {
+                              "key": "GMB",
+                              "text": "Gambia"
+                            },
+                            {
+                              "key": "GEO",
+                              "text": "Georgia"
+                            },
+                            {
+                              "key": "DEU",
+                              "text": "Germany"
+                            },
+                            {
+                              "key": "GHA",
+                              "text": "Ghana"
+                            },
+                            {
+                              "key": "GIB",
+                              "text": "Gibraltar"
+                            },
+                            {
+                              "key": "GRC",
+                              "text": "Greece"
+                            },
+                            {
+                              "key": "GRL",
+                              "text": "Greenland"
+                            },
+                            {
+                              "key": "GRD",
+                              "text": "Grenada"
+                            },
+                            {
+                              "key": "GLP",
+                              "text": "Guadeloupe"
+                            },
+                            {
+                              "key": "GUM",
+                              "text": "Guam"
+                            },
+                            {
+                              "key": "GTM",
+                              "text": "Guatemala"
+                            },
+                            {
+                              "key": "GIN",
+                              "text": "Guinea"
+                            },
+                            {
+                              "key": "GNB",
+                              "text": "Guinea-bissau"
+                            },
+                            {
+                              "key": "GUY",
+                              "text": "Guyana"
+                            },
+                            {
+                              "key": "HTI",
+                              "text": "Haiti"
+                            },
+                            {
+                              "key": "HMD",
+                              "text": "Heard And Mc Donald Islands"
+                            },
+                            {
+                              "key": "VAT",
+                              "text": "Holy See (vatican City State)"
+                            },
+                            {
+                              "key": "HND",
+                              "text": "Honduras"
+                            },
+                            {
+                              "key": "HKG",
+                              "text": "Hong Kong"
+                            },
+                            {
+                              "key": "HUN",
+                              "text": "Hungary"
+                            },
+                            {
+                              "key": "ISL",
+                              "text": "Iceland"
+                            },
+                            {
+                              "key": "IND",
+                              "text": "India"
+                            },
+                            {
+                              "key": "IDN",
+                              "text": "Indonesia"
+                            },
+                            {
+                              "key": "IRN",
+                              "text": "Iran (islamic Republic Of)"
+                            },
+                            {
+                              "key": "IRQ",
+                              "text": "Iraq"
+                            },
+                            {
+                              "key": "IRL",
+                              "text": "Ireland"
+                            },
+                            {
+                              "key": "ISR",
+                              "text": "Israel"
+                            },
+                            {
+                              "key": "ITA",
+                              "text": "Italy"
+                            },
+                            {
+                              "key": "JAM",
+                              "text": "Jamaica"
+                            },
+                            {
+                              "key": "JPN",
+                              "text": "Japan"
+                            },
+                            {
+                              "key": "JOR",
+                              "text": "Jordan"
+                            },
+                            {
+                              "key": "KAZ",
+                              "text": "Kazakhstan"
+                            },
+                            {
+                              "key": "KEN",
+                              "text": "Kenya"
+                            },
+                            {
+                              "key": "KIR",
+                              "text": "Kiribati"
+                            },
+                            {
+                              "key": "PRK",
+                              "text": "Korea, Democratic People's Republic Of"
+                            },
+                            {
+                              "key": "KOR",
+                              "text": "Korea, Republic Of"
+                            },
+                            {
+                              "key": "KWT",
+                              "text": "Kuwait"
+                            },
+                            {
+                              "key": "KGZ",
+                              "text": "Kyrgyzstan"
+                            },
+                            {
+                              "key": "LAO",
+                              "text": "Lao People's Democratic Republic"
+                            },
+                            {
+                              "key": "LVA",
+                              "text": "Latvia"
+                            },
+                            {
+                              "key": "LBN",
+                              "text": "Lebanon"
+                            },
+                            {
+                              "key": "LSO",
+                              "text": "Lesotho"
+                            },
+                            {
+                              "key": "LBR",
+                              "text": "Liberia"
+                            },
+                            {
+                              "key": "LBY",
+                              "text": "Libyan Arab Jamahiriya"
+                            },
+                            {
+                              "key": "LIE",
+                              "text": "Liechtenstein"
+                            },
+                            {
+                              "key": "LTU",
+                              "text": "Lithuania"
+                            },
+                            {
+                              "key": "LUX",
+                              "text": "Luxembourg"
+                            },
+                            {
+                              "key": "MAC",
+                              "text": "Macau"
+                            },
+                            {
+                              "key": "MKD",
+                              "text": "Macedonia, The Former Yugoslav Republic Of"
+                            },
+                            {
+                              "key": "MDG",
+                              "text": "Madagascar"
+                            },
+                            {
+                              "key": "MWI",
+                              "text": "Malawi"
+                            },
+                            {
+                              "key": "MYS",
+                              "text": "Malaysia"
+                            },
+                            {
+                              "key": "MDV",
+                              "text": "Maldives"
+                            },
+                            {
+                              "key": "MLI",
+                              "text": "Mali"
+                            },
+                            {
+                              "key": "MLT",
+                              "text": "Malta"
+                            },
+                            {
+                              "key": "MHL",
+                              "text": "Marshall Islands"
+                            },
+                            {
+                              "key": "MTQ",
+                              "text": "Martinique"
+                            },
+                            {
+                              "key": "MRT",
+                              "text": "Mauritania"
+                            },
+                            {
+                              "key": "MUS",
+                              "text": "Mauritius"
+                            },
+                            {
+                              "key": "MYT",
+                              "text": "Mayotte"
+                            },
+                            {
+                              "key": "MEX",
+                              "text": "Mexico"
+                            },
+                            {
+                              "key": "FSM",
+                              "text": "Micronesia, Federated States Of"
+                            },
+                            {
+                              "key": "MDA",
+                              "text": "Moldova, Republic Of"
+                            },
+                            {
+                              "key": "MCO",
+                              "text": "Monaco"
+                            },
+                            {
+                              "key": "MNG",
+                              "text": "Mongolia"
+                            },
+                            {
+                              "key": "MNE",
+                              "text": "Montenegro"
+                            },
+                            {
+                              "key": "MSR",
+                              "text": "Montserrat"
+                            },
+                            {
+                              "key": "MAR",
+                              "text": "Morocco"
+                            },
+                            {
+                              "key": "MOZ",
+                              "text": "Mozambique"
+                            },
+                            {
+                              "key": "MMR",
+                              "text": "Myanmar"
+                            },
+                            {
+                              "key": "NAM",
+                              "text": "Namibia"
+                            },
+                            {
+                              "key": "NRU",
+                              "text": "Nauru"
+                            },
+                            {
+                              "key": "NPL",
+                              "text": "Nepal"
+                            },
+                            {
+                              "key": "NLD",
+                              "text": "Netherlands"
+                            },
+                            {
+                              "key": "ANT",
+                              "text": "Netherlands Antilles"
+                            },
+                            {
+                              "key": "NCL",
+                              "text": "New Caledonia"
+                            },
+                            {
+                              "key": "NZL",
+                              "text": "New Zealand"
+                            },
+                            {
+                              "key": "NIC",
+                              "text": "Nicaragua"
+                            },
+                            {
+                              "key": "NER",
+                              "text": "Niger"
+                            },
+                            {
+                              "key": "NGA",
+                              "text": "Nigeria"
+                            },
+                            {
+                              "key": "NIU",
+                              "text": "Niue"
+                            },
+                            {
+                              "key": "NFK",
+                              "text": "Norfolk Island"
+                            },
+                            {
+                              "key": "MNP",
+                              "text": "Northern Mariana Islands"
+                            },
+                            {
+                              "key": "NOR",
+                              "text": "Norway"
+                            },
+                            {
+                              "key": "OMN",
+                              "text": "Oman"
+                            },
+                            {
+                              "key": "PAK",
+                              "text": "Pakistan"
+                            },
+                            {
+                              "key": "PLW",
+                              "text": "Palau"
+                            },
+                            {
+                              "key": "PSE",
+                              "text": "Palestinian Territory, Occupied"
+                            },
+                            {
+                              "key": "PAN",
+                              "text": "Panama"
+                            },
+                            {
+                              "key": "PNG",
+                              "text": "Papua New Guinea"
+                            },
+                            {
+                              "key": "PRY",
+                              "text": "Paraguay"
+                            },
+                            {
+                              "key": "PER",
+                              "text": "Peru"
+                            },
+                            {
+                              "key": "PHL",
+                              "text": "Philippines"
+                            },
+                            {
+                              "key": "PCN",
+                              "text": "Pitcairn"
+                            },
+                            {
+                              "key": "POL",
+                              "text": "Poland"
+                            },
+                            {
+                              "key": "PRT",
+                              "text": "Portugal"
+                            },
+                            {
+                              "key": "PRI",
+                              "text": "Puerto Rico"
+                            },
+                            {
+                              "key": "QAT",
+                              "text": "Qatar"
+                            },
+                            {
+                              "key": "REU",
+                              "text": "Reunion"
+                            },
+                            {
+                              "key": "ROU",
+                              "text": "Romania"
+                            },
+                            {
+                              "key": "RUS",
+                              "text": "Russian Federation"
+                            },
+                            {
+                              "key": "RWA",
+                              "text": "Rwanda"
+                            },
+                            {
+                              "key": "KNA",
+                              "text": "Saint Kitts And Nevis"
+                            },
+                            {
+                              "key": "LCA",
+                              "text": "Saint Lucia"
+                            },
+                            {
+                              "key": "VCT",
+                              "text": "Saint Vincent And The Grenadines"
+                            },
+                            {
+                              "key": "WSM",
+                              "text": "Samoa"
+                            },
+                            {
+                              "key": "SMR",
+                              "text": "San Marino"
+                            },
+                            {
+                              "key": "STP",
+                              "text": "Sao Tome And Principe"
+                            },
+                            {
+                              "key": "SAU",
+                              "text": "Saudi Arabia"
+                            },
+                            {
+                              "key": "SEN",
+                              "text": "Senegal"
+                            },
+                            {
+                              "key": "SRB",
+                              "text": "Serbia"
+                            },
+                            {
+                              "key": "SYC",
+                              "text": "Seychelles"
+                            },
+                            {
+                              "key": "SLE",
+                              "text": "Sierra Leone"
+                            },
+                            {
+                              "key": "SGP",
+                              "text": "Singapore"
+                            },
+                            {
+                              "key": "SVK",
+                              "text": "Slovakia (slovak Republic)"
+                            },
+                            {
+                              "key": "SVN",
+                              "text": "Slovenia"
+                            },
+                            {
+                              "key": "SLB",
+                              "text": "Solomon Islands"
+                            },
+                            {
+                              "key": "SOM",
+                              "text": "Somalia"
+                            },
+                            {
+                              "key": "ZAF",
+                              "text": "South Africa"
+                            },
+                            {
+                              "key": "SGS",
+                              "text": "South Georgia And The South Sandwich Islands"
+                            },
+                            {
+                              "key": "ESP",
+                              "text": "Spain"
+                            },
+                            {
+                              "key": "LKA",
+                              "text": "Sri Lanka"
+                            },
+                            {
+                              "key": "SHN",
+                              "text": "St. Helena"
+                            },
+                            {
+                              "key": "SPM",
+                              "text": "St. Pierre And Miquelon"
+                            },
+                            {
+                              "key": "SDN",
+                              "text": "Sudan"
+                            },
+                            {
+                              "key": "SUR",
+                              "text": "Suriname"
+                            },
+                            {
+                              "key": "SJM",
+                              "text": "Svalbard And Jan Mayen Islands"
+                            },
+                            {
+                              "key": "SWZ",
+                              "text": "Swaziland"
+                            },
+                            {
+                              "key": "SWE",
+                              "text": "Sweden"
+                            },
+                            {
+                              "key": "CHE",
+                              "text": "Switzerland"
+                            },
+                            {
+                              "key": "SYR",
+                              "text": "Syrian Arab Republic"
+                            },
+                            {
+                              "key": "TWN",
+                              "text": "Taiwan"
+                            },
+                            {
+                              "key": "TJK",
+                              "text": "Tajikistan"
+                            },
+                            {
+                              "key": "TZA",
+                              "text": "Tanzania, United Republic Of"
+                            },
+                            {
+                              "key": "THA",
+                              "text": "Thailand"
+                            },
+                            {
+                              "key": "TGO",
+                              "text": "Togo"
+                            },
+                            {
+                              "key": "TKL",
+                              "text": "Tokelau"
+                            },
+                            {
+                              "key": "TON",
+                              "text": "Tonga"
+                            },
+                            {
+                              "key": "TTO",
+                              "text": "Trinidad And Tobago"
+                            },
+                            {
+                              "key": "TUN",
+                              "text": "Tunisia"
+                            },
+                            {
+                              "key": "TUR",
+                              "text": "Turkey"
+                            },
+                            {
+                              "key": "TKM",
+                              "text": "Turkmenistan"
+                            },
+                            {
+                              "key": "TCA",
+                              "text": "Turks And Caicos Islands"
+                            },
+                            {
+                              "key": "TUV",
+                              "text": "Tuvalu"
+                            },
+                            {
+                              "key": "UGA",
+                              "text": "Uganda"
+                            },
+                            {
+                              "key": "UKR",
+                              "text": "Ukraine"
+                            },
+                            {
+                              "key": "ARE",
+                              "text": "United Arab Emirates"
+                            },
+                            {
+                              "key": "GBR",
+                              "text": "United Kingdom"
+                            },
+                            {
+                              "key": "USA",
+                              "text": "United States"
+                            },
+                            {
+                              "key": "UMI",
+                              "text": "United States Minor Outlying Islands"
+                            },
+                            {
+                              "key": "URY",
+                              "text": "Uruguay"
+                            },
+                            {
+                              "key": "UZB",
+                              "text": "Uzbekistan"
+                            },
+                            {
+                              "key": "VUT",
+                              "text": "Vanuatu"
+                            },
+                            {
+                              "key": "VEN",
+                              "text": "Venezuela"
+                            },
+                            {
+                              "key": "VNM",
+                              "text": "Viet Nam"
+                            },
+                            {
+                              "key": "VGB",
+                              "text": "Virgin Islands (british)"
+                            },
+                            {
+                              "key": "VIR",
+                              "text": "Virgin Islands (u.s.)"
+                            },
+                            {
+                              "key": "WLF",
+                              "text": "Wallis And Futuna Islands"
+                            },
+                            {
+                              "key": "ESH",
+                              "text": "Western Sahara"
+                            },
+                            {
+                              "key": "YEM",
+                              "text": "Yemen"
+                            },
+                            {
+                              "key": "YUG",
+                              "text": "Yugoslavia"
+                            },
+                            {
+                              "key": "ZMB",
+                              "text": "Zambia"
+                            },
+                            {
+                              "key": "ZWE",
+                              "text": "Zimbabwe"
+                            }
+                          ]
+                        }
+                      ],
+                      "currentValue": "USA"
+                    },
+                    {
+                      "name": "stateProvinceGeoId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "State Province Geo ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [],
+                          "dynamicOptions": {
+                            "transition": "getGeoCountryStates",
+                            "serverSearch": "false",
+                            "minLength": "1",
+                            "dependsOnField": "countryGeoId",
+                            "dependsOnParameter": ""
+                          }
+                        }
+                      ],
+                      "currentValue": "USA_UT"
+                    },
+                    {
+                      "name": "addressTrust",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Address Trust",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "text": "${contactInfo.postalTrustLevelEnum?.description ?: 'New'} ${contactInfo.postalContactMech?.validateMessage?:''}",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "format": "",
+                          "currencyUnitField": "",
+                          "resolvedText": "New "
+                        }
+                      ]
+                    },
+                    {
+                      "name": "latitude",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Latitude",
+                      "tooltip": "Latitude",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "15",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "longitude",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Longitude",
+                      "tooltip": "Longitude",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "15",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "countryCode",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Country Code",
+                      "tooltip": "Country Code",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "3",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "1"
+                    },
+                    {
+                      "name": "areaCode",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Area Code",
+                      "tooltip": "Area Code",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "4",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "801"
+                    },
+                    {
+                      "name": "contactNumber",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Contact Number",
+                      "tooltip": "Contact Number",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "10",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ],
+                      "currentValue": "234-5678"
+                    },
+                    {
+                      "name": "emailAddress",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Email Address",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "60",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "description",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Description",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-area",
+                          "cols": "60",
+                          "rows": "4",
+                          "maxlength": "",
+                          "readOnly": "false",
+                          "editorType": "",
+                          "autogrow": "false"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "submitButton",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Update",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "5",
+              "md": "",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "ChildSection",
+                  "_type": "section",
+                  "sectionName": "ChildSection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Child Facilities",
+                      "header": [],
+                      "bodyNoPad": [
+                        {
+                          "name": "ChildListForm",
+                          "_type": "form-list",
+                          "formName": "ChildListForm",
+                          "transition": "",
+                          "list": "childFacilityList",
+                          "paginate": "true",
+                          "headerDialog": "",
+                          "selectColumns": "",
+                          "savedFinds": "",
+                          "showCsvButton": "",
+                          "showXlsxButton": "",
+                          "showPageSize": "",
+                          "skipForm": "true",
+                          "editUrl": "editFacility",
+                          "headerFields": [],
+                          "fields": [
+                            {
+                              "name": "facilityName",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Facility Name",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "FacilityNameTemplate",
+                                  "linkType": "anchor",
+                                  "icon": "",
+                                  "badge": "",
+                                  "confirmation": "",
+                                  "tooltip": "",
+                                  "btnType": "",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "facilityId": "ZIRET_WH"
+                                  },
+                                  "url": "/fapps/marble/Facility/EditFacility/editFacility",
+                                  "isAnchorLink": true
+                                }
+                              ]
+                            },
+                            {
+                              "name": "facilityTypeEnumId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Type",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display-entity",
+                                  "entity-name": "moqui.basic.Enumeration",
+                                  "entityName": "moqui.basic.Enumeration",
+                                  "keyFieldName": "",
+                                  "alsoHidden": "true",
+                                  "useCache": "true",
+                                  "defaultText": ""
+                                }
+                              ]
+                            }
+                          ],
+                          "listData": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "NotesSection",
+                  "_type": "section",
+                  "sectionName": "NotesSection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Notes",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "NewNoteDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Add Note",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "NewNoteForm",
+                              "_type": "form-single",
+                              "formName": "NewNoteForm",
+                              "transition": "createFacilityNote",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "facilityId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Facility ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "ZIRET_WH"
+                                },
+                                {
+                                  "name": "noteText",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Note",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "text-area",
+                                      "cols": "60",
+                                      "rows": "6",
+                                      "maxlength": "",
+                                      "readOnly": "false",
+                                      "editorType": "",
+                                      "autogrow": "false"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Add Note",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "body": [
+                        {
+                          "name": "NoteIterateSection",
+                          "_type": "section-iterate",
+                          "sectionName": "NoteIterateSection",
+                          "iterations": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "BoxTypesSection",
+                  "_type": "section",
+                  "sectionName": "BoxTypesSection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Box Types",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "AddBoxTypeDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Add Box Type",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "AddBoxTypeForm",
+                              "_type": "form-single",
+                              "formName": "AddBoxTypeForm",
+                              "transition": "createFacilityBoxType",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "facilityId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Facility ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "ZIRET_WH"
+                                },
+                                {
+                                  "name": "shipmentBoxTypeId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Box Type",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Add Box Type",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "bodyNoPad": [
+                        {
+                          "name": "BoxTypesForm",
+                          "_type": "form-list",
+                          "formName": "BoxTypesForm",
+                          "transition": "",
+                          "list": "boxTypeList",
+                          "paginate": "true",
+                          "headerDialog": "",
+                          "selectColumns": "",
+                          "savedFinds": "",
+                          "showCsvButton": "",
+                          "showXlsxButton": "",
+                          "showPageSize": "",
+                          "skipForm": "true",
+                          "editUrl": "deleteFacilityBoxType",
+                          "headerFields": [],
+                          "fields": [
+                            {
+                              "name": "pseudoId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display",
+                                  "alsoHidden": "true",
+                                  "encode": "true",
+                                  "format": "",
+                                  "currencyUnitField": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "description",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Description",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display",
+                                  "alsoHidden": "true",
+                                  "encode": "true",
+                                  "format": "",
+                                  "currencyUnitField": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "removeButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Remove Button",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": " ",
+                                  "linkType": "auto",
+                                  "icon": "fa fa-trash",
+                                  "badge": "",
+                                  "confirmation": "Remove box type from facility?",
+                                  "tooltip": "",
+                                  "btnType": "",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "facilityId": "ZIRET_WH"
+                                  },
+                                  "url": "/fapps/marble/Facility/EditFacility/deleteFacilityBoxType",
+                                  "isAnchorLink": false
+                                }
+                              ]
+                            }
+                          ],
+                          "listData": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "LocationTypesSection",
+                  "_type": "section",
+                  "sectionName": "LocationTypesSection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Location Types",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "AddLocationTypeDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Add Location Type",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "AddLocationTypeForm",
+                              "_type": "form-single",
+                              "formName": "AddLocationTypeForm",
+                              "transition": "createFacilityLocationType",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "facilityId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Facility ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "ZIRET_WH"
+                                },
+                                {
+                                  "name": "locationTypeEnumId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Location Type",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [
+                                        {
+                                          "key": "FltBulk",
+                                          "text": "Bulk"
+                                        },
+                                        {
+                                          "key": "FltMorgue",
+                                          "text": "Morgue"
+                                        },
+                                        {
+                                          "key": "FltPick",
+                                          "text": "Pick"
+                                        },
+                                        {
+                                          "key": "FltQuarantine",
+                                          "text": "Quarantine"
+                                        },
+                                        {
+                                          "key": "FltReceiving",
+                                          "text": "Receiving"
+                                        },
+                                        {
+                                          "key": "FltStaging",
+                                          "text": "Staging"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "autoStatusId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Auto Status",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allow-empty": "true",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [
+                                        {
+                                          "key": "AstIncoming",
+                                          "text": "Incoming"
+                                        },
+                                        {
+                                          "key": "AstAvailable",
+                                          "text": "Available"
+                                        },
+                                        {
+                                          "key": "AstPromised",
+                                          "text": "Promised"
+                                        },
+                                        {
+                                          "key": "AstDelivered",
+                                          "text": "Delivered"
+                                        },
+                                        {
+                                          "key": "AstActivated",
+                                          "text": "Activated"
+                                        },
+                                        {
+                                          "key": "AstDeactivated",
+                                          "text": "Deactivated"
+                                        },
+                                        {
+                                          "key": "AstOnHold",
+                                          "text": "On Hold"
+                                        },
+                                        {
+                                          "key": "AstInUse",
+                                          "text": "In Use"
+                                        },
+                                        {
+                                          "key": "AstInStorage",
+                                          "text": "In Storage"
+                                        },
+                                        {
+                                          "key": "AstInTransfer",
+                                          "text": "In Transfer"
+                                        },
+                                        {
+                                          "key": "AstInTransferPromise",
+                                          "text": "In Transfer (Promised)"
+                                        },
+                                        {
+                                          "key": "AstReturned",
+                                          "text": "Returned"
+                                        },
+                                        {
+                                          "key": "AstDefective",
+                                          "text": "Defective"
+                                        },
+                                        {
+                                          "key": "AstQuarantine",
+                                          "text": "Quarantine"
+                                        },
+                                        {
+                                          "key": "AstMorgue",
+                                          "text": "Morgue"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Add Location Type",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "bodyNoPad": [
+                        {
+                          "name": "LocationTypesForm",
+                          "_type": "form-list",
+                          "formName": "LocationTypesForm",
+                          "transition": "updateFacilityLocationType",
+                          "list": "locationTypeList",
+                          "paginate": "true",
+                          "headerDialog": "",
+                          "selectColumns": "",
+                          "savedFinds": "",
+                          "showCsvButton": "",
+                          "showXlsxButton": "",
+                          "showPageSize": "",
+                          "skipForm": "",
+                          "editUrl": "deleteFacilityLocationType",
+                          "headerFields": [],
+                          "fields": [
+                            {
+                              "name": "facilityId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Facility ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "locationTypeEnumId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Location Type",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display-entity",
+                                  "entity-name": "moqui.basic.Enumeration",
+                                  "entityName": "moqui.basic.Enumeration",
+                                  "keyFieldName": "",
+                                  "alsoHidden": "true",
+                                  "useCache": "true",
+                                  "defaultText": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "autoStatusId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Auto Status",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allow-empty": "true",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "AstIncoming",
+                                      "text": "Incoming"
+                                    },
+                                    {
+                                      "key": "AstAvailable",
+                                      "text": "Available"
+                                    },
+                                    {
+                                      "key": "AstPromised",
+                                      "text": "Promised"
+                                    },
+                                    {
+                                      "key": "AstDelivered",
+                                      "text": "Delivered"
+                                    },
+                                    {
+                                      "key": "AstActivated",
+                                      "text": "Activated"
+                                    },
+                                    {
+                                      "key": "AstDeactivated",
+                                      "text": "Deactivated"
+                                    },
+                                    {
+                                      "key": "AstOnHold",
+                                      "text": "On Hold"
+                                    },
+                                    {
+                                      "key": "AstInUse",
+                                      "text": "In Use"
+                                    },
+                                    {
+                                      "key": "AstInStorage",
+                                      "text": "In Storage"
+                                    },
+                                    {
+                                      "key": "AstInTransfer",
+                                      "text": "In Transfer"
+                                    },
+                                    {
+                                      "key": "AstInTransferPromise",
+                                      "text": "In Transfer (Promised)"
+                                    },
+                                    {
+                                      "key": "AstReturned",
+                                      "text": "Returned"
+                                    },
+                                    {
+                                      "key": "AstDefective",
+                                      "text": "Defective"
+                                    },
+                                    {
+                                      "key": "AstQuarantine",
+                                      "text": "Quarantine"
+                                    },
+                                    {
+                                      "key": "AstMorgue",
+                                      "text": "Morgue"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Update",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "removeButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Remove Button",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": " ",
+                                  "linkType": "auto",
+                                  "icon": "fa fa-trash",
+                                  "badge": "",
+                                  "confirmation": "Remove location type from facility?",
+                                  "tooltip": "",
+                                  "btnType": "",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "facilityId": "ZIRET_WH"
+                                  },
+                                  "url": "/fapps/marble/Facility/EditFacility/deleteFacilityLocationType",
+                                  "isAnchorLink": false
+                                }
+                              ]
+                            }
+                          ],
+                          "listData": [
+                            {
+                              "facilityId": "ZIRET_WH",
+                              "locationTypeEnumId": "FltMorgue",
+                              "locationTypeEnumId_display": "Morgue",
+                              "autoStatusId": "AstMorgue"
+                            },
+                            {
+                              "facilityId": "ZIRET_WH",
+                              "locationTypeEnumId": "FltPick",
+                              "locationTypeEnumId_display": "Pick",
+                              "autoStatusId": "AstAvailable"
+                            },
+                            {
+                              "facilityId": "ZIRET_WH",
+                              "locationTypeEnumId": "FltQuarantine",
+                              "locationTypeEnumId_display": "Quarantine",
+                              "autoStatusId": "AstQuarantine"
+                            },
+                            {
+                              "facilityId": "ZIRET_WH",
+                              "locationTypeEnumId": "FltReceiving",
+                              "locationTypeEnumId_display": "Receiving",
+                              "autoStatusId": "AstOnHold"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

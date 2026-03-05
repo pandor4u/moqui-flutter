@@ -1,0 +1,1829 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "dashboard",
+  "menuTitle": "Dashboard",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "",
+              "md": "6",
+              "sm": "",
+              "xs": "",
+              "style": "text-center",
+              "children": [
+                {
+                  "name": "SearchOptions",
+                  "_type": "form-single",
+                  "formName": "SearchOptions",
+                  "transition": "../QuickSearch",
+                  "map": "fieldValues",
+                  "fieldLayout": {
+                    "_type": "field-layout",
+                    "rows": [
+                      {
+                        "_type": "field-row-big"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "name": "documentType",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Document Type",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "no-current-selected-key": " ",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": " ",
+                              "text": "Any Type"
+                            },
+                            {
+                              "key": "MantleCommunicationEvent",
+                              "text": "Communication Event"
+                            },
+                            {
+                              "key": "MantleEvent",
+                              "text": "Event"
+                            },
+                            {
+                              "key": "MantleFacility",
+                              "text": "Facility"
+                            },
+                            {
+                              "key": "MantleParty",
+                              "text": "Party"
+                            },
+                            {
+                              "key": "MantleProduct",
+                              "text": "Product"
+                            },
+                            {
+                              "key": "MantleProject",
+                              "text": "Project"
+                            },
+                            {
+                              "key": "MantleRequest",
+                              "text": "Request"
+                            },
+                            {
+                              "key": "MantleTask",
+                              "text": "Task"
+                            },
+                            {
+                              "key": "MantleWikiPage",
+                              "text": "Wiki Page"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "queryString",
+                      "from": "originalQueryString",
+                      "hide": "",
+                      "align": "",
+                      "title": "Query String",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "25",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "submitButton",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Search",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "",
+              "md": "6",
+              "sm": "",
+              "xs": "",
+              "style": "text-center",
+              "children": [
+                {
+                  "name": "QuickInfoSection",
+                  "_type": "section",
+                  "sectionName": "QuickInfoSection",
+                  "widgets": [
+                    {
+                      "style": "big-row text-center q-my-md",
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "style": "big-row no-wrap",
+                          "type": "span",
+                          "_type": "container",
+                          "containerType": "span",
+                          "children": [
+                            {
+                              "style": "big-row-item q-my-auto q-ml-md q-mr-sm",
+                              "_type": "container",
+                              "containerType": "div",
+                              "children": [
+                                {
+                                  "type": "h4",
+                                  "_type": "label",
+                                  "text": "Sales",
+                                  "resolvedText": "Sales",
+                                  "labelType": "h4",
+                                  "encode": "true"
+                                }
+                              ]
+                            },
+                            {
+                              "style": "big-row-item q-my-auto",
+                              "_type": "container",
+                              "containerType": "div",
+                              "children": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "Placed",
+                                  "linkType": "auto",
+                                  "icon": "",
+                                  "badge": "0",
+                                  "confirmation": "",
+                                  "tooltip": "",
+                                  "btnType": "default",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "statusId_op": "in",
+                                    "orderType": "Sales",
+                                    "statusId": "OrderPlaced,OrderProcessing"
+                                  },
+                                  "url": "/fapps/marble/Order/FindOrder",
+                                  "isAnchorLink": true
+                                }
+                              ]
+                            },
+                            {
+                              "style": "big-row-item q-my-auto",
+                              "_type": "container",
+                              "containerType": "div",
+                              "children": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "Approved",
+                                  "linkType": "auto",
+                                  "icon": "",
+                                  "badge": "0",
+                                  "confirmation": "",
+                                  "tooltip": "",
+                                  "btnType": "default",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "statusId_op": "in",
+                                    "orderType": "Sales",
+                                    "statusId": "OrderApproved,OrderSent"
+                                  },
+                                  "url": "/fapps/marble/Order/FindOrder",
+                                  "isAnchorLink": true
+                                }
+                              ]
+                            },
+                            {
+                              "style": "big-row-item q-my-auto",
+                              "_type": "container",
+                              "containerType": "div",
+                              "children": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "Held",
+                                  "linkType": "auto",
+                                  "icon": "",
+                                  "badge": "0",
+                                  "confirmation": "",
+                                  "tooltip": "",
+                                  "btnType": "default",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "statusId": "OrderHold",
+                                    "orderType": "Sales"
+                                  },
+                                  "url": "/fapps/marble/Order/FindOrder",
+                                  "isAnchorLink": true
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "style": "big-row no-wrap",
+                          "type": "span",
+                          "_type": "container",
+                          "containerType": "span",
+                          "children": [
+                            {
+                              "style": "big-row-item q-my-auto q-ml-md q-mr-sm",
+                              "_type": "container",
+                              "containerType": "div",
+                              "children": [
+                                {
+                                  "type": "h4",
+                                  "_type": "label",
+                                  "text": "Requests",
+                                  "resolvedText": "Requests",
+                                  "labelType": "h4",
+                                  "encode": "true"
+                                }
+                              ]
+                            },
+                            {
+                              "style": "big-row-item q-my-auto",
+                              "_type": "container",
+                              "containerType": "div",
+                              "children": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "Submitted",
+                                  "linkType": "auto",
+                                  "icon": "",
+                                  "badge": "1",
+                                  "confirmation": "",
+                                  "tooltip": "",
+                                  "btnType": "default",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "statusId": "ReqSubmitted",
+                                    "roleTypeId": "Customer"
+                                  },
+                                  "url": "/fapps/marble/Request/FindRequest",
+                                  "isAnchorLink": true
+                                }
+                              ]
+                            },
+                            {
+                              "style": "big-row-item q-my-auto",
+                              "_type": "container",
+                              "containerType": "div",
+                              "children": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "In Progress",
+                                  "linkType": "auto",
+                                  "icon": "",
+                                  "badge": "0",
+                                  "confirmation": "",
+                                  "tooltip": "",
+                                  "btnType": "default",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "statusId_op": "in",
+                                    "roleTypeId": "Customer",
+                                    "statusId": "ReqReviewed,ReqInProgress"
+                                  },
+                                  "url": "/fapps/marble/Request/FindRequest",
+                                  "isAnchorLink": true
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "_type": "label",
+          "text": "&nbsp;",
+          "resolvedText": "&nbsp;",
+          "labelType": "p",
+          "encode": "false"
+        },
+        {
+          "style": "diagram-sequence",
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "",
+              "md": "",
+              "sm": "4",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "style": "diagram-sequence-actor",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Customers",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Customer/FindCustomer",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Marketing",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "../Marketing",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "style": "fa left",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Customer <strong>Requests</strong>",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Request/FindRequest",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Sales <strong>Orders</strong> &amp; Quotes",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "orderType": "Sales"
+                      },
+                      "url": "/fapps/marble/Order/FindOrder",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Sales <strong>Shipments</strong>",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "parentShipmentType": "ShpTpOutgoing"
+                          },
+                          "url": "/fapps/marble/Shipment/FindShipment",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Shipping - Pick & Pack",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Shipping/dashboard",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "style": "fa left",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Receivable <strong>Invoices</strong>",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "invoiceType": "Receivable"
+                      },
+                      "url": "/fapps/marble/Accounting/Invoice/FindInvoice",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa left",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Customer Credit Memos",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "invoiceTypeEnumId": "InvoiceCreditMemo",
+                        "invoiceType": "Payable"
+                      },
+                      "url": "/fapps/marble/Accounting/Invoice/FindInvoice",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Customer <strong>Payments</strong>",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "paymentTypeEnumId": "PtInvoicePayment",
+                        "paymentType": "Incoming"
+                      },
+                      "url": "/fapps/marble/Accounting/Payment/FindPayment",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item smaller",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "style": "text-normal",
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Sales Returns & RMA",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "returnType": "Customer"
+                          },
+                          "url": "/fapps/marble/Return/FindReturn",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item smaller",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Customer Return Shipments",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "shipmentTypeEnumId": "ShpTpSalesReturn"
+                          },
+                          "url": "/fapps/marble/Shipment/FindShipment",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item smaller",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Payable Return Invoices",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "invoiceTypeEnumId": "InvoiceReturn",
+                        "invoiceType": "Payable"
+                      },
+                      "url": "/fapps/marble/Accounting/Invoice/FindInvoice",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item smaller",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Outgoing Refund Payments",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "paymentTypeEnumId": "PtRefund",
+                        "paymentType": "Outgoing"
+                      },
+                      "url": "/fapps/marble/Accounting/Payment/FindPayment",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa left",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "",
+              "md": "",
+              "sm": "4",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "type": "p",
+                  "style": "lt-sm visible-xs-block",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "p",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-actor",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Internal",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "roleTypeId": "OrgInternal"
+                      },
+                      "url": "/fapps/marble/Party/FindParty",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "HR",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/HumanRes/dashboard",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "label",
+                          "text": " - ",
+                          "resolvedText": " - ",
+                          "labelType": "span",
+                          "encode": "true"
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Employees",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "roleTypeId": "Employee"
+                          },
+                          "url": "/fapps/marble/Party/FindParty",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "style": "text-strong",
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Requests",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Request/FindRequest",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "style": "text-strong",
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Products",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Catalog/Product/FindProduct",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "_type": "label",
+                      "text": " - ",
+                      "resolvedText": " - ",
+                      "labelType": "span",
+                      "encode": "true"
+                    },
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Catalog",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Catalog/dashboard",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "style": "text-strong",
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Assets",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Asset/dashboard",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "label",
+                          "text": " - ",
+                          "resolvedText": " - ",
+                          "labelType": "span",
+                          "encode": "true"
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Inventory",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "assetTypeEnumId": "AstTpInventory"
+                          },
+                          "url": "/fapps/marble/Asset/Asset/FindSummary",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Manufacturing",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Manufacturing/dashboard",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "style": "text-strong",
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Projects",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Project/FindProject",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Tasks",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Task/FindTask",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "All Parties",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Party/FindParty",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Facilities",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Facility/FindFacility",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Stores",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/ProductStore/FindProductStore",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "label",
+                          "text": "Content: ",
+                          "resolvedText": "Content: ",
+                          "labelType": "span",
+                          "encode": "true"
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Wiki",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Wiki/WikiSpaces",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "label",
+                          "text": " - ",
+                          "resolvedText": " - ",
+                          "labelType": "span",
+                          "encode": "true"
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Blogs",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Wiki/WikiBlogs",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Surveys",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Survey/FindSurvey",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "style": "text-strong",
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Accounting",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Accounting/dashboard",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "_type": "label",
+                      "text": " - ",
+                      "resolvedText": " - ",
+                      "labelType": "span",
+                      "encode": "true"
+                    },
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Reports",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Accounting/Reports/ReportList",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "style": "text-center",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Custom Reports",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/QuickViewReport",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "_type": "label",
+                      "text": " - ",
+                      "resolvedText": " - ",
+                      "labelType": "span",
+                      "encode": "true"
+                    },
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Report Builder",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/SimpleReport/FindReport",
+                      "isAnchorLink": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "",
+              "md": "",
+              "sm": "4",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "type": "p",
+                  "style": "lt-sm visible-xs-block",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "p",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-actor",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Suppliers",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Supplier/FindSupplier",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "type": "p",
+                  "style": "gt-xs hidden-xs",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "p",
+                  "encode": "false"
+                },
+                {
+                  "type": "div",
+                  "style": "gt-xs hidden-xs",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Purchase <strong>Requests</strong>",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Request/FindRequest",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Purchase <strong>Orders</strong> &amp; Quotes",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "orderType": "Purchase"
+                          },
+                          "url": "/fapps/marble/Order/FindOrder",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Purchase <strong>Shipments</strong>",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "parentShipmentType": "ShpTpIncoming"
+                      },
+                      "url": "/fapps/marble/Shipment/FindShipment",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa left",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Payable <strong>Invoices</strong>",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "invoiceType": "Payable"
+                      },
+                      "url": "/fapps/marble/Accounting/Invoice/FindInvoice",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa left",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Supplier Credit Memos",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "invoiceTypeEnumId": "InvoiceCreditMemo",
+                        "invoiceType": "Receivable"
+                      },
+                      "url": "/fapps/marble/Accounting/Invoice/FindInvoice",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Supplier <strong>Payments</strong>",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "paymentTypeEnumId": "PtInvoicePayment",
+                        "paymentType": "Outgoing"
+                      },
+                      "url": "/fapps/marble/Accounting/Payment/FindPayment",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "&nbsp;",
+                  "resolvedText": "&nbsp;",
+                  "labelType": "div",
+                  "encode": "false"
+                },
+                {
+                  "style": "diagram-sequence-item smaller",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Purchase Returns",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "returnType": "Supplier"
+                          },
+                          "url": "/fapps/marble/Return/FindReturn",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item smaller",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Supplier Return Shipments",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "shipmentTypeEnumId": "ShpTpPurchaseReturn"
+                          },
+                          "url": "/fapps/marble/Shipment/FindShipment",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item smaller",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Receivable Return Invoices",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "invoiceTypeEnumId": "InvoiceReturn",
+                        "invoiceType": "Receivable"
+                      },
+                      "url": "/fapps/marble/Accounting/Invoice/FindInvoice",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa right",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "style": "diagram-sequence-item smaller",
+                  "_type": "container",
+                  "containerType": "div",
+                  "children": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Incoming Refund Payments",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "paymentTypeEnumId": "PtRefund",
+                        "paymentType": "Incoming"
+                      },
+                      "url": "/fapps/marble/Accounting/Payment/FindPayment",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "style": "fa left",
+                      "type": "i",
+                      "_type": "container",
+                      "containerType": "i",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "ShipmentPackages",
+  "menuTitle": "Packages",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "name": "ShipmentPackageSection",
+          "_type": "section",
+          "sectionName": "ShipmentPackageSection",
+          "widgets": [
+            {
+              "_type": "container-box",
+              "boxTitle": "Packages##Shipment",
+              "header": [],
+              "toolbar": [
+                {
+                  "name": "ShipShipmentSection",
+                  "condition": "(isIncoming && shipment.statusId in ['ShipInput', 'ShipScheduled', 'ShipPicked', 'ShipPacked']) ||                         ((isOutgoing || isTransfer) && shipment.statusId == 'ShipPacked')",
+                  "_type": "section",
+                  "sectionName": "ShipShipmentSection"
+                },
+                {
+                  "name": "RequestLabelsSection",
+                  "condition": "shippingGatewayConfigId && !hasAllLabels && (isOutgoing || isTransfer) &&                     ((shipment.statusId == 'ShipScheduled' && hasNoItems) || (shipment.statusId in ['ShipPacked', 'ShipShipped']))",
+                  "_type": "section",
+                  "sectionName": "RequestLabelsSection"
+                },
+                {
+                  "condition": "shippingGatewayConfigId && hasAnyLabels",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Track Labels",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "shipmentId": "100002"
+                  },
+                  "url": "/fapps/marble/Shipment/ShipmentPackages/trackShipmentLabels",
+                  "isAnchorLink": false
+                },
+                {
+                  "name": "PrintLabelsSection",
+                  "condition": "hasAnyLabels && networkPrinterList",
+                  "_type": "section",
+                  "sectionName": "PrintLabelsSection"
+                },
+                {
+                  "name": "QzPrintLabelsSection",
+                  "condition": "hasAnyLabels",
+                  "_type": "section",
+                  "sectionName": "QzPrintLabelsSection"
+                },
+                {
+                  "condition": "shippingGatewayConfig?.getAutoPackageInfoName",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Auto Packages",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "Remove existing packages and create new based on auto-package data?",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "resetExisting": "true",
+                    "shipmentId": "100002"
+                  },
+                  "url": "/fapps/marble/Shipment/ShipmentPackages/createShipmentAutoPackages",
+                  "isAnchorLink": false,
+                  "parameterFromFields": {
+                    "resetExisting": "true"
+                  }
+                },
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Add Package",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "shipmentId": "100002"
+                  },
+                  "url": "/fapps/marble/Shipment/ShipmentPackages/createPackage",
+                  "isAnchorLink": false
+                }
+              ],
+              "body": [
+                {
+                  "name": "PackageOptionsForm",
+                  "_type": "form-single",
+                  "formName": "PackageOptionsForm",
+                  "transition": ".",
+                  "map": "fieldValues",
+                  "fieldLayout": {
+                    "_type": "field-layout",
+                    "rows": [
+                      {
+                        "_type": "field-row-big"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "name": "filterProductId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Product",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "submitBtn",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Filter",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "PackageListSection",
+                  "_type": "section-iterate",
+                  "sectionName": "PackageListSection",
+                  "iterations": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

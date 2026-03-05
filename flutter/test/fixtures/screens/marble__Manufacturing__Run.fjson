@@ -1,0 +1,564 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Run",
+  "menuTitle": "Runs",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "RunPanel",
+          "type": "tab",
+          "_type": "subscreens-panel",
+          "menuType": "tab",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "EditRun",
+              "menuTitle": "Production Run",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "RunProducts",
+              "menuTitle": "Run Products",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "RunConsumed",
+              "menuTitle": "Assets Consumed",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "RunProduced",
+              "menuTitle": "Assets Produced",
+              "menuIndex": 4,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "FindRun",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "FindRun",
+            "menuTitle": "Production Runs",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "_type": "container-box",
+                    "boxTitle": "Runs",
+                    "header": [],
+                    "toolbar": [
+                      {
+                        "id": "NewRunContainer",
+                        "_type": "container-dialog",
+                        "buttonText": "New Production Run",
+                        "dialogTitle": "",
+                        "width": "",
+                        "icon": "",
+                        "btnType": "",
+                        "children": [
+                          {
+                            "condition": "warehouseFacility",
+                            "type": "strong",
+                            "_type": "label",
+                            "text": "Warehouse: ",
+                            "resolvedText": "Warehouse: ",
+                            "labelType": "strong",
+                            "encode": "true"
+                          },
+                          {
+                            "name": "NewRunForm",
+                            "_type": "form-single",
+                            "formName": "NewRunForm",
+                            "transition": "createProductionRun",
+                            "map": "fieldValues",
+                            "fields": [
+                              {
+                                "name": "workEffortName",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Name",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "text-line",
+                                    "size": "60",
+                                    "inputType": "text",
+                                    "maxlength": "",
+                                    "mask": "",
+                                    "prefix": ""
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "facilityId",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "WH/Line",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "drop-down",
+                                    "allow-empty": "true",
+                                    "allowEmpty": "true",
+                                    "allowMultiple": "false",
+                                    "submitOnSelect": "false",
+                                    "current": "selected",
+                                    "showNot": "false",
+                                    "options": [],
+                                    "dynamicOptions": {
+                                      "transition": "getFacilityList",
+                                      "serverSearch": "true",
+                                      "minLength": "0"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "estimatedStartDate",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Run Date",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "date-time",
+                                    "dateType": "timestamp",
+                                    "format": "",
+                                    "minuteStepping": ""
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "estimatedWorkDuration",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Est. Hours",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "text-line",
+                                    "size": "8",
+                                    "inputType": "text",
+                                    "maxlength": "",
+                                    "mask": "",
+                                    "prefix": ""
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "produceProductId",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Product to Produce",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "drop-down",
+                                    "allow-empty": "true",
+                                    "allowEmpty": "true",
+                                    "allowMultiple": "false",
+                                    "submitOnSelect": "false",
+                                    "current": "selected",
+                                    "showNot": "false",
+                                    "options": [],
+                                    "dynamicOptions": {
+                                      "transition": "getProductList",
+                                      "serverSearch": "true",
+                                      "minLength": "0"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "produceEstimatedQuantity",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Est. Quantity",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "text-line",
+                                    "size": "10",
+                                    "inputType": "text",
+                                    "maxlength": "",
+                                    "mask": "",
+                                    "prefix": ""
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "produceEstimatedAmount",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Produce Estimated Amount",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "display",
+                                    "dynamic-transition": "getProductAmount",
+                                    "alsoHidden": "true",
+                                    "encode": "true",
+                                    "format": "",
+                                    "currencyUnitField": "",
+                                    "dependsOnField": "produceProductId",
+                                    "dependsOnParameter": ""
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "submitButton",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Create",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "submit",
+                                    "text": "",
+                                    "confirmation": "",
+                                    "btnType": "",
+                                    "icon": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "bodyNoPad": [
+                      {
+                        "name": "RunList",
+                        "_type": "form-list",
+                        "formName": "RunList",
+                        "transition": "",
+                        "list": "runList",
+                        "paginate": "true",
+                        "headerDialog": "true",
+                        "selectColumns": "true",
+                        "savedFinds": "true",
+                        "showCsvButton": "",
+                        "showXlsxButton": "",
+                        "showPageSize": "",
+                        "skipForm": "true",
+                        "editUrl": "runDetail",
+                        "headerFields": [
+                          {
+                            "name": "workEffortId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Run ID",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-find",
+                                "size": "10",
+                                "hide-options": "true",
+                                "maxlength": "",
+                                "ignoreCase": "true",
+                                "defaultOperator": "contains",
+                                "hideOptions": "true"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "facilityId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "WH/Line",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getFacilityList",
+                                  "serverSearch": "true",
+                                  "minLength": "0"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "statusId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Status",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "widget-template-include",
+                                "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#statusDropDown"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "estimatedStartDate",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Start Date",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "date-period",
+                                "allowEmpty": "true",
+                                "time": "false"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "produceProductId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Produce",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getProductList",
+                                  "serverSearch": "true",
+                                  "minLength": "0"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "consumeProductId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Consume",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getProductList",
+                                  "serverSearch": "true",
+                                  "minLength": "0"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "findButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Find",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ],
+                        "fields": [
+                          {
+                            "name": "workEffortId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Run ID",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "WorkEffortNameTemplate",
+                                "linkType": "anchor",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "runDetail",
+                                "isAnchorLink": true
+                              }
+                            ]
+                          },
+                          {
+                            "name": "facilityId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "WH/Line",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "FacilityNameTemplate",
+                                "linkType": "anchor",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "editFacility",
+                                "isAnchorLink": true
+                              }
+                            ]
+                          },
+                          {
+                            "name": "statusId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Status",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "display-entity",
+                                "entity-name": "moqui.basic.StatusItem",
+                                "entityName": "moqui.basic.StatusItem",
+                                "keyFieldName": "",
+                                "alsoHidden": "true",
+                                "useCache": "true",
+                                "defaultText": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "estimatedStartDate",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Start Date",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "display",
+                                "alsoHidden": "true",
+                                "encode": "true",
+                                "format": "",
+                                "currencyUnitField": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "produceProductId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Produce",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "section-iterate",
+                                "name": "ProduceList",
+                                "list": "produceList",
+                                "entry": "product"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "consumeProductId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Consume",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "section-iterate",
+                                "name": "ConsumeList",
+                                "list": "consumeList",
+                                "entry": "product"
+                              }
+                            ]
+                          }
+                        ],
+                        "listData": [
+                          {
+                            "statusId": "WeInPlanning",
+                            "statusId_display": "In Planning",
+                            "estimatedStartDate": "1704088800000",
+                            "estimatedStartDate_display": "2024-01-01 00:00",
+                            "produceProductId": "",
+                            "consumeProductId": ""
+                          },
+                          {
+                            "statusId": "WeInPlanning",
+                            "statusId_display": "In Planning",
+                            "estimatedStartDate": "1704088800000",
+                            "estimatedStartDate_display": "2024-01-01 00:00",
+                            "produceProductId": "",
+                            "consumeProductId": ""
+                          }
+                        ],
+                        "paginateInfo": {
+                          "pageIndex": 0,
+                          "pageSize": 20,
+                          "count": 2,
+                          "pageMaxIndex": 0,
+                          "pageRangeLow": 1,
+                          "pageRangeHigh": 2
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "FindRun"
+        }
+      ]
+    }
+  ]
+}

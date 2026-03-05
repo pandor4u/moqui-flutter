@@ -1,0 +1,973 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FindProduct",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "NewProductDialog",
+          "_type": "container-dialog",
+          "buttonText": "New Product",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "NewProductForm",
+              "_type": "form-single",
+              "formName": "NewProductForm",
+              "transition": "createProduct",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "productName",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Product Name",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "inputType": "text",
+                      "size": "",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "productTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Product Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "false",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "PtAsset",
+                          "text": "Asset (Good)"
+                        },
+                        {
+                          "key": "PtAssetUse",
+                          "text": "Asset Use"
+                        },
+                        {
+                          "key": "PtConfigurable",
+                          "text": "Configurable Good"
+                        },
+                        {
+                          "key": "PtDigital",
+                          "text": "Digital (download)"
+                        },
+                        {
+                          "key": "PtDigitalAsset",
+                          "text": "Digital and Asset"
+                        },
+                        {
+                          "key": "PtFacilityUse",
+                          "text": "Facility Use"
+                        },
+                        {
+                          "key": "PtFinished",
+                          "text": "Finished Good"
+                        },
+                        {
+                          "key": "PtPickAssembly",
+                          "text": "Pick Assembly"
+                        },
+                        {
+                          "key": "PtService",
+                          "text": "Service"
+                        },
+                        {
+                          "key": "PtVirtual",
+                          "text": "Virtual (with variants)"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "ownerPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Owned By Org",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "_NA_",
+                          "text": "N/A"
+                        },
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "ZIHR: Ziziwork Human Resources"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "ZICORP: Ziziwork Industries"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "ZISAL: Ziziwork Sales"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "ZISER: Ziziwork Services"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ProductsForm",
+          "_type": "form-list",
+          "formName": "ProductsForm",
+          "transition": "",
+          "list": "productList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "true",
+          "savedFinds": "true",
+          "showCsvButton": "true",
+          "showXlsxButton": "",
+          "showPageSize": "true",
+          "skipForm": "true",
+          "editUrl": "editProduct",
+          "headerFields": [
+            {
+              "name": "pseudoId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "20",
+                  "default-operator": "begins",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "productName",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Name",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "25",
+                  "default-operator": "begins",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "productTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "productClassEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product Class",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "assetTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Asset Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "assetClassEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Asset Class",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "ownerPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Owned By Org",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "_NA_",
+                      "text": "N/A"
+                    },
+                    {
+                      "key": "ORG_ZIZI_HR",
+                      "text": "ZIHR: Ziziwork Human Resources"
+                    },
+                    {
+                      "key": "ORG_ZIZI_CORP",
+                      "text": "ZICORP: Ziziwork Industries"
+                    },
+                    {
+                      "key": "ORG_ZIZI_RETAIL",
+                      "text": "ZIRET: Ziziwork Retail & Wholesale"
+                    },
+                    {
+                      "key": "ORG_ZIZI_SALES",
+                      "text": "ZISAL: Ziziwork Sales"
+                    },
+                    {
+                      "key": "ORG_ZIZI_SERVICES",
+                      "text": "ZISER: Ziziwork Services"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "idValue",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Other ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "default-operator": "begins",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "assocFromProductId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Assoc From (Virtual, BOM)",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-multiple": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "true",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getProductList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "productFeatureId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Feature",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-multiple": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "true",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getFeatureList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "productCategoryId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Category",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-multiple": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "true",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getCategoryList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "pseudoId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Catalog/Product/FindProduct/editProduct",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "productName",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Name",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Catalog/Product/FindProduct/editProduct",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "productTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "productClassEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product Class",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "assetTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Asset Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "assetClassEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Asset Class",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "ownerPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "conditionalFields": [
+                {
+                  "condition": "ownerPartyId == '_NA_'",
+                  "conditionResult": false,
+                  "title": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "text": " ",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "",
+                      "resolvedText": " "
+                    }
+                  ]
+                }
+              ],
+              "title": "Owned By Org",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.PartyDetail",
+                  "text": "PartyNameTemplate",
+                  "entityName": "mantle.party.PartyDetail",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "prodIdents",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Other IDs",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "section-iterate",
+                  "name": "OtherProductIdSection",
+                  "list": "prodIdentList",
+                  "entry": "prodIdent"
+                }
+              ]
+            },
+            {
+              "name": "prodAssocFroms",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Assoc From",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "section-iterate",
+                  "name": "AssocFromSection",
+                  "list": "prodAssocFromList",
+                  "entry": "prodAssoc"
+                }
+              ]
+            }
+          ],
+          "listData": [
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpEquipment",
+              "assetTypeEnumId_display": "Equipment",
+              "assetClassEnumId": "AsClsMfgEquip",
+              "assetClassEnumId_display": "Manufacturing Equipment",
+              "ownerPartyId": "_NA_",
+              "ownerPartyId_display": " ",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "EQUIP_AB4",
+              "productName_linkText": "Assembly Bot 4000"
+            },
+            {
+              "productTypeEnumId": "PtPickAssembly",
+              "productTypeEnumId_display": "Pick Assembly",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_PA",
+              "productName_linkText": "Demo Bundle One"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_UNIT",
+              "productName_linkText": "Demo Product One Unit"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_1_1",
+              "productName_linkText": "Demo Product One-One"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_1_2",
+              "productName_linkText": "Demo Product One-Two"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_3_1",
+              "productName_linkText": "Demo Product Three-One"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_2_1",
+              "productName_linkText": "Demo Product Two-One"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryRaw",
+              "assetClassEnumId_display": "Inventory - Raw Material",
+              "ownerPartyId": "_NA_",
+              "ownerPartyId_display": " ",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_RM_1",
+              "productName_linkText": "Demo Raw Material 1"
+            },
+            {
+              "productTypeEnumId": "PtDigitalAsset",
+              "productTypeEnumId_display": "Digital and Asset",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryDig",
+              "assetClassEnumId_display": "Inventory - Digital Good",
+              "ownerPartyId": "_NA_",
+              "ownerPartyId_display": " ",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_DIG_SER",
+              "productName_linkText": "Demo Serialized Digital Asset"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventorySub",
+              "assetClassEnumId_display": "Inventory - Sub-assembly",
+              "ownerPartyId": "_NA_",
+              "ownerPartyId_display": " ",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_SA_1",
+              "productName_linkText": "Demo Sub Assembly One"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventorySub",
+              "assetClassEnumId_display": "Inventory - Sub-assembly",
+              "ownerPartyId": "_NA_",
+              "ownerPartyId_display": " ",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_SA_2",
+              "productName_linkText": "Demo Sub Assembly Two"
+            },
+            {
+              "productTypeEnumId": "PtVirtual",
+              "productTypeEnumId_display": "Virtual (with variants)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "",
+              "assetTypeEnumId_display": "",
+              "assetClassEnumId": "",
+              "assetClassEnumId_display": "",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_VAR",
+              "productName_linkText": "Demo with Variants"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_VAR_BL_XL",
+              "productName_linkText": "Demo with Variants Black Extra Large"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_VAR_BL_LG",
+              "productName_linkText": "Demo with Variants Black Large"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_VAR_BL_MD",
+              "productName_linkText": "Demo with Variants Black Medium"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_VAR_BL_SM",
+              "productName_linkText": "Demo with Variants Black Small"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_VAR_BU_XL",
+              "productName_linkText": "Demo with Variants Blue Extra Large"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_VAR_BU_LG",
+              "productName_linkText": "Demo with Variants Blue Large"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_VAR_BU_MD",
+              "productName_linkText": "Demo with Variants Blue Medium"
+            },
+            {
+              "productTypeEnumId": "PtAsset",
+              "productTypeEnumId_display": "Asset (Good)",
+              "productClassEnumId": "",
+              "productClassEnumId_display": "",
+              "assetTypeEnumId": "AstTpInventory",
+              "assetTypeEnumId_display": "Inventory",
+              "assetClassEnumId": "AsClsInventoryFin",
+              "assetClassEnumId_display": "Inventory - Finished Good",
+              "ownerPartyId": "ORG_ZIZI_RETAIL",
+              "ownerPartyId_display": "ZIRET: Ziziwork Retail & Wholesale",
+              "prodIdents": "",
+              "prodAssocFroms": "",
+              "pseudoId_linkText": "DEMO_VAR_BU_SM",
+              "productName_linkText": "Demo with Variants Blue Small"
+            }
+          ],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 25,
+            "pageMaxIndex": 1,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 20
+          },
+          "exportBaseUrl": "/fapps/marble/Catalog/Product/FindProduct"
+        }
+      ]
+    }
+  ]
+}

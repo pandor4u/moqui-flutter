@@ -1,0 +1,563 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "PartyTasks",
+  "menuTitle": "Tasks",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "AddUserAssignDialog",
+          "_type": "container-dialog",
+          "buttonText": "Add Task Assignment",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "AddUserAssignForm",
+              "_type": "form-single",
+              "formName": "AddUserAssignForm",
+              "transition": "addUserAssign",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "partyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Party ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "CustJqp"
+                },
+                {
+                  "name": "rootWorkEffortId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Project",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": []
+                    }
+                  ]
+                },
+                {
+                  "name": "workEffortId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Task",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "combo-box": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getProjectTasks",
+                        "serverSearch": "false",
+                        "minLength": "1",
+                        "dependsOnField": "rootWorkEffortId",
+                        "dependsOnParameter": ""
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "roleTypeId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Role",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "Assignee",
+                          "text": "Assignee"
+                        },
+                        {
+                          "key": "Manager",
+                          "text": "Manager"
+                        },
+                        {
+                          "key": "Reporter",
+                          "text": "Reporter"
+                        },
+                        {
+                          "key": "Watcher",
+                          "text": "Watcher"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "fromDate",
+                  "from": "ec.user.nowTimestamp",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ],
+                  "currentValue": "2026-03-04 13:30:12.245"
+                },
+                {
+                  "name": "thruDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Thru Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "expectationEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Expectation",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "WepeFyi",
+                          "text": "For Your Information"
+                        },
+                        {
+                          "key": "WepeImmediate",
+                          "text": "Immediate Response Requested"
+                        },
+                        {
+                          "key": "WepeInvRequested",
+                          "text": "Involvement Requested"
+                        },
+                        {
+                          "key": "WepeInvRequired",
+                          "text": "Involvement Required"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "emplPositionClassId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Position Class",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ProjectManager",
+                          "text": "Project Manager"
+                        },
+                        {
+                          "key": "GeneralManager",
+                          "text": "General Manager"
+                        },
+                        {
+                          "key": "Programmer",
+                          "text": "Programmer"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "statusId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Status",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "WeptOffered",
+                          "text": "Offered"
+                        },
+                        {
+                          "key": "WeptAssigned",
+                          "text": "Assigned"
+                        },
+                        {
+                          "key": "WeptArrived",
+                          "text": "Arrived"
+                        },
+                        {
+                          "key": "WeptDeparted",
+                          "text": "Departed"
+                        },
+                        {
+                          "key": "WeptDeclined",
+                          "text": "Declined"
+                        },
+                        {
+                          "key": "WeptUnassigned",
+                          "text": "Unassigned"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "receiveNotifications",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Receive Notifications",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "no-current-selected-key": "N",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "Y",
+                          "text": "Y"
+                        },
+                        {
+                          "key": "N",
+                          "text": "N"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Add Assignment",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "UpdateUserAssignForm",
+          "_type": "form-list",
+          "formName": "UpdateUserAssignForm",
+          "transition": "updateUserAssign",
+          "list": "weapList",
+          "paginate": "true",
+          "headerDialog": "",
+          "selectColumns": "",
+          "savedFinds": "",
+          "showCsvButton": "",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "",
+          "editUrl": "editTask",
+          "headerFields": [],
+          "fields": [
+            {
+              "name": "partyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Party ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "workEffortId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Task",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": " ",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": " "
+                },
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null - null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": "CustJqp"
+                  },
+                  "url": "/fapps/marble/Party/PartyTasks/editTask",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "roleTypeId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Role",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "RoleType",
+                  "text": "${description}",
+                  "entityName": "RoleType",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "fromDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "thruDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Thru Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-time",
+                  "dateType": "timestamp",
+                  "format": "",
+                  "minuteStepping": ""
+                }
+              ]
+            },
+            {
+              "name": "expectationEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Expectation",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "emplPositionClassId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Position Class",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "ProjectManager",
+                      "text": "Project Manager"
+                    },
+                    {
+                      "key": "GeneralManager",
+                      "text": "General Manager"
+                    },
+                    {
+                      "key": "Programmer",
+                      "text": "Programmer"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "partyStatusId",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#statusTransitionDropDown"
+                }
+              ]
+            },
+            {
+              "name": "receiveNotifications",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Notifs?",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "no-current-selected-key": "N",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "Y",
+                      "text": "Y"
+                    },
+                    {
+                      "key": "N",
+                      "text": "N"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Update",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "listData": []
+        }
+      ]
+    }
+  ]
+}

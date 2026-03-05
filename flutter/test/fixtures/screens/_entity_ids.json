@@ -1,0 +1,173 @@
+{
+  "EditParty": {
+    "partyId": "CustJqp"
+  },
+  "PartyCalendar": {
+    "partyId": "CustJqp"
+  },
+  "PartyEmails": {
+    "partyId": "CustJqp"
+  },
+  "PartyMessages": {
+    "partyId": "CustJqp"
+  },
+  "PartyRelated": {
+    "partyId": "CustJqp"
+  },
+  "PartyTimeEntries": {
+    "partyId": "CustJqp"
+  },
+  "PartyAgreements": {
+    "partyId": "CustJqp"
+  },
+  "PartyProjects": {
+    "partyId": "CustJqp"
+  },
+  "PartyTasks": {
+    "partyId": "CustJqp"
+  },
+  "PartyRequests": {
+    "partyId": "CustJqp"
+  },
+  "FinancialInfo": {
+    "partyId": "CustJqp"
+  },
+  "EditCustomer": {
+    "partyId": "100051"
+  },
+  "EditProduct": {
+    "productId": "DEMO_1_1"
+  },
+  "Content": {
+    "productId": "DEMO_1_1"
+  },
+  "EditAssocs": {
+    "productId": "DEMO_1_1"
+  },
+  "EditCategories": {
+    "productId": "DEMO_1_1"
+  },
+  "EditPrices": {
+    "productId": "DEMO_1_1"
+  },
+  "EditCategory": {
+    "productCategoryId": "PopcAllProducts"
+  },
+  "CategoryProducts": {
+    "productCategoryId": "PopcAllProducts"
+  },
+  "CategorySubs": {
+    "productCategoryId": "PopcAllProducts"
+  },
+  "OrderDetail": {
+    "orderId": "100006"
+  },
+  "OrderItems": {
+    "orderId": "100006"
+  },
+  "QuickItems": {
+    "orderId": "100006"
+  },
+  "ShipmentDetail": {
+    "shipmentId": "100002"
+  },
+  "ShipmentItems": {
+    "shipmentId": "100002"
+  },
+  "ShipmentPackages": {
+    "shipmentId": "100002"
+  },
+  "EditReturn": {
+    "returnId": "100002"
+  },
+  "EditRequest": {
+    "requestId": "100000"
+  },
+  "EditProject": {
+    "workEffortId": "100004"
+  },
+  "Milestones": {
+    "rootWorkEffortId": "100004"
+  },
+  "ProjectSummary": {
+    "workEffortId": "100004"
+  },
+  "ProjectTasks": {
+    "rootWorkEffortId": "100004"
+  },
+  "ProjectUsers": {
+    "rootWorkEffortId": "100004"
+  },
+  "ProjectRequests": {
+    "rootWorkEffortId": "100004"
+  },
+  "ProjectWiki": {
+    "rootWorkEffortId": "100004"
+  },
+  "EditTask": {
+    "workEffortId": "100004-100000"
+  },
+  "EditPayment": {
+    "paymentId": "100002"
+  },
+  "EditInvoice": {
+    "invoiceId": "100001"
+  },
+  "InvoiceItems": {
+    "invoiceId": "100001"
+  },
+  "InvoicePayments": {
+    "invoiceId": "100001"
+  },
+  "InvoiceAgingSummary": {
+    "invoiceId": "100001"
+  },
+  "EditFinancialAccount": {
+    "finAccountId": "100001"
+  },
+  "FinancialAccountTrans": {
+    "finAccountId": "100001"
+  },
+  "EditTimePeriod": {
+    "timePeriodId": "100003"
+  },
+  "ViewPeriodGlAccounts": {
+    "timePeriodId": "100003"
+  },
+  "EditGlAccount": {
+    "glAccountId": "110000"
+  },
+  "EditBudget": {
+    "budgetId": "100000"
+  },
+  "BudgetItems": {
+    "budgetId": "100000"
+  },
+  "BudgetReview": {
+    "budgetId": "100000"
+  },
+  "BudgetStatus": {
+    "budgetId": "100000"
+  },
+  "EditFacility": {
+    "facilityId": "ZIRET_WH"
+  },
+  "FacilityLocations": {
+    "facilityId": "ZIRET_WH"
+  },
+  "FacilityCalendar": {
+    "facilityId": "ZIRET_WH"
+  },
+  "FacilityContacts": {
+    "facilityId": "ZIRET_WH"
+  },
+  "EditProductStore": {
+    "productStoreId": "POPC_DEFAULT"
+  },
+  "EditPicklist": {
+    "workEffortId": "100005"
+  },
+  "PicklistItems": {
+    "workEffortId": "100005"
+  }
+}

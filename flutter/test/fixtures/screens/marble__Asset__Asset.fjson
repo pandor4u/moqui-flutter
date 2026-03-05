@@ -1,0 +1,1952 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Asset",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "type": "strong",
+          "condition": "asset",
+          "_type": "label",
+          "text": "AssetNameTemplate",
+          "resolvedText": "AssetNameTemplate",
+          "labelType": "strong",
+          "encode": "true"
+        },
+        {
+          "type": "strong",
+          "condition": "product",
+          "_type": "label",
+          "text": ": ${product.productName}",
+          "resolvedText": ": ${product.productName}",
+          "labelType": "strong",
+          "encode": "true"
+        },
+        {
+          "id": "AssetPanel",
+          "type": "tab",
+          "_type": "subscreens-panel",
+          "menuType": "tab",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "AssetDetail",
+              "menuTitle": "Asset Detail",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "DetailHistory",
+              "menuTitle": "Detail History",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "MoveAsset",
+              "menuTitle": "Move",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "AssetCalendar",
+              "menuTitle": "Calendar",
+              "menuIndex": 4,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "AssetMeters",
+              "menuTitle": "Meter Readings",
+              "menuIndex": 4,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "AssetMaintenance",
+              "menuTitle": "Maintenance",
+              "menuIndex": 5,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "AssetRegistrations",
+              "menuTitle": "Registrations",
+              "menuIndex": 6,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "AssetParties",
+              "menuTitle": "Assignments",
+              "menuIndex": 8,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "FindSummary",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "FindSummary",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Find Individual Assets",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "../FindAsset",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Move Asset",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "../SelectAsset",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Containers",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "../../Container",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Lots",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "../../EditLots",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Pools",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "../../AssetPool",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "On Hand Report",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "assetOnHand",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "id": "ReceiveAssetDialog",
+                    "_type": "container-dialog",
+                    "buttonText": "Receive Direct",
+                    "dialogTitle": "",
+                    "width": "800",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "type": "p",
+                        "style": "text-warning",
+                        "_type": "label",
+                        "text": "NOTE: only receive inventory here if there is no Purchase Order and no Incoming Shipment for the inventory.",
+                        "resolvedText": "NOTE: only receive inventory here if there is no Purchase Order and no Incoming Shipment for the inventory.",
+                        "labelType": "p",
+                        "encode": "true"
+                      },
+                      {
+                        "name": "ReceiveAssetForm",
+                        "_type": "form-single",
+                        "formName": "ReceiveAssetForm",
+                        "transition": "receiveAsset",
+                        "map": "fieldValues",
+                        "fieldLayout": {
+                          "_type": "field-layout",
+                          "rows": [
+                            {
+                              "_type": "field-ref",
+                              "name": "productId"
+                            },
+                            {
+                              "_type": "field-row",
+                              "fields": [
+                                {
+                                  "name": "statusId"
+                                },
+                                {
+                                  "name": "receivedDate"
+                                }
+                              ]
+                            },
+                            {
+                              "_type": "field-row",
+                              "fields": [
+                                {
+                                  "name": "quantity"
+                                }
+                              ]
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "facilityId"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "ownerPartyId"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "assetPoolId"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "locationSeqId"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "containerId"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "mfgPartyId"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "lotId"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "lotNumber"
+                            },
+                            {
+                              "_type": "field-row",
+                              "fields": [
+                                {
+                                  "name": "manufacturedDate"
+                                },
+                                {
+                                  "name": "expectedEndOfLife"
+                                }
+                              ]
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "acquireCost"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "comments"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "submitButton"
+                            }
+                          ]
+                        },
+                        "fields": [
+                          {
+                            "name": "productId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Product*",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getProductList",
+                                  "serverSearch": "true",
+                                  "minLength": "2"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "statusId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Status",
+                            "tooltip": "For inventory defaults to Available, otherwise defaults to In Storage",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "${allowEmpty ?: 'false'}",
+                                "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                                "style": "${style?:''}",
+                                "allow-multiple": "${allowMultiple ?: 'false'}",
+                                "show-not": "${showNot ?: 'false'}",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "${showNot ?: 'false'}",
+                                "options": [
+                                  {
+                                    "key": "AstIncoming",
+                                    "text": "Incoming"
+                                  },
+                                  {
+                                    "key": "AstAvailable",
+                                    "text": "Available"
+                                  },
+                                  {
+                                    "key": "AstPromised",
+                                    "text": "Promised"
+                                  },
+                                  {
+                                    "key": "AstDelivered",
+                                    "text": "Delivered"
+                                  },
+                                  {
+                                    "key": "AstActivated",
+                                    "text": "Activated"
+                                  },
+                                  {
+                                    "key": "AstDeactivated",
+                                    "text": "Deactivated"
+                                  },
+                                  {
+                                    "key": "AstOnHold",
+                                    "text": "On Hold"
+                                  },
+                                  {
+                                    "key": "AstInUse",
+                                    "text": "In Use"
+                                  },
+                                  {
+                                    "key": "AstInStorage",
+                                    "text": "In Storage"
+                                  },
+                                  {
+                                    "key": "AstInTransfer",
+                                    "text": "In Transfer"
+                                  },
+                                  {
+                                    "key": "AstInTransferPromise",
+                                    "text": "In Transfer (Promised)"
+                                  },
+                                  {
+                                    "key": "AstReturned",
+                                    "text": "Returned"
+                                  },
+                                  {
+                                    "key": "AstDefective",
+                                    "text": "Defective"
+                                  },
+                                  {
+                                    "key": "AstQuarantine",
+                                    "text": "Quarantine"
+                                  },
+                                  {
+                                    "key": "AstMorgue",
+                                    "text": "Morgue"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "receivedDate",
+                            "from": "ec.user.nowTimestamp",
+                            "hide": "",
+                            "align": "",
+                            "title": "Received Date",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "date-time",
+                                "dateType": "timestamp",
+                                "format": "",
+                                "minuteStepping": ""
+                              }
+                            ],
+                            "currentValue": "2026-03-04 13:30:04.519"
+                          },
+                          {
+                            "name": "mfgPartyId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Manufacturer",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "searchPartyList",
+                                  "serverSearch": "true",
+                                  "minLength": "0"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "lotId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Lot",
+                            "tooltip": "Select an existing Lot, for new enter Lot Number (and Dates) below",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getLotList",
+                                  "serverSearch": "true",
+                                  "minLength": "0",
+                                  "dependsOnField": "mfgPartyId",
+                                  "dependsOnParameter": ""
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "lotNumber",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Lot Number",
+                            "tooltip": "For new lot enter Lot Number (and Dates), for existing select above",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "20",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "manufacturedDate",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Manufactured",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "date-time",
+                                "type": "date",
+                                "dateType": "date",
+                                "format": "",
+                                "minuteStepping": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "expectedEndOfLife",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Expiration",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "date-time",
+                                "type": "date",
+                                "dateType": "date",
+                                "format": "",
+                                "minuteStepping": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "ownerPartyId",
+                            "from": "ownerPartyId ?: activeOrgId",
+                            "hide": "",
+                            "align": "",
+                            "title": "Owner",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "style": "text-warning",
+                                "condition": "ownerPartyId && destinationFacility?.ownerPartyId && ownerPartyId != destinationFacility.ownerPartyId",
+                                "_type": "label",
+                                "text": "Default Asset Owner (${ownerPartyId}) different from Facility owner (${destinationFacility.ownerPartyId}), if not consignment inventory change now",
+                                "resolvedText": "Default Asset Owner (${ownerPartyId}) different from Facility owner (${destinationFacility.ownerPartyId}), if not consignment inventory change now",
+                                "labelType": "span",
+                                "encode": "true"
+                              },
+                              {
+                                "condition": "!ownerPartyId",
+                                "_type": "label",
+                                "text": "Asset Owner will default to Facility owner",
+                                "resolvedText": "Asset Owner will default to Facility owner",
+                                "labelType": "span",
+                                "encode": "true"
+                              },
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "searchPartyList",
+                                  "serverSearch": "true",
+                                  "minLength": "0"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "assetPoolId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Pool",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getAssetPoolList",
+                                  "serverSearch": "true",
+                                  "minLength": "0",
+                                  "dependsOnField": "ownerPartyId",
+                                  "dependsOnParameter": ""
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "acquireCost",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Acquire Cost",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "8",
+                                "format": "#,##0.00",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "quantity",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Quantity*",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "8",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "facilityId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Facility*",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getFacilityList",
+                                  "serverSearch": "true",
+                                  "minLength": "0"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "locationSeqId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Location",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getLocationList",
+                                  "serverSearch": "true",
+                                  "minLength": "0",
+                                  "dependsOnField": "facilityId",
+                                  "dependsOnParameter": ""
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "containerId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Container",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getContainerList",
+                                  "serverSearch": "true",
+                                  "minLength": "0",
+                                  "dependsOnField": "facilityId",
+                                  "dependsOnParameter": "",
+                                  "dependsOnList": [
+                                    {
+                                      "field": "facilityId",
+                                      "parameter": ""
+                                    },
+                                    {
+                                      "field": "locationSeqId",
+                                      "parameter": ""
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "comments",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Notes",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-area",
+                                "cols": "80",
+                                "rows": "3",
+                                "maxlength": "",
+                                "readOnly": "false",
+                                "editorType": "",
+                                "autogrow": "false"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Receive",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "PhysicalManualDialog",
+                    "title": "Physical Inventory Difference",
+                    "_type": "container-dialog",
+                    "buttonText": "Physical Diff",
+                    "dialogTitle": "Physical Inventory Difference",
+                    "width": "",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "name": "PhysicalManualChange",
+                        "_type": "form-single",
+                        "formName": "PhysicalManualChange",
+                        "transition": "recordChange",
+                        "map": "fieldValues",
+                        "fields": [
+                          {
+                            "name": "productId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Product",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getProductList",
+                                  "serverSearch": "true",
+                                  "minLength": "1"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "facilityId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Facility",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getFacilityList",
+                                  "serverSearch": "true",
+                                  "minLength": "0"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "locationSeqId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Location",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getLocationList",
+                                  "serverSearch": "true",
+                                  "minLength": "0",
+                                  "dependsOnField": "facilityId",
+                                  "dependsOnParameter": ""
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "lotId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Lot",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getLotList",
+                                  "serverSearch": "true",
+                                  "minLength": "2"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "ownerPartyId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Owner Party",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "searchPartyList",
+                                  "serverSearch": "true",
+                                  "minLength": "2"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "assetPoolId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Pool",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getAssetPoolList",
+                                  "serverSearch": "true",
+                                  "minLength": "0",
+                                  "dependsOnField": "ownerPartyId",
+                                  "dependsOnParameter": ""
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "statusId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Status",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "${allowEmpty ?: 'false'}",
+                                "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                                "style": "${style?:''}",
+                                "allow-multiple": "${allowMultiple ?: 'false'}",
+                                "show-not": "${showNot ?: 'false'}",
+                                "allowEmpty": "false",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "${showNot ?: 'false'}",
+                                "options": [
+                                  {
+                                    "key": "AstIncoming",
+                                    "text": "Incoming"
+                                  },
+                                  {
+                                    "key": "AstAvailable",
+                                    "text": "Available"
+                                  },
+                                  {
+                                    "key": "AstPromised",
+                                    "text": "Promised"
+                                  },
+                                  {
+                                    "key": "AstDelivered",
+                                    "text": "Delivered"
+                                  },
+                                  {
+                                    "key": "AstActivated",
+                                    "text": "Activated"
+                                  },
+                                  {
+                                    "key": "AstDeactivated",
+                                    "text": "Deactivated"
+                                  },
+                                  {
+                                    "key": "AstOnHold",
+                                    "text": "On Hold"
+                                  },
+                                  {
+                                    "key": "AstInUse",
+                                    "text": "In Use"
+                                  },
+                                  {
+                                    "key": "AstInStorage",
+                                    "text": "In Storage"
+                                  },
+                                  {
+                                    "key": "AstInTransfer",
+                                    "text": "In Transfer"
+                                  },
+                                  {
+                                    "key": "AstInTransferPromise",
+                                    "text": "In Transfer (Promised)"
+                                  },
+                                  {
+                                    "key": "AstReturned",
+                                    "text": "Returned"
+                                  },
+                                  {
+                                    "key": "AstDefective",
+                                    "text": "Defective"
+                                  },
+                                  {
+                                    "key": "AstQuarantine",
+                                    "text": "Quarantine"
+                                  },
+                                  {
+                                    "key": "AstMorgue",
+                                    "text": "Morgue"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "strictAll",
+                            "from": "'true'",
+                            "hide": "",
+                            "align": "",
+                            "title": "Strict All",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "hidden",
+                                "defaultValue": ""
+                              }
+                            ],
+                            "currentValue": "true"
+                          },
+                          {
+                            "name": "quantityChange",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Quantity Difference",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "6",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "comments",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Comments",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-area",
+                                "cols": "60",
+                                "rows": "5",
+                                "maxlength": "",
+                                "readOnly": "false",
+                                "editorType": "",
+                                "autogrow": "false"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "varianceReasonEnumId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Variance Reason",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "${allowEmpty ?: 'false'}",
+                                "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                                "style": "${style?:''}",
+                                "allow-multiple": "${allowMultiple ?: 'false'}",
+                                "show-not": "${showNot ?: 'false'}",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "${showNot ?: 'false'}",
+                                "options": [
+                                  {
+                                    "key": "InVrDamaged",
+                                    "text": "Damaged"
+                                  },
+                                  {
+                                    "key": "InVrFound",
+                                    "text": "Found"
+                                  },
+                                  {
+                                    "key": "InVrIntegration",
+                                    "text": "Integration"
+                                  },
+                                  {
+                                    "key": "InVrLost",
+                                    "text": "Lost"
+                                  },
+                                  {
+                                    "key": "InVrMisShipOrdered",
+                                    "text": "Mis-shipped Item Ordered (+)"
+                                  },
+                                  {
+                                    "key": "InVrMisShipShipped",
+                                    "text": "Mis-shipped Item Shipped (-)"
+                                  },
+                                  {
+                                    "key": "InVrSample",
+                                    "text": "Sample (Giveaway)"
+                                  },
+                                  {
+                                    "key": "InVrStolen",
+                                    "text": "Stolen"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "physicalInventoryDate",
+                            "from": "ec.user.nowTimestamp",
+                            "hide": "",
+                            "align": "",
+                            "title": "Inventory Date",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "date-time",
+                                "dateType": "timestamp",
+                                "format": "",
+                                "minuteStepping": ""
+                              }
+                            ],
+                            "currentValue": "2026-03-04 13:30:04.532"
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Record",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "AssetSummary",
+                    "_type": "form-list",
+                    "formName": "AssetSummary",
+                    "transition": "",
+                    "list": "assetList",
+                    "paginate": "true",
+                    "headerDialog": "true",
+                    "selectColumns": "true",
+                    "savedFinds": "true",
+                    "showCsvButton": "true",
+                    "showXlsxButton": "true",
+                    "showPageSize": "",
+                    "skipForm": "true",
+                    "editUrl": "findAsset",
+                    "headerFields": [
+                      {
+                        "name": "showZeroQuantity",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Zero Quantity",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "check",
+                            "noCurrentSelectedKey": "",
+                            "allChecked": "false",
+                            "options": [
+                              {
+                                "key": "true",
+                                "text": "Show summary records with zero QOH and ATP"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "productId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Product",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getProductList",
+                              "serverSearch": "true",
+                              "minLength": "1"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "pseudoId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Product ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "15",
+                            "hide-options": "true",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "productName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Product Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "15",
+                            "hide-options": "true",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "assetTypeEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Asset Type",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "widget-template-include",
+                            "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "classEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Asset Class",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "widget-template-include",
+                            "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "statusId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Status",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "widget-template-include",
+                            "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#statusDropDown"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ownerPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Owner Party",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "searchPartyList",
+                              "serverSearch": "true",
+                              "minLength": "2"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "acquireCost",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Acquire Cost",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "range-find",
+                            "size": "5",
+                            "maxlength": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "facilityId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Facility",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getFacilityList",
+                              "serverSearch": "true",
+                              "minLength": "0"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "locationSeqId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Location",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getLocationList",
+                              "serverSearch": "true",
+                              "minLength": "0",
+                              "dependsOnField": "facilityId",
+                              "dependsOnParameter": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "containerId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Container",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getContainerList",
+                              "serverSearch": "true",
+                              "minLength": "0",
+                              "dependsOnField": "facilityId",
+                              "dependsOnParameter": "",
+                              "dependsOnList": [
+                                {
+                                  "field": "facilityId",
+                                  "parameter": ""
+                                },
+                                {
+                                  "field": "locationSeqId",
+                                  "parameter": ""
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "lotId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Lot",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getLotList",
+                              "serverSearch": "true",
+                              "minLength": "2"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "assetPoolId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Asset Pool",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getAssetPoolList",
+                              "serverSearch": "true",
+                              "minLength": "0"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "findButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "submit",
+                            "text": "",
+                            "confirmation": "",
+                            "btnType": "",
+                            "icon": ""
+                          }
+                        ]
+                      }
+                    ],
+                    "fields": [
+                      {
+                        "name": "assetsLink",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Assets",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "condition": "pseudoId",
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "Assets",
+                            "linkType": "auto",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "lotId": "",
+                              "facilityId": "",
+                              "productId": "",
+                              "statusId": "",
+                              "locationSeqId": ""
+                            },
+                            "url": "findAsset",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "productId": "productId",
+                              "statusId": "statusId",
+                              "facilityId": "facilityId",
+                              "locationSeqId": "locationSeqId",
+                              "lotId": "lotId"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "pseudoId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Product ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editProduct",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "productName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Product Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "assetTypeEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Asset Type",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.Enumeration",
+                            "entityName": "moqui.basic.Enumeration",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "classEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Asset Class",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.Enumeration",
+                            "entityName": "moqui.basic.Enumeration",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "statusId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Status",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.StatusItem",
+                            "entityName": "moqui.basic.StatusItem",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ownerPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Owner Party",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "mantle.party.PartyDetail",
+                            "text": "PartyNameTemplate",
+                            "entityName": "mantle.party.PartyDetail",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "acquireCost",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Acquire Cost",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "facilityId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Facility",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "FacilityNameTemplate",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editFacility",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "locationSeqId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Location",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "condition": "locationSeqId",
+                            "_type": "label",
+                            "text": "FacilityLocationNameTemplate",
+                            "resolvedText": "FacilityLocationNameTemplate",
+                            "labelType": "span",
+                            "encode": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "containerId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Container",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "ContainerNameTemplate",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editContainer",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "lotId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Lot",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "mantle.product.asset.LotAndMfgParty",
+                            "text": "LotNameTemplate",
+                            "entityName": "mantle.product.asset.LotAndMfgParty",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "assetPoolId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Asset Pool",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "mantle.product.asset.AssetPool",
+                            "text": "${pseudoId}: ${description}",
+                            "entityName": "mantle.product.asset.AssetPool",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "availableToPromiseTotal",
+                        "from": "",
+                        "hide": "",
+                        "align": "right",
+                        "title": "Available",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "showTotal": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "quantityOnHandTotal",
+                        "from": "",
+                        "hide": "",
+                        "align": "right",
+                        "title": "On Hand",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "showTotal": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "amountUomId",
+                        "from": "",
+                        "hide": "",
+                        "align": "right",
+                        "title": "UOM",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.Uom",
+                            "default-text": "each",
+                            "entityName": "moqui.basic.Uom",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": "each"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "physicalQuantity",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "PhI Qty",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "id": "PhysicalQuantityDialog",
+                            "title": "Physical Inventory Quantity",
+                            "condition": "productId && facilityId",
+                            "_type": "dynamic-dialog",
+                            "dialogId": "PhysicalQuantityDialog",
+                            "buttonText": "PhI Qty",
+                            "transition": "PhysicalQuantity",
+                            "dialogTitle": "Physical Inventory Quantity",
+                            "width": "800",
+                            "height": "",
+                            "icon": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "physicalChange",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "PhI Diff",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "id": "PhysicalChange",
+                            "title": "Physical Inventory Difference",
+                            "condition": "productId && facilityId",
+                            "_type": "dynamic-dialog",
+                            "dialogId": "PhysicalChange",
+                            "buttonText": "PhI Diff",
+                            "transition": "PhysicalChange",
+                            "dialogTitle": "Physical Inventory Difference",
+                            "width": "800",
+                            "height": "",
+                            "icon": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "moveLink",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Move",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "condition": "quantityOnHandTotal",
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "Move",
+                            "linkType": "auto",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "facilityId": "",
+                              "productId": "",
+                              "assetPoolId": "",
+                              "lotId": "",
+                              "containerId": "",
+                              "locationSeqId": ""
+                            },
+                            "url": "../SelectAsset",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "productId": "productId",
+                              "facilityId": "facilityId",
+                              "locationSeqId": "locationSeqId",
+                              "containerId": "containerId",
+                              "lotId": "lotId",
+                              "assetPoolId": "assetPoolId"
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "listData": [],
+                    "paginateInfo": {
+                      "pageIndex": 0,
+                      "pageSize": 20,
+                      "count": 0,
+                      "pageMaxIndex": 0,
+                      "pageRangeLow": 1,
+                      "pageRangeHigh": 0
+                    },
+                    "exportBaseUrl": "/fapps/marble/Asset/Asset"
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "FindSummary"
+        }
+      ]
+    }
+  ]
+}

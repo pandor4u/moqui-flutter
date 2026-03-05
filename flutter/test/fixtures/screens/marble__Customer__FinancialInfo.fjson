@@ -1,0 +1,2487 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FinancialInfo",
+  "menuTitle": "Financial Info",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "condition": "requestCount",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Requests (0)",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "partyId": "CustJqp"
+          },
+          "url": "/fapps/marble/Customer/FinancialInfo/findRequest",
+          "isAnchorLink": true,
+          "parameterFromFields": {
+            "partyId": "partyId"
+          }
+        },
+        {
+          "condition": "customerOrderPartCount",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Sales Orders (5)",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "partyId": "CustJqp",
+            "customerPartyId": "CustJqp"
+          },
+          "url": "/fapps/marble/Customer/FinancialInfo/findOrder",
+          "isAnchorLink": true,
+          "parameterFromFields": {
+            "customerPartyId": "partyId"
+          }
+        },
+        {
+          "condition": "toShipmentCount",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Shipments To (3)",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "partyId": "CustJqp",
+            "toPartyId": "CustJqp"
+          },
+          "url": "/fapps/marble/Customer/FinancialInfo/findShipment",
+          "isAnchorLink": true,
+          "parameterFromFields": {
+            "toPartyId": "partyId"
+          }
+        },
+        {
+          "condition": "toInvoiceCount",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Invoices To (0)",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "partyId": "CustJqp",
+            "toPartyId": "CustJqp"
+          },
+          "url": "/fapps/marble/Customer/FinancialInfo/findInvoice",
+          "isAnchorLink": true,
+          "parameterFromFields": {
+            "toPartyId": "partyId"
+          }
+        },
+        {
+          "condition": "fromPaymentCount",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Payments From (3)",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "partyId": "CustJqp",
+            "fromPartyId": "CustJqp"
+          },
+          "url": "/fapps/marble/Customer/FinancialInfo/findPayment",
+          "isAnchorLink": true,
+          "parameterFromFields": {
+            "fromPartyId": "partyId"
+          }
+        },
+        {
+          "condition": "vendorOrderPartCount",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Purchase Orders (0)",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "partyId": "CustJqp",
+            "vendorPartyId": "CustJqp"
+          },
+          "url": "/fapps/marble/Customer/FinancialInfo/findOrder",
+          "isAnchorLink": true,
+          "parameterFromFields": {
+            "vendorPartyId": "partyId"
+          }
+        },
+        {
+          "condition": "fromShipmentCount",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Shipments From (0)",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "partyId": "CustJqp",
+            "fromPartyId": "CustJqp"
+          },
+          "url": "/fapps/marble/Customer/FinancialInfo/findShipment",
+          "isAnchorLink": true,
+          "parameterFromFields": {
+            "fromPartyId": "partyId"
+          }
+        },
+        {
+          "condition": "fromInvoiceCount",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Invoices From (0)",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "partyId": "CustJqp",
+            "fromPartyId": "CustJqp"
+          },
+          "url": "/fapps/marble/Customer/FinancialInfo/findInvoice",
+          "isAnchorLink": true,
+          "parameterFromFields": {
+            "fromPartyId": "partyId"
+          }
+        },
+        {
+          "condition": "toPaymentCount",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Payments To (0)",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "partyId": "CustJqp",
+            "toPartyId": "CustJqp"
+          },
+          "url": "/fapps/marble/Customer/FinancialInfo/findPayment",
+          "isAnchorLink": true,
+          "parameterFromFields": {
+            "toPartyId": "partyId"
+          }
+        },
+        {
+          "condition": "toInvoiceCount || fromPaymentCount",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Customer Statement PDF",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "partyId": "CustJqp",
+            "toPartyId": "CustJqp"
+          },
+          "url": "/fapps/marble/Customer/FinancialInfo/receivableStatement",
+          "isAnchorLink": true,
+          "parameterFromFields": {
+            "toPartyId": "partyId"
+          }
+        },
+        {
+          "_type": "link",
+          "urlType": "plain",
+          "text": "XLS Export",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "renderMode": "xlsx",
+            "saveFilename": "FinancialInfo_CustJqp.xlsx",
+            "pageNoLimit": "true",
+            "partyId": "CustJqp",
+            "lastStandalone": "true"
+          },
+          "url": "/fapps/marble/Customer/FinancialInfo",
+          "isAnchorLink": true
+        },
+        {
+          "_type": "container-box",
+          "boxTitle": "Financial Summary for ${ec.resource.expand('PartyNameTemplate', null, partyDetail)}",
+          "header": [],
+          "body": [
+            {
+              "_type": "container-row",
+              "columns": [
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "type": "strong",
+                      "_type": "label",
+                      "text": "Completed Sales Orders",
+                      "resolvedText": "Completed Sales Orders",
+                      "labelType": "strong",
+                      "encode": "true"
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "type": "strong",
+                      "_type": "label",
+                      "text": "Booked Receivable Invoices",
+                      "resolvedText": "Booked Receivable Invoices",
+                      "labelType": "strong",
+                      "encode": "true"
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "type": "strong",
+                      "_type": "label",
+                      "text": "Received Incoming Payments",
+                      "resolvedText": "Received Incoming Payments",
+                      "labelType": "strong",
+                      "encode": "true"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "container-row",
+              "columns": [
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "name": "OrdersCompletedListSection",
+                      "_type": "section-iterate",
+                      "sectionName": "OrdersCompletedListSection",
+                      "iterations": []
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "name": "InvoicesBookedListSection",
+                      "_type": "section-iterate",
+                      "sectionName": "InvoicesBookedListSection",
+                      "iterations": []
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "name": "PaymentsPaidListSection",
+                      "_type": "section-iterate",
+                      "sectionName": "PaymentsPaidListSection",
+                      "iterations": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "container-row",
+              "columns": [
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "type": "strong",
+                      "_type": "label",
+                      "text": "All Sales Orders",
+                      "resolvedText": "All Sales Orders",
+                      "labelType": "strong",
+                      "encode": "true"
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "type": "strong",
+                      "_type": "label",
+                      "text": "All Receivable Invoices",
+                      "resolvedText": "All Receivable Invoices",
+                      "labelType": "strong",
+                      "encode": "true"
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "type": "strong",
+                      "_type": "label",
+                      "text": "All Incoming Payments",
+                      "resolvedText": "All Incoming Payments",
+                      "labelType": "strong",
+                      "encode": "true"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "container-row",
+              "columns": [
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "name": "OrdersTotalListSection",
+                      "_type": "section-iterate",
+                      "sectionName": "OrdersTotalListSection",
+                      "iterations": []
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "name": "InvoicesTotalListSection",
+                      "_type": "section-iterate",
+                      "sectionName": "InvoicesTotalListSection",
+                      "iterations": []
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "name": "PaymentsTotalListSection",
+                      "_type": "section-iterate",
+                      "sectionName": "PaymentsTotalListSection",
+                      "iterations": [
+                        [
+                          {
+                            "type": "div",
+                            "_type": "label",
+                            "text": "3 payments $30.00 (unapplied $30.00)",
+                            "resolvedText": "3 payments $30.00 (unapplied $30.00)",
+                            "labelType": "div",
+                            "encode": "true"
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "container-row",
+              "columns": [
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "type": "strong",
+                      "_type": "label",
+                      "text": "Completed Purchase Orders",
+                      "resolvedText": "Completed Purchase Orders",
+                      "labelType": "strong",
+                      "encode": "true"
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "type": "strong",
+                      "_type": "label",
+                      "text": "Booked Payable Invoices",
+                      "resolvedText": "Booked Payable Invoices",
+                      "labelType": "strong",
+                      "encode": "true"
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "type": "strong",
+                      "_type": "label",
+                      "text": "Received Outgoing Payments",
+                      "resolvedText": "Received Outgoing Payments",
+                      "labelType": "strong",
+                      "encode": "true"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "container-row",
+              "columns": [
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "name": "SupOrdersCompletedListSection",
+                      "_type": "section-iterate",
+                      "sectionName": "SupOrdersCompletedListSection",
+                      "iterations": []
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "name": "SupInvoicesBookedListSection",
+                      "_type": "section-iterate",
+                      "sectionName": "SupInvoicesBookedListSection",
+                      "iterations": []
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "name": "SupPaymentsPaidListSection",
+                      "_type": "section-iterate",
+                      "sectionName": "SupPaymentsPaidListSection",
+                      "iterations": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "container-row",
+              "columns": [
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "type": "strong",
+                      "_type": "label",
+                      "text": "All Purchase Orders",
+                      "resolvedText": "All Purchase Orders",
+                      "labelType": "strong",
+                      "encode": "true"
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "type": "strong",
+                      "_type": "label",
+                      "text": "All Payable Invoices",
+                      "resolvedText": "All Payable Invoices",
+                      "labelType": "strong",
+                      "encode": "true"
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "type": "strong",
+                      "_type": "label",
+                      "text": "All Outgoing Payments",
+                      "resolvedText": "All Outgoing Payments",
+                      "labelType": "strong",
+                      "encode": "true"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "container-row",
+              "columns": [
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "name": "SupOrdersTotalListSection",
+                      "_type": "section-iterate",
+                      "sectionName": "SupOrdersTotalListSection",
+                      "iterations": []
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "name": "SupInvoicesTotalListSection",
+                      "_type": "section-iterate",
+                      "sectionName": "SupInvoicesTotalListSection",
+                      "iterations": []
+                    }
+                  ]
+                },
+                {
+                  "lg": "",
+                  "md": "",
+                  "sm": "4",
+                  "xs": "",
+                  "style": "",
+                  "children": [
+                    {
+                      "name": "SupPaymentsTotalListSection",
+                      "_type": "section-iterate",
+                      "sectionName": "SupPaymentsTotalListSection",
+                      "iterations": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "success",
+          "_type": "container-box",
+          "boxTitle": "Unpaid Receivables",
+          "header": [],
+          "bodyNoPad": [
+            {
+              "name": "UnpaidInvoiceList",
+              "_type": "form-list",
+              "formName": "UnpaidInvoiceList",
+              "transition": "",
+              "list": "invoiceList",
+              "paginate": "true",
+              "headerDialog": "",
+              "selectColumns": "",
+              "savedFinds": "",
+              "showCsvButton": "true",
+              "showXlsxButton": "",
+              "showPageSize": "",
+              "skipForm": "true",
+              "editUrl": "editInvoice",
+              "headerFields": [],
+              "fields": [
+                {
+                  "name": "invoiceId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "null",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "partyId": "CustJqp"
+                      },
+                      "url": "/fapps/marble/Customer/FinancialInfo/editInvoice",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "name": "referenceNumber",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Their Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "otherPartyOrderId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Their Order",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "dueDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Due Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "statusId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Status",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.StatusItem",
+                      "entityName": "moqui.basic.StatusItem",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "fromPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.party.PartyDetail",
+                      "text": "PartyNameTemplate",
+                      "entityName": "mantle.party.PartyDetail",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.Enumeration",
+                      "entityName": "moqui.basic.Enumeration",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceTotal",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Total",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "currencyUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "currencyUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                },
+                {
+                  "name": "unpaidTotal",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Unpaid",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "currencyUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "currencyUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                }
+              ],
+              "listData": [],
+              "exportBaseUrl": "/fapps/marble/Customer/FinancialInfo"
+            }
+          ]
+        },
+        {
+          "type": "success",
+          "_type": "container-box",
+          "boxTitle": "Unapplied Incoming Payments",
+          "header": [],
+          "bodyNoPad": [
+            {
+              "name": "PaymentList",
+              "_type": "form-list",
+              "formName": "PaymentList",
+              "transition": "",
+              "list": "paymentList",
+              "paginate": "true",
+              "headerDialog": "",
+              "selectColumns": "",
+              "savedFinds": "",
+              "showCsvButton": "",
+              "showXlsxButton": "",
+              "showPageSize": "",
+              "skipForm": "true",
+              "editUrl": "editPayment",
+              "headerFields": [],
+              "fields": [
+                {
+                  "name": "paymentId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Payment",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "null",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "partyId": "CustJqp"
+                      },
+                      "url": "/fapps/marble/Customer/FinancialInfo/editPayment",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "name": "paymentRefNum",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Ref Num",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "effectiveDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Effective Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "statusId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Status",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.StatusItem",
+                      "entityName": "moqui.basic.StatusItem",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "toPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.party.PartyDetail",
+                      "text": "PartyNameTemplate",
+                      "entityName": "mantle.party.PartyDetail",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "paymentTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.Enumeration",
+                      "entityName": "moqui.basic.Enumeration",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "paymentInstrumentEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Instrument",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.Enumeration",
+                      "entityName": "moqui.basic.Enumeration",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "amount",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Amount",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "amountUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "amountUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                },
+                {
+                  "name": "unappliedTotal",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Unapplied",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "amountUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "amountUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                }
+              ],
+              "listData": [
+                {
+                  "paymentRefNum": "",
+                  "paymentRefNum_display": "",
+                  "effectiveDate": "",
+                  "effectiveDate_display": "",
+                  "statusId": "PmntPromised",
+                  "statusId_display": "Promised",
+                  "toPartyId": "ORG_ZIZI_CORP",
+                  "toPartyId_display": "ZICORP: Ziziwork Industries",
+                  "paymentTypeEnumId": "PtInvoicePayment",
+                  "paymentTypeEnumId_display": "Invoice Payment",
+                  "paymentInstrumentEnumId": "PiCompanyCheck",
+                  "paymentInstrumentEnumId_display": "Company Check",
+                  "amount": "10",
+                  "amount_display": "10.00",
+                  "unappliedTotal": "10",
+                  "unappliedTotal_display": "10.00",
+                  "paymentId_linkText": "100000"
+                },
+                {
+                  "paymentRefNum": "",
+                  "paymentRefNum_display": "",
+                  "effectiveDate": "",
+                  "effectiveDate_display": "",
+                  "statusId": "PmntPromised",
+                  "statusId_display": "Promised",
+                  "toPartyId": "ORG_ZIZI_CORP",
+                  "toPartyId_display": "ZICORP: Ziziwork Industries",
+                  "paymentTypeEnumId": "PtInvoicePayment",
+                  "paymentTypeEnumId_display": "Invoice Payment",
+                  "paymentInstrumentEnumId": "PiCompanyCheck",
+                  "paymentInstrumentEnumId_display": "Company Check",
+                  "amount": "10",
+                  "amount_display": "10.00",
+                  "unappliedTotal": "10",
+                  "unappliedTotal_display": "10.00",
+                  "paymentId_linkText": "100001"
+                },
+                {
+                  "paymentRefNum": "",
+                  "paymentRefNum_display": "",
+                  "effectiveDate": "",
+                  "effectiveDate_display": "",
+                  "statusId": "PmntPromised",
+                  "statusId_display": "Promised",
+                  "toPartyId": "ORG_ZIZI_CORP",
+                  "toPartyId_display": "ZICORP: Ziziwork Industries",
+                  "paymentTypeEnumId": "PtInvoicePayment",
+                  "paymentTypeEnumId_display": "Invoice Payment",
+                  "paymentInstrumentEnumId": "PiCompanyCheck",
+                  "paymentInstrumentEnumId_display": "Company Check",
+                  "amount": "10",
+                  "amount_display": "10.00",
+                  "unappliedTotal": "10",
+                  "unappliedTotal_display": "10.00",
+                  "paymentId_linkText": "100002"
+                },
+                {
+                  "paymentRefNum": "",
+                  "paymentRefNum_display": "",
+                  "effectiveDate": "",
+                  "effectiveDate_display": "",
+                  "statusId": "",
+                  "statusId_display": "",
+                  "toPartyId": "",
+                  "toPartyId_display": "",
+                  "paymentTypeEnumId": "",
+                  "paymentTypeEnumId_display": "",
+                  "paymentInstrumentEnumId": "",
+                  "paymentInstrumentEnumId_display": "",
+                  "amount": "30",
+                  "amount_display": "30.00",
+                  "unappliedTotal": "30",
+                  "unappliedTotal_display": "30.00",
+                  "paymentId_linkText": "null"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "success",
+          "_type": "container-box",
+          "boxTitle": "Current Sales Orders",
+          "header": [],
+          "bodyNoPad": [
+            {
+              "name": "OrderList",
+              "_type": "form-list",
+              "formName": "OrderList",
+              "transition": "",
+              "list": "orderList",
+              "paginate": "true",
+              "headerDialog": "",
+              "selectColumns": "",
+              "savedFinds": "",
+              "showCsvButton": "",
+              "showXlsxButton": "",
+              "showPageSize": "",
+              "skipForm": "true",
+              "editUrl": "orderDetail",
+              "headerFields": [],
+              "fields": [
+                {
+                  "name": "orderId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Order",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "condition": "orderId",
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "null:null",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "partyId": "CustJqp"
+                      },
+                      "url": "/fapps/marble/Customer/FinancialInfo/orderDetail",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "name": "otherPartyOrderId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "PO #",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "placedDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Placed Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "shipBeforeDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Ship Before",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "statusId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Status",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.StatusItem",
+                      "entityName": "moqui.basic.StatusItem",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "facilityId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Facility",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.facility.Facility",
+                      "text": "FacilityNameTemplate",
+                      "entityName": "mantle.facility.Facility",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "productStoreId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Store",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.product.store.ProductStore",
+                      "text": "${productStoreId}: ${storeName}",
+                      "entityName": "mantle.product.store.ProductStore",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "vendorPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Vendor",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.party.PartyDetail",
+                      "text": "PartyNameTemplate",
+                      "entityName": "mantle.party.PartyDetail",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "partTotal",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Total",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "currencyUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "currencyUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                }
+              ],
+              "listData": []
+            }
+          ]
+        },
+        {
+          "type": "info",
+          "_type": "container-box",
+          "boxTitle": "Unpaid Payables",
+          "header": [],
+          "bodyNoPad": [
+            {
+              "name": "UnpaidPayablesList",
+              "_type": "form-list",
+              "formName": "UnpaidPayablesList",
+              "transition": "",
+              "list": "invoiceList",
+              "paginate": "true",
+              "headerDialog": "",
+              "selectColumns": "",
+              "savedFinds": "",
+              "showCsvButton": "true",
+              "showXlsxButton": "",
+              "showPageSize": "",
+              "skipForm": "true",
+              "editUrl": "editInvoice",
+              "headerFields": [],
+              "fields": [
+                {
+                  "name": "invoiceId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "null",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "partyId": "CustJqp"
+                      },
+                      "url": "/fapps/marble/Customer/FinancialInfo/editInvoice",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "name": "referenceNumber",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Their Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "otherPartyOrderId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Their Order",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "dueDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Due Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "statusId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Status",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.StatusItem",
+                      "entityName": "moqui.basic.StatusItem",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "toPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.party.PartyDetail",
+                      "text": "PartyNameTemplate",
+                      "entityName": "mantle.party.PartyDetail",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.Enumeration",
+                      "entityName": "moqui.basic.Enumeration",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceTotal",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Total",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "currencyUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "currencyUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                },
+                {
+                  "name": "unpaidTotal",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Unpaid",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "currencyUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "currencyUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                }
+              ],
+              "listData": [],
+              "exportBaseUrl": "/fapps/marble/Customer/FinancialInfo"
+            }
+          ]
+        },
+        {
+          "type": "info",
+          "_type": "container-box",
+          "boxTitle": "Unapplied Outgoing Payments",
+          "header": [],
+          "bodyNoPad": [
+            {
+              "name": "OutgoingPaymentList",
+              "_type": "form-list",
+              "formName": "OutgoingPaymentList",
+              "transition": "",
+              "list": "paymentList",
+              "paginate": "true",
+              "headerDialog": "",
+              "selectColumns": "",
+              "savedFinds": "",
+              "showCsvButton": "",
+              "showXlsxButton": "",
+              "showPageSize": "",
+              "skipForm": "true",
+              "editUrl": "editPayment",
+              "headerFields": [],
+              "fields": [
+                {
+                  "name": "paymentId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Payment",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "null",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "partyId": "CustJqp"
+                      },
+                      "url": "/fapps/marble/Customer/FinancialInfo/editPayment",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "name": "paymentRefNum",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Ref Num",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "effectiveDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Effective Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "statusId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Status",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.StatusItem",
+                      "entityName": "moqui.basic.StatusItem",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "fromPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.party.PartyDetail",
+                      "text": "PartyNameTemplate",
+                      "entityName": "mantle.party.PartyDetail",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "paymentTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.Enumeration",
+                      "entityName": "moqui.basic.Enumeration",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "paymentInstrumentEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Instrument",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.Enumeration",
+                      "entityName": "moqui.basic.Enumeration",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "amount",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Amount",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "amountUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "amountUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                },
+                {
+                  "name": "unappliedTotal",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Unapplied",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "amountUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "amountUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                }
+              ],
+              "listData": []
+            }
+          ]
+        },
+        {
+          "type": "info",
+          "_type": "container-box",
+          "boxTitle": "Current Purchase Orders",
+          "header": [],
+          "bodyNoPad": [
+            {
+              "name": "PurchaseOrderList",
+              "_type": "form-list",
+              "formName": "PurchaseOrderList",
+              "transition": "",
+              "list": "orderList",
+              "paginate": "true",
+              "headerDialog": "",
+              "selectColumns": "",
+              "savedFinds": "",
+              "showCsvButton": "",
+              "showXlsxButton": "",
+              "showPageSize": "",
+              "skipForm": "true",
+              "editUrl": "orderDetail",
+              "headerFields": [],
+              "fields": [
+                {
+                  "name": "orderId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Order",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "condition": "orderId",
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "null:null",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "partyId": "CustJqp"
+                      },
+                      "url": "/fapps/marble/Customer/FinancialInfo/orderDetail",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "name": "otherPartyOrderId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "SO #",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "placedDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Placed Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "shipBeforeDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Ship Before",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "statusId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Status",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.StatusItem",
+                      "entityName": "moqui.basic.StatusItem",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "facilityId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Facility",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.facility.Facility",
+                      "text": "FacilityNameTemplate",
+                      "entityName": "mantle.facility.Facility",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "productStoreId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Store",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.product.store.ProductStore",
+                      "text": "${productStoreId}: ${storeName}",
+                      "entityName": "mantle.product.store.ProductStore",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "customerPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Customer",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.party.PartyDetail",
+                      "text": "PartyNameTemplate",
+                      "entityName": "mantle.party.PartyDetail",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "partTotal",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Total",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "currencyUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "currencyUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                }
+              ],
+              "listData": []
+            }
+          ]
+        },
+        {
+          "type": "success",
+          "_type": "container-box",
+          "boxTitle": "Recent Paid Receivables",
+          "header": [],
+          "bodyNoPad": [
+            {
+              "name": "PaidInvoiceList",
+              "_type": "form-list",
+              "formName": "PaidInvoiceList",
+              "transition": "",
+              "list": "invoiceList",
+              "paginate": "true",
+              "headerDialog": "",
+              "selectColumns": "",
+              "savedFinds": "",
+              "showCsvButton": "",
+              "showXlsxButton": "",
+              "showPageSize": "",
+              "skipForm": "true",
+              "editUrl": "editInvoice",
+              "headerFields": [],
+              "fields": [
+                {
+                  "name": "invoiceId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "null",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "partyId": "CustJqp"
+                      },
+                      "url": "/fapps/marble/Customer/FinancialInfo/editInvoice",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "name": "referenceNumber",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Their Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "otherPartyOrderId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Their Order",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "dueDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Due Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "statusId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Status",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.StatusItem",
+                      "entityName": "moqui.basic.StatusItem",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "fromPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.party.PartyDetail",
+                      "text": "PartyNameTemplate",
+                      "entityName": "mantle.party.PartyDetail",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.Enumeration",
+                      "entityName": "moqui.basic.Enumeration",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceTotal",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Total",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "currencyUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "currencyUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                },
+                {
+                  "name": "unpaidTotal",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Unpaid",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "currencyUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "currencyUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                }
+              ],
+              "listData": []
+            }
+          ]
+        },
+        {
+          "type": "info",
+          "_type": "container-box",
+          "boxTitle": "Recent Paid Payables",
+          "header": [],
+          "bodyNoPad": [
+            {
+              "name": "PaidPayablesList",
+              "_type": "form-list",
+              "formName": "PaidPayablesList",
+              "transition": "",
+              "list": "invoiceList",
+              "paginate": "true",
+              "headerDialog": "",
+              "selectColumns": "",
+              "savedFinds": "",
+              "showCsvButton": "",
+              "showXlsxButton": "",
+              "showPageSize": "",
+              "skipForm": "true",
+              "editUrl": "editInvoice",
+              "headerFields": [],
+              "fields": [
+                {
+                  "name": "invoiceId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "null",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "partyId": "CustJqp"
+                      },
+                      "url": "/fapps/marble/Customer/FinancialInfo/editInvoice",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "name": "referenceNumber",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Their Invoice",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "otherPartyOrderId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Their Order",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Invoice Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "dueDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Due Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "format": "yyyy-MM-dd",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "statusId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Status",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.StatusItem",
+                      "entityName": "moqui.basic.StatusItem",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "toPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.party.PartyDetail",
+                      "text": "PartyNameTemplate",
+                      "entityName": "mantle.party.PartyDetail",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.Enumeration",
+                      "entityName": "moqui.basic.Enumeration",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "invoiceTotal",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Total",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "currencyUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "currencyUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                },
+                {
+                  "name": "unpaidTotal",
+                  "from": "",
+                  "hide": "",
+                  "align": "right",
+                  "title": "Unpaid",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "currencyUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "currencyUomId",
+                      "showTotal": "true"
+                    }
+                  ]
+                }
+              ],
+              "listData": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

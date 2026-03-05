@@ -1,0 +1,175 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "QuickItems",
+  "menuTitle": "Quick Items",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "name": "QuickItemOptions",
+          "_type": "form-single",
+          "formName": "QuickItemOptions",
+          "transition": ".",
+          "map": "fieldValues",
+          "fieldLayout": {
+            "_type": "field-layout",
+            "rows": [
+              {
+                "_type": "field-row-big"
+              },
+              {
+                "_type": "field-ref",
+                "name": "orderId"
+              },
+              {
+                "_type": "field-ref",
+                "name": "orderByField"
+              }
+            ]
+          },
+          "fields": [
+            {
+              "name": "orderId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Order ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ],
+              "currentValue": "100006"
+            },
+            {
+              "name": "orderByField",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Order By Field",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "orderPartSeqId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Order Part",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "01",
+                      "text": "01 "
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "productCategoryId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Category",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "PopcBrowseRoot",
+                      "text": "Browse Root Category"
+                    },
+                    {
+                      "key": "PopcDeals",
+                      "text": "Deals"
+                    },
+                    {
+                      "key": "DEMO_ONE",
+                      "text": "Demo Category One"
+                    },
+                    {
+                      "key": "DEMO_THREE",
+                      "text": "Demo Category Three"
+                    },
+                    {
+                      "key": "DEMO_TWO",
+                      "text": "Demo Category Two"
+                    },
+                    {
+                      "key": "PopcFeatured",
+                      "text": "Featured Best Sellers"
+                    },
+                    {
+                      "key": "PopcHome",
+                      "text": "Home Page Category"
+                    },
+                    {
+                      "key": "PopcNew",
+                      "text": "New"
+                    },
+                    {
+                      "key": "PopcAllProducts",
+                      "text": "POPC All Products Category"
+                    },
+                    {
+                      "key": "100000",
+                      "text": "PW Test Category"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Select",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "QuickItemSection",
+          "condition": "productInfoList",
+          "_type": "section",
+          "sectionName": "QuickItemSection"
+        }
+      ]
+    }
+  ]
+}

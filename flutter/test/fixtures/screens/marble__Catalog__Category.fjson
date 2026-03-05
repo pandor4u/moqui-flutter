@@ -1,0 +1,609 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Category",
+  "menuTitle": "Categories",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "CategoryPanel",
+          "type": "tab",
+          "_type": "subscreens-panel",
+          "menuType": "tab",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "EditCategory",
+              "menuTitle": "Category",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "EditProducts",
+              "menuTitle": "Products",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Content",
+              "menuTitle": "Content",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "FindCategory",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "FindCategory",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "id": "NewCategoryDialog",
+                    "_type": "container-dialog",
+                    "buttonText": "New Category",
+                    "dialogTitle": "",
+                    "width": "",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "name": "NewCategoryForm",
+                        "_type": "form-single",
+                        "formName": "NewCategoryForm",
+                        "transition": "createCategory",
+                        "map": "fieldValues",
+                        "fields": [
+                          {
+                            "name": "categoryName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Category Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "inputType": "text",
+                                "size": "",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "productCategoryTypeEnumId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Category Type",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "${allowEmpty ?: 'false'}",
+                                "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                                "style": "${style?:''}",
+                                "allow-multiple": "${allowMultiple ?: 'false'}",
+                                "show-not": "${showNot ?: 'false'}",
+                                "allowEmpty": "false",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "${showNot ?: 'false'}",
+                                "options": [
+                                  {
+                                    "key": "PctBestSelling",
+                                    "text": "Best Selling"
+                                  },
+                                  {
+                                    "key": "PctCatalog",
+                                    "text": "Catalog"
+                                  },
+                                  {
+                                    "key": "PctCrossSell",
+                                    "text": "Cross Sell"
+                                  },
+                                  {
+                                    "key": "PctGiftCard",
+                                    "text": "Gift Card"
+                                  },
+                                  {
+                                    "key": "PctIndustry",
+                                    "text": "Industry"
+                                  },
+                                  {
+                                    "key": "PctInternal",
+                                    "text": "Internal"
+                                  },
+                                  {
+                                    "key": "PctInventoryGroup",
+                                    "text": "Inventory Group"
+                                  },
+                                  {
+                                    "key": "PctMaterials",
+                                    "text": "Materials"
+                                  },
+                                  {
+                                    "key": "PctMixMatch",
+                                    "text": "Mix and Match"
+                                  },
+                                  {
+                                    "key": "PctQuickAdd",
+                                    "text": "Quick Add"
+                                  },
+                                  {
+                                    "key": "PctSearch",
+                                    "text": "Search"
+                                  },
+                                  {
+                                    "key": "PctTax",
+                                    "text": "Tax"
+                                  },
+                                  {
+                                    "key": "PctUsage",
+                                    "text": "Usage"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "ownerPartyId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Owner Party",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [
+                                  {
+                                    "key": "_NA_",
+                                    "text": "N/A"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_HR",
+                                    "text": "ZIHR: Ziziwork Human Resources"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_CORP",
+                                    "text": "ZICORP: Ziziwork Industries"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_RETAIL",
+                                    "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_SALES",
+                                    "text": "ZISAL: Ziziwork Sales"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_SERVICES",
+                                    "text": "ZISER: Ziziwork Services"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Create",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "CategoriesForm",
+                    "_type": "form-list",
+                    "formName": "CategoriesForm",
+                    "transition": "",
+                    "list": "categoryList",
+                    "paginate": "true",
+                    "headerDialog": "",
+                    "selectColumns": "",
+                    "savedFinds": "",
+                    "showCsvButton": "",
+                    "showXlsxButton": "",
+                    "showPageSize": "",
+                    "skipForm": "true",
+                    "editUrl": "editCategory",
+                    "headerFields": [
+                      {
+                        "name": "pseudoId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Category ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "15",
+                            "hide-options": "true",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "categoryName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "15",
+                            "hide-options": "true",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "productCategoryTypeEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Category Type",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "widget-template-include",
+                            "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ownerPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Owner Party",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "ORG_ZIZI_HR",
+                                "text": "ZIHR: Ziziwork Human Resources"
+                              },
+                              {
+                                "key": "ORG_ZIZI_CORP",
+                                "text": "ZICORP: Ziziwork Industries"
+                              },
+                              {
+                                "key": "ORG_ZIZI_RETAIL",
+                                "text": "ZIRET: Ziziwork Retail & Wholesale"
+                              },
+                              {
+                                "key": "ORG_ZIZI_SALES",
+                                "text": "ZISAL: Ziziwork Sales"
+                              },
+                              {
+                                "key": "ORG_ZIZI_SERVICES",
+                                "text": "ZISER: Ziziwork Services"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "submitButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "submit",
+                            "text": "",
+                            "confirmation": "",
+                            "btnType": "",
+                            "icon": ""
+                          }
+                        ]
+                      }
+                    ],
+                    "fields": [
+                      {
+                        "name": "pseudoId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Category ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editCategory",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "categoryName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editCategory",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "productCategoryTypeEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Category Type",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.Enumeration",
+                            "entityName": "moqui.basic.Enumeration",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ownerPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Owner Party",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "PartyNameTemplate",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "partyId": ""
+                            },
+                            "url": "editParty",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "partyId": "ownerPartyId"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "submitButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "text": " ",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "resolvedText": " "
+                          }
+                        ]
+                      }
+                    ],
+                    "listData": [
+                      {
+                        "productCategoryTypeEnumId": "PctCatalog",
+                        "productCategoryTypeEnumId_display": "Catalog",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "ownerPartyId": "_NA_",
+                        "pseudoId_linkText": "PopcBrowseRoot",
+                        "categoryName_linkText": "Browse Root Category"
+                      },
+                      {
+                        "productCategoryTypeEnumId": "PctCatalog",
+                        "productCategoryTypeEnumId_display": "Catalog",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "ownerPartyId": "_NA_",
+                        "pseudoId_linkText": "PopcDeals",
+                        "categoryName_linkText": "Deals"
+                      },
+                      {
+                        "productCategoryTypeEnumId": "PctCatalog",
+                        "productCategoryTypeEnumId_display": "Catalog",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "ownerPartyId": "ORG_ZIZI_RETAIL",
+                        "pseudoId_linkText": "DEMO_ONE",
+                        "categoryName_linkText": "Demo Category One"
+                      },
+                      {
+                        "productCategoryTypeEnumId": "PctCatalog",
+                        "productCategoryTypeEnumId_display": "Catalog",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "ownerPartyId": "ORG_ZIZI_RETAIL",
+                        "pseudoId_linkText": "DEMO_THREE",
+                        "categoryName_linkText": "Demo Category Three"
+                      },
+                      {
+                        "productCategoryTypeEnumId": "PctCatalog",
+                        "productCategoryTypeEnumId_display": "Catalog",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "ownerPartyId": "ORG_ZIZI_RETAIL",
+                        "pseudoId_linkText": "DEMO_TWO",
+                        "categoryName_linkText": "Demo Category Two"
+                      },
+                      {
+                        "productCategoryTypeEnumId": "PctMaterials",
+                        "productCategoryTypeEnumId_display": "Materials",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "ownerPartyId": "ORG_ZIZI_RETAIL",
+                        "pseudoId_linkText": "DEMO_EQUIP",
+                        "categoryName_linkText": "Demo Equipment"
+                      },
+                      {
+                        "productCategoryTypeEnumId": "PctMaterials",
+                        "productCategoryTypeEnumId_display": "Materials",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "ownerPartyId": "ORG_ZIZI_RETAIL",
+                        "pseudoId_linkText": "DEMO_RM",
+                        "categoryName_linkText": "Demo Raw Materials"
+                      },
+                      {
+                        "productCategoryTypeEnumId": "PctMaterials",
+                        "productCategoryTypeEnumId_display": "Materials",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "ownerPartyId": "ORG_ZIZI_RETAIL",
+                        "pseudoId_linkText": "DEMO_SA",
+                        "categoryName_linkText": "Demo Sub Assemblies"
+                      },
+                      {
+                        "productCategoryTypeEnumId": "PctCatalog",
+                        "productCategoryTypeEnumId_display": "Catalog",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "ownerPartyId": "_NA_",
+                        "pseudoId_linkText": "PopcFeatured",
+                        "categoryName_linkText": "Featured Best Sellers"
+                      },
+                      {
+                        "productCategoryTypeEnumId": "PctCatalog",
+                        "productCategoryTypeEnumId_display": "Catalog",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "ownerPartyId": "_NA_",
+                        "pseudoId_linkText": "PopcHome",
+                        "categoryName_linkText": "Home Page Category"
+                      },
+                      {
+                        "productCategoryTypeEnumId": "PctCatalog",
+                        "productCategoryTypeEnumId_display": "Catalog",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "ownerPartyId": "_NA_",
+                        "pseudoId_linkText": "PopcNew",
+                        "categoryName_linkText": "New"
+                      },
+                      {
+                        "productCategoryTypeEnumId": "PctCatalog",
+                        "productCategoryTypeEnumId_display": "Catalog",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "ownerPartyId": "_NA_",
+                        "pseudoId_linkText": "PopcAllProducts",
+                        "categoryName_linkText": "POPC All Products Category"
+                      },
+                      {
+                        "productCategoryTypeEnumId": "PctCatalog",
+                        "productCategoryTypeEnumId_display": "Catalog",
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "ownerPartyId": "_NA_",
+                        "pseudoId_linkText": "100000",
+                        "categoryName_linkText": "PW Test Category"
+                      }
+                    ],
+                    "paginateInfo": {
+                      "pageIndex": 0,
+                      "pageSize": 20,
+                      "count": 13,
+                      "pageMaxIndex": 0,
+                      "pageRangeLow": 1,
+                      "pageRangeHigh": 13
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "FindCategory"
+        }
+      ]
+    }
+  ]
+}

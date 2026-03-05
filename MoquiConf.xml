@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<moqui-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/moqui-conf-3.xsd">
+    <screen-facade>
+        <!-- JSON render mode for Flutter dynamic screen rendering -->
+        <screen-output type="fjson" mime-type="application/json" always-standalone="true"
+                widget-render-class="org.moqui.flutter.ScreenWidgetRenderJson"/>
+
+        <!-- Register fapps as a subscreen of webroot so /fapps URL is routable -->
+        <screen location="component://webroot/screen/webroot.xml">
+            <subscreens-item name="fapps" menu-title="Flutter Apps" menu-include="false"
+                    location="component://moqui-flutter/screen/fapps.xml"/>
+        </screen>
+
+        <!-- Register app subscreens under fapps so Flutter can resolve app paths -->
+        <screen location="component://moqui-flutter/screen/fapps.xml">
+            <subscreens-item name="marble" menu-title="Marble ERP" menu-index="6"
+                    location="component://MarbleERP/screen/marble.xml"/>
+            <subscreens-item name="my" menu-title="My Account" menu-index="90"
+                    location="component://SimpleScreens/screen/MyAccount.xml"/>
+            <subscreens-item name="system" menu-title="System" menu-index="98"
+                    location="component://tools/screen/System.xml"/>
+            <subscreens-item name="tools" menu-title="Tools" menu-index="99"
+                    location="component://tools/screen/Tools.xml"/>
+        </screen>
+    </screen-facade>
+</moqui-conf>

@@ -1,0 +1,17 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Wiki",
+  "menuTitle": "Wiki/Content",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "subscreens-active",
+          "defaultItem": "WikiSpaces"
+        }
+      ]
+    }
+  ]
+}

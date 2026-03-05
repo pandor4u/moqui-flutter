@@ -1,0 +1,518 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FindBudget",
+  "menuTitle": "Budgets",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container-box",
+          "boxTitle": "Budgets",
+          "header": [],
+          "toolbar": [
+            {
+              "id": "NewBudgetDialog",
+              "_type": "container-dialog",
+              "buttonText": "New Budget",
+              "dialogTitle": "",
+              "width": "",
+              "icon": "",
+              "btnType": "",
+              "children": [
+                {
+                  "name": "NewBudgetForm",
+                  "_type": "form-single",
+                  "formName": "NewBudgetForm",
+                  "transition": "createBudget",
+                  "map": "fieldValues",
+                  "fields": [
+                    {
+                      "name": "budgetTypeEnumId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Type",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "${allowEmpty ?: 'false'}",
+                          "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                          "style": "${style?:''}",
+                          "allow-multiple": "${allowMultiple ?: 'false'}",
+                          "show-not": "${showNot ?: 'false'}",
+                          "allowEmpty": "false",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "${showNot ?: 'false'}",
+                          "options": [
+                            {
+                              "key": "BudgetCapital",
+                              "text": "Capital"
+                            },
+                            {
+                              "key": "BudgetOperating",
+                              "text": "Operating"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "organizationPartyId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Organization",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "ORG_ZIZI_HR",
+                              "text": "ZIHR: Ziziwork Human Resources"
+                            },
+                            {
+                              "key": "ORG_ZIZI_CORP",
+                              "text": "ZICORP: Ziziwork Industries"
+                            },
+                            {
+                              "key": "ORG_ZIZI_RETAIL",
+                              "text": "ZIRET: Ziziwork Retail & Wholesale"
+                            },
+                            {
+                              "key": "ORG_ZIZI_SALES",
+                              "text": "ZISAL: Ziziwork Sales"
+                            },
+                            {
+                              "key": "ORG_ZIZI_SERVICES",
+                              "text": "ZISER: Ziziwork Services"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "timePeriodId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Time Period",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [],
+                          "dynamicOptions": {
+                            "transition": "getOrgFiscalPeriods",
+                            "serverSearch": "false",
+                            "minLength": "1",
+                            "dependsOnField": "organizationPartyId",
+                            "dependsOnParameter": ""
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "subTimePeriodTypeId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Sub Period Type",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "no-current-selected-key": "FiscalMonth",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "FiscalMonth",
+                              "text": "Month"
+                            },
+                            {
+                              "key": "FiscalQuarter",
+                              "text": "Quarter"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "description",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Description",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "50",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "submitButton",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Create",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "bodyNoPad": [
+            {
+              "name": "BudgetList",
+              "_type": "form-list",
+              "formName": "BudgetList",
+              "transition": "",
+              "list": "budgetList",
+              "paginate": "true",
+              "headerDialog": "true",
+              "selectColumns": "",
+              "savedFinds": "",
+              "showCsvButton": "",
+              "showXlsxButton": "",
+              "showPageSize": "",
+              "skipForm": "true",
+              "editUrl": "editBudget",
+              "headerFields": [
+                {
+                  "name": "budgetId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Budget",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "6",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "description",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Description",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-find",
+                      "size": "",
+                      "maxlength": "",
+                      "ignoreCase": "true",
+                      "defaultOperator": "contains",
+                      "hideOptions": "false"
+                    }
+                  ]
+                },
+                {
+                  "name": "budgetTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "widget-template-include",
+                      "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                    }
+                  ]
+                },
+                {
+                  "name": "partyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "ZIHR: Ziziwork Human Resources"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "ZICORP: Ziziwork Industries"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "ZISAL: Ziziwork Sales"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "ZISER: Ziziwork Services"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "fromDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-period",
+                      "allowEmpty": "true",
+                      "time": "false"
+                    }
+                  ]
+                },
+                {
+                  "name": "thruDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Thru Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-period",
+                      "allowEmpty": "true",
+                      "time": "false"
+                    }
+                  ]
+                },
+                {
+                  "name": "findButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Find",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ],
+              "fields": [
+                {
+                  "name": "budgetId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Budget",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "null",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Accounting/Budget/FindBudget/editBudget",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "name": "description",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Description",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "null",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Accounting/Budget/FindBudget/editBudget",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "name": "budgetTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "moqui.basic.Enumeration",
+                      "entityName": "moqui.basic.Enumeration",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "partyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "PartyNameTemplate",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Accounting/Budget/FindBudget/editParty",
+                      "isAnchorLink": true
+                    }
+                  ]
+                },
+                {
+                  "name": "periodName",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Period Name",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "fromDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "thruDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Thru Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ]
+                }
+              ],
+              "listData": [],
+              "paginateInfo": {
+                "pageIndex": 0,
+                "pageSize": 20,
+                "count": 0,
+                "pageMaxIndex": 0,
+                "pageRangeLow": 1,
+                "pageRangeHigh": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

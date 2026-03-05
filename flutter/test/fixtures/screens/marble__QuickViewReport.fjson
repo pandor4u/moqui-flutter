@@ -1,0 +1,84 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "QuickViewReport",
+  "menuTitle": "Report Viewer",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "SelectReportDialog",
+          "_type": "container-dialog",
+          "buttonText": "Select a Report",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "DataDocumentList",
+              "_type": "form-list",
+              "formName": "DataDocumentList",
+              "transition": "",
+              "list": "dataDocumentList",
+              "paginate": "true",
+              "headerDialog": "",
+              "selectColumns": "",
+              "savedFinds": "",
+              "showCsvButton": "",
+              "showXlsxButton": "",
+              "showPageSize": "",
+              "skipForm": "true",
+              "editUrl": ".",
+              "headerFields": [],
+              "fields": [
+                {
+                  "name": "documentName",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Document Name",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "null",
+                      "linkType": "anchor",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/QuickViewReport",
+                      "isAnchorLink": true
+                    }
+                  ]
+                }
+              ],
+              "listData": []
+            }
+          ]
+        },
+        {
+          "name": "ViewReportSection",
+          "_type": "section-include",
+          "sectionName": "ViewReportSection",
+          "failWidgets": [
+            {
+              "type": "h5",
+              "_type": "label",
+              "text": "Please select a report",
+              "resolvedText": "Please select a report",
+              "labelType": "h5",
+              "encode": "true"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

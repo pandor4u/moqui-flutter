@@ -1,0 +1,2642 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "PartyRelated",
+  "menuTitle": "Related",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "NewRelationshipDialog",
+          "_type": "container-dialog",
+          "buttonText": "New Relationship",
+          "dialogTitle": "",
+          "width": "800",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "NewToRelForm",
+              "_type": "form-single",
+              "formName": "NewToRelForm",
+              "transition": "createPartyRelationship",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "partyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Party ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "CustJqp"
+                },
+                {
+                  "name": "fromPartyId",
+                  "from": "partyId",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Party ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "text": "PartyNameTemplate",
+                      "text-map": "partyDetail",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "",
+                      "resolvedText": "null: "
+                    }
+                  ],
+                  "currentValue": "CustJqp"
+                },
+                {
+                  "name": "fromRoleTypeId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "in role",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "Accountant",
+                          "text": "Accountant"
+                        },
+                        {
+                          "key": "Administrator",
+                          "text": "Administrator"
+                        },
+                        {
+                          "key": "Affiliate",
+                          "text": "Affiliate"
+                        },
+                        {
+                          "key": "Agent",
+                          "text": "Agent"
+                        },
+                        {
+                          "key": "AssetOwner",
+                          "text": "Asset Owner"
+                        },
+                        {
+                          "key": "Assignee",
+                          "text": "Assignee"
+                        },
+                        {
+                          "key": "OrgAssociation",
+                          "text": "Association"
+                        },
+                        {
+                          "key": "Attendee",
+                          "text": "Attendee"
+                        },
+                        {
+                          "key": "BadActor",
+                          "text": "Bad Actor (Banned)"
+                        },
+                        {
+                          "key": "BusinessAnalyst",
+                          "text": "Business Analyst"
+                        },
+                        {
+                          "key": "Buyer",
+                          "text": "Buyer"
+                        },
+                        {
+                          "key": "Carrier",
+                          "text": "Carrier"
+                        },
+                        {
+                          "key": "Cashier",
+                          "text": "Cashier"
+                        },
+                        {
+                          "key": "ClientBilling",
+                          "text": "Client Billing Rep"
+                        },
+                        {
+                          "key": "ClientManager",
+                          "text": "Client Manager"
+                        },
+                        {
+                          "key": "Competitor",
+                          "text": "Competitor"
+                        },
+                        {
+                          "key": "Consumer",
+                          "text": "Consumer"
+                        },
+                        {
+                          "key": "Contractor",
+                          "text": "Contractor"
+                        },
+                        {
+                          "key": "OrgCorporation",
+                          "text": "Corporation"
+                        },
+                        {
+                          "key": "Customer",
+                          "text": "Customer"
+                        },
+                        {
+                          "key": "CustomerBillTo",
+                          "text": "Customer - Bill To"
+                        },
+                        {
+                          "key": "CustomerEndUser",
+                          "text": "Customer - End User"
+                        },
+                        {
+                          "key": "CustomerPlacing",
+                          "text": "Customer - Placing"
+                        },
+                        {
+                          "key": "CustomerShipTo",
+                          "text": "Customer - Ship To"
+                        },
+                        {
+                          "key": "DefaultAssignee",
+                          "text": "Default Assignee"
+                        },
+                        {
+                          "key": "Delegate",
+                          "text": "Delegate"
+                        },
+                        {
+                          "key": "OrgDepartment",
+                          "text": "Department"
+                        },
+                        {
+                          "key": "Distributor",
+                          "text": "Distributor"
+                        },
+                        {
+                          "key": "OrgDivision",
+                          "text": "Division"
+                        },
+                        {
+                          "key": "EmailAdmin",
+                          "text": "Email Administrator"
+                        },
+                        {
+                          "key": "Employee",
+                          "text": "Employee"
+                        },
+                        {
+                          "key": "OrgEmployer",
+                          "text": "Employer"
+                        },
+                        {
+                          "key": "Executive",
+                          "text": "Executive"
+                        },
+                        {
+                          "key": "ExpertUser",
+                          "text": "Expert User"
+                        },
+                        {
+                          "key": "OrgFamily",
+                          "text": "Family"
+                        },
+                        {
+                          "key": "FamilyMember",
+                          "text": "Family Member"
+                        },
+                        {
+                          "key": "GarnishmentPayee",
+                          "text": "Garnishment Payee"
+                        },
+                        {
+                          "key": "OrgGovernment",
+                          "text": "Government"
+                        },
+                        {
+                          "key": "OrgGovernmentAgency",
+                          "text": "Government Agency"
+                        },
+                        {
+                          "key": "Host",
+                          "text": "Host"
+                        },
+                        {
+                          "key": "HostingProvider",
+                          "text": "Hosting Provider"
+                        },
+                        {
+                          "key": "OrgHousehold",
+                          "text": "Household"
+                        },
+                        {
+                          "key": "HumanResourcesManager",
+                          "text": "Human Resources Manager"
+                        },
+                        {
+                          "key": "OrgInternal",
+                          "text": "Internal Organization"
+                        },
+                        {
+                          "key": "InternetSp",
+                          "text": "Internet Service Provider"
+                        },
+                        {
+                          "key": "InventoryManager",
+                          "text": "Inventory Manager"
+                        },
+                        {
+                          "key": "Manager",
+                          "text": "Manager"
+                        },
+                        {
+                          "key": "Manufacturer",
+                          "text": "Manufacturer"
+                        },
+                        {
+                          "key": "_NA_",
+                          "text": "Not Applicable"
+                        },
+                        {
+                          "key": "Operator",
+                          "text": "Operator"
+                        },
+                        {
+                          "key": "OrderClerk",
+                          "text": "Order Clerk"
+                        },
+                        {
+                          "key": "Organizer",
+                          "text": "Organizer"
+                        },
+                        {
+                          "key": "Owner",
+                          "text": "Owner"
+                        },
+                        {
+                          "key": "Packer",
+                          "text": "Packer"
+                        },
+                        {
+                          "key": "OrgParent",
+                          "text": "Parent"
+                        },
+                        {
+                          "key": "Partner",
+                          "text": "Partner"
+                        },
+                        {
+                          "key": "Payroll",
+                          "text": "Payroll"
+                        },
+                        {
+                          "key": "PayrollOtherPayee",
+                          "text": "Payroll Other Payee"
+                        },
+                        {
+                          "key": "Picker",
+                          "text": "Picker"
+                        },
+                        {
+                          "key": "ProductionManager",
+                          "text": "Production Manager"
+                        },
+                        {
+                          "key": "ProductionWorker",
+                          "text": "Production Worker"
+                        },
+                        {
+                          "key": "Programmer",
+                          "text": "Programmer"
+                        },
+                        {
+                          "key": "ProgrammerLead",
+                          "text": "Programmer Lead"
+                        },
+                        {
+                          "key": "ProjectManager",
+                          "text": "Project Manager"
+                        },
+                        {
+                          "key": "Prospect",
+                          "text": "Prospect"
+                        },
+                        {
+                          "key": "QualityAnalyst",
+                          "text": "Quality Analyst"
+                        },
+                        {
+                          "key": "QualityLead",
+                          "text": "Quality Lead"
+                        },
+                        {
+                          "key": "Receiver",
+                          "text": "Receiver"
+                        },
+                        {
+                          "key": "Referrer",
+                          "text": "Referrer"
+                        },
+                        {
+                          "key": "OrgRegulatoryAgency",
+                          "text": "Regulatory Agency"
+                        },
+                        {
+                          "key": "Reporter",
+                          "text": "Reporter"
+                        },
+                        {
+                          "key": "Account",
+                          "text": "Sales Account"
+                        },
+                        {
+                          "key": "AccountLead",
+                          "text": "Sales Account Lead"
+                        },
+                        {
+                          "key": "Contact",
+                          "text": "Sales Contact"
+                        },
+                        {
+                          "key": "SalesRepresentative",
+                          "text": "Sales Representative"
+                        },
+                        {
+                          "key": "Shareholder",
+                          "text": "Shareholder"
+                        },
+                        {
+                          "key": "ShipmentClerk",
+                          "text": "Shipment Clerk"
+                        },
+                        {
+                          "key": "Sponsor",
+                          "text": "Sponsor"
+                        },
+                        {
+                          "key": "Spouse",
+                          "text": "Spouse"
+                        },
+                        {
+                          "key": "Stocker",
+                          "text": "Stocker"
+                        },
+                        {
+                          "key": "Subscriber",
+                          "text": "Subscriber"
+                        },
+                        {
+                          "key": "OrgSubsidiary",
+                          "text": "Subsidiary"
+                        },
+                        {
+                          "key": "Supplier",
+                          "text": "Supplier"
+                        },
+                        {
+                          "key": "SupplierAgent",
+                          "text": "Supplier Agent"
+                        },
+                        {
+                          "key": "SysAdmin",
+                          "text": "System Administrator"
+                        },
+                        {
+                          "key": "SysArchitect",
+                          "text": "System Architect"
+                        },
+                        {
+                          "key": "OrgTaxAuthority",
+                          "text": "Tax Authority"
+                        },
+                        {
+                          "key": "OrgTeam",
+                          "text": "Team"
+                        },
+                        {
+                          "key": "TechContact",
+                          "text": "Technical Contact"
+                        },
+                        {
+                          "key": "UiDesigner",
+                          "text": "UI Designer"
+                        },
+                        {
+                          "key": "OrgUnion",
+                          "text": "Union"
+                        },
+                        {
+                          "key": "OrgUnit",
+                          "text": "Unit"
+                        },
+                        {
+                          "key": "Vendor",
+                          "text": "Vendor"
+                        },
+                        {
+                          "key": "VendorBillFrom",
+                          "text": "Vendor - Bill From"
+                        },
+                        {
+                          "key": "VendorPickUpFrom",
+                          "text": "Vendor - Pick Up From"
+                        },
+                        {
+                          "key": "VendorShipFrom",
+                          "text": "Vendor - Ship From"
+                        },
+                        {
+                          "key": "Visitor",
+                          "text": "Visitor"
+                        },
+                        {
+                          "key": "Watcher",
+                          "text": "Watcher"
+                        },
+                        {
+                          "key": "WebMaster",
+                          "text": "Web Master"
+                        },
+                        {
+                          "key": "Worker",
+                          "text": "Worker"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "relationshipTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "is a",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "PrtAgent",
+                          "text": "Agent"
+                        },
+                        {
+                          "key": "PrtChild",
+                          "text": "Child"
+                        },
+                        {
+                          "key": "PrtContact",
+                          "text": "Contact"
+                        },
+                        {
+                          "key": "PrtCustomer",
+                          "text": "Customer"
+                        },
+                        {
+                          "key": "PrtEmployee",
+                          "text": "Employee"
+                        },
+                        {
+                          "key": "PrtFriend",
+                          "text": "Friend"
+                        },
+                        {
+                          "key": "PrtManager",
+                          "text": "Manager"
+                        },
+                        {
+                          "key": "PrtMember",
+                          "text": "Organization Member"
+                        },
+                        {
+                          "key": "PrtOrgRollup",
+                          "text": "Organization Rollup (Child)"
+                        },
+                        {
+                          "key": "PrtPartner",
+                          "text": "Partner"
+                        },
+                        {
+                          "key": "PrtRepresentative",
+                          "text": "Representative"
+                        },
+                        {
+                          "key": "PrtSalesAffiliate",
+                          "text": "Sales Affiliate"
+                        },
+                        {
+                          "key": "PrtSpouse",
+                          "text": "Spouse"
+                        },
+                        {
+                          "key": "PrtSupplier",
+                          "text": "Supplier"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "toPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "of",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "toRoleTypeId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "in role",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "Accountant",
+                          "text": "Accountant"
+                        },
+                        {
+                          "key": "Administrator",
+                          "text": "Administrator"
+                        },
+                        {
+                          "key": "Affiliate",
+                          "text": "Affiliate"
+                        },
+                        {
+                          "key": "Agent",
+                          "text": "Agent"
+                        },
+                        {
+                          "key": "AssetOwner",
+                          "text": "Asset Owner"
+                        },
+                        {
+                          "key": "Assignee",
+                          "text": "Assignee"
+                        },
+                        {
+                          "key": "OrgAssociation",
+                          "text": "Association"
+                        },
+                        {
+                          "key": "Attendee",
+                          "text": "Attendee"
+                        },
+                        {
+                          "key": "BadActor",
+                          "text": "Bad Actor (Banned)"
+                        },
+                        {
+                          "key": "BusinessAnalyst",
+                          "text": "Business Analyst"
+                        },
+                        {
+                          "key": "Buyer",
+                          "text": "Buyer"
+                        },
+                        {
+                          "key": "Carrier",
+                          "text": "Carrier"
+                        },
+                        {
+                          "key": "Cashier",
+                          "text": "Cashier"
+                        },
+                        {
+                          "key": "ClientBilling",
+                          "text": "Client Billing Rep"
+                        },
+                        {
+                          "key": "ClientManager",
+                          "text": "Client Manager"
+                        },
+                        {
+                          "key": "Competitor",
+                          "text": "Competitor"
+                        },
+                        {
+                          "key": "Consumer",
+                          "text": "Consumer"
+                        },
+                        {
+                          "key": "Contractor",
+                          "text": "Contractor"
+                        },
+                        {
+                          "key": "OrgCorporation",
+                          "text": "Corporation"
+                        },
+                        {
+                          "key": "Customer",
+                          "text": "Customer"
+                        },
+                        {
+                          "key": "CustomerBillTo",
+                          "text": "Customer - Bill To"
+                        },
+                        {
+                          "key": "CustomerEndUser",
+                          "text": "Customer - End User"
+                        },
+                        {
+                          "key": "CustomerPlacing",
+                          "text": "Customer - Placing"
+                        },
+                        {
+                          "key": "CustomerShipTo",
+                          "text": "Customer - Ship To"
+                        },
+                        {
+                          "key": "DefaultAssignee",
+                          "text": "Default Assignee"
+                        },
+                        {
+                          "key": "Delegate",
+                          "text": "Delegate"
+                        },
+                        {
+                          "key": "OrgDepartment",
+                          "text": "Department"
+                        },
+                        {
+                          "key": "Distributor",
+                          "text": "Distributor"
+                        },
+                        {
+                          "key": "OrgDivision",
+                          "text": "Division"
+                        },
+                        {
+                          "key": "EmailAdmin",
+                          "text": "Email Administrator"
+                        },
+                        {
+                          "key": "Employee",
+                          "text": "Employee"
+                        },
+                        {
+                          "key": "OrgEmployer",
+                          "text": "Employer"
+                        },
+                        {
+                          "key": "Executive",
+                          "text": "Executive"
+                        },
+                        {
+                          "key": "ExpertUser",
+                          "text": "Expert User"
+                        },
+                        {
+                          "key": "OrgFamily",
+                          "text": "Family"
+                        },
+                        {
+                          "key": "FamilyMember",
+                          "text": "Family Member"
+                        },
+                        {
+                          "key": "GarnishmentPayee",
+                          "text": "Garnishment Payee"
+                        },
+                        {
+                          "key": "OrgGovernment",
+                          "text": "Government"
+                        },
+                        {
+                          "key": "OrgGovernmentAgency",
+                          "text": "Government Agency"
+                        },
+                        {
+                          "key": "Host",
+                          "text": "Host"
+                        },
+                        {
+                          "key": "HostingProvider",
+                          "text": "Hosting Provider"
+                        },
+                        {
+                          "key": "OrgHousehold",
+                          "text": "Household"
+                        },
+                        {
+                          "key": "HumanResourcesManager",
+                          "text": "Human Resources Manager"
+                        },
+                        {
+                          "key": "OrgInternal",
+                          "text": "Internal Organization"
+                        },
+                        {
+                          "key": "InternetSp",
+                          "text": "Internet Service Provider"
+                        },
+                        {
+                          "key": "InventoryManager",
+                          "text": "Inventory Manager"
+                        },
+                        {
+                          "key": "Manager",
+                          "text": "Manager"
+                        },
+                        {
+                          "key": "Manufacturer",
+                          "text": "Manufacturer"
+                        },
+                        {
+                          "key": "_NA_",
+                          "text": "Not Applicable"
+                        },
+                        {
+                          "key": "Operator",
+                          "text": "Operator"
+                        },
+                        {
+                          "key": "OrderClerk",
+                          "text": "Order Clerk"
+                        },
+                        {
+                          "key": "Organizer",
+                          "text": "Organizer"
+                        },
+                        {
+                          "key": "Owner",
+                          "text": "Owner"
+                        },
+                        {
+                          "key": "Packer",
+                          "text": "Packer"
+                        },
+                        {
+                          "key": "OrgParent",
+                          "text": "Parent"
+                        },
+                        {
+                          "key": "Partner",
+                          "text": "Partner"
+                        },
+                        {
+                          "key": "Payroll",
+                          "text": "Payroll"
+                        },
+                        {
+                          "key": "PayrollOtherPayee",
+                          "text": "Payroll Other Payee"
+                        },
+                        {
+                          "key": "Picker",
+                          "text": "Picker"
+                        },
+                        {
+                          "key": "ProductionManager",
+                          "text": "Production Manager"
+                        },
+                        {
+                          "key": "ProductionWorker",
+                          "text": "Production Worker"
+                        },
+                        {
+                          "key": "Programmer",
+                          "text": "Programmer"
+                        },
+                        {
+                          "key": "ProgrammerLead",
+                          "text": "Programmer Lead"
+                        },
+                        {
+                          "key": "ProjectManager",
+                          "text": "Project Manager"
+                        },
+                        {
+                          "key": "Prospect",
+                          "text": "Prospect"
+                        },
+                        {
+                          "key": "QualityAnalyst",
+                          "text": "Quality Analyst"
+                        },
+                        {
+                          "key": "QualityLead",
+                          "text": "Quality Lead"
+                        },
+                        {
+                          "key": "Receiver",
+                          "text": "Receiver"
+                        },
+                        {
+                          "key": "Referrer",
+                          "text": "Referrer"
+                        },
+                        {
+                          "key": "OrgRegulatoryAgency",
+                          "text": "Regulatory Agency"
+                        },
+                        {
+                          "key": "Reporter",
+                          "text": "Reporter"
+                        },
+                        {
+                          "key": "Account",
+                          "text": "Sales Account"
+                        },
+                        {
+                          "key": "AccountLead",
+                          "text": "Sales Account Lead"
+                        },
+                        {
+                          "key": "Contact",
+                          "text": "Sales Contact"
+                        },
+                        {
+                          "key": "SalesRepresentative",
+                          "text": "Sales Representative"
+                        },
+                        {
+                          "key": "Shareholder",
+                          "text": "Shareholder"
+                        },
+                        {
+                          "key": "ShipmentClerk",
+                          "text": "Shipment Clerk"
+                        },
+                        {
+                          "key": "Sponsor",
+                          "text": "Sponsor"
+                        },
+                        {
+                          "key": "Spouse",
+                          "text": "Spouse"
+                        },
+                        {
+                          "key": "Stocker",
+                          "text": "Stocker"
+                        },
+                        {
+                          "key": "Subscriber",
+                          "text": "Subscriber"
+                        },
+                        {
+                          "key": "OrgSubsidiary",
+                          "text": "Subsidiary"
+                        },
+                        {
+                          "key": "Supplier",
+                          "text": "Supplier"
+                        },
+                        {
+                          "key": "SupplierAgent",
+                          "text": "Supplier Agent"
+                        },
+                        {
+                          "key": "SysAdmin",
+                          "text": "System Administrator"
+                        },
+                        {
+                          "key": "SysArchitect",
+                          "text": "System Architect"
+                        },
+                        {
+                          "key": "OrgTaxAuthority",
+                          "text": "Tax Authority"
+                        },
+                        {
+                          "key": "OrgTeam",
+                          "text": "Team"
+                        },
+                        {
+                          "key": "TechContact",
+                          "text": "Technical Contact"
+                        },
+                        {
+                          "key": "UiDesigner",
+                          "text": "UI Designer"
+                        },
+                        {
+                          "key": "OrgUnion",
+                          "text": "Union"
+                        },
+                        {
+                          "key": "OrgUnit",
+                          "text": "Unit"
+                        },
+                        {
+                          "key": "Vendor",
+                          "text": "Vendor"
+                        },
+                        {
+                          "key": "VendorBillFrom",
+                          "text": "Vendor - Bill From"
+                        },
+                        {
+                          "key": "VendorPickUpFrom",
+                          "text": "Vendor - Pick Up From"
+                        },
+                        {
+                          "key": "VendorShipFrom",
+                          "text": "Vendor - Ship From"
+                        },
+                        {
+                          "key": "Visitor",
+                          "text": "Visitor"
+                        },
+                        {
+                          "key": "Watcher",
+                          "text": "Watcher"
+                        },
+                        {
+                          "key": "WebMaster",
+                          "text": "Web Master"
+                        },
+                        {
+                          "key": "Worker",
+                          "text": "Worker"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "fromDate",
+                  "from": "ec.user.nowTimestamp",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "2026-03-04 13:30:12.16"
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "NewFromRelForm",
+              "_type": "form-single",
+              "formName": "NewFromRelForm",
+              "transition": "createPartyRelationship",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "partyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Party ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "CustJqp"
+                },
+                {
+                  "name": "fromPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Party ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "fromRoleTypeId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "in role",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "Accountant",
+                          "text": "Accountant"
+                        },
+                        {
+                          "key": "Administrator",
+                          "text": "Administrator"
+                        },
+                        {
+                          "key": "Affiliate",
+                          "text": "Affiliate"
+                        },
+                        {
+                          "key": "Agent",
+                          "text": "Agent"
+                        },
+                        {
+                          "key": "AssetOwner",
+                          "text": "Asset Owner"
+                        },
+                        {
+                          "key": "Assignee",
+                          "text": "Assignee"
+                        },
+                        {
+                          "key": "OrgAssociation",
+                          "text": "Association"
+                        },
+                        {
+                          "key": "Attendee",
+                          "text": "Attendee"
+                        },
+                        {
+                          "key": "BadActor",
+                          "text": "Bad Actor (Banned)"
+                        },
+                        {
+                          "key": "BusinessAnalyst",
+                          "text": "Business Analyst"
+                        },
+                        {
+                          "key": "Buyer",
+                          "text": "Buyer"
+                        },
+                        {
+                          "key": "Carrier",
+                          "text": "Carrier"
+                        },
+                        {
+                          "key": "Cashier",
+                          "text": "Cashier"
+                        },
+                        {
+                          "key": "ClientBilling",
+                          "text": "Client Billing Rep"
+                        },
+                        {
+                          "key": "ClientManager",
+                          "text": "Client Manager"
+                        },
+                        {
+                          "key": "Competitor",
+                          "text": "Competitor"
+                        },
+                        {
+                          "key": "Consumer",
+                          "text": "Consumer"
+                        },
+                        {
+                          "key": "Contractor",
+                          "text": "Contractor"
+                        },
+                        {
+                          "key": "OrgCorporation",
+                          "text": "Corporation"
+                        },
+                        {
+                          "key": "Customer",
+                          "text": "Customer"
+                        },
+                        {
+                          "key": "CustomerBillTo",
+                          "text": "Customer - Bill To"
+                        },
+                        {
+                          "key": "CustomerEndUser",
+                          "text": "Customer - End User"
+                        },
+                        {
+                          "key": "CustomerPlacing",
+                          "text": "Customer - Placing"
+                        },
+                        {
+                          "key": "CustomerShipTo",
+                          "text": "Customer - Ship To"
+                        },
+                        {
+                          "key": "DefaultAssignee",
+                          "text": "Default Assignee"
+                        },
+                        {
+                          "key": "Delegate",
+                          "text": "Delegate"
+                        },
+                        {
+                          "key": "OrgDepartment",
+                          "text": "Department"
+                        },
+                        {
+                          "key": "Distributor",
+                          "text": "Distributor"
+                        },
+                        {
+                          "key": "OrgDivision",
+                          "text": "Division"
+                        },
+                        {
+                          "key": "EmailAdmin",
+                          "text": "Email Administrator"
+                        },
+                        {
+                          "key": "Employee",
+                          "text": "Employee"
+                        },
+                        {
+                          "key": "OrgEmployer",
+                          "text": "Employer"
+                        },
+                        {
+                          "key": "Executive",
+                          "text": "Executive"
+                        },
+                        {
+                          "key": "ExpertUser",
+                          "text": "Expert User"
+                        },
+                        {
+                          "key": "OrgFamily",
+                          "text": "Family"
+                        },
+                        {
+                          "key": "FamilyMember",
+                          "text": "Family Member"
+                        },
+                        {
+                          "key": "GarnishmentPayee",
+                          "text": "Garnishment Payee"
+                        },
+                        {
+                          "key": "OrgGovernment",
+                          "text": "Government"
+                        },
+                        {
+                          "key": "OrgGovernmentAgency",
+                          "text": "Government Agency"
+                        },
+                        {
+                          "key": "Host",
+                          "text": "Host"
+                        },
+                        {
+                          "key": "HostingProvider",
+                          "text": "Hosting Provider"
+                        },
+                        {
+                          "key": "OrgHousehold",
+                          "text": "Household"
+                        },
+                        {
+                          "key": "HumanResourcesManager",
+                          "text": "Human Resources Manager"
+                        },
+                        {
+                          "key": "OrgInternal",
+                          "text": "Internal Organization"
+                        },
+                        {
+                          "key": "InternetSp",
+                          "text": "Internet Service Provider"
+                        },
+                        {
+                          "key": "InventoryManager",
+                          "text": "Inventory Manager"
+                        },
+                        {
+                          "key": "Manager",
+                          "text": "Manager"
+                        },
+                        {
+                          "key": "Manufacturer",
+                          "text": "Manufacturer"
+                        },
+                        {
+                          "key": "_NA_",
+                          "text": "Not Applicable"
+                        },
+                        {
+                          "key": "Operator",
+                          "text": "Operator"
+                        },
+                        {
+                          "key": "OrderClerk",
+                          "text": "Order Clerk"
+                        },
+                        {
+                          "key": "Organizer",
+                          "text": "Organizer"
+                        },
+                        {
+                          "key": "Owner",
+                          "text": "Owner"
+                        },
+                        {
+                          "key": "Packer",
+                          "text": "Packer"
+                        },
+                        {
+                          "key": "OrgParent",
+                          "text": "Parent"
+                        },
+                        {
+                          "key": "Partner",
+                          "text": "Partner"
+                        },
+                        {
+                          "key": "Payroll",
+                          "text": "Payroll"
+                        },
+                        {
+                          "key": "PayrollOtherPayee",
+                          "text": "Payroll Other Payee"
+                        },
+                        {
+                          "key": "Picker",
+                          "text": "Picker"
+                        },
+                        {
+                          "key": "ProductionManager",
+                          "text": "Production Manager"
+                        },
+                        {
+                          "key": "ProductionWorker",
+                          "text": "Production Worker"
+                        },
+                        {
+                          "key": "Programmer",
+                          "text": "Programmer"
+                        },
+                        {
+                          "key": "ProgrammerLead",
+                          "text": "Programmer Lead"
+                        },
+                        {
+                          "key": "ProjectManager",
+                          "text": "Project Manager"
+                        },
+                        {
+                          "key": "Prospect",
+                          "text": "Prospect"
+                        },
+                        {
+                          "key": "QualityAnalyst",
+                          "text": "Quality Analyst"
+                        },
+                        {
+                          "key": "QualityLead",
+                          "text": "Quality Lead"
+                        },
+                        {
+                          "key": "Receiver",
+                          "text": "Receiver"
+                        },
+                        {
+                          "key": "Referrer",
+                          "text": "Referrer"
+                        },
+                        {
+                          "key": "OrgRegulatoryAgency",
+                          "text": "Regulatory Agency"
+                        },
+                        {
+                          "key": "Reporter",
+                          "text": "Reporter"
+                        },
+                        {
+                          "key": "Account",
+                          "text": "Sales Account"
+                        },
+                        {
+                          "key": "AccountLead",
+                          "text": "Sales Account Lead"
+                        },
+                        {
+                          "key": "Contact",
+                          "text": "Sales Contact"
+                        },
+                        {
+                          "key": "SalesRepresentative",
+                          "text": "Sales Representative"
+                        },
+                        {
+                          "key": "Shareholder",
+                          "text": "Shareholder"
+                        },
+                        {
+                          "key": "ShipmentClerk",
+                          "text": "Shipment Clerk"
+                        },
+                        {
+                          "key": "Sponsor",
+                          "text": "Sponsor"
+                        },
+                        {
+                          "key": "Spouse",
+                          "text": "Spouse"
+                        },
+                        {
+                          "key": "Stocker",
+                          "text": "Stocker"
+                        },
+                        {
+                          "key": "Subscriber",
+                          "text": "Subscriber"
+                        },
+                        {
+                          "key": "OrgSubsidiary",
+                          "text": "Subsidiary"
+                        },
+                        {
+                          "key": "Supplier",
+                          "text": "Supplier"
+                        },
+                        {
+                          "key": "SupplierAgent",
+                          "text": "Supplier Agent"
+                        },
+                        {
+                          "key": "SysAdmin",
+                          "text": "System Administrator"
+                        },
+                        {
+                          "key": "SysArchitect",
+                          "text": "System Architect"
+                        },
+                        {
+                          "key": "OrgTaxAuthority",
+                          "text": "Tax Authority"
+                        },
+                        {
+                          "key": "OrgTeam",
+                          "text": "Team"
+                        },
+                        {
+                          "key": "TechContact",
+                          "text": "Technical Contact"
+                        },
+                        {
+                          "key": "UiDesigner",
+                          "text": "UI Designer"
+                        },
+                        {
+                          "key": "OrgUnion",
+                          "text": "Union"
+                        },
+                        {
+                          "key": "OrgUnit",
+                          "text": "Unit"
+                        },
+                        {
+                          "key": "Vendor",
+                          "text": "Vendor"
+                        },
+                        {
+                          "key": "VendorBillFrom",
+                          "text": "Vendor - Bill From"
+                        },
+                        {
+                          "key": "VendorPickUpFrom",
+                          "text": "Vendor - Pick Up From"
+                        },
+                        {
+                          "key": "VendorShipFrom",
+                          "text": "Vendor - Ship From"
+                        },
+                        {
+                          "key": "Visitor",
+                          "text": "Visitor"
+                        },
+                        {
+                          "key": "Watcher",
+                          "text": "Watcher"
+                        },
+                        {
+                          "key": "WebMaster",
+                          "text": "Web Master"
+                        },
+                        {
+                          "key": "Worker",
+                          "text": "Worker"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "relationshipTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "is a",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "PrtAgent",
+                          "text": "Agent"
+                        },
+                        {
+                          "key": "PrtChild",
+                          "text": "Child"
+                        },
+                        {
+                          "key": "PrtContact",
+                          "text": "Contact"
+                        },
+                        {
+                          "key": "PrtCustomer",
+                          "text": "Customer"
+                        },
+                        {
+                          "key": "PrtEmployee",
+                          "text": "Employee"
+                        },
+                        {
+                          "key": "PrtFriend",
+                          "text": "Friend"
+                        },
+                        {
+                          "key": "PrtManager",
+                          "text": "Manager"
+                        },
+                        {
+                          "key": "PrtMember",
+                          "text": "Organization Member"
+                        },
+                        {
+                          "key": "PrtOrgRollup",
+                          "text": "Organization Rollup (Child)"
+                        },
+                        {
+                          "key": "PrtPartner",
+                          "text": "Partner"
+                        },
+                        {
+                          "key": "PrtRepresentative",
+                          "text": "Representative"
+                        },
+                        {
+                          "key": "PrtSalesAffiliate",
+                          "text": "Sales Affiliate"
+                        },
+                        {
+                          "key": "PrtSpouse",
+                          "text": "Spouse"
+                        },
+                        {
+                          "key": "PrtSupplier",
+                          "text": "Supplier"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "toPartyId",
+                  "from": "partyId",
+                  "hide": "",
+                  "align": "",
+                  "title": "of",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "text": "PartyNameTemplate",
+                      "text-map": "partyDetail",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "",
+                      "resolvedText": "null: "
+                    }
+                  ],
+                  "currentValue": "CustJqp"
+                },
+                {
+                  "name": "toRoleTypeId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "in role",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "Accountant",
+                          "text": "Accountant"
+                        },
+                        {
+                          "key": "Administrator",
+                          "text": "Administrator"
+                        },
+                        {
+                          "key": "Affiliate",
+                          "text": "Affiliate"
+                        },
+                        {
+                          "key": "Agent",
+                          "text": "Agent"
+                        },
+                        {
+                          "key": "AssetOwner",
+                          "text": "Asset Owner"
+                        },
+                        {
+                          "key": "Assignee",
+                          "text": "Assignee"
+                        },
+                        {
+                          "key": "OrgAssociation",
+                          "text": "Association"
+                        },
+                        {
+                          "key": "Attendee",
+                          "text": "Attendee"
+                        },
+                        {
+                          "key": "BadActor",
+                          "text": "Bad Actor (Banned)"
+                        },
+                        {
+                          "key": "BusinessAnalyst",
+                          "text": "Business Analyst"
+                        },
+                        {
+                          "key": "Buyer",
+                          "text": "Buyer"
+                        },
+                        {
+                          "key": "Carrier",
+                          "text": "Carrier"
+                        },
+                        {
+                          "key": "Cashier",
+                          "text": "Cashier"
+                        },
+                        {
+                          "key": "ClientBilling",
+                          "text": "Client Billing Rep"
+                        },
+                        {
+                          "key": "ClientManager",
+                          "text": "Client Manager"
+                        },
+                        {
+                          "key": "Competitor",
+                          "text": "Competitor"
+                        },
+                        {
+                          "key": "Consumer",
+                          "text": "Consumer"
+                        },
+                        {
+                          "key": "Contractor",
+                          "text": "Contractor"
+                        },
+                        {
+                          "key": "OrgCorporation",
+                          "text": "Corporation"
+                        },
+                        {
+                          "key": "Customer",
+                          "text": "Customer"
+                        },
+                        {
+                          "key": "CustomerBillTo",
+                          "text": "Customer - Bill To"
+                        },
+                        {
+                          "key": "CustomerEndUser",
+                          "text": "Customer - End User"
+                        },
+                        {
+                          "key": "CustomerPlacing",
+                          "text": "Customer - Placing"
+                        },
+                        {
+                          "key": "CustomerShipTo",
+                          "text": "Customer - Ship To"
+                        },
+                        {
+                          "key": "DefaultAssignee",
+                          "text": "Default Assignee"
+                        },
+                        {
+                          "key": "Delegate",
+                          "text": "Delegate"
+                        },
+                        {
+                          "key": "OrgDepartment",
+                          "text": "Department"
+                        },
+                        {
+                          "key": "Distributor",
+                          "text": "Distributor"
+                        },
+                        {
+                          "key": "OrgDivision",
+                          "text": "Division"
+                        },
+                        {
+                          "key": "EmailAdmin",
+                          "text": "Email Administrator"
+                        },
+                        {
+                          "key": "Employee",
+                          "text": "Employee"
+                        },
+                        {
+                          "key": "OrgEmployer",
+                          "text": "Employer"
+                        },
+                        {
+                          "key": "Executive",
+                          "text": "Executive"
+                        },
+                        {
+                          "key": "ExpertUser",
+                          "text": "Expert User"
+                        },
+                        {
+                          "key": "OrgFamily",
+                          "text": "Family"
+                        },
+                        {
+                          "key": "FamilyMember",
+                          "text": "Family Member"
+                        },
+                        {
+                          "key": "GarnishmentPayee",
+                          "text": "Garnishment Payee"
+                        },
+                        {
+                          "key": "OrgGovernment",
+                          "text": "Government"
+                        },
+                        {
+                          "key": "OrgGovernmentAgency",
+                          "text": "Government Agency"
+                        },
+                        {
+                          "key": "Host",
+                          "text": "Host"
+                        },
+                        {
+                          "key": "HostingProvider",
+                          "text": "Hosting Provider"
+                        },
+                        {
+                          "key": "OrgHousehold",
+                          "text": "Household"
+                        },
+                        {
+                          "key": "HumanResourcesManager",
+                          "text": "Human Resources Manager"
+                        },
+                        {
+                          "key": "OrgInternal",
+                          "text": "Internal Organization"
+                        },
+                        {
+                          "key": "InternetSp",
+                          "text": "Internet Service Provider"
+                        },
+                        {
+                          "key": "InventoryManager",
+                          "text": "Inventory Manager"
+                        },
+                        {
+                          "key": "Manager",
+                          "text": "Manager"
+                        },
+                        {
+                          "key": "Manufacturer",
+                          "text": "Manufacturer"
+                        },
+                        {
+                          "key": "_NA_",
+                          "text": "Not Applicable"
+                        },
+                        {
+                          "key": "Operator",
+                          "text": "Operator"
+                        },
+                        {
+                          "key": "OrderClerk",
+                          "text": "Order Clerk"
+                        },
+                        {
+                          "key": "Organizer",
+                          "text": "Organizer"
+                        },
+                        {
+                          "key": "Owner",
+                          "text": "Owner"
+                        },
+                        {
+                          "key": "Packer",
+                          "text": "Packer"
+                        },
+                        {
+                          "key": "OrgParent",
+                          "text": "Parent"
+                        },
+                        {
+                          "key": "Partner",
+                          "text": "Partner"
+                        },
+                        {
+                          "key": "Payroll",
+                          "text": "Payroll"
+                        },
+                        {
+                          "key": "PayrollOtherPayee",
+                          "text": "Payroll Other Payee"
+                        },
+                        {
+                          "key": "Picker",
+                          "text": "Picker"
+                        },
+                        {
+                          "key": "ProductionManager",
+                          "text": "Production Manager"
+                        },
+                        {
+                          "key": "ProductionWorker",
+                          "text": "Production Worker"
+                        },
+                        {
+                          "key": "Programmer",
+                          "text": "Programmer"
+                        },
+                        {
+                          "key": "ProgrammerLead",
+                          "text": "Programmer Lead"
+                        },
+                        {
+                          "key": "ProjectManager",
+                          "text": "Project Manager"
+                        },
+                        {
+                          "key": "Prospect",
+                          "text": "Prospect"
+                        },
+                        {
+                          "key": "QualityAnalyst",
+                          "text": "Quality Analyst"
+                        },
+                        {
+                          "key": "QualityLead",
+                          "text": "Quality Lead"
+                        },
+                        {
+                          "key": "Receiver",
+                          "text": "Receiver"
+                        },
+                        {
+                          "key": "Referrer",
+                          "text": "Referrer"
+                        },
+                        {
+                          "key": "OrgRegulatoryAgency",
+                          "text": "Regulatory Agency"
+                        },
+                        {
+                          "key": "Reporter",
+                          "text": "Reporter"
+                        },
+                        {
+                          "key": "Account",
+                          "text": "Sales Account"
+                        },
+                        {
+                          "key": "AccountLead",
+                          "text": "Sales Account Lead"
+                        },
+                        {
+                          "key": "Contact",
+                          "text": "Sales Contact"
+                        },
+                        {
+                          "key": "SalesRepresentative",
+                          "text": "Sales Representative"
+                        },
+                        {
+                          "key": "Shareholder",
+                          "text": "Shareholder"
+                        },
+                        {
+                          "key": "ShipmentClerk",
+                          "text": "Shipment Clerk"
+                        },
+                        {
+                          "key": "Sponsor",
+                          "text": "Sponsor"
+                        },
+                        {
+                          "key": "Spouse",
+                          "text": "Spouse"
+                        },
+                        {
+                          "key": "Stocker",
+                          "text": "Stocker"
+                        },
+                        {
+                          "key": "Subscriber",
+                          "text": "Subscriber"
+                        },
+                        {
+                          "key": "OrgSubsidiary",
+                          "text": "Subsidiary"
+                        },
+                        {
+                          "key": "Supplier",
+                          "text": "Supplier"
+                        },
+                        {
+                          "key": "SupplierAgent",
+                          "text": "Supplier Agent"
+                        },
+                        {
+                          "key": "SysAdmin",
+                          "text": "System Administrator"
+                        },
+                        {
+                          "key": "SysArchitect",
+                          "text": "System Architect"
+                        },
+                        {
+                          "key": "OrgTaxAuthority",
+                          "text": "Tax Authority"
+                        },
+                        {
+                          "key": "OrgTeam",
+                          "text": "Team"
+                        },
+                        {
+                          "key": "TechContact",
+                          "text": "Technical Contact"
+                        },
+                        {
+                          "key": "UiDesigner",
+                          "text": "UI Designer"
+                        },
+                        {
+                          "key": "OrgUnion",
+                          "text": "Union"
+                        },
+                        {
+                          "key": "OrgUnit",
+                          "text": "Unit"
+                        },
+                        {
+                          "key": "Vendor",
+                          "text": "Vendor"
+                        },
+                        {
+                          "key": "VendorBillFrom",
+                          "text": "Vendor - Bill From"
+                        },
+                        {
+                          "key": "VendorPickUpFrom",
+                          "text": "Vendor - Pick Up From"
+                        },
+                        {
+                          "key": "VendorShipFrom",
+                          "text": "Vendor - Ship From"
+                        },
+                        {
+                          "key": "Visitor",
+                          "text": "Visitor"
+                        },
+                        {
+                          "key": "Watcher",
+                          "text": "Watcher"
+                        },
+                        {
+                          "key": "WebMaster",
+                          "text": "Web Master"
+                        },
+                        {
+                          "key": "Worker",
+                          "text": "Worker"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "fromDate",
+                  "from": "ec.user.nowTimestamp",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "2026-03-04 13:30:12.16"
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ToRelationshipForm",
+          "_type": "form-list",
+          "formName": "ToRelationshipForm",
+          "transition": "updatePartyRelationship",
+          "list": "toRelList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "",
+          "savedFinds": "true",
+          "showCsvButton": "",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "",
+          "editUrl": "editParty",
+          "headerFields": [
+            {
+              "name": "partyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Party ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "relationshipTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Relationship Type Enum ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "toPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "To Party ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "partyRelationshipId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Party Relationship ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "partyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Party ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "fromPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Party",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "PartyNameTemplate",
+                  "text-map": "partyDetail",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": "null: "
+                }
+              ]
+            },
+            {
+              "name": "fromRoleTypeId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Role",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.RoleType",
+                  "text": "in role ${description}",
+                  "entityName": "mantle.party.RoleType",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "relationshipTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "text": "is a ${description} of",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "toPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "To Party",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "PartyNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": ""
+                  },
+                  "url": "/fapps/marble/Party/PartyRelated/editParty",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "partyId": "toPartyId"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "toRoleTypeId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "To Role",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.RoleType",
+                  "text": "in role ${description}",
+                  "entityName": "mantle.party.RoleType",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "fromDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "thruDate",
+              "from": "ec.user.nowTimestamp",
+              "hide": "",
+              "align": "",
+              "title": "Thru Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "X",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "listData": [],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 0,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 0
+          }
+        },
+        {
+          "name": "FromRelationshipForm",
+          "_type": "form-list",
+          "formName": "FromRelationshipForm",
+          "transition": "updatePartyRelationship",
+          "list": "fromRelList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "",
+          "savedFinds": "true",
+          "showCsvButton": "",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "",
+          "editUrl": "editParty",
+          "headerFields": [
+            {
+              "name": "partyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Party ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "fromPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Party ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "relationshipTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Relationship Type Enum ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "partyRelationshipId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Party Relationship ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "partyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Party ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "fromPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Party",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "PartyNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": ""
+                  },
+                  "url": "/fapps/marble/Party/PartyRelated/editParty",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "partyId": "fromPartyId"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "fromRoleTypeId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Role",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.RoleType",
+                  "text": "in role ${description}",
+                  "entityName": "mantle.party.RoleType",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "relationshipTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "text": "is a ${description} of",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "toPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "To Party",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "PartyNameTemplate",
+                  "text-map": "partyDetail",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": "null: "
+                }
+              ]
+            },
+            {
+              "name": "toRoleTypeId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "To Role",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.RoleType",
+                  "text": "in role ${description}",
+                  "entityName": "mantle.party.RoleType",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "fromDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "thruDate",
+              "from": "ec.user.nowTimestamp",
+              "hide": "",
+              "align": "",
+              "title": "Thru Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "right",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "X",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "listData": [],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 0,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 0
+          }
+        }
+      ]
+    }
+  ]
+}

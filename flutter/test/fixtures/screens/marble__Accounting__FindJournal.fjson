@@ -1,0 +1,552 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FindJournal",
+  "menuTitle": "GL Journals",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "CreateTxDialog",
+          "_type": "container-dialog",
+          "buttonText": "New Journal",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "CreateGlJournal",
+              "_type": "form-single",
+              "formName": "CreateGlJournal",
+              "transition": "createGlJournal",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "glJournalName",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Journal Name",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "40",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "glJournalTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "false",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "GLJRNL_ERROR",
+                          "text": "Error Journal"
+                        },
+                        {
+                          "key": "GLJRNL_MANUAL",
+                          "text": "Manual Transactions Journal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "organizationPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "Ziziwork Human Resources  [ZIHR]"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "Ziziwork Industries  [ZICORP]"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "Ziziwork Retail & Wholesale  [ZIRET]"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "Ziziwork Sales  [ZISAL]"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "Ziziwork Services  [ZISER]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "TransactionList",
+          "_type": "form-list",
+          "formName": "TransactionList",
+          "transition": "updateGlJournal",
+          "list": "glJournalList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "true",
+          "savedFinds": "true",
+          "showCsvButton": "true",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "",
+          "editUrl": "findTransaction",
+          "headerFields": [
+            {
+              "name": "glJournalId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "10",
+                  "hide-options": "true",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "glJournalName",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Journal Name",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "20",
+                  "hide-options": "true",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "organizationPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Organization",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "ORG_ZIZI_HR",
+                      "text": "Ziziwork Human Resources   [ZIHR]"
+                    },
+                    {
+                      "key": "ORG_ZIZI_CORP",
+                      "text": "Ziziwork Industries   [ZICORP]"
+                    },
+                    {
+                      "key": "ORG_ZIZI_RETAIL",
+                      "text": "Ziziwork Retail & Wholesale   [ZIRET]"
+                    },
+                    {
+                      "key": "ORG_ZIZI_SALES",
+                      "text": "Ziziwork Sales   [ZISAL]"
+                    },
+                    {
+                      "key": "ORG_ZIZI_SERVICES",
+                      "text": "Ziziwork Services   [ZISER]"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "glJournalTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "isPosted",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Posted",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "Y",
+                      "text": "Y"
+                    },
+                    {
+                      "key": "N",
+                      "text": "N"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "postedDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Posted Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "glJournalId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "glJournalName",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Journal Name",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "30",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ]
+            },
+            {
+              "name": "organizationPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Organization",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.PartyDetail",
+                  "also-hidden": "false",
+                  "key-field-name": "partyId",
+                  "text": "${organizationName?:''}${firstName?:''} ${lastName?:''} [${pseudoId}]",
+                  "entityName": "mantle.party.PartyDetail",
+                  "keyFieldName": "partyId",
+                  "alsoHidden": "false",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "glJournalTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "isPosted",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Posted",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "also-hidden": "false",
+                  "alsoHidden": "false",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "postedDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Posted Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "also-hidden": "false",
+                  "alsoHidden": "false",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Update",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            },
+            {
+              "name": "postButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "conditionalFields": [
+                {
+                  "condition": "isPosted != 'Y' && glJournalTypeEnumId != 'GLJRNL_ERROR'",
+                  "conditionResult": true,
+                  "title": "",
+                  "widgets": [
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Post##Accounting",
+                      "linkType": "auto",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Accounting/FindJournal/postGlJournal",
+                      "isAnchorLink": false
+                    }
+                  ]
+                }
+              ],
+              "title": "Post Button",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Post##Accounting",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Accounting/FindJournal/postGlJournal",
+                  "isAnchorLink": false
+                }
+              ]
+            },
+            {
+              "name": "findTransactionLink",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find Transaction Link",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Transactions",
+                  "linkType": "anchor-button",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "glJournalId": ""
+                  },
+                  "url": "/fapps/marble/Accounting/FindJournal/findTransaction",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "glJournalId": "glJournalId"
+                  }
+                }
+              ]
+            }
+          ],
+          "listData": [
+            {
+              "glJournalId": "ORG_ZIZI_CORPError",
+              "glJournalId_display": "ORG_ZIZI_CORPError",
+              "glJournalName": "Error Journal for Ziziwork Industries",
+              "organizationPartyId_display": "Ziziwork Industries  [ZICORP]",
+              "glJournalTypeEnumId": "GLJRNL_ERROR",
+              "isPosted_display": "N",
+              "postedDate_display": "",
+              "postButton": "",
+              "postButton_display": " "
+            },
+            {
+              "glJournalId": "DefaultSettingsError",
+              "glJournalId_display": "DefaultSettingsError",
+              "glJournalName": "Default Settings Error Journal",
+              "organizationPartyId_display": "Default Accounting, etc Settings  [DefaultSettings]",
+              "glJournalTypeEnumId": "GLJRNL_ERROR",
+              "isPosted_display": "N",
+              "postedDate_display": "",
+              "postButton": "",
+              "postButton_display": " "
+            }
+          ],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 2,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 2
+          },
+          "exportBaseUrl": "/fapps/marble/Accounting/FindJournal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+apply plugin: 'groovy'
+
+def moquiDir = file(projectDir.absolutePath + '/../../..')
+def frameworkDir = file(moquiDir.absolutePath + '/framework')
+def componentNode = parseComponent(project)
+version = componentNode.'@version'
+
+repositories {
+    flatDir name: 'localLib', dirs: frameworkDir.absolutePath + '/lib'
+    mavenCentral()
+}
+
+// Disable annotation processors to avoid warnings
+tasks.withType(JavaCompile) { options.compilerArgs << "-proc:none" }
+tasks.withType(GroovyCompile) { options.compilerArgs << "-proc:none" }
+
+dependencies {
+    implementation project(':framework')
+}
+
+// Only run tests if explicitly requested
+check.dependsOn.clear()
+
+jar { archivesBaseName = componentNode.'@name' }

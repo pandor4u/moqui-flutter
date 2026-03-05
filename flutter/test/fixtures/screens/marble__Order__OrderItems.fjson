@@ -1,0 +1,1741 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "OrderItems",
+  "menuTitle": "Items",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container",
+          "containerType": "div",
+          "children": [
+            {
+              "type": "strong",
+              "condition": "orderPartSeqId",
+              "_type": "label",
+              "text": "Active Order Part: null",
+              "resolvedText": "Active Order Part: null",
+              "labelType": "strong",
+              "encode": "true"
+            }
+          ]
+        },
+        {
+          "name": "AddItemsSection",
+          "condition": "partEditable != null ? partEditable : orderEditable",
+          "_type": "section",
+          "sectionName": "AddItemsSection",
+          "widgets": [
+            {
+              "id": "AddProductItemContainer",
+              "_type": "container-dialog",
+              "buttonText": "Add Product Item",
+              "dialogTitle": "",
+              "width": "",
+              "icon": "",
+              "btnType": "",
+              "children": [
+                {
+                  "name": "AddProductItemForm",
+                  "_type": "form-single",
+                  "formName": "AddProductItemForm",
+                  "transition": "addProductItem",
+                  "map": "fieldValues",
+                  "fields": [
+                    {
+                      "name": "orderId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Order ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "hidden",
+                          "defaultValue": ""
+                        }
+                      ],
+                      "currentValue": "100006"
+                    },
+                    {
+                      "name": "updateExisting",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Update Existing",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "hidden",
+                          "default-value": "false",
+                          "defaultValue": "false"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "requireInventory",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Require Inventory",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "hidden",
+                          "default-value": "false",
+                          "defaultValue": "false"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "orderPartSeqId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Order Part Seq ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "01",
+                              "text": "01"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "assetClassEnumId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Asset Class",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "no-current-selected-key": "AsClsInventoryFin",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "AsClsInventoryDig",
+                              "text": "Inventory - Digital Good"
+                            },
+                            {
+                              "key": "AsClsInventoryFin",
+                              "text": "Inventory - Finished Good"
+                            },
+                            {
+                              "key": "AsClsInventoryRaw",
+                              "text": "Inventory - Raw Material"
+                            },
+                            {
+                              "key": "AsClsInventorySub",
+                              "text": "Inventory - Sub-assembly"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "productId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Product",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [],
+                          "dynamicOptions": {
+                            "transition": "getProductList",
+                            "serverSearch": "true",
+                            "minLength": "0",
+                            "dependsOnField": "assetClassEnumId",
+                            "dependsOnParameter": ""
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "quantity",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Quantity",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "8",
+                          "default-value": "1",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "unitAmount",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Price",
+                      "tooltip": "Leave empty to use Calc Price",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "10",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "calcAmount",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Calc Price",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "dynamic-transition": "getProductPrice",
+                          "parameter-map": "[orderId:orderId, priceFormat:'#,##0.00']",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "format": "",
+                          "currencyUnitField": "",
+                          "dependsOnField": "productId",
+                          "dependsOnParameter": "",
+                          "dependsOnList": [
+                            {
+                              "field": "productId",
+                              "parameter": ""
+                            },
+                            {
+                              "field": "quantity",
+                              "parameter": ""
+                            },
+                            {
+                              "field": "orderPartSeqId",
+                              "parameter": ""
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "requiredByDate",
+                      "from": "orderPart?.shipBeforeDate",
+                      "hide": "",
+                      "align": "",
+                      "title": "Required By Date",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "date-time",
+                          "format": "yyyy-MM-dd HH:mm",
+                          "dateType": "timestamp",
+                          "minuteStepping": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "itemTypeEnumId",
+                      "from": "null",
+                      "hide": "",
+                      "align": "",
+                      "title": "Item Type",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "no-current-selected-key": "ItemProduct",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "ItemProduct",
+                              "text": "Product"
+                            },
+                            {
+                              "key": "ItemAsset",
+                              "text": "Fixed Asset"
+                            },
+                            {
+                              "key": "ItemRental",
+                              "text": "Rental Asset"
+                            },
+                            {
+                              "key": "ItemReplacement",
+                              "text": "Replacement"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "submitButton",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Add",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "AddOtherItemContainer",
+              "_type": "container-dialog",
+              "buttonText": "Add Other Item",
+              "dialogTitle": "",
+              "width": "",
+              "icon": "",
+              "btnType": "",
+              "children": [
+                {
+                  "name": "AddOtherItemForm",
+                  "_type": "form-single",
+                  "formName": "AddOtherItemForm",
+                  "transition": "createItem",
+                  "map": "fieldValues",
+                  "fields": [
+                    {
+                      "name": "orderId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Order ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "hidden",
+                          "defaultValue": ""
+                        }
+                      ],
+                      "currentValue": "100006"
+                    },
+                    {
+                      "name": "requireInventory",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Require Inventory",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "hidden",
+                          "default-value": "false",
+                          "defaultValue": "false"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "orderPartSeqId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Order Part Seq ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "01",
+                              "text": "01"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "parentItemSeqId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Parent Item",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "itemTypeEnumId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Item Type",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "no-current-selected-key": "ItemShipping",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "ItemAddtlFeature",
+                              "text": "Additional Feature"
+                            },
+                            {
+                              "key": "ItemAdjAdvertising",
+                              "text": "Advertising"
+                            },
+                            {
+                              "key": "ItemChargebackAdjust",
+                              "text": "Chargeback"
+                            },
+                            {
+                              "key": "ItemComplianceFee",
+                              "text": "Compliance Fee"
+                            },
+                            {
+                              "key": "ItemCouponCredit",
+                              "text": "Coupons and Credits"
+                            },
+                            {
+                              "key": "ItemDiscountAppease",
+                              "text": "Discount - Appeasement"
+                            },
+                            {
+                              "key": "ItemDiscount",
+                              "text": "Discount - Promotional"
+                            },
+                            {
+                              "key": "ItemSupplierDiscount",
+                              "text": "Discount - Supplier"
+                            },
+                            {
+                              "key": "ItemDonation",
+                              "text": "Donation"
+                            },
+                            {
+                              "key": "ItemFee",
+                              "text": "Fee"
+                            },
+                            {
+                              "key": "ItemFreeFills",
+                              "text": "Free Fills"
+                            },
+                            {
+                              "key": "ItemAdjJointAdv",
+                              "text": "Joint Advertising"
+                            },
+                            {
+                              "key": "ItemLateCharge",
+                              "text": "Late Payment Charge"
+                            },
+                            {
+                              "key": "ItemMkgtPkgAdj",
+                              "text": "Marketing Package Adjustment"
+                            },
+                            {
+                              "key": "ItemMiscCharge",
+                              "text": "Miscellaneous Charge"
+                            },
+                            {
+                              "key": "ItemProduct",
+                              "text": "Product"
+                            },
+                            {
+                              "key": "ItemPromoDiscount",
+                              "text": "Promotional Discounts"
+                            },
+                            {
+                              "key": "ItemPromptDiscount",
+                              "text": "Prompt Payment Discount"
+                            },
+                            {
+                              "key": "ItemRental",
+                              "text": "Rental"
+                            },
+                            {
+                              "key": "ItemRentalDeposit",
+                              "text": "Rental Deposit"
+                            },
+                            {
+                              "key": "ItemReplacement",
+                              "text": "Replacement"
+                            },
+                            {
+                              "key": "ItemReturnAdjust",
+                              "text": "Return"
+                            },
+                            {
+                              "key": "ItemSalesTax",
+                              "text": "Sales Tax"
+                            },
+                            {
+                              "key": "ItemServiceProduct",
+                              "text": "Service Product"
+                            },
+                            {
+                              "key": "ItemShipping",
+                              "text": "Shipping and Handling"
+                            },
+                            {
+                              "key": "ItemShrinkage",
+                              "text": "Shrinkage"
+                            },
+                            {
+                              "key": "ItemSlottingFees",
+                              "text": "Slotting Fees"
+                            },
+                            {
+                              "key": "ItemSurcharge",
+                              "text": "Surcharge"
+                            },
+                            {
+                              "key": "ItemSalesThirdParty",
+                              "text": "Third Party"
+                            },
+                            {
+                              "key": "ItemTimeEntry",
+                              "text": "Time Entry"
+                            },
+                            {
+                              "key": "ItemVatTax",
+                              "text": "VAT Tax (not added to totals)"
+                            },
+                            {
+                              "key": "ItemWarranty",
+                              "text": "Warranty"
+                            },
+                            {
+                              "key": "ItemWorkEffort",
+                              "text": "Work Effort"
+                            },
+                            {
+                              "key": "ItemWriteOff",
+                              "text": "Write-off"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "itemDescription",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Description",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "60",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "quantity",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Quantity",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "8",
+                          "default-value": "1",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "unitAmount",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Price",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "10",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "requiredByDate",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Required By Date",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "date-time",
+                          "format": "yyyy-MM-dd HH:mm",
+                          "dateType": "timestamp",
+                          "minuteStepping": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "submitButton",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Add",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "PartFlagsSection",
+          "condition": "orderPart != null && partEditable",
+          "_type": "section",
+          "sectionName": "PartFlagsSection"
+        },
+        {
+          "name": "OrderItems",
+          "_type": "form-list",
+          "formName": "OrderItems",
+          "transition": "",
+          "list": "orderItemList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "true",
+          "savedFinds": "",
+          "showCsvButton": "true",
+          "showXlsxButton": "true",
+          "showPageSize": "true",
+          "skipForm": "true",
+          "editUrl": "editProduct",
+          "headerFields": [
+            {
+              "name": "orderPartSeqId",
+              "from": "",
+              "hide": "",
+              "align": "center",
+              "title": "Part",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "01",
+                      "text": "01"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "itemTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Item Type Enum ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-multiple": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "true",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "ItemAddtlFeature",
+                      "text": "Additional Feature"
+                    },
+                    {
+                      "key": "ItemAdjAdvertising",
+                      "text": "Advertising"
+                    },
+                    {
+                      "key": "ItemChargebackAdjust",
+                      "text": "Chargeback"
+                    },
+                    {
+                      "key": "ItemComplianceFee",
+                      "text": "Compliance Fee"
+                    },
+                    {
+                      "key": "ItemCouponCredit",
+                      "text": "Coupons and Credits"
+                    },
+                    {
+                      "key": "ItemDiscountAppease",
+                      "text": "Discount - Appeasement"
+                    },
+                    {
+                      "key": "ItemDiscount",
+                      "text": "Discount - Promotional"
+                    },
+                    {
+                      "key": "ItemSupplierDiscount",
+                      "text": "Discount - Supplier"
+                    },
+                    {
+                      "key": "ItemDonation",
+                      "text": "Donation"
+                    },
+                    {
+                      "key": "ItemFee",
+                      "text": "Fee"
+                    },
+                    {
+                      "key": "ItemFreeFills",
+                      "text": "Free Fills"
+                    },
+                    {
+                      "key": "ItemAdjJointAdv",
+                      "text": "Joint Advertising"
+                    },
+                    {
+                      "key": "ItemLateCharge",
+                      "text": "Late Payment Charge"
+                    },
+                    {
+                      "key": "ItemMkgtPkgAdj",
+                      "text": "Marketing Package Adjustment"
+                    },
+                    {
+                      "key": "ItemMiscCharge",
+                      "text": "Miscellaneous Charge"
+                    },
+                    {
+                      "key": "ItemProduct",
+                      "text": "Product"
+                    },
+                    {
+                      "key": "ItemPromoDiscount",
+                      "text": "Promotional Discounts"
+                    },
+                    {
+                      "key": "ItemPromptDiscount",
+                      "text": "Prompt Payment Discount"
+                    },
+                    {
+                      "key": "ItemRental",
+                      "text": "Rental"
+                    },
+                    {
+                      "key": "ItemRentalDeposit",
+                      "text": "Rental Deposit"
+                    },
+                    {
+                      "key": "ItemReplacement",
+                      "text": "Replacement"
+                    },
+                    {
+                      "key": "ItemReturnAdjust",
+                      "text": "Return"
+                    },
+                    {
+                      "key": "ItemSalesTax",
+                      "text": "Sales Tax"
+                    },
+                    {
+                      "key": "ItemServiceProduct",
+                      "text": "Service Product"
+                    },
+                    {
+                      "key": "ItemShipping",
+                      "text": "Shipping and Handling"
+                    },
+                    {
+                      "key": "ItemShrinkage",
+                      "text": "Shrinkage"
+                    },
+                    {
+                      "key": "ItemSlottingFees",
+                      "text": "Slotting Fees"
+                    },
+                    {
+                      "key": "ItemSurcharge",
+                      "text": "Surcharge"
+                    },
+                    {
+                      "key": "ItemSalesThirdParty",
+                      "text": "Third Party"
+                    },
+                    {
+                      "key": "ItemTimeEntry",
+                      "text": "Time Entry"
+                    },
+                    {
+                      "key": "ItemVatTax",
+                      "text": "VAT Tax (not added to totals)"
+                    },
+                    {
+                      "key": "ItemWarranty",
+                      "text": "Warranty"
+                    },
+                    {
+                      "key": "ItemWorkEffort",
+                      "text": "Work Effort"
+                    },
+                    {
+                      "key": "ItemWriteOff",
+                      "text": "Write-off"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "productId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getProductList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "otherPartyProductId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Other Party Product ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "itemDescription",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Item Description",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "promoCodeText",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Promo Code Text",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "comments",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Comments",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "unitAmount",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Unit Amount",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "range-find",
+                  "size": "10",
+                  "maxlength": ""
+                }
+              ]
+            },
+            {
+              "name": "quantity",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Quantity",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "range-find",
+                  "size": "10",
+                  "maxlength": ""
+                }
+              ]
+            },
+            {
+              "name": "quantityCancelled",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Quantity Cancelled",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "range-find",
+                  "size": "10",
+                  "maxlength": ""
+                }
+              ]
+            },
+            {
+              "name": "quantityCancelled",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Quantity Cancelled",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "range-find",
+                  "size": "10",
+                  "maxlength": ""
+                }
+              ]
+            },
+            {
+              "name": "findButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "orderItemSeqId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Item",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "orderPartSeqId",
+              "from": "",
+              "hide": "",
+              "align": "center",
+              "title": "Part",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "Part ${orderPartSeqId}",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": "Part null"
+                }
+              ]
+            },
+            {
+              "name": "parentItemSeqId",
+              "from": "",
+              "hide": "",
+              "align": "center",
+              "title": "Parent Item",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "${parentItemSeqId ? 'Parent ' + parentItemSeqId : ''}",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": ""
+                }
+              ]
+            },
+            {
+              "name": "itemTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "text": "${description}${isPromo ? ' (Promotion)' : ''}",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "productId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "condition": "productId",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "ProductNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "orderId": "100006",
+                    "pageSize": "20"
+                  },
+                  "url": "/fapps/marble/Order/OrderItems/editProduct",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "otherPartyProductId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Other Party Product ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "itemDescription",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Description",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "promoCodeText",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Promo Code",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "comments",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Comments",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "requiredByDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Required By Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "unitListPrice",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "List Price",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "currency-unit-field": "orderHeader.currencyUomId",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "orderHeader.currencyUomId"
+                }
+              ]
+            },
+            {
+              "name": "unitAmount",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Price",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "currency-unit-field": "orderHeader.currencyUomId",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "orderHeader.currencyUomId"
+                }
+              ]
+            },
+            {
+              "name": "standardCost",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Standard Cost",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "currency-unit-field": "orderHeader.currencyUomId",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "orderHeader.currencyUomId"
+                }
+              ]
+            },
+            {
+              "name": "quantity",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Quantity",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "quantityCancelled",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Quantity Cancelled",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "quantityCancelled",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Quantity Cancelled",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "itemQuantityNotShipped",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Qty Not Shipped",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "#,##0.###",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "itemQuantityNotBilled",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Qty Not Billed",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "#,##0.###",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "itemAmountNotBilled",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Amt Not Billed",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "format": "#,##0.00",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "itemNotBilled",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Not Billed",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "condition": "isProductItemType",
+                  "_type": "label",
+                  "text": "${ec.l10n.format(itemQuantityNotBilled, '#,##0.###')}",
+                  "resolvedText": "${ec.l10n.format(itemQuantityNotBilled, '#,##0.###')}",
+                  "labelType": "span",
+                  "encode": "true"
+                },
+                {
+                  "condition": "!isProductItemType",
+                  "_type": "label",
+                  "text": "${ec.l10n.format(itemAmountNotBilled, '#,##0.00')}",
+                  "resolvedText": "${ec.l10n.format(itemAmountNotBilled, '#,##0.00')}",
+                  "labelType": "span",
+                  "encode": "true"
+                }
+              ]
+            },
+            {
+              "name": "assetReservations",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "conditionalFields": [
+                {
+                  "condition": "isShippable && isVendorInternalOrg",
+                  "conditionResult": false,
+                  "title": "",
+                  "widgets": [
+                    {
+                      "_type": "section-iterate",
+                      "name": "ReservationInfoSection",
+                      "list": "resInfoList",
+                      "entry": "resInfo"
+                    },
+                    {
+                      "condition": "singleLot && lotIdSet.size() > 1",
+                      "type": "div",
+                      "style": "text-danger",
+                      "_type": "label",
+                      "text": "Multiple lots null",
+                      "resolvedText": "Multiple lots null",
+                      "labelType": "div",
+                      "encode": "true"
+                    },
+                    {
+                      "condition": "newerInventory && newerThanExpireDate!=null && oldestLotExpire!=null && oldestLotExpire < newerThanExpireDate",
+                      "type": "div",
+                      "style": "text-danger",
+                      "_type": "label",
+                      "text": "Oldest lot  older than last lot expire ",
+                      "resolvedText": "Oldest lot  older than last lot expire ",
+                      "labelType": "div",
+                      "encode": "true"
+                    },
+                    {
+                      "id": "ItemReserveDialog",
+                      "condition": "partEditable || orderPart.statusId == 'OrderApproved'",
+                      "_type": "dynamic-dialog",
+                      "dialogId": "ItemReserveDialog",
+                      "buttonText": "Reserve Assets",
+                      "transition": "ItemReserve",
+                      "dialogTitle": "",
+                      "width": "960",
+                      "height": "",
+                      "icon": ""
+                    },
+                    {
+                      "condition": "resInfoList",
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "",
+                      "linkType": "auto",
+                      "icon": "fa fa-trash",
+                      "badge": "",
+                      "confirmation": "Remove inventory reservations for item null?",
+                      "tooltip": "",
+                      "btnType": "danger",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "parameterMap": {
+                        "orderId": "100006",
+                        "pageSize": "20"
+                      },
+                      "url": "/fapps/marble/Order/OrderItems/removeOrderItemReservations",
+                      "isAnchorLink": false
+                    }
+                  ]
+                }
+              ],
+              "title": "Asset Reservations",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": " ",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": " "
+                }
+              ]
+            },
+            {
+              "name": "itemTotal",
+              "from": "orderItemTotalOut?.itemTotal",
+              "hide": "",
+              "align": "right",
+              "title": "Item Total",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "currency-unit-field": "orderHeader.currencyUomId",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "orderHeader.currencyUomId"
+                }
+              ]
+            },
+            {
+              "name": "itemPlusChildrenTotal",
+              "from": "orderItemTotalOut?.itemPlusChildrenTotal",
+              "hide": "",
+              "align": "right",
+              "conditionalFields": [
+                {
+                  "condition": "productId",
+                  "conditionResult": false,
+                  "title": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "currency-unit-field": "orderHeader.currencyUomId",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "orderHeader.currencyUomId"
+                    }
+                  ]
+                }
+              ],
+              "title": "With Children",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "returns",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Returns",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "OrderDetailItemBilled",
+                  "resolvedText": "OrderDetailItemBilled",
+                  "labelType": "div",
+                  "encode": "true"
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "OrderDetailItemReturned",
+                  "resolvedText": "OrderDetailItemReturned",
+                  "labelType": "div",
+                  "encode": "true"
+                },
+                {
+                  "_type": "section-iterate",
+                  "name": "ReturnLinkSection",
+                  "list": "returnIdSet",
+                  "entry": "returnId"
+                },
+                {
+                  "type": "div",
+                  "_type": "label",
+                  "text": "OrderDetailItemReturnable",
+                  "resolvedText": "OrderDetailItemReturnable",
+                  "labelType": "div",
+                  "encode": "true"
+                }
+              ]
+            },
+            {
+              "name": "returnItem",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "conditionalFields": [
+                {
+                  "condition": "openReturnList && returnableOut.returnableQuantity > 0",
+                  "conditionResult": false,
+                  "title": "",
+                  "widgets": [
+                    {
+                      "id": "ReturnItemCtr",
+                      "_type": "dynamic-dialog",
+                      "dialogId": "ReturnItemCtr",
+                      "buttonText": "Return",
+                      "transition": "ReturnItem",
+                      "dialogTitle": "",
+                      "width": "",
+                      "height": "",
+                      "icon": "",
+                      "parameters": [
+                        {
+                          "name": "orderId",
+                          "value": "",
+                          "from": ""
+                        },
+                        {
+                          "name": "orderItemSeqId",
+                          "value": "",
+                          "from": "orderItem.orderItemSeqId"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "title": "Return Item",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": " ",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": " "
+                }
+              ]
+            },
+            {
+              "name": "editButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Actions",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "id": "EditItemDialog",
+                  "_type": "dynamic-dialog",
+                  "dialogId": "EditItemDialog",
+                  "buttonText": "Edit",
+                  "transition": "EditItem",
+                  "dialogTitle": "",
+                  "width": "",
+                  "height": "",
+                  "icon": "",
+                  "parameters": [
+                    {
+                      "name": "orderId",
+                      "value": "",
+                      "from": ""
+                    },
+                    {
+                      "name": "orderItemSeqId",
+                      "value": "",
+                      "from": "orderItem.orderItemSeqId"
+                    }
+                  ]
+                },
+                {
+                  "condition": "partEditable && itemCanDelete",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "",
+                  "linkType": "auto",
+                  "icon": "fa fa-trash",
+                  "badge": "",
+                  "confirmation": "Delete item null?",
+                  "tooltip": "",
+                  "btnType": "danger",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "orderId": "100006",
+                    "pageSize": "20"
+                  },
+                  "url": "/fapps/marble/Order/OrderItems/deleteItem",
+                  "isAnchorLink": false
+                },
+                {
+                  "condition": "isProductItemType && itemQuantityNotShipped && orderPart.statusId in ['OrderOpen', 'OrderPlaced', 'OrderProcessing', 'OrderApproved', 'OrderHold']",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Close",
+                  "linkType": "hidden-form",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "Really close item? Quantity will be reduced to quantity shipped and remaining quantity will be cancelled.",
+                  "tooltip": "",
+                  "btnType": "warning",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "pageSize": "20",
+                    "orderId": "100006",
+                    "orderItem": ""
+                  },
+                  "url": "/fapps/marble/Order/OrderItems/cancelOrderItem",
+                  "isAnchorLink": false,
+                  "parameterFromFields": {
+                    "orderItem": "null"
+                  }
+                }
+              ]
+            }
+          ],
+          "listData": [],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 0,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 0
+          },
+          "exportBaseUrl": "/fapps/marble/Order/OrderItems"
+        }
+      ]
+    }
+  ]
+}

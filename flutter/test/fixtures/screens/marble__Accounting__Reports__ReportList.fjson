@@ -1,0 +1,2256 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "ReportList",
+  "menuTitle": "Report List",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "",
+              "md": "6",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "_type": "container-box",
+                  "boxTitle": "Financial Reports",
+                  "header": [],
+                  "body": [
+                    {
+                      "id": "BalanceSheetDialog",
+                      "_type": "container-dialog",
+                      "buttonText": "Balance Sheet",
+                      "dialogTitle": "",
+                      "width": "",
+                      "icon": "",
+                      "btnType": "",
+                      "children": [
+                        {
+                          "name": "BalanceSheetForm",
+                          "_type": "form-single",
+                          "formName": "BalanceSheetForm",
+                          "transition": "viewBalanceSheet",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "organizationPartyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Organization",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "ORG_ZIZI_HR",
+                                      "text": "ZIHR: Ziziwork Human Resources"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_CORP",
+                                      "text": "ZICORP: Ziziwork Industries"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_RETAIL",
+                                      "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SALES",
+                                      "text": "ZISAL: Ziziwork Sales"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SERVICES",
+                                      "text": "ZISER: Ziziwork Services"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "timePeriodIdList",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Time Periods",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allow-multiple": "true",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "true",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [],
+                                  "dynamicOptions": {
+                                    "transition": "getTimePeriodList",
+                                    "serverSearch": "true",
+                                    "minLength": "0",
+                                    "dependsOnField": "organizationPartyId",
+                                    "dependsOnParameter": ""
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "name": "detail",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Detail",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "check",
+                                  "noCurrentSelectedKey": "",
+                                  "allChecked": "false",
+                                  "options": [
+                                    {
+                                      "key": "true",
+                                      "text": " "
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "beginningAndPosted",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Beginning And Posted",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "check",
+                                  "noCurrentSelectedKey": "",
+                                  "allChecked": "false",
+                                  "options": [
+                                    {
+                                      "key": "true",
+                                      "text": " "
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "percents",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Percent of Assets",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "check",
+                                  "noCurrentSelectedKey": "",
+                                  "allChecked": "false",
+                                  "options": [
+                                    {
+                                      "key": "true",
+                                      "text": " "
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "charts",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Charts",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "ignored"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "childOrgPeriods",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Child Org Periods",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "check",
+                                  "noCurrentSelectedKey": "",
+                                  "allChecked": "false",
+                                  "options": [
+                                    {
+                                      "key": "true",
+                                      "text": " "
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Run",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "IncomeStatementDialog",
+                      "_type": "container-dialog",
+                      "buttonText": "Income Statement",
+                      "dialogTitle": "",
+                      "width": "",
+                      "icon": "",
+                      "btnType": "",
+                      "children": [
+                        {
+                          "name": "IncomeStatementForm",
+                          "_type": "form-single",
+                          "formName": "IncomeStatementForm",
+                          "transition": "viewIncomeStatement",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "organizationPartyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Organization",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "ORG_ZIZI_HR",
+                                      "text": "ZIHR: Ziziwork Human Resources"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_CORP",
+                                      "text": "ZICORP: Ziziwork Industries"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_RETAIL",
+                                      "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SALES",
+                                      "text": "ZISAL: Ziziwork Sales"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SERVICES",
+                                      "text": "ZISER: Ziziwork Services"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "timePeriodIdList",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Time Periods",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allow-multiple": "true",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "true",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [],
+                                  "dynamicOptions": {
+                                    "transition": "getTimePeriodList",
+                                    "serverSearch": "true",
+                                    "minLength": "0",
+                                    "dependsOnField": "organizationPartyId",
+                                    "dependsOnParameter": ""
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "name": "detail",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Detail",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "check",
+                                  "noCurrentSelectedKey": "",
+                                  "allChecked": "false",
+                                  "options": [
+                                    {
+                                      "key": "true",
+                                      "text": " "
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "beginningAndPosted",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Beginning And Posted",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "ignored"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "percents",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Percent of Revenue",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "check",
+                                  "noCurrentSelectedKey": "",
+                                  "allChecked": "false",
+                                  "options": [
+                                    {
+                                      "key": "true",
+                                      "text": " "
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "charts",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Charts",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "check",
+                                  "noCurrentSelectedKey": "",
+                                  "allChecked": "false",
+                                  "options": [
+                                    {
+                                      "key": "true",
+                                      "text": " "
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "childOrgPeriods",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Child Org Periods",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "check",
+                                  "noCurrentSelectedKey": "",
+                                  "allChecked": "false",
+                                  "options": [
+                                    {
+                                      "key": "true",
+                                      "text": " "
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Run",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "CashFlowStatementDialog",
+                      "_type": "container-dialog",
+                      "buttonText": "Cash Flow",
+                      "dialogTitle": "",
+                      "width": "",
+                      "icon": "",
+                      "btnType": "",
+                      "children": [
+                        {
+                          "name": "CashFlowStatementForm",
+                          "_type": "form-single",
+                          "formName": "CashFlowStatementForm",
+                          "transition": "viewCashFlowStatement",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "organizationPartyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Organization",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "ORG_ZIZI_HR",
+                                      "text": "ZIHR: Ziziwork Human Resources"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_CORP",
+                                      "text": "ZICORP: Ziziwork Industries"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_RETAIL",
+                                      "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SALES",
+                                      "text": "ZISAL: Ziziwork Sales"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SERVICES",
+                                      "text": "ZISER: Ziziwork Services"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "timePeriodIdList",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Time Periods",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allow-multiple": "true",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "true",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [],
+                                  "dynamicOptions": {
+                                    "transition": "getTimePeriodList",
+                                    "serverSearch": "true",
+                                    "minLength": "0",
+                                    "dependsOnField": "organizationPartyId",
+                                    "dependsOnParameter": ""
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "name": "detail",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Detail",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "check",
+                                  "noCurrentSelectedKey": "",
+                                  "allChecked": "false",
+                                  "options": [
+                                    {
+                                      "key": "true",
+                                      "text": " "
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "beginningAndPosted",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Beginning And Posted",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "ignored"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "percents",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Percent of Assets",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "ignored"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "charts",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Charts",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "ignored"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "childOrgPeriods",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Child Org Periods",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "check",
+                                  "noCurrentSelectedKey": "",
+                                  "allChecked": "false",
+                                  "options": [
+                                    {
+                                      "key": "true",
+                                      "text": " "
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Run",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "RetainedEarningsStatementDialog",
+                      "_type": "container-dialog",
+                      "buttonText": "Retained Earnings",
+                      "dialogTitle": "",
+                      "width": "",
+                      "icon": "",
+                      "btnType": "",
+                      "children": [
+                        {
+                          "name": "RetainedEarningsStatementForm",
+                          "_type": "form-single",
+                          "formName": "RetainedEarningsStatementForm",
+                          "transition": "viewRetainedEarningsStatement",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "organizationPartyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Organization",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "ORG_ZIZI_HR",
+                                      "text": "ZIHR: Ziziwork Human Resources"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_CORP",
+                                      "text": "ZICORP: Ziziwork Industries"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_RETAIL",
+                                      "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SALES",
+                                      "text": "ZISAL: Ziziwork Sales"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SERVICES",
+                                      "text": "ZISER: Ziziwork Services"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "timePeriodIdList",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Time Periods",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allow-multiple": "true",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "true",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [],
+                                  "dynamicOptions": {
+                                    "transition": "getTimePeriodList",
+                                    "serverSearch": "true",
+                                    "minLength": "0",
+                                    "dependsOnField": "organizationPartyId",
+                                    "dependsOnParameter": ""
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "name": "detail",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Detail",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "ignored"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "beginningAndPosted",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Beginning And Posted",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "ignored"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "percents",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Percent of Assets",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "ignored"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "charts",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Charts",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "ignored"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "childOrgPeriods",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Child Org Periods",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "check",
+                                  "noCurrentSelectedKey": "",
+                                  "allChecked": "false",
+                                  "options": [
+                                    {
+                                      "key": "true",
+                                      "text": " "
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Run",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "FinancialRatiosDialog",
+                      "_type": "container-dialog",
+                      "buttonText": "Financial Ratios",
+                      "dialogTitle": "",
+                      "width": "",
+                      "icon": "",
+                      "btnType": "",
+                      "children": [
+                        {
+                          "name": "FinancialRatiosForm",
+                          "_type": "form-single",
+                          "formName": "FinancialRatiosForm",
+                          "transition": "viewFinancialRatios",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "organizationPartyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Organization",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "ORG_ZIZI_HR",
+                                      "text": "ZIHR: Ziziwork Human Resources"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_CORP",
+                                      "text": "ZICORP: Ziziwork Industries"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_RETAIL",
+                                      "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SALES",
+                                      "text": "ZISAL: Ziziwork Sales"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SERVICES",
+                                      "text": "ZISER: Ziziwork Services"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "timePeriodIdList",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Time Periods",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allow-multiple": "true",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "true",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [],
+                                  "dynamicOptions": {
+                                    "transition": "getTimePeriodList",
+                                    "serverSearch": "true",
+                                    "minLength": "0",
+                                    "dependsOnField": "organizationPartyId",
+                                    "dependsOnParameter": ""
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "name": "detail",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Detail",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "ignored"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "beginningAndPosted",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Beginning And Posted",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "ignored"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "percents",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Percent of Assets",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "ignored"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "charts",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Charts",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "ignored"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "childOrgPeriods",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Child Org Periods",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "check",
+                                  "noCurrentSelectedKey": "",
+                                  "allChecked": "false",
+                                  "options": [
+                                    {
+                                      "key": "true",
+                                      "text": " "
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Run",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "_type": "container-box",
+                  "boxTitle": "Sales and Invoice Reports",
+                  "header": [],
+                  "body": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Sales Summary",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/SalesSummary",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Sales Order Analysis",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/SalesAnalysis",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Sales Invoice Analysis",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/SalesInvoiceAnalysis",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "id": "CustomerStatementDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Customer Statement PDF",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "CustomerStatementForm",
+                              "_type": "form-single",
+                              "formName": "CustomerStatementForm",
+                              "transition": "receivableStatement",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "fromPartyId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Organization",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allow-empty": "true",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [
+                                        {
+                                          "key": "ORG_ZIZI_HR",
+                                          "text": "ZIHR: Ziziwork Human Resources"
+                                        },
+                                        {
+                                          "key": "ORG_ZIZI_CORP",
+                                          "text": "ZICORP: Ziziwork Industries"
+                                        },
+                                        {
+                                          "key": "ORG_ZIZI_RETAIL",
+                                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                        },
+                                        {
+                                          "key": "ORG_ZIZI_SALES",
+                                          "text": "ZISAL: Ziziwork Sales"
+                                        },
+                                        {
+                                          "key": "ORG_ZIZI_SERVICES",
+                                          "text": "ZISER: Ziziwork Services"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "toPartyId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Customer",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [],
+                                      "dynamicOptions": {
+                                        "transition": "searchPartyList",
+                                        "serverSearch": "true",
+                                        "minLength": "2"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "asOfDate",
+                                  "from": "ec.user.nowTimestamp",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "As Of Date",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "date-time",
+                                      "type": "date",
+                                      "dateType": "date",
+                                      "format": "",
+                                      "minuteStepping": ""
+                                    }
+                                  ],
+                                  "currentValue": "2026-03-04 13:30:03.443"
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Download PDF",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Order Item Summary",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/OrderItemSummary",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Order Issued and Invoiced",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/OrderIssuedInvoiced",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Invoice Item Summary",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/InvoiceItemSummary",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Quick Aging",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Invoice/Aging",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Invoice Aging Detail",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/InvoiceAgingDetail",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "AR Aging Summary",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/ArAgingSummary",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Invoice Reconciliation",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/InvoiceReconciliation",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "",
+              "md": "6",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "_type": "container-box",
+                  "boxTitle": "Transaction Reports",
+                  "header": [],
+                  "body": [
+                    {
+                      "id": "AccountLedgerDialog",
+                      "_type": "container-dialog",
+                      "buttonText": "Account Ledger",
+                      "dialogTitle": "",
+                      "width": "",
+                      "icon": "",
+                      "btnType": "",
+                      "children": [
+                        {
+                          "name": "AccountLedgerForm",
+                          "_type": "form-single",
+                          "formName": "AccountLedgerForm",
+                          "transition": "../AccountLedger",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "organizationPartyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Organization",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "ORG_ZIZI_HR",
+                                      "text": "ZIHR: Ziziwork Human Resources"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_CORP",
+                                      "text": "ZICORP: Ziziwork Industries"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_RETAIL",
+                                      "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SALES",
+                                      "text": "ZISAL: Ziziwork Sales"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SERVICES",
+                                      "text": "ZISER: Ziziwork Services"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "timePeriodId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Time Period",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [],
+                                  "dynamicOptions": {
+                                    "transition": "getTimePeriodList",
+                                    "serverSearch": "true",
+                                    "minLength": "0",
+                                    "dependsOnField": "organizationPartyId",
+                                    "dependsOnParameter": ""
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "name": "glAccountIdList",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "GL Accounts",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allow-multiple": "true",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "true",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [],
+                                  "dynamicOptions": {
+                                    "transition": "getGlAccountListPaginated",
+                                    "serverSearch": "true",
+                                    "minLength": "0"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Run",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "AccountBalanceDialog",
+                      "_type": "container-dialog",
+                      "buttonText": "Account Balance History",
+                      "dialogTitle": "",
+                      "width": "",
+                      "icon": "",
+                      "btnType": "",
+                      "children": [
+                        {
+                          "name": "AccountBalanceForm",
+                          "_type": "form-single",
+                          "formName": "AccountBalanceForm",
+                          "transition": "../AccountBalance",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "organizationPartyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Organization",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "ORG_ZIZI_HR",
+                                      "text": "ZIHR: Ziziwork Human Resources"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_CORP",
+                                      "text": "ZICORP: Ziziwork Industries"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_RETAIL",
+                                      "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SALES",
+                                      "text": "ZISAL: Ziziwork Sales"
+                                    },
+                                    {
+                                      "key": "ORG_ZIZI_SERVICES",
+                                      "text": "ZISER: Ziziwork Services"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "timePeriodTypeId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Type",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "FiscalYear",
+                                      "text": "Year"
+                                    },
+                                    {
+                                      "key": "FiscalQuarter",
+                                      "text": "Quarter"
+                                    },
+                                    {
+                                      "key": "FiscalMonth",
+                                      "text": "Month"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "glAccountId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "GL Account",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allow-empty": "true",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [],
+                                  "dynamicOptions": {
+                                    "transition": "getGlAccountListPaginated",
+                                    "serverSearch": "true",
+                                    "minLength": "0"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Run",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Transactions",
+                      "linkType": "auto",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Accounting/Transaction/FindTransaction",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "_type": "link",
+                      "urlType": "transition",
+                      "text": "Transaction Entries",
+                      "linkType": "auto",
+                      "icon": "",
+                      "badge": "",
+                      "confirmation": "",
+                      "tooltip": "",
+                      "btnType": "",
+                      "targetWindow": "",
+                      "dynamicLoadId": "",
+                      "url": "/fapps/marble/Accounting/Transaction/FindTransactionEntry",
+                      "isAnchorLink": true
+                    },
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "id": "PostedAmountSummaryDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Posted Amount Summary",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "PostedAmountSummaryForm",
+                              "_type": "form-single",
+                              "formName": "PostedAmountSummaryForm",
+                              "transition": "viewPostedAmountSummary",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "organizationPartyId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Organization",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allow-empty": "${allowEmpty ?: 'false'}",
+                                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                                      "style": "${style?:''}",
+                                      "allowEmpty": "false",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [
+                                        {
+                                          "key": "ORG_ZIZI_HR",
+                                          "text": "ZIHR: Ziziwork Human Resources"
+                                        },
+                                        {
+                                          "key": "ORG_ZIZI_CORP",
+                                          "text": "ZICORP: Ziziwork Industries"
+                                        },
+                                        {
+                                          "key": "ORG_ZIZI_RETAIL",
+                                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                        },
+                                        {
+                                          "key": "ORG_ZIZI_SALES",
+                                          "text": "ZISAL: Ziziwork Sales"
+                                        },
+                                        {
+                                          "key": "ORG_ZIZI_SERVICES",
+                                          "text": "ZISER: Ziziwork Services"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "dateRange",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Date Range",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "date-period",
+                                      "allow-empty": "false",
+                                      "allowEmpty": "false",
+                                      "time": "false"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Run",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "PostedBalanceSummaryDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Posted Balance Summary",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "PostedBalanceSummaryForm",
+                              "_type": "form-single",
+                              "formName": "PostedBalanceSummaryForm",
+                              "transition": "viewPostedBalanceSummary",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "organizationPartyId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Organization",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [
+                                        {
+                                          "key": "ORG_ZIZI_HR",
+                                          "text": "ZIHR: Ziziwork Human Resources"
+                                        },
+                                        {
+                                          "key": "ORG_ZIZI_CORP",
+                                          "text": "ZICORP: Ziziwork Industries"
+                                        },
+                                        {
+                                          "key": "ORG_ZIZI_RETAIL",
+                                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                        },
+                                        {
+                                          "key": "ORG_ZIZI_SALES",
+                                          "text": "ZISAL: Ziziwork Sales"
+                                        },
+                                        {
+                                          "key": "ORG_ZIZI_SERVICES",
+                                          "text": "ZISER: Ziziwork Services"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "timePeriodId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Time Period",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [],
+                                      "dynamicOptions": {
+                                        "transition": "getTimePeriodList",
+                                        "serverSearch": "true",
+                                        "minLength": "0",
+                                        "dependsOnField": "organizationPartyId",
+                                        "dependsOnParameter": ""
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Run",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "_type": "container-box",
+                  "boxTitle": "Asset and Inventory Reports",
+                  "header": [],
+                  "body": [
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Inventory Valuation",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/AssetValuation",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Receipt Transactions",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/AssetReceiptTransaction",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Status by Receipt",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/AssetStatusByReceipt",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "On Hand",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/AssetOnHand",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "On Hand Summary",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/AssetOnHandSummary",
+                          "isAnchorLink": true
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Shipment Package Summary",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "url": "/fapps/marble/Accounting/Reports/ShipmentPackageSummary",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "SelectOrganization",
+          "_type": "section-include",
+          "sectionName": "SelectOrganization",
+          "widgets": [
+            {
+              "name": "SelectOrganizationForm",
+              "_type": "form-single",
+              "formName": "SelectOrganizationForm",
+              "transition": ".",
+              "map": "fieldValues",
+              "fieldLayout": {
+                "_type": "field-layout",
+                "rows": [
+                  {
+                    "_type": "field-row-big"
+                  }
+                ]
+              },
+              "fields": [
+                {
+                  "name": "organizationPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization Party ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "ZIHR: Ziziwork Human Resources"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "ZICORP: Ziziwork Industries"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "ZISAL: Ziziwork Sales"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "ZISER: Ziziwork Services"
+                        }
+                      ]
+                    }
+                  ],
+                  "currentValue": "ORG_ZIZI_HR"
+                },
+                {
+                  "name": "timePeriodTypeId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Time Period Type ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "FiscalMonth",
+                          "text": "Month"
+                        },
+                        {
+                          "key": "FiscalQuarter",
+                          "text": "Quarter"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "periods",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Periods",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "2",
+                      "default-value": "13",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "thruDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Thru Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "type": "date",
+                      "dateType": "date",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "setOrg",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "View Charts",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "",
+              "md": "6",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "OperatingRevenueExpenseChart",
+                  "_type": "section-include",
+                  "sectionName": "OperatingRevenueExpenseChart",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Operating Revenue and Expense",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "_type": "text",
+                          "textType": "html,vuet,qvt",
+                          "location": "",
+                          "template": "true",
+                          "content": "<button type=\"button\" class=\"btn btn-primary btn-sm\" onclick=\"moqui.downloadData('${(revenueExpenseCsv!\"\")?js_string}', 'OperatingRevenueExpense.csv', 'text/csv')\">Get CSV</button>"
+                        }
+                      ],
+                      "body": [
+                        {
+                          "_type": "text",
+                          "textType": "html,vuet,qvt",
+                          "location": "",
+                          "template": "true",
+                          "content": "<div class=\"chart-container\" style=\"position:relative; height:400px; width:100%;\"><canvas id=\"RevenueExpenseChart\"></canvas></div>\n                <script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" type=\"text/javascript\"></script>\n                <script>\n                var revenueExpenseChart = new Chart(document.getElementById(\"RevenueExpenseChart\"), {\n                    type: 'bar',\n                    data: { labels:${Static[\"groovy.json.JsonOutput\"].toJson(periodLabels!\"\")},\n                        datasets:${Static[\"groovy.json.JsonOutput\"].toJson(datasets!\"\")} },\n                    options: {\n                        scales:{ yAxes:[{ ticks:{ beginAtZero:true } }] }, maintainAspectRatio:false,\n                        tooltips:{ callbacks:{ label: function(tooltipItem, data) {\n                            var dataset = data.datasets[tooltipItem.datasetIndex];\n                            var datasetLabel = dataset.label || '';\n                            var curValue = dataset.data[tooltipItem.index];\n                            // NOTE: datasetIndex 0 is net revenue, the first dataset in the list\n                            if (tooltipItem.datasetIndex == 0) { return datasetLabel + \": \" + moqui.format(curValue, null, \"currency\"); }\n                            // calculate and show percent of net revenue for expenses\n                            var netRevenue = data.datasets[0].data[tooltipItem.index];\n                            var percentOfNet = netRevenue ? (curValue / netRevenue) * 100.0 : 0.0;\n                            return datasetLabel + \": \" + moqui.format(dataset.data[tooltipItem.index], null, \"currency\") + \" (\" + percentOfNet.toFixed(1) + \"% net)\";\n                        }}}\n                    }\n                });\n                </script>"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "",
+              "md": "6",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "CurrentAssetLiabilityChart",
+                  "_type": "section-include",
+                  "sectionName": "CurrentAssetLiabilityChart",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Current Assets and Liabilities",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "_type": "text",
+                          "textType": "html,vuet,qvt",
+                          "location": "",
+                          "template": "true",
+                          "content": "<button type=\"button\" class=\"btn btn-primary btn-sm\" onclick=\"moqui.downloadData('${(assetLiabilityCsv!\"\")?js_string}', 'CurrentAssetLiability.csv', 'text/csv')\">Get CSV</button>"
+                        }
+                      ],
+                      "body": [
+                        {
+                          "_type": "text",
+                          "textType": "html,vuet,qvt",
+                          "location": "",
+                          "template": "true",
+                          "content": "<div class=\"chart-container\" style=\"position:relative; height:400px; width:100%;\"><canvas id=\"AssetLiabilityChart\"></canvas></div>\n                <script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" type=\"text/javascript\"></script>\n                <script>\n                var assetLiabilityChart = new Chart(document.getElementById(\"AssetLiabilityChart\"), {\n                    type: 'bar',\n                    data: { labels:${Static[\"groovy.json.JsonOutput\"].toJson(periodLabels!\"\")},\n                        datasets:${Static[\"groovy.json.JsonOutput\"].toJson(datasets!\"\")} },\n                    options: {\n                        scales:{ yAxes:[{ ticks:{ beginAtZero:true } }] }, maintainAspectRatio:false,\n                        tooltips:{ callbacks:{ label: function(tooltipItem, data) {\n                            var dataset = data.datasets[tooltipItem.datasetIndex]; var datasetLabel = dataset.label || '';\n                            return datasetLabel + \": \" + moqui.format(dataset.data[tooltipItem.index], null, \"currency\");\n                        }}}\n                    }\n                });\n                </script>"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "",
+              "md": "6",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "NetIncomeChart",
+                  "_type": "section-include",
+                  "sectionName": "NetIncomeChart",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Net Income History",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "_type": "text",
+                          "textType": "html,vuet,qvt",
+                          "location": "",
+                          "template": "true",
+                          "content": "<button type=\"button\" class=\"btn btn-primary btn-sm\" onclick=\"moqui.downloadData('${(netIncomeCsv!\"\")?js_string}', 'NetIncomeHistory.csv', 'text/csv')\">Get CSV</button>"
+                        }
+                      ],
+                      "body": [
+                        {
+                          "_type": "text",
+                          "textType": "html,vuet,qvt",
+                          "location": "",
+                          "template": "true",
+                          "content": "<div class=\"chart-container\" style=\"position:relative; height:400px; width:100%;\"><canvas id=\"NetIncomeChart\"></canvas></div>\n                <script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" type=\"text/javascript\"></script>\n                <script>\n                var netIncomeChart = new Chart(document.getElementById(\"NetIncomeChart\"), {\n                    type: 'bar',\n                    data: { labels:${Static[\"groovy.json.JsonOutput\"].toJson(periodLabels!\"\")},\n                        datasets:${Static[\"groovy.json.JsonOutput\"].toJson(datasets!\"\")} },\n                    options: {\n                        scales:{ yAxes:[{ ticks:{ beginAtZero:true } }] }, maintainAspectRatio:false,\n                        tooltips:{ callbacks:{ label: function(tooltipItem, data) {\n                            var dataset = data.datasets[tooltipItem.datasetIndex]; var datasetLabel = dataset.label || '';\n                            return datasetLabel + \": \" + moqui.format(dataset.data[tooltipItem.index], null, \"currency\");\n                        }}}\n                    }\n                });\n                </script>"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "",
+              "md": "6",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "BalanceSheetChart",
+                  "_type": "section-include",
+                  "sectionName": "BalanceSheetChart",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Balance Sheet History",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "_type": "text",
+                          "textType": "html,vuet,qvt",
+                          "location": "",
+                          "template": "true",
+                          "content": "<button type=\"button\" class=\"btn btn-primary btn-sm\" onclick=\"moqui.downloadData('${(balanceSheetCsv!\"\")?js_string}', 'BalanceSheetHistory.csv', 'text/csv')\">Get CSV</button>"
+                        }
+                      ],
+                      "body": [
+                        {
+                          "_type": "text",
+                          "textType": "html,vuet,qvt",
+                          "location": "",
+                          "template": "true",
+                          "content": "<div class=\"chart-container\" style=\"position:relative; height:400px; width:100%;\"><canvas id=\"BalanceSheetChart\"></canvas></div>\n                <script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" type=\"text/javascript\"></script>\n                <script>\n                var balanceSheetChart = new Chart(document.getElementById(\"BalanceSheetChart\"), {\n                    type: 'bar',\n                    data: { labels:${Static[\"groovy.json.JsonOutput\"].toJson(periodLabels!\"\")},\n                        datasets:${Static[\"groovy.json.JsonOutput\"].toJson(datasets!\"\")} },\n                    options: {\n                        scales:{ yAxes:[{ ticks:{ beginAtZero:true } }] }, maintainAspectRatio:false,\n                        tooltips:{ callbacks:{ label: function(tooltipItem, data) {\n                            var dataset = data.datasets[tooltipItem.datasetIndex]; var datasetLabel = dataset.label || '';\n                            return datasetLabel + \": \" + moqui.format(dataset.data[tooltipItem.index], null, \"currency\");\n                        }}}\n                    }\n                });\n                </script>"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "",
+              "md": "6",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "NetIncomeYoyChart",
+                  "_type": "section-include",
+                  "sectionName": "NetIncomeYoyChart",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Net Income Year Over Year",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "_type": "text",
+                          "textType": "html,vuet,qvt",
+                          "location": "",
+                          "template": "true",
+                          "content": "<button type=\"button\" class=\"btn btn-primary btn-sm\" onclick=\"moqui.downloadData('${(netIncomeYoyCsv!\"\")?js_string}', 'NetIncomeYoyHistory.csv', 'text/csv')\">Get CSV</button>"
+                        }
+                      ],
+                      "body": [
+                        {
+                          "_type": "text",
+                          "textType": "html,vuet,qvt",
+                          "location": "",
+                          "template": "true",
+                          "content": "<div class=\"chart-container\" style=\"position:relative; height:400px; width:100%;\"><canvas id=\"NetIncomeYoyChart\"></canvas></div>\n                <script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" type=\"text/javascript\"></script>\n                <script>\n                var netIncomeYoyChart = new Chart(document.getElementById(\"NetIncomeYoyChart\"), {\n                    type: 'line',\n                    data: { labels:${Static[\"groovy.json.JsonOutput\"].toJson(periodLabels!\"\")},\n                        datasets:${Static[\"groovy.json.JsonOutput\"].toJson(datasets!\"\")} },\n                    options: {\n                        scales:{ yAxes:[{ ticks:{ beginAtZero:true } }] }, maintainAspectRatio:false,\n                        tooltips:{ callbacks:{ label: function(tooltipItem, data) {\n                            var dataset = data.datasets[tooltipItem.datasetIndex]; var datasetLabel = dataset.label || '';\n                            return datasetLabel + \": \" + moqui.format(dataset.data[tooltipItem.index], null, \"currency\");\n                        }}}\n                    }\n                });\n                </script>"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "",
+              "md": "6",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

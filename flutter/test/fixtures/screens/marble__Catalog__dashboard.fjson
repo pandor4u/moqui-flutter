@@ -1,0 +1,88 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "dashboard",
+  "menuTitle": "Dashboard",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Products",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "url": "/fapps/marble/Catalog/Product/FindProduct",
+          "isAnchorLink": true
+        },
+        {
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Search Products",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "url": "/fapps/marble/Catalog/Search",
+          "isAnchorLink": true
+        },
+        {
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Categories",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "url": "/fapps/marble/Catalog/Category/FindCategory",
+          "isAnchorLink": true
+        },
+        {
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Features",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "url": "/fapps/marble/Catalog/Feature/FindFeature",
+          "isAnchorLink": true
+        },
+        {
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Feature Groups",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "url": "/fapps/marble/Catalog/FeatureGroup/FindFeatureGroup",
+          "isAnchorLink": true
+        }
+      ]
+    }
+  ]
+}

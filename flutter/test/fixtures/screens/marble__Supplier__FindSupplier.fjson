@@ -1,0 +1,402 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FindSupplier",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "CreatePersonDialog",
+          "_type": "container-dialog",
+          "buttonText": "New Person Supplier",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "CreatePersonForm",
+              "_type": "form-single",
+              "formName": "CreatePersonForm",
+              "transition": "createPerson",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "roleTypeId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Role Type ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "Supplier"
+                },
+                {
+                  "name": "firstName",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "First Name",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "30",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "lastName",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Last Name",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "30",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "CreateOrganizationDialog",
+          "_type": "container-dialog",
+          "buttonText": "New Organization Supplier",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "CreateOrganizationForm",
+              "_type": "form-single",
+              "formName": "CreateOrganizationForm",
+              "transition": "createOrganization",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "roleTypeId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Role Type ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "Supplier"
+                },
+                {
+                  "name": "organizationName",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization Name",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "60",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "link",
+          "urlType": "plain",
+          "text": "Search String Reference",
+          "linkType": "anchor",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "_blank",
+          "dynamicLoadId": "",
+          "url": "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax",
+          "isAnchorLink": true
+        },
+        {
+          "name": "OuterSearchForm",
+          "_type": "form-single",
+          "formName": "OuterSearchForm",
+          "transition": "",
+          "map": "fieldValues",
+          "fieldLayout": {
+            "_type": "field-layout",
+            "rows": [
+              {
+                "_type": "field-row-big"
+              }
+            ]
+          },
+          "fields": [
+            {
+              "name": "anyField",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Any Field",
+              "tooltip": "Matches whole words, use the asterisk (*) wildcard to match partial words; use field:term to search a specific field",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "100",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Search",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "SupplierListForm",
+          "_type": "form-list",
+          "formName": "SupplierListForm",
+          "transition": "",
+          "list": "documentList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "",
+          "savedFinds": "",
+          "showCsvButton": "",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "true",
+          "editUrl": "editSupplier",
+          "headerFields": [
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "pseudoId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Pseudo ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Supplier/FindSupplier/editSupplier",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "combinedName",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Combined Name",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "PartyNameOnlyTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Supplier/FindSupplier/editSupplier",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Purchase Orders",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "vendorPartyId": ""
+                  },
+                  "url": "/fapps/marble/Supplier/FindSupplier/findOrder",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "vendorPartyId": "partyId"
+                  }
+                }
+              ]
+            }
+          ],
+          "listData": [],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 0,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 0
+          }
+        },
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "",
+              "md": "2",
+              "sm": "",
+              "xs": "",
+              "style": "text-right",
+              "children": [
+                {
+                  "type": "strong",
+                  "_type": "label",
+                  "text": "Current Search String",
+                  "resolvedText": "Current Search String",
+                  "labelType": "strong",
+                  "encode": "true"
+                }
+              ]
+            },
+            {
+              "lg": "",
+              "md": "",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "_type": "label",
+                  "text": "roles.roleTypeId:Supplier",
+                  "resolvedText": "roles.roleTypeId:Supplier",
+                  "labelType": "span",
+                  "encode": "true"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

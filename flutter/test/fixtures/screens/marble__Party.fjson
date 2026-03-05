@@ -1,0 +1,4100 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Party",
+  "menuTitle": "Parties",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "type": "strong",
+          "condition": "partyDetail",
+          "_type": "label",
+          "text": "PartyNameTemplate",
+          "resolvedText": "PartyNameTemplate",
+          "labelType": "strong",
+          "encode": "true"
+        },
+        {
+          "id": "PartyPanel",
+          "type": "tab",
+          "_type": "subscreens-panel",
+          "menuType": "tab",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "EditParty",
+              "menuTitle": "Party",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "PartyCalendar",
+              "menuTitle": "Calendar",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "PartyEmails",
+              "menuTitle": "Emails",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "PartyMessages",
+              "menuTitle": "Messages",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "PartyRelated",
+              "menuTitle": "Related",
+              "menuIndex": 4,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "PartyTimeEntries",
+              "menuTitle": "Time",
+              "menuIndex": 5,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "PartyAgreements",
+              "menuTitle": "Agreements",
+              "menuIndex": 6,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "PartyProjects",
+              "menuTitle": "Projects",
+              "menuIndex": 12,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "PartyTasks",
+              "menuTitle": "Tasks",
+              "menuIndex": 13,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "PartyRequests",
+              "menuTitle": "Requests",
+              "menuIndex": 14,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "FinancialInfo",
+              "menuTitle": "Financial Info",
+              "menuIndex": 21,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "FindParty",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "FindParty",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "id": "CreatePersonDialog",
+                    "_type": "container-dialog",
+                    "buttonText": "New Person",
+                    "dialogTitle": "",
+                    "width": "",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "name": "CreatePersonForm",
+                        "_type": "form-single",
+                        "formName": "CreatePersonForm",
+                        "transition": "createPerson",
+                        "map": "fieldValues",
+                        "fields": [
+                          {
+                            "name": "roleTypeId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Role Type ID",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "hidden",
+                                "defaultValue": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "firstName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "First Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "30",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "lastName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Last Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "30",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Create",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "CreatePersonCustDialog",
+                    "_type": "container-dialog",
+                    "buttonText": "New Person Customer",
+                    "dialogTitle": "",
+                    "width": "",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "name": "CreatePersonCustForm",
+                        "_type": "form-single",
+                        "formName": "CreatePersonCustForm",
+                        "transition": "createPersonCustomer",
+                        "map": "fieldValues",
+                        "fieldLayout": {
+                          "_type": "field-layout",
+                          "rows": [
+                            {
+                              "_type": "field-ref",
+                              "name": "roleTypeId"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "partyClassificationId"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "accountPartyId"
+                            },
+                            {
+                              "_type": "field-row-big"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "emailAddress"
+                            },
+                            {
+                              "_type": "field-row-big"
+                            },
+                            {
+                              "_type": "field-row",
+                              "fields": [
+                                {
+                                  "name": "address1"
+                                },
+                                {
+                                  "name": "unitNumber"
+                                }
+                              ]
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "address2"
+                            },
+                            {
+                              "_type": "field-row-big"
+                            },
+                            {
+                              "_type": "field-row-big"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "submitButton"
+                            }
+                          ]
+                        },
+                        "fields": [
+                          {
+                            "name": "roleTypeId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Role",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "no-current-selected-key": "Customer",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [
+                                  {
+                                    "key": "Accountant",
+                                    "text": "Accountant"
+                                  },
+                                  {
+                                    "key": "Administrator",
+                                    "text": "Administrator"
+                                  },
+                                  {
+                                    "key": "Affiliate",
+                                    "text": "Affiliate"
+                                  },
+                                  {
+                                    "key": "Agent",
+                                    "text": "Agent"
+                                  },
+                                  {
+                                    "key": "AssetOwner",
+                                    "text": "Asset Owner"
+                                  },
+                                  {
+                                    "key": "Assignee",
+                                    "text": "Assignee"
+                                  },
+                                  {
+                                    "key": "OrgAssociation",
+                                    "text": "Association"
+                                  },
+                                  {
+                                    "key": "Attendee",
+                                    "text": "Attendee"
+                                  },
+                                  {
+                                    "key": "BadActor",
+                                    "text": "Bad Actor (Banned)"
+                                  },
+                                  {
+                                    "key": "BusinessAnalyst",
+                                    "text": "Business Analyst"
+                                  },
+                                  {
+                                    "key": "Buyer",
+                                    "text": "Buyer"
+                                  },
+                                  {
+                                    "key": "Carrier",
+                                    "text": "Carrier"
+                                  },
+                                  {
+                                    "key": "Cashier",
+                                    "text": "Cashier"
+                                  },
+                                  {
+                                    "key": "ClientBilling",
+                                    "text": "Client Billing Rep"
+                                  },
+                                  {
+                                    "key": "ClientManager",
+                                    "text": "Client Manager"
+                                  },
+                                  {
+                                    "key": "Competitor",
+                                    "text": "Competitor"
+                                  },
+                                  {
+                                    "key": "Consumer",
+                                    "text": "Consumer"
+                                  },
+                                  {
+                                    "key": "Contractor",
+                                    "text": "Contractor"
+                                  },
+                                  {
+                                    "key": "OrgCorporation",
+                                    "text": "Corporation"
+                                  },
+                                  {
+                                    "key": "Customer",
+                                    "text": "Customer"
+                                  },
+                                  {
+                                    "key": "CustomerBillTo",
+                                    "text": "Customer - Bill To"
+                                  },
+                                  {
+                                    "key": "CustomerEndUser",
+                                    "text": "Customer - End User"
+                                  },
+                                  {
+                                    "key": "CustomerPlacing",
+                                    "text": "Customer - Placing"
+                                  },
+                                  {
+                                    "key": "CustomerShipTo",
+                                    "text": "Customer - Ship To"
+                                  },
+                                  {
+                                    "key": "DefaultAssignee",
+                                    "text": "Default Assignee"
+                                  },
+                                  {
+                                    "key": "Delegate",
+                                    "text": "Delegate"
+                                  },
+                                  {
+                                    "key": "OrgDepartment",
+                                    "text": "Department"
+                                  },
+                                  {
+                                    "key": "Distributor",
+                                    "text": "Distributor"
+                                  },
+                                  {
+                                    "key": "OrgDivision",
+                                    "text": "Division"
+                                  },
+                                  {
+                                    "key": "EmailAdmin",
+                                    "text": "Email Administrator"
+                                  },
+                                  {
+                                    "key": "Employee",
+                                    "text": "Employee"
+                                  },
+                                  {
+                                    "key": "OrgEmployer",
+                                    "text": "Employer"
+                                  },
+                                  {
+                                    "key": "Executive",
+                                    "text": "Executive"
+                                  },
+                                  {
+                                    "key": "ExpertUser",
+                                    "text": "Expert User"
+                                  },
+                                  {
+                                    "key": "OrgFamily",
+                                    "text": "Family"
+                                  },
+                                  {
+                                    "key": "FamilyMember",
+                                    "text": "Family Member"
+                                  },
+                                  {
+                                    "key": "GarnishmentPayee",
+                                    "text": "Garnishment Payee"
+                                  },
+                                  {
+                                    "key": "OrgGovernment",
+                                    "text": "Government"
+                                  },
+                                  {
+                                    "key": "OrgGovernmentAgency",
+                                    "text": "Government Agency"
+                                  },
+                                  {
+                                    "key": "Host",
+                                    "text": "Host"
+                                  },
+                                  {
+                                    "key": "HostingProvider",
+                                    "text": "Hosting Provider"
+                                  },
+                                  {
+                                    "key": "OrgHousehold",
+                                    "text": "Household"
+                                  },
+                                  {
+                                    "key": "HumanResourcesManager",
+                                    "text": "Human Resources Manager"
+                                  },
+                                  {
+                                    "key": "OrgInternal",
+                                    "text": "Internal Organization"
+                                  },
+                                  {
+                                    "key": "InternetSp",
+                                    "text": "Internet Service Provider"
+                                  },
+                                  {
+                                    "key": "InventoryManager",
+                                    "text": "Inventory Manager"
+                                  },
+                                  {
+                                    "key": "Manager",
+                                    "text": "Manager"
+                                  },
+                                  {
+                                    "key": "Manufacturer",
+                                    "text": "Manufacturer"
+                                  },
+                                  {
+                                    "key": "_NA_",
+                                    "text": "Not Applicable"
+                                  },
+                                  {
+                                    "key": "Operator",
+                                    "text": "Operator"
+                                  },
+                                  {
+                                    "key": "OrderClerk",
+                                    "text": "Order Clerk"
+                                  },
+                                  {
+                                    "key": "Organizer",
+                                    "text": "Organizer"
+                                  },
+                                  {
+                                    "key": "Owner",
+                                    "text": "Owner"
+                                  },
+                                  {
+                                    "key": "Packer",
+                                    "text": "Packer"
+                                  },
+                                  {
+                                    "key": "OrgParent",
+                                    "text": "Parent"
+                                  },
+                                  {
+                                    "key": "Partner",
+                                    "text": "Partner"
+                                  },
+                                  {
+                                    "key": "Payroll",
+                                    "text": "Payroll"
+                                  },
+                                  {
+                                    "key": "PayrollOtherPayee",
+                                    "text": "Payroll Other Payee"
+                                  },
+                                  {
+                                    "key": "Picker",
+                                    "text": "Picker"
+                                  },
+                                  {
+                                    "key": "ProductionManager",
+                                    "text": "Production Manager"
+                                  },
+                                  {
+                                    "key": "ProductionWorker",
+                                    "text": "Production Worker"
+                                  },
+                                  {
+                                    "key": "Programmer",
+                                    "text": "Programmer"
+                                  },
+                                  {
+                                    "key": "ProgrammerLead",
+                                    "text": "Programmer Lead"
+                                  },
+                                  {
+                                    "key": "ProjectManager",
+                                    "text": "Project Manager"
+                                  },
+                                  {
+                                    "key": "Prospect",
+                                    "text": "Prospect"
+                                  },
+                                  {
+                                    "key": "QualityAnalyst",
+                                    "text": "Quality Analyst"
+                                  },
+                                  {
+                                    "key": "QualityLead",
+                                    "text": "Quality Lead"
+                                  },
+                                  {
+                                    "key": "Receiver",
+                                    "text": "Receiver"
+                                  },
+                                  {
+                                    "key": "Referrer",
+                                    "text": "Referrer"
+                                  },
+                                  {
+                                    "key": "OrgRegulatoryAgency",
+                                    "text": "Regulatory Agency"
+                                  },
+                                  {
+                                    "key": "Reporter",
+                                    "text": "Reporter"
+                                  },
+                                  {
+                                    "key": "Account",
+                                    "text": "Sales Account"
+                                  },
+                                  {
+                                    "key": "AccountLead",
+                                    "text": "Sales Account Lead"
+                                  },
+                                  {
+                                    "key": "Contact",
+                                    "text": "Sales Contact"
+                                  },
+                                  {
+                                    "key": "SalesRepresentative",
+                                    "text": "Sales Representative"
+                                  },
+                                  {
+                                    "key": "Shareholder",
+                                    "text": "Shareholder"
+                                  },
+                                  {
+                                    "key": "ShipmentClerk",
+                                    "text": "Shipment Clerk"
+                                  },
+                                  {
+                                    "key": "Sponsor",
+                                    "text": "Sponsor"
+                                  },
+                                  {
+                                    "key": "Spouse",
+                                    "text": "Spouse"
+                                  },
+                                  {
+                                    "key": "Stocker",
+                                    "text": "Stocker"
+                                  },
+                                  {
+                                    "key": "Subscriber",
+                                    "text": "Subscriber"
+                                  },
+                                  {
+                                    "key": "OrgSubsidiary",
+                                    "text": "Subsidiary"
+                                  },
+                                  {
+                                    "key": "Supplier",
+                                    "text": "Supplier"
+                                  },
+                                  {
+                                    "key": "SupplierAgent",
+                                    "text": "Supplier Agent"
+                                  },
+                                  {
+                                    "key": "SysAdmin",
+                                    "text": "System Administrator"
+                                  },
+                                  {
+                                    "key": "SysArchitect",
+                                    "text": "System Architect"
+                                  },
+                                  {
+                                    "key": "OrgTaxAuthority",
+                                    "text": "Tax Authority"
+                                  },
+                                  {
+                                    "key": "OrgTeam",
+                                    "text": "Team"
+                                  },
+                                  {
+                                    "key": "TechContact",
+                                    "text": "Technical Contact"
+                                  },
+                                  {
+                                    "key": "UiDesigner",
+                                    "text": "UI Designer"
+                                  },
+                                  {
+                                    "key": "OrgUnion",
+                                    "text": "Union"
+                                  },
+                                  {
+                                    "key": "OrgUnit",
+                                    "text": "Unit"
+                                  },
+                                  {
+                                    "key": "Vendor",
+                                    "text": "Vendor"
+                                  },
+                                  {
+                                    "key": "VendorBillFrom",
+                                    "text": "Vendor - Bill From"
+                                  },
+                                  {
+                                    "key": "VendorPickUpFrom",
+                                    "text": "Vendor - Pick Up From"
+                                  },
+                                  {
+                                    "key": "VendorShipFrom",
+                                    "text": "Vendor - Ship From"
+                                  },
+                                  {
+                                    "key": "Visitor",
+                                    "text": "Visitor"
+                                  },
+                                  {
+                                    "key": "Watcher",
+                                    "text": "Watcher"
+                                  },
+                                  {
+                                    "key": "WebMaster",
+                                    "text": "Web Master"
+                                  },
+                                  {
+                                    "key": "Worker",
+                                    "text": "Worker"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "partyClassificationId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Customer Class",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "no-current-selected-key": "CustConsumer",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [
+                                  {
+                                    "key": "CustBroker",
+                                    "text": "Broker"
+                                  },
+                                  {
+                                    "key": "CustConsumer",
+                                    "text": "Consumer"
+                                  },
+                                  {
+                                    "key": "CustDistributor",
+                                    "text": "Distributor"
+                                  },
+                                  {
+                                    "key": "CustDistributorPref",
+                                    "text": "Distributor Preferred"
+                                  },
+                                  {
+                                    "key": "CustEmployee",
+                                    "text": "Employee"
+                                  },
+                                  {
+                                    "key": "CustEnterprise",
+                                    "text": "Enterprise"
+                                  },
+                                  {
+                                    "key": "CustWholesale",
+                                    "text": "Wholesale"
+                                  },
+                                  {
+                                    "key": "CustProfessional",
+                                    "text": "Wholesale - Professional"
+                                  },
+                                  {
+                                    "key": "CustRetailStore",
+                                    "text": "Wholesale - Retail Store"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "accountPartyId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Sales Account",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": []
+                              }
+                            ]
+                          },
+                          {
+                            "name": "firstName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "First Name",
+                            "tooltip": "First Name",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "30",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "lastName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Last Name",
+                            "tooltip": "Last Name",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "30",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "emailAddress",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Email",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "40",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "countryCode",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Country Code",
+                            "tooltip": "Country Code",
+                            "widgets": [
+                              {
+                                "_type": "label",
+                                "text": "+",
+                                "resolvedText": "+",
+                                "labelType": "span",
+                                "encode": "true"
+                              },
+                              {
+                                "_type": "text-line",
+                                "size": "3",
+                                "maxlength": "3",
+                                "default-value": "${ec.user.getPreference('TelecomNumber.DefaultCountryCode') ?: '1'}",
+                                "inputType": "text",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "areaCode",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Area Code",
+                            "tooltip": "Area Code",
+                            "widgets": [
+                              {
+                                "_type": "label",
+                                "text": "-",
+                                "resolvedText": "-",
+                                "labelType": "span",
+                                "encode": "true"
+                              },
+                              {
+                                "_type": "text-line",
+                                "size": "3",
+                                "maxlength": "3",
+                                "inputType": "text",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "contactNumber",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Contact Number",
+                            "tooltip": "Phone Number",
+                            "widgets": [
+                              {
+                                "_type": "label",
+                                "text": "-",
+                                "resolvedText": "-",
+                                "labelType": "span",
+                                "encode": "true"
+                              },
+                              {
+                                "_type": "text-line",
+                                "size": "8",
+                                "maxlength": "8",
+                                "inputType": "text",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "address1",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Address 1",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "30",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "unitNumber",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Unit",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "10",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "address2",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Address 2",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "30",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "city",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "City",
+                            "tooltip": "City",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "16",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "countryGeoId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Country Geo ID",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "no-current-selected-key": "USA",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [
+                                  {
+                                    "key": "AFG",
+                                    "text": "Afghanistan"
+                                  },
+                                  {
+                                    "key": "ALB",
+                                    "text": "Albania"
+                                  },
+                                  {
+                                    "key": "DZA",
+                                    "text": "Algeria"
+                                  },
+                                  {
+                                    "key": "ASM",
+                                    "text": "American Samoa"
+                                  },
+                                  {
+                                    "key": "AND",
+                                    "text": "Andorra"
+                                  },
+                                  {
+                                    "key": "AGO",
+                                    "text": "Angola"
+                                  },
+                                  {
+                                    "key": "AIA",
+                                    "text": "Anguilla"
+                                  },
+                                  {
+                                    "key": "ATA",
+                                    "text": "Antarctica"
+                                  },
+                                  {
+                                    "key": "ATG",
+                                    "text": "Antigua And Barbuda"
+                                  },
+                                  {
+                                    "key": "ARG",
+                                    "text": "Argentina"
+                                  },
+                                  {
+                                    "key": "ARM",
+                                    "text": "Armenia"
+                                  },
+                                  {
+                                    "key": "ABW",
+                                    "text": "Aruba"
+                                  },
+                                  {
+                                    "key": "AUS",
+                                    "text": "Australia"
+                                  },
+                                  {
+                                    "key": "AUT",
+                                    "text": "Austria"
+                                  },
+                                  {
+                                    "key": "AZE",
+                                    "text": "Azerbaijan"
+                                  },
+                                  {
+                                    "key": "BHS",
+                                    "text": "Bahamas"
+                                  },
+                                  {
+                                    "key": "BHR",
+                                    "text": "Bahrain"
+                                  },
+                                  {
+                                    "key": "BGD",
+                                    "text": "Bangladesh"
+                                  },
+                                  {
+                                    "key": "BRB",
+                                    "text": "Barbados"
+                                  },
+                                  {
+                                    "key": "BLR",
+                                    "text": "Belarus"
+                                  },
+                                  {
+                                    "key": "BEL",
+                                    "text": "Belgium"
+                                  },
+                                  {
+                                    "key": "BLZ",
+                                    "text": "Belize"
+                                  },
+                                  {
+                                    "key": "BEN",
+                                    "text": "Benin"
+                                  },
+                                  {
+                                    "key": "BMU",
+                                    "text": "Bermuda"
+                                  },
+                                  {
+                                    "key": "BTN",
+                                    "text": "Bhutan"
+                                  },
+                                  {
+                                    "key": "BOL",
+                                    "text": "Bolivia"
+                                  },
+                                  {
+                                    "key": "BIH",
+                                    "text": "Bosnia And Herzegowina"
+                                  },
+                                  {
+                                    "key": "BWA",
+                                    "text": "Botswana"
+                                  },
+                                  {
+                                    "key": "BVT",
+                                    "text": "Bouvet Island"
+                                  },
+                                  {
+                                    "key": "BRA",
+                                    "text": "Brazil"
+                                  },
+                                  {
+                                    "key": "IOT",
+                                    "text": "British Indian Ocean Territory"
+                                  },
+                                  {
+                                    "key": "BRN",
+                                    "text": "Brunei Darussalam"
+                                  },
+                                  {
+                                    "key": "BGR",
+                                    "text": "Bulgaria"
+                                  },
+                                  {
+                                    "key": "BFA",
+                                    "text": "Burkina Faso"
+                                  },
+                                  {
+                                    "key": "BDI",
+                                    "text": "Burundi"
+                                  },
+                                  {
+                                    "key": "KHM",
+                                    "text": "Cambodia"
+                                  },
+                                  {
+                                    "key": "CMR",
+                                    "text": "Cameroon"
+                                  },
+                                  {
+                                    "key": "CAN",
+                                    "text": "Canada"
+                                  },
+                                  {
+                                    "key": "CPV",
+                                    "text": "Cape Verde"
+                                  },
+                                  {
+                                    "key": "CYM",
+                                    "text": "Cayman Islands"
+                                  },
+                                  {
+                                    "key": "CAF",
+                                    "text": "Central African Republic"
+                                  },
+                                  {
+                                    "key": "TCD",
+                                    "text": "Chad"
+                                  },
+                                  {
+                                    "key": "CHL",
+                                    "text": "Chile"
+                                  },
+                                  {
+                                    "key": "CHN",
+                                    "text": "China"
+                                  },
+                                  {
+                                    "key": "CXR",
+                                    "text": "Christmas Island"
+                                  },
+                                  {
+                                    "key": "CCK",
+                                    "text": "Cocos (keeling) Islands"
+                                  },
+                                  {
+                                    "key": "COL",
+                                    "text": "Colombia"
+                                  },
+                                  {
+                                    "key": "COM",
+                                    "text": "Comoros"
+                                  },
+                                  {
+                                    "key": "COG",
+                                    "text": "Congo"
+                                  },
+                                  {
+                                    "key": "COD",
+                                    "text": "Congo, The Democratic Republic Of The"
+                                  },
+                                  {
+                                    "key": "COK",
+                                    "text": "Cook Islands"
+                                  },
+                                  {
+                                    "key": "CRI",
+                                    "text": "Costa Rica"
+                                  },
+                                  {
+                                    "key": "CIV",
+                                    "text": "Cote D'ivoire"
+                                  },
+                                  {
+                                    "key": "HRV",
+                                    "text": "Croatia (local Name: Hrvatska)"
+                                  },
+                                  {
+                                    "key": "CUB",
+                                    "text": "Cuba"
+                                  },
+                                  {
+                                    "key": "CYP",
+                                    "text": "Cyprus"
+                                  },
+                                  {
+                                    "key": "CZE",
+                                    "text": "Czech Republic"
+                                  },
+                                  {
+                                    "key": "DNK",
+                                    "text": "Denmark"
+                                  },
+                                  {
+                                    "key": "DJI",
+                                    "text": "Djibouti"
+                                  },
+                                  {
+                                    "key": "DMA",
+                                    "text": "Dominica"
+                                  },
+                                  {
+                                    "key": "DOM",
+                                    "text": "Dominican Republic"
+                                  },
+                                  {
+                                    "key": "TLS",
+                                    "text": "East Timor"
+                                  },
+                                  {
+                                    "key": "ECU",
+                                    "text": "Ecuador"
+                                  },
+                                  {
+                                    "key": "EGY",
+                                    "text": "Egypt"
+                                  },
+                                  {
+                                    "key": "SLV",
+                                    "text": "El Salvador"
+                                  },
+                                  {
+                                    "key": "GNQ",
+                                    "text": "Equatorial Guinea"
+                                  },
+                                  {
+                                    "key": "ERI",
+                                    "text": "Eritrea"
+                                  },
+                                  {
+                                    "key": "EST",
+                                    "text": "Estonia"
+                                  },
+                                  {
+                                    "key": "ETH",
+                                    "text": "Ethiopia"
+                                  },
+                                  {
+                                    "key": "FLK",
+                                    "text": "Falkland Islands (malvinas)"
+                                  },
+                                  {
+                                    "key": "FRO",
+                                    "text": "Faroe Islands"
+                                  },
+                                  {
+                                    "key": "FJI",
+                                    "text": "Fiji"
+                                  },
+                                  {
+                                    "key": "FIN",
+                                    "text": "Finland"
+                                  },
+                                  {
+                                    "key": "FRA",
+                                    "text": "France"
+                                  },
+                                  {
+                                    "key": "FXX",
+                                    "text": "France, Metropolitan"
+                                  },
+                                  {
+                                    "key": "GUF",
+                                    "text": "French Guiana"
+                                  },
+                                  {
+                                    "key": "PYF",
+                                    "text": "French Polynesia"
+                                  },
+                                  {
+                                    "key": "ATF",
+                                    "text": "French Southern Territories"
+                                  },
+                                  {
+                                    "key": "GAB",
+                                    "text": "Gabon"
+                                  },
+                                  {
+                                    "key": "GMB",
+                                    "text": "Gambia"
+                                  },
+                                  {
+                                    "key": "GEO",
+                                    "text": "Georgia"
+                                  },
+                                  {
+                                    "key": "DEU",
+                                    "text": "Germany"
+                                  },
+                                  {
+                                    "key": "GHA",
+                                    "text": "Ghana"
+                                  },
+                                  {
+                                    "key": "GIB",
+                                    "text": "Gibraltar"
+                                  },
+                                  {
+                                    "key": "GRC",
+                                    "text": "Greece"
+                                  },
+                                  {
+                                    "key": "GRL",
+                                    "text": "Greenland"
+                                  },
+                                  {
+                                    "key": "GRD",
+                                    "text": "Grenada"
+                                  },
+                                  {
+                                    "key": "GLP",
+                                    "text": "Guadeloupe"
+                                  },
+                                  {
+                                    "key": "GUM",
+                                    "text": "Guam"
+                                  },
+                                  {
+                                    "key": "GTM",
+                                    "text": "Guatemala"
+                                  },
+                                  {
+                                    "key": "GIN",
+                                    "text": "Guinea"
+                                  },
+                                  {
+                                    "key": "GNB",
+                                    "text": "Guinea-bissau"
+                                  },
+                                  {
+                                    "key": "GUY",
+                                    "text": "Guyana"
+                                  },
+                                  {
+                                    "key": "HTI",
+                                    "text": "Haiti"
+                                  },
+                                  {
+                                    "key": "HMD",
+                                    "text": "Heard And Mc Donald Islands"
+                                  },
+                                  {
+                                    "key": "VAT",
+                                    "text": "Holy See (vatican City State)"
+                                  },
+                                  {
+                                    "key": "HND",
+                                    "text": "Honduras"
+                                  },
+                                  {
+                                    "key": "HKG",
+                                    "text": "Hong Kong"
+                                  },
+                                  {
+                                    "key": "HUN",
+                                    "text": "Hungary"
+                                  },
+                                  {
+                                    "key": "ISL",
+                                    "text": "Iceland"
+                                  },
+                                  {
+                                    "key": "IND",
+                                    "text": "India"
+                                  },
+                                  {
+                                    "key": "IDN",
+                                    "text": "Indonesia"
+                                  },
+                                  {
+                                    "key": "IRN",
+                                    "text": "Iran (islamic Republic Of)"
+                                  },
+                                  {
+                                    "key": "IRQ",
+                                    "text": "Iraq"
+                                  },
+                                  {
+                                    "key": "IRL",
+                                    "text": "Ireland"
+                                  },
+                                  {
+                                    "key": "ISR",
+                                    "text": "Israel"
+                                  },
+                                  {
+                                    "key": "ITA",
+                                    "text": "Italy"
+                                  },
+                                  {
+                                    "key": "JAM",
+                                    "text": "Jamaica"
+                                  },
+                                  {
+                                    "key": "JPN",
+                                    "text": "Japan"
+                                  },
+                                  {
+                                    "key": "JOR",
+                                    "text": "Jordan"
+                                  },
+                                  {
+                                    "key": "KAZ",
+                                    "text": "Kazakhstan"
+                                  },
+                                  {
+                                    "key": "KEN",
+                                    "text": "Kenya"
+                                  },
+                                  {
+                                    "key": "KIR",
+                                    "text": "Kiribati"
+                                  },
+                                  {
+                                    "key": "PRK",
+                                    "text": "Korea, Democratic People's Republic Of"
+                                  },
+                                  {
+                                    "key": "KOR",
+                                    "text": "Korea, Republic Of"
+                                  },
+                                  {
+                                    "key": "KWT",
+                                    "text": "Kuwait"
+                                  },
+                                  {
+                                    "key": "KGZ",
+                                    "text": "Kyrgyzstan"
+                                  },
+                                  {
+                                    "key": "LAO",
+                                    "text": "Lao People's Democratic Republic"
+                                  },
+                                  {
+                                    "key": "LVA",
+                                    "text": "Latvia"
+                                  },
+                                  {
+                                    "key": "LBN",
+                                    "text": "Lebanon"
+                                  },
+                                  {
+                                    "key": "LSO",
+                                    "text": "Lesotho"
+                                  },
+                                  {
+                                    "key": "LBR",
+                                    "text": "Liberia"
+                                  },
+                                  {
+                                    "key": "LBY",
+                                    "text": "Libyan Arab Jamahiriya"
+                                  },
+                                  {
+                                    "key": "LIE",
+                                    "text": "Liechtenstein"
+                                  },
+                                  {
+                                    "key": "LTU",
+                                    "text": "Lithuania"
+                                  },
+                                  {
+                                    "key": "LUX",
+                                    "text": "Luxembourg"
+                                  },
+                                  {
+                                    "key": "MAC",
+                                    "text": "Macau"
+                                  },
+                                  {
+                                    "key": "MKD",
+                                    "text": "Macedonia, The Former Yugoslav Republic Of"
+                                  },
+                                  {
+                                    "key": "MDG",
+                                    "text": "Madagascar"
+                                  },
+                                  {
+                                    "key": "MWI",
+                                    "text": "Malawi"
+                                  },
+                                  {
+                                    "key": "MYS",
+                                    "text": "Malaysia"
+                                  },
+                                  {
+                                    "key": "MDV",
+                                    "text": "Maldives"
+                                  },
+                                  {
+                                    "key": "MLI",
+                                    "text": "Mali"
+                                  },
+                                  {
+                                    "key": "MLT",
+                                    "text": "Malta"
+                                  },
+                                  {
+                                    "key": "MHL",
+                                    "text": "Marshall Islands"
+                                  },
+                                  {
+                                    "key": "MTQ",
+                                    "text": "Martinique"
+                                  },
+                                  {
+                                    "key": "MRT",
+                                    "text": "Mauritania"
+                                  },
+                                  {
+                                    "key": "MUS",
+                                    "text": "Mauritius"
+                                  },
+                                  {
+                                    "key": "MYT",
+                                    "text": "Mayotte"
+                                  },
+                                  {
+                                    "key": "MEX",
+                                    "text": "Mexico"
+                                  },
+                                  {
+                                    "key": "FSM",
+                                    "text": "Micronesia, Federated States Of"
+                                  },
+                                  {
+                                    "key": "MDA",
+                                    "text": "Moldova, Republic Of"
+                                  },
+                                  {
+                                    "key": "MCO",
+                                    "text": "Monaco"
+                                  },
+                                  {
+                                    "key": "MNG",
+                                    "text": "Mongolia"
+                                  },
+                                  {
+                                    "key": "MNE",
+                                    "text": "Montenegro"
+                                  },
+                                  {
+                                    "key": "MSR",
+                                    "text": "Montserrat"
+                                  },
+                                  {
+                                    "key": "MAR",
+                                    "text": "Morocco"
+                                  },
+                                  {
+                                    "key": "MOZ",
+                                    "text": "Mozambique"
+                                  },
+                                  {
+                                    "key": "MMR",
+                                    "text": "Myanmar"
+                                  },
+                                  {
+                                    "key": "NAM",
+                                    "text": "Namibia"
+                                  },
+                                  {
+                                    "key": "NRU",
+                                    "text": "Nauru"
+                                  },
+                                  {
+                                    "key": "NPL",
+                                    "text": "Nepal"
+                                  },
+                                  {
+                                    "key": "NLD",
+                                    "text": "Netherlands"
+                                  },
+                                  {
+                                    "key": "ANT",
+                                    "text": "Netherlands Antilles"
+                                  },
+                                  {
+                                    "key": "NCL",
+                                    "text": "New Caledonia"
+                                  },
+                                  {
+                                    "key": "NZL",
+                                    "text": "New Zealand"
+                                  },
+                                  {
+                                    "key": "NIC",
+                                    "text": "Nicaragua"
+                                  },
+                                  {
+                                    "key": "NER",
+                                    "text": "Niger"
+                                  },
+                                  {
+                                    "key": "NGA",
+                                    "text": "Nigeria"
+                                  },
+                                  {
+                                    "key": "NIU",
+                                    "text": "Niue"
+                                  },
+                                  {
+                                    "key": "NFK",
+                                    "text": "Norfolk Island"
+                                  },
+                                  {
+                                    "key": "MNP",
+                                    "text": "Northern Mariana Islands"
+                                  },
+                                  {
+                                    "key": "NOR",
+                                    "text": "Norway"
+                                  },
+                                  {
+                                    "key": "OMN",
+                                    "text": "Oman"
+                                  },
+                                  {
+                                    "key": "PAK",
+                                    "text": "Pakistan"
+                                  },
+                                  {
+                                    "key": "PLW",
+                                    "text": "Palau"
+                                  },
+                                  {
+                                    "key": "PSE",
+                                    "text": "Palestinian Territory, Occupied"
+                                  },
+                                  {
+                                    "key": "PAN",
+                                    "text": "Panama"
+                                  },
+                                  {
+                                    "key": "PNG",
+                                    "text": "Papua New Guinea"
+                                  },
+                                  {
+                                    "key": "PRY",
+                                    "text": "Paraguay"
+                                  },
+                                  {
+                                    "key": "PER",
+                                    "text": "Peru"
+                                  },
+                                  {
+                                    "key": "PHL",
+                                    "text": "Philippines"
+                                  },
+                                  {
+                                    "key": "PCN",
+                                    "text": "Pitcairn"
+                                  },
+                                  {
+                                    "key": "POL",
+                                    "text": "Poland"
+                                  },
+                                  {
+                                    "key": "PRT",
+                                    "text": "Portugal"
+                                  },
+                                  {
+                                    "key": "PRI",
+                                    "text": "Puerto Rico"
+                                  },
+                                  {
+                                    "key": "QAT",
+                                    "text": "Qatar"
+                                  },
+                                  {
+                                    "key": "REU",
+                                    "text": "Reunion"
+                                  },
+                                  {
+                                    "key": "ROU",
+                                    "text": "Romania"
+                                  },
+                                  {
+                                    "key": "RUS",
+                                    "text": "Russian Federation"
+                                  },
+                                  {
+                                    "key": "RWA",
+                                    "text": "Rwanda"
+                                  },
+                                  {
+                                    "key": "KNA",
+                                    "text": "Saint Kitts And Nevis"
+                                  },
+                                  {
+                                    "key": "LCA",
+                                    "text": "Saint Lucia"
+                                  },
+                                  {
+                                    "key": "VCT",
+                                    "text": "Saint Vincent And The Grenadines"
+                                  },
+                                  {
+                                    "key": "WSM",
+                                    "text": "Samoa"
+                                  },
+                                  {
+                                    "key": "SMR",
+                                    "text": "San Marino"
+                                  },
+                                  {
+                                    "key": "STP",
+                                    "text": "Sao Tome And Principe"
+                                  },
+                                  {
+                                    "key": "SAU",
+                                    "text": "Saudi Arabia"
+                                  },
+                                  {
+                                    "key": "SEN",
+                                    "text": "Senegal"
+                                  },
+                                  {
+                                    "key": "SRB",
+                                    "text": "Serbia"
+                                  },
+                                  {
+                                    "key": "SYC",
+                                    "text": "Seychelles"
+                                  },
+                                  {
+                                    "key": "SLE",
+                                    "text": "Sierra Leone"
+                                  },
+                                  {
+                                    "key": "SGP",
+                                    "text": "Singapore"
+                                  },
+                                  {
+                                    "key": "SVK",
+                                    "text": "Slovakia (slovak Republic)"
+                                  },
+                                  {
+                                    "key": "SVN",
+                                    "text": "Slovenia"
+                                  },
+                                  {
+                                    "key": "SLB",
+                                    "text": "Solomon Islands"
+                                  },
+                                  {
+                                    "key": "SOM",
+                                    "text": "Somalia"
+                                  },
+                                  {
+                                    "key": "ZAF",
+                                    "text": "South Africa"
+                                  },
+                                  {
+                                    "key": "SGS",
+                                    "text": "South Georgia And The South Sandwich Islands"
+                                  },
+                                  {
+                                    "key": "ESP",
+                                    "text": "Spain"
+                                  },
+                                  {
+                                    "key": "LKA",
+                                    "text": "Sri Lanka"
+                                  },
+                                  {
+                                    "key": "SHN",
+                                    "text": "St. Helena"
+                                  },
+                                  {
+                                    "key": "SPM",
+                                    "text": "St. Pierre And Miquelon"
+                                  },
+                                  {
+                                    "key": "SDN",
+                                    "text": "Sudan"
+                                  },
+                                  {
+                                    "key": "SUR",
+                                    "text": "Suriname"
+                                  },
+                                  {
+                                    "key": "SJM",
+                                    "text": "Svalbard And Jan Mayen Islands"
+                                  },
+                                  {
+                                    "key": "SWZ",
+                                    "text": "Swaziland"
+                                  },
+                                  {
+                                    "key": "SWE",
+                                    "text": "Sweden"
+                                  },
+                                  {
+                                    "key": "CHE",
+                                    "text": "Switzerland"
+                                  },
+                                  {
+                                    "key": "SYR",
+                                    "text": "Syrian Arab Republic"
+                                  },
+                                  {
+                                    "key": "TWN",
+                                    "text": "Taiwan"
+                                  },
+                                  {
+                                    "key": "TJK",
+                                    "text": "Tajikistan"
+                                  },
+                                  {
+                                    "key": "TZA",
+                                    "text": "Tanzania, United Republic Of"
+                                  },
+                                  {
+                                    "key": "THA",
+                                    "text": "Thailand"
+                                  },
+                                  {
+                                    "key": "TGO",
+                                    "text": "Togo"
+                                  },
+                                  {
+                                    "key": "TKL",
+                                    "text": "Tokelau"
+                                  },
+                                  {
+                                    "key": "TON",
+                                    "text": "Tonga"
+                                  },
+                                  {
+                                    "key": "TTO",
+                                    "text": "Trinidad And Tobago"
+                                  },
+                                  {
+                                    "key": "TUN",
+                                    "text": "Tunisia"
+                                  },
+                                  {
+                                    "key": "TUR",
+                                    "text": "Turkey"
+                                  },
+                                  {
+                                    "key": "TKM",
+                                    "text": "Turkmenistan"
+                                  },
+                                  {
+                                    "key": "TCA",
+                                    "text": "Turks And Caicos Islands"
+                                  },
+                                  {
+                                    "key": "TUV",
+                                    "text": "Tuvalu"
+                                  },
+                                  {
+                                    "key": "UGA",
+                                    "text": "Uganda"
+                                  },
+                                  {
+                                    "key": "UKR",
+                                    "text": "Ukraine"
+                                  },
+                                  {
+                                    "key": "ARE",
+                                    "text": "United Arab Emirates"
+                                  },
+                                  {
+                                    "key": "GBR",
+                                    "text": "United Kingdom"
+                                  },
+                                  {
+                                    "key": "USA",
+                                    "text": "United States"
+                                  },
+                                  {
+                                    "key": "UMI",
+                                    "text": "United States Minor Outlying Islands"
+                                  },
+                                  {
+                                    "key": "URY",
+                                    "text": "Uruguay"
+                                  },
+                                  {
+                                    "key": "UZB",
+                                    "text": "Uzbekistan"
+                                  },
+                                  {
+                                    "key": "VUT",
+                                    "text": "Vanuatu"
+                                  },
+                                  {
+                                    "key": "VEN",
+                                    "text": "Venezuela"
+                                  },
+                                  {
+                                    "key": "VNM",
+                                    "text": "Viet Nam"
+                                  },
+                                  {
+                                    "key": "VGB",
+                                    "text": "Virgin Islands (british)"
+                                  },
+                                  {
+                                    "key": "VIR",
+                                    "text": "Virgin Islands (u.s.)"
+                                  },
+                                  {
+                                    "key": "WLF",
+                                    "text": "Wallis And Futuna Islands"
+                                  },
+                                  {
+                                    "key": "ESH",
+                                    "text": "Western Sahara"
+                                  },
+                                  {
+                                    "key": "YEM",
+                                    "text": "Yemen"
+                                  },
+                                  {
+                                    "key": "YUG",
+                                    "text": "Yugoslavia"
+                                  },
+                                  {
+                                    "key": "ZMB",
+                                    "text": "Zambia"
+                                  },
+                                  {
+                                    "key": "ZWE",
+                                    "text": "Zimbabwe"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "stateProvinceGeoId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "State Province Geo ID",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "getGeoCountryStates",
+                                  "serverSearch": "false",
+                                  "minLength": "1",
+                                  "dependsOnField": "countryGeoId",
+                                  "dependsOnParameter": ""
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "postalCode",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Postal Code",
+                            "tooltip": "Zip/Postal Code",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "8",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "postalCodeExt",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Postal Code Ext",
+                            "tooltip": "Zip/Postal Code Extension",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "4",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Create",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "CreateEmployeeDialog",
+                    "_type": "container-dialog",
+                    "buttonText": "New Employee",
+                    "dialogTitle": "",
+                    "width": "",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "name": "CreateEmployeeForm",
+                        "_type": "form-single",
+                        "formName": "CreateEmployeeForm",
+                        "transition": "createPersonEmployee",
+                        "map": "fieldValues",
+                        "fieldLayout": {
+                          "_type": "field-layout",
+                          "rows": [
+                            {
+                              "_type": "field-ref",
+                              "name": "pseudoId"
+                            },
+                            {
+                              "_type": "field-row",
+                              "fields": [
+                                {
+                                  "name": "firstName"
+                                },
+                                {
+                                  "name": "middleName"
+                                }
+                              ]
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "lastName"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "emailAddress"
+                            },
+                            {
+                              "_type": "field-row-big"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "employerPartyId"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "userGroupId"
+                            },
+                            {
+                              "_type": "field-ref",
+                              "name": "submitButton"
+                            }
+                          ]
+                        },
+                        "fields": [
+                          {
+                            "name": "pseudoId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "ID",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "15",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "firstName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "First Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "20",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "middleName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Middle Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "10",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "lastName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Last Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "20",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "emailAddress",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Email",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "40",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "countryCode",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Country Code",
+                            "tooltip": "Country Code",
+                            "widgets": [
+                              {
+                                "_type": "label",
+                                "text": "+",
+                                "resolvedText": "+",
+                                "labelType": "span",
+                                "encode": "true"
+                              },
+                              {
+                                "_type": "text-line",
+                                "size": "3",
+                                "maxlength": "3",
+                                "default-value": "${ec.user.getPreference('TelecomNumber.DefaultCountryCode') ?: '1'}",
+                                "inputType": "text",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "areaCode",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Area Code",
+                            "tooltip": "Area Code",
+                            "widgets": [
+                              {
+                                "_type": "label",
+                                "text": "-",
+                                "resolvedText": "-",
+                                "labelType": "span",
+                                "encode": "true"
+                              },
+                              {
+                                "_type": "text-line",
+                                "size": "3",
+                                "maxlength": "3",
+                                "inputType": "text",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "contactNumber",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Contact Number",
+                            "tooltip": "Phone Number",
+                            "widgets": [
+                              {
+                                "_type": "label",
+                                "text": "-",
+                                "resolvedText": "-",
+                                "labelType": "span",
+                                "encode": "true"
+                              },
+                              {
+                                "_type": "text-line",
+                                "size": "8",
+                                "maxlength": "8",
+                                "inputType": "text",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "employerPartyId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Employer/Branch",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [
+                                  {
+                                    "key": "ORG_ZIZI_HR",
+                                    "text": "ZIHR: Ziziwork Human Resources"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_CORP",
+                                    "text": "ZICORP: Ziziwork Industries"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_RETAIL",
+                                    "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_SALES",
+                                    "text": "ZISAL: Ziziwork Sales"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_SERVICES",
+                                    "text": "ZISER: Ziziwork Services"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "userGroupId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "User Group",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [
+                                  {
+                                    "key": "MarbleErpAdmin",
+                                    "text": "Marble ERP Administrators"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Add Employee",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "CreateOrganizationDialog",
+                    "_type": "container-dialog",
+                    "buttonText": "New Organization",
+                    "dialogTitle": "",
+                    "width": "",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "name": "CreateOrganizationForm",
+                        "_type": "form-single",
+                        "formName": "CreateOrganizationForm",
+                        "transition": "createOrganization",
+                        "map": "fieldValues",
+                        "fields": [
+                          {
+                            "name": "roleTypeId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Role Type ID",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "hidden",
+                                "defaultValue": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "organizationName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Organization Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "60",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Create",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "CreateAccountDialog",
+                    "_type": "container-dialog",
+                    "buttonText": "New Sales Account (Organization Customer)",
+                    "dialogTitle": "",
+                    "width": "",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "name": "CreateAccountForm",
+                        "_type": "form-single",
+                        "formName": "CreateAccountForm",
+                        "transition": "createAccount",
+                        "map": "fieldValues",
+                        "fields": [
+                          {
+                            "name": "organizationName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Organization Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "60",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "parentAccountPartyId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Parent Sales Account",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "searchPartyList",
+                                  "serverSearch": "true",
+                                  "minLength": "2"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Create",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "CreateContactDialog",
+                    "_type": "container-dialog",
+                    "buttonText": "New Sales Contact",
+                    "dialogTitle": "",
+                    "width": "",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "name": "CreateContactForm",
+                        "_type": "form-single",
+                        "formName": "CreateContactForm",
+                        "transition": "createContact",
+                        "map": "fieldValues",
+                        "fields": [
+                          {
+                            "name": "accountPartyId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Sales Account",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [],
+                                "dynamicOptions": {
+                                  "transition": "searchPartyList",
+                                  "serverSearch": "true",
+                                  "minLength": "2"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "firstName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "First Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "30",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "lastName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Last Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "30",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "fromRoleTypeId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Role",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allow-empty": "true",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [
+                                  {
+                                    "key": "Accountant",
+                                    "text": "Accountant"
+                                  },
+                                  {
+                                    "key": "Buyer",
+                                    "text": "Buyer"
+                                  },
+                                  {
+                                    "key": "ClientBilling",
+                                    "text": "Client Billing Rep"
+                                  },
+                                  {
+                                    "key": "ClientManager",
+                                    "text": "Client Manager"
+                                  },
+                                  {
+                                    "key": "InventoryManager",
+                                    "text": "Inventory Manager"
+                                  },
+                                  {
+                                    "key": "Manager",
+                                    "text": "Manager"
+                                  },
+                                  {
+                                    "key": "OrderClerk",
+                                    "text": "Order Clerk"
+                                  },
+                                  {
+                                    "key": "Owner",
+                                    "text": "Owner"
+                                  },
+                                  {
+                                    "key": "ProductionManager",
+                                    "text": "Production Manager"
+                                  },
+                                  {
+                                    "key": "Receiver",
+                                    "text": "Receiver"
+                                  },
+                                  {
+                                    "key": "SalesRepresentative",
+                                    "text": "Sales Representative"
+                                  },
+                                  {
+                                    "key": "ShipmentClerk",
+                                    "text": "Shipment Clerk"
+                                  },
+                                  {
+                                    "key": "SupplierAgent",
+                                    "text": "Supplier Agent"
+                                  },
+                                  {
+                                    "key": "TechContact",
+                                    "text": "Technical Contact"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Create",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "plain",
+                    "text": "Search String Reference",
+                    "linkType": "anchor",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "_blank",
+                    "dynamicLoadId": "",
+                    "url": "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "name": "OuterSearchForm",
+                    "_type": "form-single",
+                    "formName": "OuterSearchForm",
+                    "transition": ".",
+                    "map": "fieldValues",
+                    "fieldLayout": {
+                      "_type": "field-layout",
+                      "rows": [
+                        {
+                          "_type": "field-row-big"
+                        }
+                      ]
+                    },
+                    "fields": [
+                      {
+                        "name": "anyField",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Any Field",
+                        "tooltip": "Matches whole words, use the asterisk (*) wildcard to match partial words; use field:term to search a specific field",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "100",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "submitButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Search",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "submit",
+                            "text": "",
+                            "confirmation": "",
+                            "btnType": "",
+                            "icon": ""
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "PartyListForm",
+                    "_type": "form-list",
+                    "formName": "PartyListForm",
+                    "transition": "",
+                    "list": "documentList",
+                    "paginate": "true",
+                    "headerDialog": "true",
+                    "selectColumns": "",
+                    "savedFinds": "true",
+                    "showCsvButton": "true",
+                    "showXlsxButton": "true",
+                    "showPageSize": "true",
+                    "skipForm": "true",
+                    "editUrl": "editParty",
+                    "headerFields": [
+                      {
+                        "name": "anyField",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Any Field",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "80",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "pseudoId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "20",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "idValue",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Other ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "20",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "gatewayCimId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "CIM ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "20",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "organizationName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Organization Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "40",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "firstName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "First Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "40",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "lastName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Last Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "40",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "combinedName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "40",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "username",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Username",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "20",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "roleTypeId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Role",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "Accountant",
+                                "text": "Accountant"
+                              },
+                              {
+                                "key": "Administrator",
+                                "text": "Administrator"
+                              },
+                              {
+                                "key": "Affiliate",
+                                "text": "Affiliate"
+                              },
+                              {
+                                "key": "Agent",
+                                "text": "Agent"
+                              },
+                              {
+                                "key": "AssetOwner",
+                                "text": "Asset Owner"
+                              },
+                              {
+                                "key": "Assignee",
+                                "text": "Assignee"
+                              },
+                              {
+                                "key": "OrgAssociation",
+                                "text": "Association"
+                              },
+                              {
+                                "key": "Attendee",
+                                "text": "Attendee"
+                              },
+                              {
+                                "key": "BadActor",
+                                "text": "Bad Actor (Banned)"
+                              },
+                              {
+                                "key": "BusinessAnalyst",
+                                "text": "Business Analyst"
+                              },
+                              {
+                                "key": "Buyer",
+                                "text": "Buyer"
+                              },
+                              {
+                                "key": "Carrier",
+                                "text": "Carrier"
+                              },
+                              {
+                                "key": "Cashier",
+                                "text": "Cashier"
+                              },
+                              {
+                                "key": "ClientBilling",
+                                "text": "Client Billing Rep"
+                              },
+                              {
+                                "key": "ClientManager",
+                                "text": "Client Manager"
+                              },
+                              {
+                                "key": "Competitor",
+                                "text": "Competitor"
+                              },
+                              {
+                                "key": "Consumer",
+                                "text": "Consumer"
+                              },
+                              {
+                                "key": "Contractor",
+                                "text": "Contractor"
+                              },
+                              {
+                                "key": "OrgCorporation",
+                                "text": "Corporation"
+                              },
+                              {
+                                "key": "Customer",
+                                "text": "Customer"
+                              },
+                              {
+                                "key": "CustomerBillTo",
+                                "text": "Customer - Bill To"
+                              },
+                              {
+                                "key": "CustomerEndUser",
+                                "text": "Customer - End User"
+                              },
+                              {
+                                "key": "CustomerPlacing",
+                                "text": "Customer - Placing"
+                              },
+                              {
+                                "key": "CustomerShipTo",
+                                "text": "Customer - Ship To"
+                              },
+                              {
+                                "key": "DefaultAssignee",
+                                "text": "Default Assignee"
+                              },
+                              {
+                                "key": "Delegate",
+                                "text": "Delegate"
+                              },
+                              {
+                                "key": "OrgDepartment",
+                                "text": "Department"
+                              },
+                              {
+                                "key": "Distributor",
+                                "text": "Distributor"
+                              },
+                              {
+                                "key": "OrgDivision",
+                                "text": "Division"
+                              },
+                              {
+                                "key": "EmailAdmin",
+                                "text": "Email Administrator"
+                              },
+                              {
+                                "key": "Employee",
+                                "text": "Employee"
+                              },
+                              {
+                                "key": "OrgEmployer",
+                                "text": "Employer"
+                              },
+                              {
+                                "key": "Executive",
+                                "text": "Executive"
+                              },
+                              {
+                                "key": "ExpertUser",
+                                "text": "Expert User"
+                              },
+                              {
+                                "key": "OrgFamily",
+                                "text": "Family"
+                              },
+                              {
+                                "key": "FamilyMember",
+                                "text": "Family Member"
+                              },
+                              {
+                                "key": "GarnishmentPayee",
+                                "text": "Garnishment Payee"
+                              },
+                              {
+                                "key": "OrgGovernment",
+                                "text": "Government"
+                              },
+                              {
+                                "key": "OrgGovernmentAgency",
+                                "text": "Government Agency"
+                              },
+                              {
+                                "key": "Host",
+                                "text": "Host"
+                              },
+                              {
+                                "key": "HostingProvider",
+                                "text": "Hosting Provider"
+                              },
+                              {
+                                "key": "OrgHousehold",
+                                "text": "Household"
+                              },
+                              {
+                                "key": "HumanResourcesManager",
+                                "text": "Human Resources Manager"
+                              },
+                              {
+                                "key": "OrgInternal",
+                                "text": "Internal Organization"
+                              },
+                              {
+                                "key": "InternetSp",
+                                "text": "Internet Service Provider"
+                              },
+                              {
+                                "key": "InventoryManager",
+                                "text": "Inventory Manager"
+                              },
+                              {
+                                "key": "Manager",
+                                "text": "Manager"
+                              },
+                              {
+                                "key": "Manufacturer",
+                                "text": "Manufacturer"
+                              },
+                              {
+                                "key": "_NA_",
+                                "text": "Not Applicable"
+                              },
+                              {
+                                "key": "Operator",
+                                "text": "Operator"
+                              },
+                              {
+                                "key": "OrderClerk",
+                                "text": "Order Clerk"
+                              },
+                              {
+                                "key": "Organizer",
+                                "text": "Organizer"
+                              },
+                              {
+                                "key": "Owner",
+                                "text": "Owner"
+                              },
+                              {
+                                "key": "Packer",
+                                "text": "Packer"
+                              },
+                              {
+                                "key": "OrgParent",
+                                "text": "Parent"
+                              },
+                              {
+                                "key": "Partner",
+                                "text": "Partner"
+                              },
+                              {
+                                "key": "Payroll",
+                                "text": "Payroll"
+                              },
+                              {
+                                "key": "PayrollOtherPayee",
+                                "text": "Payroll Other Payee"
+                              },
+                              {
+                                "key": "Picker",
+                                "text": "Picker"
+                              },
+                              {
+                                "key": "ProductionManager",
+                                "text": "Production Manager"
+                              },
+                              {
+                                "key": "ProductionWorker",
+                                "text": "Production Worker"
+                              },
+                              {
+                                "key": "Programmer",
+                                "text": "Programmer"
+                              },
+                              {
+                                "key": "ProgrammerLead",
+                                "text": "Programmer Lead"
+                              },
+                              {
+                                "key": "ProjectManager",
+                                "text": "Project Manager"
+                              },
+                              {
+                                "key": "Prospect",
+                                "text": "Prospect"
+                              },
+                              {
+                                "key": "QualityAnalyst",
+                                "text": "Quality Analyst"
+                              },
+                              {
+                                "key": "QualityLead",
+                                "text": "Quality Lead"
+                              },
+                              {
+                                "key": "Receiver",
+                                "text": "Receiver"
+                              },
+                              {
+                                "key": "Referrer",
+                                "text": "Referrer"
+                              },
+                              {
+                                "key": "OrgRegulatoryAgency",
+                                "text": "Regulatory Agency"
+                              },
+                              {
+                                "key": "Reporter",
+                                "text": "Reporter"
+                              },
+                              {
+                                "key": "Account",
+                                "text": "Sales Account"
+                              },
+                              {
+                                "key": "AccountLead",
+                                "text": "Sales Account Lead"
+                              },
+                              {
+                                "key": "Contact",
+                                "text": "Sales Contact"
+                              },
+                              {
+                                "key": "SalesRepresentative",
+                                "text": "Sales Representative"
+                              },
+                              {
+                                "key": "Shareholder",
+                                "text": "Shareholder"
+                              },
+                              {
+                                "key": "ShipmentClerk",
+                                "text": "Shipment Clerk"
+                              },
+                              {
+                                "key": "Sponsor",
+                                "text": "Sponsor"
+                              },
+                              {
+                                "key": "Spouse",
+                                "text": "Spouse"
+                              },
+                              {
+                                "key": "Stocker",
+                                "text": "Stocker"
+                              },
+                              {
+                                "key": "Subscriber",
+                                "text": "Subscriber"
+                              },
+                              {
+                                "key": "OrgSubsidiary",
+                                "text": "Subsidiary"
+                              },
+                              {
+                                "key": "Supplier",
+                                "text": "Supplier"
+                              },
+                              {
+                                "key": "SupplierAgent",
+                                "text": "Supplier Agent"
+                              },
+                              {
+                                "key": "SysAdmin",
+                                "text": "System Administrator"
+                              },
+                              {
+                                "key": "SysArchitect",
+                                "text": "System Architect"
+                              },
+                              {
+                                "key": "OrgTaxAuthority",
+                                "text": "Tax Authority"
+                              },
+                              {
+                                "key": "OrgTeam",
+                                "text": "Team"
+                              },
+                              {
+                                "key": "TechContact",
+                                "text": "Technical Contact"
+                              },
+                              {
+                                "key": "UiDesigner",
+                                "text": "UI Designer"
+                              },
+                              {
+                                "key": "OrgUnion",
+                                "text": "Union"
+                              },
+                              {
+                                "key": "OrgUnit",
+                                "text": "Unit"
+                              },
+                              {
+                                "key": "Vendor",
+                                "text": "Vendor"
+                              },
+                              {
+                                "key": "VendorBillFrom",
+                                "text": "Vendor - Bill From"
+                              },
+                              {
+                                "key": "VendorPickUpFrom",
+                                "text": "Vendor - Pick Up From"
+                              },
+                              {
+                                "key": "VendorShipFrom",
+                                "text": "Vendor - Ship From"
+                              },
+                              {
+                                "key": "Visitor",
+                                "text": "Visitor"
+                              },
+                              {
+                                "key": "Watcher",
+                                "text": "Watcher"
+                              },
+                              {
+                                "key": "WebMaster",
+                                "text": "Web Master"
+                              },
+                              {
+                                "key": "Worker",
+                                "text": "Worker"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "classificationTypeEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Class Type",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "widget-template-include",
+                            "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "partyClassificationId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Class",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getPartyClassificationList",
+                              "serverSearch": "false",
+                              "minLength": "1",
+                              "dependsOnField": "classificationTypeEnumId",
+                              "dependsOnParameter": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "disabled",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Hidden",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "Y",
+                                "text": "Y"
+                              },
+                              {
+                                "key": "N",
+                                "text": "N"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "hasDuplicates",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Dups",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "Y",
+                                "text": "Y"
+                              },
+                              {
+                                "key": "N",
+                                "text": "N"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "infoString",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Email",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "40",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "areaCode",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Area Code",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "5",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "contactNumber",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Contact Number",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "10",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "address1",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Address 1",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "40",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "city",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "City",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "30",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "stateProvinceGeoId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "State",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "USA_AL",
+                                "text": "Alabama"
+                              },
+                              {
+                                "key": "USA_AK",
+                                "text": "Alaska"
+                              },
+                              {
+                                "key": "USA_AS",
+                                "text": "American Samoa"
+                              },
+                              {
+                                "key": "USA_AZ",
+                                "text": "Arizona"
+                              },
+                              {
+                                "key": "USA_AR",
+                                "text": "Arkansas"
+                              },
+                              {
+                                "key": "USA_AA",
+                                "text": "Armed Forces Americas"
+                              },
+                              {
+                                "key": "USA_AE",
+                                "text": "Armed Forces Europe"
+                              },
+                              {
+                                "key": "USA_AP",
+                                "text": "Armed Forces Pacific"
+                              },
+                              {
+                                "key": "USA_CA",
+                                "text": "California"
+                              },
+                              {
+                                "key": "USA_CO",
+                                "text": "Colorado"
+                              },
+                              {
+                                "key": "USA_CT",
+                                "text": "Connecticut"
+                              },
+                              {
+                                "key": "USA_DE",
+                                "text": "Delaware"
+                              },
+                              {
+                                "key": "USA_DC",
+                                "text": "District of Columbia"
+                              },
+                              {
+                                "key": "USA_FM",
+                                "text": "Federated States of Micronesia"
+                              },
+                              {
+                                "key": "USA_FL",
+                                "text": "Florida"
+                              },
+                              {
+                                "key": "USA_GA",
+                                "text": "Georgia"
+                              },
+                              {
+                                "key": "USA_GU",
+                                "text": "Guam"
+                              },
+                              {
+                                "key": "USA_HI",
+                                "text": "Hawaii"
+                              },
+                              {
+                                "key": "USA_ID",
+                                "text": "Idaho"
+                              },
+                              {
+                                "key": "USA_IL",
+                                "text": "Illinois"
+                              },
+                              {
+                                "key": "USA_IN",
+                                "text": "Indiana"
+                              },
+                              {
+                                "key": "USA_IA",
+                                "text": "Iowa"
+                              },
+                              {
+                                "key": "USA_KS",
+                                "text": "Kansas"
+                              },
+                              {
+                                "key": "USA_KY",
+                                "text": "Kentucky"
+                              },
+                              {
+                                "key": "USA_LA",
+                                "text": "Louisiana"
+                              },
+                              {
+                                "key": "USA_ME",
+                                "text": "Maine"
+                              },
+                              {
+                                "key": "USA_MH",
+                                "text": "Marshall Islands"
+                              },
+                              {
+                                "key": "USA_MD",
+                                "text": "Maryland"
+                              },
+                              {
+                                "key": "USA_MA",
+                                "text": "Massachusetts"
+                              },
+                              {
+                                "key": "USA_MI",
+                                "text": "Michigan"
+                              },
+                              {
+                                "key": "USA_MN",
+                                "text": "Minnesota"
+                              },
+                              {
+                                "key": "USA_MS",
+                                "text": "Mississippi"
+                              },
+                              {
+                                "key": "USA_MO",
+                                "text": "Missouri"
+                              },
+                              {
+                                "key": "USA_MT",
+                                "text": "Montana"
+                              },
+                              {
+                                "key": "USA_NE",
+                                "text": "Nebraska"
+                              },
+                              {
+                                "key": "USA_NV",
+                                "text": "Nevada"
+                              },
+                              {
+                                "key": "USA_NH",
+                                "text": "New Hampshire"
+                              },
+                              {
+                                "key": "USA_NJ",
+                                "text": "New Jersey"
+                              },
+                              {
+                                "key": "USA_NM",
+                                "text": "New Mexico"
+                              },
+                              {
+                                "key": "USA_NY",
+                                "text": "New York"
+                              },
+                              {
+                                "key": "USA_NC",
+                                "text": "North Carolina"
+                              },
+                              {
+                                "key": "USA_ND",
+                                "text": "North Dakota"
+                              },
+                              {
+                                "key": "USA_MP",
+                                "text": "Northern Mariana Islands"
+                              },
+                              {
+                                "key": "USA_OH",
+                                "text": "Ohio"
+                              },
+                              {
+                                "key": "USA_OK",
+                                "text": "Oklahoma"
+                              },
+                              {
+                                "key": "USA_OR",
+                                "text": "Oregon"
+                              },
+                              {
+                                "key": "USA_PW",
+                                "text": "Palau"
+                              },
+                              {
+                                "key": "USA_PA",
+                                "text": "Pennsylvania"
+                              },
+                              {
+                                "key": "USA_PR",
+                                "text": "Puerto Rico"
+                              },
+                              {
+                                "key": "USA_RI",
+                                "text": "Rhode Island"
+                              },
+                              {
+                                "key": "USA_SC",
+                                "text": "South Carolina"
+                              },
+                              {
+                                "key": "USA_SD",
+                                "text": "South Dakota"
+                              },
+                              {
+                                "key": "USA_TN",
+                                "text": "Tennessee"
+                              },
+                              {
+                                "key": "USA_TX",
+                                "text": "Texas"
+                              },
+                              {
+                                "key": "USA_UM",
+                                "text": "U.S. Minor Outlying Islands"
+                              },
+                              {
+                                "key": "USA_UT",
+                                "text": "Utah"
+                              },
+                              {
+                                "key": "USA_VT",
+                                "text": "Vermont"
+                              },
+                              {
+                                "key": "USA_VI",
+                                "text": "Virgin Islands"
+                              },
+                              {
+                                "key": "USA_VA",
+                                "text": "Virginia"
+                              },
+                              {
+                                "key": "USA_WA",
+                                "text": "Washington"
+                              },
+                              {
+                                "key": "USA_WV",
+                                "text": "West Virginia"
+                              },
+                              {
+                                "key": "USA_WI",
+                                "text": "Wisconsin"
+                              },
+                              {
+                                "key": "USA_WY",
+                                "text": "Wyoming"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "postalCode",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Postal Code",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-line",
+                            "size": "10",
+                            "inputType": "text",
+                            "maxlength": "",
+                            "mask": "",
+                            "prefix": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "submitButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "submit",
+                            "text": "",
+                            "confirmation": "",
+                            "btnType": "",
+                            "icon": ""
+                          }
+                        ]
+                      }
+                    ],
+                    "fields": [
+                      {
+                        "name": "pseudoId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editParty",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "combinedName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editParty",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "username",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Username",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "section-iterate",
+                            "name": "UserAccountsSection",
+                            "list": "userAccounts",
+                            "entry": "userAccount"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "roleTypeId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Role",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "text": "${roles ? roles*.role.join(', ') : ''}",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "resolvedText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "partyClassificationId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Class",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "text": "${classifications ? classifications.findAll({(it.classFromDate == null || it.classFromDate < System.currentTimeMillis()) && (it.classThruDate == null || it.classThruDate > System.currentTimeMillis())})*.class.join(', ') : ''}",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "resolvedText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "disabled",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Hidden",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "hasDuplicates",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Dups",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "matches",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Matches",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "section-iterate",
+                            "name": "MatchesSection",
+                            "list": "highlights",
+                            "key": "hlField",
+                            "entry": "hlList"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "submitButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "Sales Orders",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "customerPartyId": ""
+                            },
+                            "url": "findOrder",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "customerPartyId": "partyId"
+                            }
+                          },
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "Purchase Orders",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "vendorPartyId": ""
+                            },
+                            "url": "findOrder",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "vendorPartyId": "partyId"
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "listData": [],
+                    "exportBaseUrl": "/fapps/marble/Party"
+                  },
+                  {
+                    "_type": "container-row",
+                    "columns": [
+                      {
+                        "lg": "",
+                        "md": "2",
+                        "sm": "",
+                        "xs": "",
+                        "style": "text-right",
+                        "children": [
+                          {
+                            "type": "strong",
+                            "_type": "label",
+                            "text": "Current Search String",
+                            "resolvedText": "Current Search String",
+                            "labelType": "strong",
+                            "encode": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "lg": "",
+                        "md": "",
+                        "sm": "",
+                        "xs": "",
+                        "style": "",
+                        "children": [
+                          {
+                            "_type": "label",
+                            "text": "No Current Search",
+                            "resolvedText": "No Current Search",
+                            "labelType": "span",
+                            "encode": "true"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "FindParty"
+        }
+      ]
+    }
+  ]
+}

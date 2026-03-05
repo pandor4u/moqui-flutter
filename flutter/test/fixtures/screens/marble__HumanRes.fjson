@@ -1,0 +1,84 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "HumanRes",
+  "menuTitle": "Human Resources",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "HumanResPanel",
+          "type": "popup",
+          "_type": "subscreens-panel",
+          "menuType": "popup",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "dashboard",
+              "menuTitle": "HR Dashboard",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "EditRateAmounts",
+              "menuTitle": "Rates",
+              "menuIndex": 7,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "dashboard",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "dashboard",
+            "menuTitle": "HR Dashboard",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Employees",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "parameterMap": {
+                      "roleTypeId": "Employee"
+                    },
+                    "url": "/fapps/marble/Party/FindParty",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Labor Rates",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "../EditRateAmounts",
+                    "isAnchorLink": true
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "dashboard"
+        }
+      ]
+    }
+  ]
+}

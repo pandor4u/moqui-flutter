@@ -1,0 +1,70 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "dashboard",
+  "menuTitle": "Dashboard",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Production Runs",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "url": "/fapps/marble/Manufacturing/Run/FindRun",
+          "isAnchorLink": true
+        },
+        {
+          "_type": "container",
+          "containerType": "div",
+          "children": [
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "Inventory Assets",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "parameterMap": {
+                "assetTypeEnumId": "AstTpInventory"
+              },
+              "url": "/fapps/marble/Asset/Asset/FindSummary",
+              "isAnchorLink": true
+            },
+            {
+              "_type": "link",
+              "urlType": "transition",
+              "text": "Equipment Assets",
+              "linkType": "auto",
+              "icon": "",
+              "badge": "",
+              "confirmation": "",
+              "tooltip": "",
+              "btnType": "",
+              "targetWindow": "",
+              "dynamicLoadId": "",
+              "parameterMap": {
+                "assetTypeEnumId": "AstTpEquipment"
+              },
+              "url": "/fapps/marble/Asset/Asset/FindAsset",
+              "isAnchorLink": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,656 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditReturn",
+  "menuTitle": "Return",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "6",
+              "md": "",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "SalesOrderLinks",
+                  "_type": "section-iterate",
+                  "sectionName": "SalesOrderLinks",
+                  "iterations": []
+                },
+                {
+                  "name": "ReplacementOrderLinks",
+                  "_type": "section-iterate",
+                  "sectionName": "ReplacementOrderLinks",
+                  "iterations": []
+                },
+                {
+                  "name": "ReceivingShipmentLinks",
+                  "_type": "section-iterate",
+                  "sectionName": "ReceivingShipmentLinks",
+                  "iterations": []
+                },
+                {
+                  "name": "RefundPaymentLinks",
+                  "_type": "section-iterate",
+                  "sectionName": "RefundPaymentLinks",
+                  "iterations": []
+                },
+                {
+                  "name": "CreditMemoLinks",
+                  "_type": "section-iterate",
+                  "sectionName": "CreditMemoLinks",
+                  "iterations": []
+                },
+                {
+                  "id": "AuditLogDialog",
+                  "_type": "container-dialog",
+                  "buttonText": "Audit Log",
+                  "dialogTitle": "",
+                  "width": "960",
+                  "icon": "",
+                  "btnType": "",
+                  "children": [
+                    {
+                      "name": "AuditLogList",
+                      "_type": "form-list",
+                      "formName": "AuditLogList",
+                      "transition": "",
+                      "list": "auditLogList",
+                      "paginate": "true",
+                      "headerDialog": "",
+                      "selectColumns": "",
+                      "savedFinds": "",
+                      "showCsvButton": "",
+                      "showXlsxButton": "",
+                      "showPageSize": "",
+                      "skipForm": "true",
+                      "headerFields": [],
+                      "fields": [
+                        {
+                          "name": "changedDate",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Date",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "format": "",
+                              "currencyUnitField": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "changedByUserId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "User",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display-entity",
+                              "text": "UsernameTemplate",
+                              "entity-name": "mantle.party.PersonWithUserAccount",
+                              "key-field-name": "userId",
+                              "entityName": "mantle.party.PersonWithUserAccount",
+                              "keyFieldName": "userId",
+                              "alsoHidden": "true",
+                              "useCache": "true",
+                              "defaultText": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "pkSecondaryValue",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Item",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "format": "",
+                              "currencyUnitField": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "changedFieldName",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Field",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "text": "${org.moqui.util.StringUtilities.camelCaseToPretty(changedFieldName)}",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "format": "",
+                              "currencyUnitField": "",
+                              "resolvedText": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "oldValueText",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "From",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "text": "${ec.entity.formatFieldString(changedEntityName, changedFieldName, oldValueText)}",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "format": "",
+                              "currencyUnitField": "",
+                              "resolvedText": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "newValueText",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "To",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "text": "${ec.entity.formatFieldString(changedEntityName, changedFieldName, newValueText)}",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "format": "",
+                              "currencyUnitField": "",
+                              "resolvedText": ""
+                            }
+                          ]
+                        }
+                      ],
+                      "listData": []
+                    }
+                  ]
+                },
+                {
+                  "name": "UpdateReturn",
+                  "_type": "form-single",
+                  "formName": "UpdateReturn",
+                  "transition": "updateReturn",
+                  "map": "returnHeader",
+                  "fields": [
+                    {
+                      "name": "returnId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Return ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "format": "",
+                          "currencyUnitField": ""
+                        }
+                      ],
+                      "currentValue": "100002"
+                    },
+                    {
+                      "name": "entryDate",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Entry Date",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "format": "",
+                          "currencyUnitField": ""
+                        }
+                      ],
+                      "currentValue": "2026-03-03 18:02:22.656"
+                    },
+                    {
+                      "name": "vendorPartyId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Vendor",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "PartyNameTemplate",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "returnId": "100002",
+                            "partyId": ""
+                          },
+                          "url": "/fapps/marble/Return/EditReturn/editParty",
+                          "isAnchorLink": true,
+                          "parameterFromFields": {
+                            "partyId": "vendorPartyId"
+                          }
+                        }
+                      ],
+                      "currentValue": "ORG_ZIZI_CORP"
+                    },
+                    {
+                      "name": "customerPartyId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Customer",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "PartyNameTemplate",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "returnId": "100002",
+                            "partyId": ""
+                          },
+                          "url": "/fapps/marble/Return/EditReturn/editParty",
+                          "isAnchorLink": true,
+                          "parameterFromFields": {
+                            "partyId": "customerPartyId"
+                          }
+                        }
+                      ],
+                      "currentValue": "CustJqp"
+                    },
+                    {
+                      "name": "facilityId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Warehouse",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": []
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "FacilityNameTemplate",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "returnId": "100002"
+                          },
+                          "url": "/fapps/marble/Return/EditReturn/editFacility",
+                          "isAnchorLink": true
+                        }
+                      ],
+                      "currentValue": "ZIRET_WH"
+                    },
+                    {
+                      "name": "finAccountId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Credit Account",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": []
+                        },
+                        {
+                          "condition": "finAccountId",
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Edit Account",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "returnId": "100002"
+                          },
+                          "url": "/fapps/marble/Return/EditReturn/editFinancialAccount",
+                          "isAnchorLink": true
+                        }
+                      ]
+                    },
+                    {
+                      "name": "postalContactMechId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Shipping Address",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "CustJqpAddr",
+                              "text": "1350 E. Flamingo Rd. #2345, Las Vegas, NV"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "telecomContactMechId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Shipping Phone",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "CustJqpTeln",
+                              "text": "1-702-234-5678"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "shipmentMethodEnumId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Shipment Method",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "drop-down",
+                          "allow-empty": "true",
+                          "allowEmpty": "true",
+                          "allowMultiple": "false",
+                          "submitOnSelect": "false",
+                          "current": "selected",
+                          "showNot": "false",
+                          "options": [
+                            {
+                              "key": "ShMthPickUp",
+                              "text": "Customer Pick Up"
+                            },
+                            {
+                              "key": "ShMthGroundCom",
+                              "text": "Ground Commercial"
+                            },
+                            {
+                              "key": "ShMthGround",
+                              "text": "Ground Parcel"
+                            },
+                            {
+                              "key": "ShMthMotor",
+                              "text": "Motor (Common Carrier)"
+                            },
+                            {
+                              "key": "ShMthNextDayPri",
+                              "text": "Next Day Priority"
+                            },
+                            {
+                              "key": "ShMthNextDay",
+                              "text": "Next Day Standard"
+                            },
+                            {
+                              "key": "ShMthSecondDay",
+                              "text": "Second Day"
+                            },
+                            {
+                              "key": "ShMthThirdDay",
+                              "text": "Third Day"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "submitButton",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Update",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "6",
+              "md": "",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "condition": "returnHeader.statusId == 'ReturnCreated'",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Set Requested",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "returnId": "100002"
+                  },
+                  "url": "/fapps/marble/Return/EditReturn/requestReturn",
+                  "isAnchorLink": false
+                },
+                {
+                  "condition": "returnHeader.statusId in ['ReturnCreated', 'ReturnRequested']",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Approve",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "Approve this return?",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "returnId": "100002"
+                  },
+                  "url": "/fapps/marble/Return/EditReturn/approveReturn",
+                  "isAnchorLink": false
+                },
+                {
+                  "condition": "returnHeader.statusId in ['ReturnCreated', 'ReturnRequested', 'ReturnApproved']",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Cancel",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "Are you sure you want to cancel this return?",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "returnId": "100002"
+                  },
+                  "url": "/fapps/marble/Return/EditReturn/cancelReturn",
+                  "isAnchorLink": false
+                },
+                {
+                  "name": "StatusHistorySection",
+                  "_type": "section-include",
+                  "sectionName": "StatusHistorySection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Status History",
+                      "header": [],
+                      "body": [
+                        {
+                          "name": "StatusHistoryTable",
+                          "_type": "section-iterate",
+                          "sectionName": "StatusHistoryTable",
+                          "iterations": [
+                            [
+                              {
+                                "_type": "container-row",
+                                "columns": [
+                                  {
+                                    "lg": "",
+                                    "md": "",
+                                    "sm": "7",
+                                    "xs": "",
+                                    "style": "",
+                                    "children": [
+                                      {
+                                        "type": "strong",
+                                        "style": "text-nowrap",
+                                        "_type": "label",
+                                        "text": "2026-03-03 20:02",
+                                        "resolvedText": "2026-03-03 20:02",
+                                        "labelType": "strong",
+                                        "encode": "true"
+                                      },
+                                      {
+                                        "condition": "userAccount",
+                                        "style": "text-nowrap",
+                                        "_type": "label",
+                                        "text": "by  []",
+                                        "resolvedText": "by  []",
+                                        "labelType": "span",
+                                        "encode": "true"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "lg": "",
+                                    "md": "",
+                                    "sm": "5",
+                                    "xs": "",
+                                    "style": "",
+                                    "children": [
+                                      {
+                                        "type": "p",
+                                        "style": "text-success",
+                                        "condition": "statusHistory_index == 0",
+                                        "_type": "label",
+                                        "text": "${statusItem?statusItem.description:''}",
+                                        "resolvedText": "${statusItem?statusItem.description:''}",
+                                        "labelType": "p",
+                                        "encode": "true"
+                                      },
+                                      {
+                                        "type": "p",
+                                        "condition": "statusHistory_index",
+                                        "_type": "label",
+                                        "text": "${statusItem?statusItem.description:''}",
+                                        "resolvedText": "${statusItem?statusItem.description:''}",
+                                        "labelType": "p",
+                                        "encode": "true"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

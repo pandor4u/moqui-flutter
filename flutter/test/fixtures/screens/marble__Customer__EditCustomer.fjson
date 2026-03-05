@@ -1,0 +1,3466 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditCustomer",
+  "menuTitle": "Customer",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "6",
+              "md": "",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Requests",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "1",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": "100051"
+                  },
+                  "url": "/fapps/marble/Customer/EditCustomer/findRequest",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "partyId": "partyId"
+                  }
+                },
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Orders",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "1",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": "100051",
+                    "customerPartyId": "100051"
+                  },
+                  "url": "/fapps/marble/Customer/EditCustomer/findOrder",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "customerPartyId": "partyId"
+                  }
+                },
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Shipments To",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "1",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": "100051",
+                    "toPartyId": "100051"
+                  },
+                  "url": "/fapps/marble/Customer/EditCustomer/findShipment",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "toPartyId": "partyId"
+                  }
+                },
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Statement PDF",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": "100051",
+                    "toPartyId": "100051"
+                  },
+                  "url": "/fapps/marble/Customer/EditCustomer/receivableStatement",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "toPartyId": "partyId"
+                  }
+                },
+                {
+                  "name": "NonUserPerson",
+                  "_type": "section-include",
+                  "sectionName": "NonUserPerson",
+                  "widgets": [
+                    {
+                      "id": "CreateUserAccountDialog",
+                      "type": "success",
+                      "_type": "container-dialog",
+                      "buttonText": "Create User",
+                      "dialogTitle": "",
+                      "width": "",
+                      "icon": "",
+                      "btnType": "success",
+                      "children": [
+                        {
+                          "type": "p",
+                          "_type": "label",
+                          "text": "User must change password before first login, even if password is set here.",
+                          "resolvedText": "User must change password before first login, even if password is set here.",
+                          "labelType": "p",
+                          "encode": "true"
+                        },
+                        {
+                          "name": "CreateUserAccount",
+                          "_type": "form-single",
+                          "formName": "CreateUserAccount",
+                          "transition": "createUserAccount",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "partyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Party ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ],
+                              "currentValue": "100051"
+                            },
+                            {
+                              "name": "username",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Username",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "text-line",
+                                  "size": "20",
+                                  "inputType": "text",
+                                  "maxlength": "",
+                                  "mask": "",
+                                  "prefix": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "emailAddress",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "System Email",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "text-line",
+                                  "size": "60",
+                                  "inputType": "text",
+                                  "maxlength": "",
+                                  "mask": "",
+                                  "prefix": ""
+                                }
+                              ],
+                              "currentValue": "playwright.customer@example.com"
+                            },
+                            {
+                              "name": "newPassword",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Password",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "password",
+                                  "size": "15",
+                                  "maxlength": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "newPasswordVerify",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Password Verify",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "password",
+                                  "size": "15",
+                                  "maxlength": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "requirePasswordChange",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Require Password Change",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "default-value": "Y",
+                                  "defaultValue": "Y"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "userGroupId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Group",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allow-empty": "true",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "MarbleErpAdmin",
+                                      "text": "Marble ERP Administrators"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Create",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "FindDuplicatesDialog",
+                  "_type": "dynamic-dialog",
+                  "dialogId": "FindDuplicatesDialog",
+                  "buttonText": "Find Duplicates",
+                  "transition": "FindDuplicates",
+                  "dialogTitle": "",
+                  "width": "960",
+                  "height": "",
+                  "icon": ""
+                },
+                {
+                  "name": "HasDuplicatesSection",
+                  "_type": "section-include",
+                  "sectionName": "HasDuplicatesSection",
+                  "widgets": [
+                    {
+                      "type": "div",
+                      "style": "text-danger",
+                      "condition": "party.hasDuplicates == 'Y' || hasDuplicates",
+                      "_type": "label",
+                      "text": "Duplicates found (by identification, email, or birth date and name)",
+                      "resolvedText": "Duplicates found (by identification, email, or birth date and name)",
+                      "labelType": "div",
+                      "encode": "true"
+                    },
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "condition": "party.mergedToPartyId",
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "This party was merged into null",
+                          "linkType": "anchor",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "partyId": ""
+                          },
+                          "url": "/fapps/marble/Customer/EditCustomer",
+                          "isAnchorLink": true,
+                          "parameterFromFields": {
+                            "partyId": "party"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "container",
+                      "containerType": "div",
+                      "children": [
+                        {
+                          "condition": "mergedFromList",
+                          "_type": "label",
+                          "text": "This party has data merged from parties: ",
+                          "resolvedText": "This party has data merged from parties: ",
+                          "labelType": "span",
+                          "encode": "true"
+                        },
+                        {
+                          "name": "MergedFromList",
+                          "_type": "section-iterate",
+                          "sectionName": "MergedFromList",
+                          "iterations": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "EditPartySection",
+                  "_type": "section-include",
+                  "sectionName": "EditPartySection",
+                  "failWidgets": [
+                    {
+                      "name": "EditPersonForm",
+                      "_type": "form-single",
+                      "formName": "EditPersonForm",
+                      "transition": "updateParty",
+                      "map": "party",
+                      "fieldLayout": {
+                        "_type": "field-layout",
+                        "rows": [
+                          {
+                            "_type": "fields-not-referenced"
+                          },
+                          {
+                            "_type": "field-row",
+                            "fields": [
+                              {
+                                "name": "birthDate"
+                              },
+                              {
+                                "name": "externalId"
+                              }
+                            ]
+                          },
+                          {
+                            "_type": "field-row",
+                            "fields": [
+                              {
+                                "name": "disabled"
+                              },
+                              {
+                                "name": "gatewayCimId"
+                              }
+                            ]
+                          },
+                          {
+                            "_type": "field-row",
+                            "fields": [
+                              {
+                                "name": "ownerPartyId"
+                              },
+                              {
+                                "name": "dataSourceId"
+                              }
+                            ]
+                          },
+                          {
+                            "_type": "field-ref",
+                            "name": "comments"
+                          },
+                          {
+                            "_type": "field-ref",
+                            "name": "shippingInstructions"
+                          },
+                          {
+                            "_type": "field-ref",
+                            "name": "submitButton"
+                          }
+                        ]
+                      },
+                      "fields": [
+                        {
+                          "name": "partyId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Party ID",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "hidden",
+                              "defaultValue": ""
+                            }
+                          ],
+                          "currentValue": "100051"
+                        },
+                        {
+                          "name": "pseudoId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "ID",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "text-line",
+                              "size": "15",
+                              "inputType": "text",
+                              "maxlength": "",
+                              "mask": "",
+                              "prefix": ""
+                            }
+                          ],
+                          "currentValue": "100051"
+                        },
+                        {
+                          "name": "firstName",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "First Name",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "text-line",
+                              "size": "30",
+                              "inputType": "text",
+                              "maxlength": "",
+                              "mask": "",
+                              "prefix": ""
+                            }
+                          ],
+                          "currentValue": "PlaywrightUpdated"
+                        },
+                        {
+                          "name": "middleName",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Middle Name",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "text-line",
+                              "size": "20",
+                              "inputType": "text",
+                              "maxlength": "",
+                              "mask": "",
+                              "prefix": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "lastName",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Last Name",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "text-line",
+                              "size": "30",
+                              "inputType": "text",
+                              "maxlength": "",
+                              "mask": "",
+                              "prefix": ""
+                            }
+                          ],
+                          "currentValue": "TestCustomer"
+                        },
+                        {
+                          "name": "birthDate",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Birth Date",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "date-time",
+                              "type": "date",
+                              "dateType": "date",
+                              "format": "",
+                              "minuteStepping": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "externalId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "External ID",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "text-line",
+                              "size": "20",
+                              "inputType": "text",
+                              "maxlength": "",
+                              "mask": "",
+                              "prefix": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "disabled",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Hidden",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "drop-down",
+                              "allowEmpty": "true",
+                              "allowMultiple": "false",
+                              "submitOnSelect": "false",
+                              "current": "selected",
+                              "showNot": "false",
+                              "options": [
+                                {
+                                  "key": "N",
+                                  "text": "N"
+                                },
+                                {
+                                  "key": "Y",
+                                  "text": "Y"
+                                }
+                              ]
+                            }
+                          ],
+                          "currentValue": "N"
+                        },
+                        {
+                          "name": "gatewayCimId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "CIM ID",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "text-line",
+                              "size": "20",
+                              "inputType": "text",
+                              "maxlength": "",
+                              "mask": "",
+                              "prefix": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "ownerPartyId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Owned By Org",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "drop-down",
+                              "allow-empty": "true",
+                              "allowEmpty": "true",
+                              "allowMultiple": "false",
+                              "submitOnSelect": "false",
+                              "current": "selected",
+                              "showNot": "false",
+                              "options": [
+                                {
+                                  "key": "_NA_",
+                                  "text": "N/A"
+                                },
+                                {
+                                  "key": "ORG_ZIZI_HR",
+                                  "text": "ZIHR: Ziziwork Human Resources"
+                                },
+                                {
+                                  "key": "ORG_ZIZI_CORP",
+                                  "text": "ZICORP: Ziziwork Industries"
+                                },
+                                {
+                                  "key": "ORG_ZIZI_RETAIL",
+                                  "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                },
+                                {
+                                  "key": "ORG_ZIZI_SALES",
+                                  "text": "ZISAL: Ziziwork Sales"
+                                },
+                                {
+                                  "key": "ORG_ZIZI_SERVICES",
+                                  "text": "ZISER: Ziziwork Services"
+                                }
+                              ]
+                            }
+                          ],
+                          "currentValue": "_NA_"
+                        },
+                        {
+                          "name": "dataSourceId",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Data Source",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "drop-down",
+                              "allow-empty": "true",
+                              "allowEmpty": "true",
+                              "allowMultiple": "false",
+                              "submitOnSelect": "false",
+                              "current": "selected",
+                              "showNot": "false",
+                              "options": []
+                            }
+                          ]
+                        },
+                        {
+                          "name": "comments",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Internal Comments",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "text-area",
+                              "rows": "3",
+                              "cols": "80",
+                              "maxlength": "",
+                              "readOnly": "false",
+                              "editorType": "",
+                              "autogrow": "false"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "shippingInstructions",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Shipping Instructions",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "text-area",
+                              "rows": "3",
+                              "cols": "80",
+                              "maxlength": "",
+                              "readOnly": "false",
+                              "editorType": "",
+                              "autogrow": "false"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "submitButton",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Update Person",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "submit",
+                              "text": "",
+                              "confirmation": "",
+                              "btnType": "",
+                              "icon": ""
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "RolesSection",
+                  "_type": "section-include",
+                  "sectionName": "RolesSection",
+                  "widgets": [
+                    {
+                      "type": "warning",
+                      "_type": "container-box",
+                      "boxTitle": "Roles",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "AddDirectRoleDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Add Direct Role",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "type": "p",
+                              "_type": "label",
+                              "text": "Roles applied directly describe how the system should treat the Party, or what the Party is to users of the system.",
+                              "resolvedText": "Roles applied directly describe how the system should treat the Party, or what the Party is to users of the system.",
+                              "labelType": "p",
+                              "encode": "true"
+                            },
+                            {
+                              "type": "p",
+                              "_type": "label",
+                              "text": "These Roles enable system functionality when directly applied to a Party.",
+                              "resolvedText": "These Roles enable system functionality when directly applied to a Party.",
+                              "labelType": "p",
+                              "encode": "true"
+                            },
+                            {
+                              "name": "AddDirectRoleForm",
+                              "_type": "form-single",
+                              "formName": "AddDirectRoleForm",
+                              "transition": "createPartyRole",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "partyId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Party ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "100051"
+                                },
+                                {
+                                  "name": "roleTypeId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Role",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [
+                                        {
+                                          "key": "BadActor",
+                                          "text": "Bad Actor (Banned)"
+                                        },
+                                        {
+                                          "key": "Customer",
+                                          "text": "Customer"
+                                        },
+                                        {
+                                          "key": "Employee",
+                                          "text": "Employee"
+                                        },
+                                        {
+                                          "key": "OrgInternal",
+                                          "text": "Internal Organization"
+                                        },
+                                        {
+                                          "key": "Account",
+                                          "text": "Sales Account"
+                                        },
+                                        {
+                                          "key": "Contact",
+                                          "text": "Sales Contact"
+                                        },
+                                        {
+                                          "key": "Supplier",
+                                          "text": "Supplier"
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "currentValue": "Customer"
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Add",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "AddOtherRoleDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Add Other Role",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "type": "p",
+                              "_type": "label",
+                              "text": "Roles applied directly describe how the system should treat the Party, or what the Party is to users of the system.",
+                              "resolvedText": "Roles applied directly describe how the system should treat the Party, or what the Party is to users of the system.",
+                              "labelType": "p",
+                              "encode": "true"
+                            },
+                            {
+                              "type": "p",
+                              "_type": "label",
+                              "text": "Any Role may be added here to organize parties for searching, etc but many are used to describe a Party's relationship to, or involvement with, other things in the system and have no effect when applied directly.",
+                              "resolvedText": "Any Role may be added here to organize parties for searching, etc but many are used to describe a Party's relationship to, or involvement with, other things in the system and have no effect when applied directly.",
+                              "labelType": "p",
+                              "encode": "true"
+                            },
+                            {
+                              "name": "AddOtherRoleForm",
+                              "_type": "form-single",
+                              "formName": "AddOtherRoleForm",
+                              "transition": "createPartyRole",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "partyId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Party ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "100051"
+                                },
+                                {
+                                  "name": "roleTypeId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Role",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [
+                                        {
+                                          "key": "Accountant",
+                                          "text": "Accountant"
+                                        },
+                                        {
+                                          "key": "Administrator",
+                                          "text": "Administrator"
+                                        },
+                                        {
+                                          "key": "Affiliate",
+                                          "text": "Affiliate"
+                                        },
+                                        {
+                                          "key": "Agent",
+                                          "text": "Agent"
+                                        },
+                                        {
+                                          "key": "AssetOwner",
+                                          "text": "Asset Owner"
+                                        },
+                                        {
+                                          "key": "Assignee",
+                                          "text": "Assignee"
+                                        },
+                                        {
+                                          "key": "OrgAssociation",
+                                          "text": "Association"
+                                        },
+                                        {
+                                          "key": "Attendee",
+                                          "text": "Attendee"
+                                        },
+                                        {
+                                          "key": "BadActor",
+                                          "text": "Bad Actor (Banned)"
+                                        },
+                                        {
+                                          "key": "BusinessAnalyst",
+                                          "text": "Business Analyst"
+                                        },
+                                        {
+                                          "key": "Buyer",
+                                          "text": "Buyer"
+                                        },
+                                        {
+                                          "key": "Carrier",
+                                          "text": "Carrier"
+                                        },
+                                        {
+                                          "key": "Cashier",
+                                          "text": "Cashier"
+                                        },
+                                        {
+                                          "key": "ClientBilling",
+                                          "text": "Client Billing Rep"
+                                        },
+                                        {
+                                          "key": "ClientManager",
+                                          "text": "Client Manager"
+                                        },
+                                        {
+                                          "key": "Competitor",
+                                          "text": "Competitor"
+                                        },
+                                        {
+                                          "key": "Consumer",
+                                          "text": "Consumer"
+                                        },
+                                        {
+                                          "key": "Contractor",
+                                          "text": "Contractor"
+                                        },
+                                        {
+                                          "key": "OrgCorporation",
+                                          "text": "Corporation"
+                                        },
+                                        {
+                                          "key": "Customer",
+                                          "text": "Customer"
+                                        },
+                                        {
+                                          "key": "CustomerBillTo",
+                                          "text": "Customer - Bill To"
+                                        },
+                                        {
+                                          "key": "CustomerEndUser",
+                                          "text": "Customer - End User"
+                                        },
+                                        {
+                                          "key": "CustomerPlacing",
+                                          "text": "Customer - Placing"
+                                        },
+                                        {
+                                          "key": "CustomerShipTo",
+                                          "text": "Customer - Ship To"
+                                        },
+                                        {
+                                          "key": "DefaultAssignee",
+                                          "text": "Default Assignee"
+                                        },
+                                        {
+                                          "key": "Delegate",
+                                          "text": "Delegate"
+                                        },
+                                        {
+                                          "key": "OrgDepartment",
+                                          "text": "Department"
+                                        },
+                                        {
+                                          "key": "Distributor",
+                                          "text": "Distributor"
+                                        },
+                                        {
+                                          "key": "OrgDivision",
+                                          "text": "Division"
+                                        },
+                                        {
+                                          "key": "EmailAdmin",
+                                          "text": "Email Administrator"
+                                        },
+                                        {
+                                          "key": "Employee",
+                                          "text": "Employee"
+                                        },
+                                        {
+                                          "key": "OrgEmployer",
+                                          "text": "Employer"
+                                        },
+                                        {
+                                          "key": "Executive",
+                                          "text": "Executive"
+                                        },
+                                        {
+                                          "key": "ExpertUser",
+                                          "text": "Expert User"
+                                        },
+                                        {
+                                          "key": "OrgFamily",
+                                          "text": "Family"
+                                        },
+                                        {
+                                          "key": "FamilyMember",
+                                          "text": "Family Member"
+                                        },
+                                        {
+                                          "key": "GarnishmentPayee",
+                                          "text": "Garnishment Payee"
+                                        },
+                                        {
+                                          "key": "OrgGovernment",
+                                          "text": "Government"
+                                        },
+                                        {
+                                          "key": "OrgGovernmentAgency",
+                                          "text": "Government Agency"
+                                        },
+                                        {
+                                          "key": "Host",
+                                          "text": "Host"
+                                        },
+                                        {
+                                          "key": "HostingProvider",
+                                          "text": "Hosting Provider"
+                                        },
+                                        {
+                                          "key": "OrgHousehold",
+                                          "text": "Household"
+                                        },
+                                        {
+                                          "key": "HumanResourcesManager",
+                                          "text": "Human Resources Manager"
+                                        },
+                                        {
+                                          "key": "OrgInternal",
+                                          "text": "Internal Organization"
+                                        },
+                                        {
+                                          "key": "InternetSp",
+                                          "text": "Internet Service Provider"
+                                        },
+                                        {
+                                          "key": "InventoryManager",
+                                          "text": "Inventory Manager"
+                                        },
+                                        {
+                                          "key": "Manager",
+                                          "text": "Manager"
+                                        },
+                                        {
+                                          "key": "Manufacturer",
+                                          "text": "Manufacturer"
+                                        },
+                                        {
+                                          "key": "_NA_",
+                                          "text": "Not Applicable"
+                                        },
+                                        {
+                                          "key": "Operator",
+                                          "text": "Operator"
+                                        },
+                                        {
+                                          "key": "OrderClerk",
+                                          "text": "Order Clerk"
+                                        },
+                                        {
+                                          "key": "Organizer",
+                                          "text": "Organizer"
+                                        },
+                                        {
+                                          "key": "Owner",
+                                          "text": "Owner"
+                                        },
+                                        {
+                                          "key": "Packer",
+                                          "text": "Packer"
+                                        },
+                                        {
+                                          "key": "OrgParent",
+                                          "text": "Parent"
+                                        },
+                                        {
+                                          "key": "Partner",
+                                          "text": "Partner"
+                                        },
+                                        {
+                                          "key": "Payroll",
+                                          "text": "Payroll"
+                                        },
+                                        {
+                                          "key": "PayrollOtherPayee",
+                                          "text": "Payroll Other Payee"
+                                        },
+                                        {
+                                          "key": "Picker",
+                                          "text": "Picker"
+                                        },
+                                        {
+                                          "key": "ProductionManager",
+                                          "text": "Production Manager"
+                                        },
+                                        {
+                                          "key": "ProductionWorker",
+                                          "text": "Production Worker"
+                                        },
+                                        {
+                                          "key": "Programmer",
+                                          "text": "Programmer"
+                                        },
+                                        {
+                                          "key": "ProgrammerLead",
+                                          "text": "Programmer Lead"
+                                        },
+                                        {
+                                          "key": "ProjectManager",
+                                          "text": "Project Manager"
+                                        },
+                                        {
+                                          "key": "Prospect",
+                                          "text": "Prospect"
+                                        },
+                                        {
+                                          "key": "QualityAnalyst",
+                                          "text": "Quality Analyst"
+                                        },
+                                        {
+                                          "key": "QualityLead",
+                                          "text": "Quality Lead"
+                                        },
+                                        {
+                                          "key": "Receiver",
+                                          "text": "Receiver"
+                                        },
+                                        {
+                                          "key": "Referrer",
+                                          "text": "Referrer"
+                                        },
+                                        {
+                                          "key": "OrgRegulatoryAgency",
+                                          "text": "Regulatory Agency"
+                                        },
+                                        {
+                                          "key": "Reporter",
+                                          "text": "Reporter"
+                                        },
+                                        {
+                                          "key": "Account",
+                                          "text": "Sales Account"
+                                        },
+                                        {
+                                          "key": "AccountLead",
+                                          "text": "Sales Account Lead"
+                                        },
+                                        {
+                                          "key": "Contact",
+                                          "text": "Sales Contact"
+                                        },
+                                        {
+                                          "key": "SalesRepresentative",
+                                          "text": "Sales Representative"
+                                        },
+                                        {
+                                          "key": "Shareholder",
+                                          "text": "Shareholder"
+                                        },
+                                        {
+                                          "key": "ShipmentClerk",
+                                          "text": "Shipment Clerk"
+                                        },
+                                        {
+                                          "key": "Sponsor",
+                                          "text": "Sponsor"
+                                        },
+                                        {
+                                          "key": "Spouse",
+                                          "text": "Spouse"
+                                        },
+                                        {
+                                          "key": "Stocker",
+                                          "text": "Stocker"
+                                        },
+                                        {
+                                          "key": "Subscriber",
+                                          "text": "Subscriber"
+                                        },
+                                        {
+                                          "key": "OrgSubsidiary",
+                                          "text": "Subsidiary"
+                                        },
+                                        {
+                                          "key": "Supplier",
+                                          "text": "Supplier"
+                                        },
+                                        {
+                                          "key": "SupplierAgent",
+                                          "text": "Supplier Agent"
+                                        },
+                                        {
+                                          "key": "SysAdmin",
+                                          "text": "System Administrator"
+                                        },
+                                        {
+                                          "key": "SysArchitect",
+                                          "text": "System Architect"
+                                        },
+                                        {
+                                          "key": "OrgTaxAuthority",
+                                          "text": "Tax Authority"
+                                        },
+                                        {
+                                          "key": "OrgTeam",
+                                          "text": "Team"
+                                        },
+                                        {
+                                          "key": "TechContact",
+                                          "text": "Technical Contact"
+                                        },
+                                        {
+                                          "key": "UiDesigner",
+                                          "text": "UI Designer"
+                                        },
+                                        {
+                                          "key": "OrgUnion",
+                                          "text": "Union"
+                                        },
+                                        {
+                                          "key": "OrgUnit",
+                                          "text": "Unit"
+                                        },
+                                        {
+                                          "key": "Vendor",
+                                          "text": "Vendor"
+                                        },
+                                        {
+                                          "key": "VendorBillFrom",
+                                          "text": "Vendor - Bill From"
+                                        },
+                                        {
+                                          "key": "VendorPickUpFrom",
+                                          "text": "Vendor - Pick Up From"
+                                        },
+                                        {
+                                          "key": "VendorShipFrom",
+                                          "text": "Vendor - Ship From"
+                                        },
+                                        {
+                                          "key": "Visitor",
+                                          "text": "Visitor"
+                                        },
+                                        {
+                                          "key": "Watcher",
+                                          "text": "Watcher"
+                                        },
+                                        {
+                                          "key": "WebMaster",
+                                          "text": "Web Master"
+                                        },
+                                        {
+                                          "key": "Worker",
+                                          "text": "Worker"
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "currentValue": "Customer"
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Add",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "bodyNoPad": [
+                        {
+                          "name": "RolesForm",
+                          "_type": "form-list",
+                          "formName": "RolesForm",
+                          "transition": "deletePartyRole",
+                          "list": "partyRoleList",
+                          "paginate": "true",
+                          "headerDialog": "",
+                          "selectColumns": "",
+                          "savedFinds": "",
+                          "showCsvButton": "",
+                          "showXlsxButton": "",
+                          "showPageSize": "",
+                          "skipForm": "",
+                          "headerFields": [],
+                          "fields": [
+                            {
+                              "name": "partyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Party ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "roleTypeId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Role",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display-entity",
+                                  "entity-name": "mantle.party.RoleType",
+                                  "entityName": "mantle.party.RoleType",
+                                  "keyFieldName": "",
+                                  "alsoHidden": "true",
+                                  "useCache": "true",
+                                  "defaultText": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Submit Button",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "icon": "fa fa-trash",
+                                  "confirmation": "Delete role?",
+                                  "text": "",
+                                  "btnType": ""
+                                }
+                              ]
+                            }
+                          ],
+                          "listData": [
+                            {
+                              "partyId": "100051",
+                              "roleTypeId": "Customer",
+                              "roleTypeId_display": "Customer"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "PartyClassificationSection",
+                  "_type": "section-include",
+                  "sectionName": "PartyClassificationSection",
+                  "widgets": [
+                    {
+                      "type": "warning",
+                      "_type": "container-box",
+                      "boxTitle": "Classifications",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "SetClassificationDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Set Classification",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "SetClassificationForm",
+                              "_type": "form-single",
+                              "formName": "SetClassificationForm",
+                              "transition": "setPartyClassification",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "partyId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Party ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "100051"
+                                },
+                                {
+                                  "name": "classificationTypeEnumId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Type",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allow-empty": "${allowEmpty ?: 'false'}",
+                                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                                      "style": "${style?:''}",
+                                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                                      "show-not": "${showNot ?: 'false'}",
+                                      "allowEmpty": "false",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "${showNot ?: 'false'}",
+                                      "options": [
+                                        {
+                                          "key": "PcltCustomer",
+                                          "text": "Customer"
+                                        },
+                                        {
+                                          "key": "PcltEeoc",
+                                          "text": "EEOC (Equal Opportunity)"
+                                        },
+                                        {
+                                          "key": "PcltIncome",
+                                          "text": "Income"
+                                        },
+                                        {
+                                          "key": "PcltIndustry",
+                                          "text": "Industry"
+                                        },
+                                        {
+                                          "key": "PcltMinority",
+                                          "text": "Minority"
+                                        },
+                                        {
+                                          "key": "PcltNaicsCode",
+                                          "text": "NAICS Code"
+                                        },
+                                        {
+                                          "key": "PcltNumberEmployees",
+                                          "text": "Number of Employees"
+                                        },
+                                        {
+                                          "key": "PcltOwnership",
+                                          "text": "Ownership"
+                                        },
+                                        {
+                                          "key": "PcltRevenue",
+                                          "text": "Revenue"
+                                        },
+                                        {
+                                          "key": "PcltSicCode",
+                                          "text": "SIC Code"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "partyClassificationId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Class",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [],
+                                      "dynamicOptions": {
+                                        "transition": "getPartyClassificationList",
+                                        "serverSearch": "false",
+                                        "minLength": "1",
+                                        "dependsOnField": "classificationTypeEnumId",
+                                        "dependsOnParameter": ""
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Set",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "bodyNoPad": [
+                        {
+                          "name": "ClassificationsForm",
+                          "_type": "form-list",
+                          "formName": "ClassificationsForm",
+                          "transition": "removePartyClassification",
+                          "list": "pcaaList",
+                          "paginate": "true",
+                          "headerDialog": "",
+                          "selectColumns": "",
+                          "savedFinds": "",
+                          "showCsvButton": "",
+                          "showXlsxButton": "",
+                          "showPageSize": "",
+                          "skipForm": "",
+                          "headerFields": [],
+                          "fields": [
+                            {
+                              "name": "partyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Party ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "partyClassificationId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Party Classification ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "fromDate",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "From Date",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "thruDate",
+                              "from": "ec.user.nowTimestamp",
+                              "hide": "",
+                              "align": "",
+                              "title": "Thru Date",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "classificationTypeEnumId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Type",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display-entity",
+                                  "entity-name": "moqui.basic.Enumeration",
+                                  "entityName": "moqui.basic.Enumeration",
+                                  "keyFieldName": "",
+                                  "alsoHidden": "true",
+                                  "useCache": "true",
+                                  "defaultText": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "description",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Class",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display",
+                                  "alsoHidden": "true",
+                                  "encode": "true",
+                                  "format": "",
+                                  "currencyUnitField": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Submit Button",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "icon": "fa fa-trash",
+                                  "confirmation": "Delete classification?",
+                                  "text": "",
+                                  "btnType": ""
+                                }
+                              ]
+                            }
+                          ],
+                          "listData": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "PartySettingSection",
+                  "_type": "section-include",
+                  "sectionName": "PartySettingSection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Settings",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "AddSettingDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Select Setting",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "AddSettingForm",
+                              "_type": "form-single",
+                              "formName": "AddSettingForm",
+                              "transition": "storePartySetting",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "partyId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Party ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "100051"
+                                },
+                                {
+                                  "name": "partySettingTypeId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Type",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [
+                                        {
+                                          "key": "CustomerNewerInventory",
+                                          "text": "Newer Inventory each Order"
+                                        },
+                                        {
+                                          "key": "CustomerRequireSign",
+                                          "text": "Require Signature"
+                                        },
+                                        {
+                                          "key": "CustomerSingleLot",
+                                          "text": "Single Lot per Order"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "settingValue",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Value",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [],
+                                      "dynamicOptions": {
+                                        "transition": "getPartySettingList",
+                                        "serverSearch": "false",
+                                        "minLength": "1",
+                                        "dependsOnField": "partySettingTypeId",
+                                        "dependsOnParameter": ""
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Set",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "AddSettingTextDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Enter Setting",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "AddSettingTextForm",
+                              "_type": "form-single",
+                              "formName": "AddSettingTextForm",
+                              "transition": "storePartySetting",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "partyId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Party ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "100051"
+                                },
+                                {
+                                  "name": "partySettingTypeId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Type",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "settingValue",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Value",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "text-line",
+                                      "size": "40",
+                                      "inputType": "text",
+                                      "maxlength": "",
+                                      "mask": "",
+                                      "prefix": ""
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Set",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "bodyNoPad": [
+                        {
+                          "name": "SettingsForm",
+                          "_type": "form-list",
+                          "formName": "SettingsForm",
+                          "transition": "deletePartySetting",
+                          "list": "settingList",
+                          "paginate": "true",
+                          "headerDialog": "",
+                          "selectColumns": "",
+                          "savedFinds": "",
+                          "showCsvButton": "",
+                          "showXlsxButton": "",
+                          "showPageSize": "",
+                          "skipForm": "",
+                          "headerFields": [],
+                          "fields": [
+                            {
+                              "name": "partyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Party ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "partySettingTypeId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Type",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display-entity",
+                                  "entity-name": "mantle.party.PartySettingType",
+                                  "entityName": "mantle.party.PartySettingType",
+                                  "keyFieldName": "",
+                                  "alsoHidden": "true",
+                                  "useCache": "true",
+                                  "defaultText": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "settingValue",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Value",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display",
+                                  "text": "${valueEnum ? valueEnum.description : settingValue}",
+                                  "alsoHidden": "true",
+                                  "encode": "true",
+                                  "format": "",
+                                  "currencyUnitField": "",
+                                  "resolvedText": "null"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Submit Button",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "icon": "fa fa-trash",
+                                  "confirmation": "Really delete setting?",
+                                  "text": "",
+                                  "btnType": ""
+                                }
+                              ]
+                            }
+                          ],
+                          "listData": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "PartyIdentificationSection",
+                  "_type": "section-include",
+                  "sectionName": "PartyIdentificationSection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Identification",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "AddIdentificationDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Add Identification",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "AddIdentificationForm",
+                              "_type": "form-single",
+                              "formName": "AddIdentificationForm",
+                              "transition": "createPartyIdentification",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "partyId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Party ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "100051"
+                                },
+                                {
+                                  "name": "partyIdTypeEnumId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "ID Type",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "false",
+                                      "options": [
+                                        {
+                                          "key": "PtidArn",
+                                          "text": "Alien Registration Number"
+                                        },
+                                        {
+                                          "key": "PtidCust",
+                                          "text": "Customer Assigned"
+                                        },
+                                        {
+                                          "key": "PtidDriverLicense",
+                                          "text": "Driver License Number"
+                                        },
+                                        {
+                                          "key": "PtidDuns",
+                                          "text": "Dun and Bradstreet DUNS"
+                                        },
+                                        {
+                                          "key": "PtidDuns4",
+                                          "text": "Dun and Bradstreet DUNS+4"
+                                        },
+                                        {
+                                          "key": "PtidFaic",
+                                          "text": "Federal Agent Indicator Code"
+                                        },
+                                        {
+                                          "key": "PtidFein",
+                                          "text": "Federal EIN"
+                                        },
+                                        {
+                                          "key": "PtidFuid",
+                                          "text": "Federal User ID"
+                                        },
+                                        {
+                                          "key": "PtidGln",
+                                          "text": "Global Location Number"
+                                        },
+                                        {
+                                          "key": "PtidI551",
+                                          "text": "I-551"
+                                        },
+                                        {
+                                          "key": "PtidI766",
+                                          "text": "I-766"
+                                        },
+                                        {
+                                          "key": "PtidI94",
+                                          "text": "I-94"
+                                        },
+                                        {
+                                          "key": "Ptid94A",
+                                          "text": "I-94A"
+                                        },
+                                        {
+                                          "key": "PtidIan",
+                                          "text": "Immigrant Admission Number"
+                                        },
+                                        {
+                                          "key": "PtidMcid",
+                                          "text": "Matricula Consular ID"
+                                        },
+                                        {
+                                          "key": "PtidPassport",
+                                          "text": "Passport Number"
+                                        },
+                                        {
+                                          "key": "PtidPermReg",
+                                          "text": "Permanent Resident"
+                                        },
+                                        {
+                                          "key": "PtidSsn",
+                                          "text": "Social Security Number"
+                                        },
+                                        {
+                                          "key": "PtidVend",
+                                          "text": "Vendor Assigned"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "idValue",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "ID Value",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "text-line",
+                                      "size": "20",
+                                      "inputType": "text",
+                                      "maxlength": "",
+                                      "mask": "",
+                                      "prefix": ""
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "expireDate",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Expire Date",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "date-time",
+                                      "type": "date",
+                                      "dateType": "date",
+                                      "format": "",
+                                      "minuteStepping": ""
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Add",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "bodyNoPad": [
+                        {
+                          "name": "IdentificationsForm",
+                          "_type": "form-list",
+                          "formName": "IdentificationsForm",
+                          "transition": "updatePartyIdentification",
+                          "list": "partyIdentificationList",
+                          "paginate": "true",
+                          "headerDialog": "",
+                          "selectColumns": "",
+                          "savedFinds": "",
+                          "showCsvButton": "",
+                          "showXlsxButton": "",
+                          "showPageSize": "",
+                          "skipForm": "",
+                          "editUrl": "deletePartyIdentification",
+                          "headerFields": [],
+                          "fields": [
+                            {
+                              "name": "partyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Party ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "partyIdTypeEnumId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "ID Type",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display-entity",
+                                  "entity-name": "moqui.basic.Enumeration",
+                                  "entityName": "moqui.basic.Enumeration",
+                                  "keyFieldName": "",
+                                  "alsoHidden": "true",
+                                  "useCache": "true",
+                                  "defaultText": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "idValue",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "ID Value",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "text-line",
+                                  "size": "20",
+                                  "inputType": "text",
+                                  "maxlength": "",
+                                  "mask": "",
+                                  "prefix": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "expireDate",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Expire Date",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "date-time",
+                                  "type": "date",
+                                  "dateType": "date",
+                                  "format": "",
+                                  "minuteStepping": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "submitButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Update",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "removeButton",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Remove Button",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": " ",
+                                  "linkType": "auto",
+                                  "icon": "fa fa-trash",
+                                  "badge": "",
+                                  "confirmation": "Delete this ID?",
+                                  "tooltip": "",
+                                  "btnType": "",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "partyId": "100051"
+                                  },
+                                  "url": "/fapps/marble/Customer/EditCustomer/deletePartyIdentification",
+                                  "isAnchorLink": false
+                                }
+                              ]
+                            }
+                          ],
+                          "listData": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "UserSecuritySection",
+                  "_type": "section-include",
+                  "sectionName": "UserSecuritySection"
+                },
+                {
+                  "name": "SalesAccountContactSection",
+                  "_type": "section-include",
+                  "sectionName": "SalesAccountContactSection",
+                  "widgets": [
+                    {
+                      "name": "AccountRelListSection",
+                      "condition": "isSalesContact",
+                      "_type": "section",
+                      "sectionName": "AccountRelListSection"
+                    },
+                    {
+                      "name": "ContactRelListSection",
+                      "condition": "isSalesAccount",
+                      "_type": "section",
+                      "sectionName": "ContactRelListSection"
+                    },
+                    {
+                      "name": "ParentAccountRelListSection",
+                      "condition": "isSalesAccount",
+                      "_type": "section",
+                      "sectionName": "ParentAccountRelListSection"
+                    },
+                    {
+                      "name": "ChildAccountRelListSection",
+                      "condition": "isSalesAccount",
+                      "_type": "section",
+                      "sectionName": "ChildAccountRelListSection"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "6",
+              "md": "",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "NotesSection",
+                  "_type": "section-include",
+                  "sectionName": "NotesSection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Notes",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "NewNoteDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Add Note",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "NewNoteForm",
+                              "_type": "form-single",
+                              "formName": "NewNoteForm",
+                              "transition": "createPartyNote",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "partyId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Party ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "100051"
+                                },
+                                {
+                                  "name": "noteText",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Note",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "text-area",
+                                      "cols": "60",
+                                      "rows": "6",
+                                      "maxlength": "",
+                                      "readOnly": "false",
+                                      "editorType": "",
+                                      "autogrow": "false"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Add Note",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "body": [
+                        {
+                          "name": "NoteIterateSection",
+                          "_type": "section-iterate",
+                          "sectionName": "NoteIterateSection",
+                          "iterations": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "ContactInfoSection",
+                  "_type": "section-include",
+                  "sectionName": "ContactInfoSection",
+                  "widgets": [
+                    {
+                      "type": "info",
+                      "_type": "container-box",
+                      "boxTitle": "Phone, Email, and Other",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "ExpiredOtherDialog",
+                          "_type": "dynamic-dialog",
+                          "dialogId": "ExpiredOtherDialog",
+                          "buttonText": "View Old",
+                          "transition": "ExpiredContactOther",
+                          "dialogTitle": "",
+                          "width": "",
+                          "height": "",
+                          "icon": ""
+                        },
+                        {
+                          "_type": "button-menu",
+                          "text": "Add New",
+                          "icon": "fa fa-plus",
+                          "badge": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "id": "AddPhoneInfo",
+                              "_type": "dynamic-dialog",
+                              "dialogId": "AddPhoneInfo",
+                              "buttonText": "Phone",
+                              "transition": "UpdateContactInfo",
+                              "dialogTitle": "",
+                              "width": "",
+                              "height": "",
+                              "icon": ""
+                            },
+                            {
+                              "id": "AddEmailInfo",
+                              "_type": "dynamic-dialog",
+                              "dialogId": "AddEmailInfo",
+                              "buttonText": "Email",
+                              "transition": "UpdateContactInfo",
+                              "dialogTitle": "",
+                              "width": "",
+                              "height": "",
+                              "icon": ""
+                            },
+                            {
+                              "id": "AddWebUrlInfo",
+                              "_type": "dynamic-dialog",
+                              "dialogId": "AddWebUrlInfo",
+                              "buttonText": "URL",
+                              "transition": "UpdateContactInfo",
+                              "dialogTitle": "",
+                              "width": "",
+                              "height": "",
+                              "icon": ""
+                            },
+                            {
+                              "id": "OtherCreateDialog",
+                              "_type": "container-dialog",
+                              "buttonText": "Other",
+                              "dialogTitle": "",
+                              "width": "",
+                              "icon": "",
+                              "btnType": "",
+                              "children": [
+                                {
+                                  "name": "OtherCreateForm",
+                                  "_type": "form-single",
+                                  "formName": "OtherCreateForm",
+                                  "transition": "createContactMechOther",
+                                  "map": "fieldValues",
+                                  "fields": [
+                                    {
+                                      "name": "partyId",
+                                      "from": "",
+                                      "hide": "",
+                                      "align": "",
+                                      "title": "Party ID",
+                                      "tooltip": "",
+                                      "widgets": [
+                                        {
+                                          "_type": "hidden",
+                                          "defaultValue": ""
+                                        }
+                                      ],
+                                      "currentValue": "100051"
+                                    },
+                                    {
+                                      "name": "contactMechTypeEnumId",
+                                      "from": "",
+                                      "hide": "",
+                                      "align": "",
+                                      "title": "Type",
+                                      "tooltip": "",
+                                      "widgets": [
+                                        {
+                                          "_type": "drop-down",
+                                          "allowEmpty": "true",
+                                          "allowMultiple": "false",
+                                          "submitOnSelect": "false",
+                                          "current": "selected",
+                                          "showNot": "false",
+                                          "options": [
+                                            {
+                                              "key": "CmtElectronicAddress",
+                                              "text": "Electronic Address"
+                                            },
+                                            {
+                                              "key": "CmtDomainName",
+                                              "text": "Internet Domain Name"
+                                            },
+                                            {
+                                              "key": "CmtIpAddress",
+                                              "text": "Internet IP Address"
+                                            },
+                                            {
+                                              "key": "CmtWebForm",
+                                              "text": "Web Form"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "name": "contactMechPurposeId",
+                                      "from": "",
+                                      "hide": "",
+                                      "align": "",
+                                      "title": "Purpose",
+                                      "tooltip": "",
+                                      "widgets": [
+                                        {
+                                          "_type": "drop-down",
+                                          "allowEmpty": "true",
+                                          "allowMultiple": "false",
+                                          "submitOnSelect": "false",
+                                          "current": "selected",
+                                          "showNot": "false",
+                                          "options": [],
+                                          "dynamicOptions": {
+                                            "transition": "getContactMechPurposesByType",
+                                            "serverSearch": "false",
+                                            "minLength": "1",
+                                            "dependsOnField": "contactMechTypeEnumId",
+                                            "dependsOnParameter": ""
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "name": "infoString",
+                                      "from": "",
+                                      "hide": "",
+                                      "align": "",
+                                      "title": "Value",
+                                      "tooltip": "",
+                                      "widgets": [
+                                        {
+                                          "_type": "text-line",
+                                          "size": "60",
+                                          "inputType": "text",
+                                          "maxlength": "",
+                                          "mask": "",
+                                          "prefix": ""
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "name": "submitButton",
+                                      "from": "",
+                                      "hide": "",
+                                      "align": "",
+                                      "title": "Create",
+                                      "tooltip": "",
+                                      "widgets": [
+                                        {
+                                          "_type": "submit",
+                                          "text": "",
+                                          "confirmation": "",
+                                          "btnType": "",
+                                          "icon": ""
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "body": [
+                        {
+                          "name": "PhoneInfoSection",
+                          "_type": "section-iterate",
+                          "sectionName": "PhoneInfoSection",
+                          "iterations": []
+                        },
+                        {
+                          "name": "EmailInfoSection",
+                          "_type": "section-iterate",
+                          "sectionName": "EmailInfoSection",
+                          "iterations": [
+                            [
+                              {
+                                "_type": "container-row",
+                                "columns": [
+                                  {
+                                    "lg": "6",
+                                    "md": "",
+                                    "sm": "",
+                                    "xs": "",
+                                    "style": "",
+                                    "children": [
+                                      {
+                                        "id": "UpdateEmailInfo",
+                                        "_type": "dynamic-dialog",
+                                        "dialogId": "UpdateEmailInfo",
+                                        "buttonText": "Update",
+                                        "transition": "UpdateContactInfo",
+                                        "dialogTitle": "",
+                                        "width": "",
+                                        "height": "",
+                                        "icon": ""
+                                      },
+                                      {
+                                        "id": "EmailPurposeDialog",
+                                        "_type": "container-dialog",
+                                        "buttonText": "Purpose",
+                                        "dialogTitle": "",
+                                        "width": "",
+                                        "icon": "",
+                                        "btnType": "",
+                                        "children": [
+                                          {
+                                            "name": "EmailPurposeForm",
+                                            "_type": "form-single",
+                                            "formName": "EmailPurposeForm",
+                                            "transition": "storePartyContactMech",
+                                            "map": "fieldValues",
+                                            "fieldLayout": {
+                                              "_type": "field-layout",
+                                              "rows": [
+                                                {
+                                                  "_type": "field-ref",
+                                                  "name": "contactMechPurposeId"
+                                                },
+                                                {
+                                                  "_type": "field-row-big"
+                                                },
+                                                {
+                                                  "_type": "field-ref",
+                                                  "name": "partyId"
+                                                },
+                                                {
+                                                  "_type": "field-ref",
+                                                  "name": "contactMechId"
+                                                },
+                                                {
+                                                  "_type": "field-ref",
+                                                  "name": "oldContactMechPurposeId"
+                                                }
+                                              ]
+                                            },
+                                            "fields": [
+                                              {
+                                                "name": "partyId",
+                                                "from": "",
+                                                "hide": "",
+                                                "align": "",
+                                                "title": "Party ID",
+                                                "tooltip": "",
+                                                "widgets": [
+                                                  {
+                                                    "_type": "hidden",
+                                                    "defaultValue": ""
+                                                  }
+                                                ],
+                                                "currentValue": "100051"
+                                              },
+                                              {
+                                                "name": "contactMechId",
+                                                "from": "contactInfo.emailContactMechId",
+                                                "hide": "",
+                                                "align": "",
+                                                "title": "Contact Mech ID",
+                                                "tooltip": "",
+                                                "widgets": [
+                                                  {
+                                                    "_type": "hidden",
+                                                    "defaultValue": ""
+                                                  }
+                                                ],
+                                                "currentValue": "100051"
+                                              },
+                                              {
+                                                "name": "oldContactMechPurposeId",
+                                                "from": "contactInfo.emailContactMechPurposeId",
+                                                "hide": "",
+                                                "align": "",
+                                                "title": "Old Contact Mech Purpose ID",
+                                                "tooltip": "",
+                                                "widgets": [
+                                                  {
+                                                    "_type": "hidden",
+                                                    "defaultValue": ""
+                                                  }
+                                                ],
+                                                "currentValue": "EmailPrimary"
+                                              },
+                                              {
+                                                "name": "contactMechPurposeId",
+                                                "from": "contactInfo.emailContactMechPurposeId",
+                                                "hide": "",
+                                                "align": "",
+                                                "title": "Purpose",
+                                                "tooltip": "",
+                                                "widgets": [
+                                                  {
+                                                    "_type": "drop-down",
+                                                    "allowEmpty": "true",
+                                                    "allowMultiple": "false",
+                                                    "submitOnSelect": "false",
+                                                    "current": "selected",
+                                                    "showNot": "false",
+                                                    "options": [
+                                                      {
+                                                        "key": "EmailBilling",
+                                                        "text": "Email - Billing (AP)"
+                                                      },
+                                                      {
+                                                        "key": "EmailMarketing",
+                                                        "text": "Email - Marketing"
+                                                      },
+                                                      {
+                                                        "key": "EmailOrder",
+                                                        "text": "Email - Order Notification"
+                                                      },
+                                                      {
+                                                        "key": "EmailOther",
+                                                        "text": "Email - Other"
+                                                      },
+                                                      {
+                                                        "key": "EmailPayment",
+                                                        "text": "Email - Payment (AR)"
+                                                      },
+                                                      {
+                                                        "key": "EmailPrimary",
+                                                        "text": "Email - Primary Address"
+                                                      },
+                                                      {
+                                                        "key": "EmailRetailStore",
+                                                        "text": "Email - Retail Store"
+                                                      },
+                                                      {
+                                                        "key": "EmailShippingDest",
+                                                        "text": "Email - Shipping Destination"
+                                                      },
+                                                      {
+                                                        "key": "EmailShippingOrigin",
+                                                        "text": "Email - Shipping Origin"
+                                                      },
+                                                      {
+                                                        "key": "EmailSupport",
+                                                        "text": "Email - Support"
+                                                      }
+                                                    ]
+                                                  }
+                                                ],
+                                                "currentValue": "EmailPrimary"
+                                              },
+                                              {
+                                                "name": "updateButton",
+                                                "from": "",
+                                                "hide": "",
+                                                "align": "",
+                                                "title": "Update Purpose",
+                                                "tooltip": "",
+                                                "widgets": [
+                                                  {
+                                                    "_type": "submit",
+                                                    "text": "",
+                                                    "confirmation": "",
+                                                    "btnType": "",
+                                                    "icon": ""
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "name": "addButton",
+                                                "from": "",
+                                                "hide": "",
+                                                "align": "",
+                                                "title": "Add Purpose",
+                                                "tooltip": "",
+                                                "widgets": [
+                                                  {
+                                                    "_type": "submit",
+                                                    "text": "",
+                                                    "confirmation": "",
+                                                    "btnType": "",
+                                                    "icon": ""
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "_type": "link",
+                                        "urlType": "transition",
+                                        "text": " ",
+                                        "linkType": "auto",
+                                        "icon": "fa fa-trash",
+                                        "badge": "",
+                                        "confirmation": "Remove email address?",
+                                        "tooltip": "",
+                                        "btnType": "",
+                                        "targetWindow": "",
+                                        "dynamicLoadId": "",
+                                        "parameterMap": {
+                                          "contactMechPurposeId": "EmailPrimary",
+                                          "partyId": "100051",
+                                          "contactMechId": "100051"
+                                        },
+                                        "url": "/fapps/marble/Customer/EditCustomer/removeContactInfo",
+                                        "isAnchorLink": false,
+                                        "parameterFromFields": {
+                                          "partyId": "partyId",
+                                          "contactMechId": "contactInfo",
+                                          "contactMechPurposeId": "contactInfo"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "lg": "6",
+                                    "md": "",
+                                    "sm": "",
+                                    "xs": "",
+                                    "style": "",
+                                    "children": [
+                                      {
+                                        "type": "strong",
+                                        "_type": "label",
+                                        "text": "Email - Primary Address",
+                                        "resolvedText": "Email - Primary Address",
+                                        "labelType": "strong",
+                                        "encode": "true"
+                                      },
+                                      {
+                                        "_type": "text",
+                                        "textType": "html,vuet,qvt",
+                                        "location": "component://SimpleScreens/template/party/ContactInfo.html.gstring",
+                                        "template": "true"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "name": "WebInfoSection",
+                          "_type": "section-iterate",
+                          "sectionName": "WebInfoSection",
+                          "iterations": []
+                        },
+                        {
+                          "name": "OtherInfoSection",
+                          "_type": "section-iterate",
+                          "sectionName": "OtherInfoSection",
+                          "iterations": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "info",
+                      "_type": "container-box",
+                      "boxTitle": "Postal Addresses",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "ExpiredPostalDialog",
+                          "_type": "dynamic-dialog",
+                          "dialogId": "ExpiredPostalDialog",
+                          "buttonText": "Old Addresses",
+                          "transition": "ExpiredPostal",
+                          "dialogTitle": "",
+                          "width": "840",
+                          "height": "",
+                          "icon": ""
+                        },
+                        {
+                          "id": "AddAddressInfo",
+                          "_type": "dynamic-dialog",
+                          "dialogId": "AddAddressInfo",
+                          "buttonText": "Add Address",
+                          "transition": "UpdateContactInfo",
+                          "dialogTitle": "",
+                          "width": "840",
+                          "height": "",
+                          "icon": ""
+                        }
+                      ],
+                      "body": [
+                        {
+                          "name": "PostalInfoSection",
+                          "_type": "section-iterate",
+                          "sectionName": "PostalInfoSection",
+                          "iterations": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "PaymentMethodSection",
+                  "_type": "section-include",
+                  "sectionName": "PaymentMethodSection",
+                  "widgets": [
+                    {
+                      "type": "success",
+                      "_type": "container-box",
+                      "boxTitle": "Payment Methods",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "CreateCreditCardDialog",
+                          "_type": "dynamic-dialog",
+                          "dialogId": "CreateCreditCardDialog",
+                          "buttonText": "Create Credit Card",
+                          "transition": "UpdatePaymentMethodInfo",
+                          "dialogTitle": "",
+                          "width": "800",
+                          "height": "",
+                          "icon": ""
+                        },
+                        {
+                          "id": "CreateBankAccountDialog",
+                          "_type": "dynamic-dialog",
+                          "dialogId": "CreateBankAccountDialog",
+                          "buttonText": "Create Bank Account",
+                          "transition": "UpdatePaymentMethodInfo",
+                          "dialogTitle": "",
+                          "width": "800",
+                          "height": "",
+                          "icon": ""
+                        }
+                      ],
+                      "body": [
+                        {
+                          "style": "float-box",
+                          "type": "ul",
+                          "_type": "container",
+                          "containerType": "ul",
+                          "children": [
+                            {
+                              "name": "BillingInfoSection",
+                              "_type": "section-iterate",
+                              "sectionName": "BillingInfoSection",
+                              "iterations": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "FinancialAccountSection",
+                  "_type": "section-include",
+                  "sectionName": "FinancialAccountSection",
+                  "widgets": [
+                    {
+                      "type": "success",
+                      "_type": "container-box",
+                      "boxTitle": "Financial Accounts",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Find Accounts",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "partyId": "100051",
+                            "ownerPartyId": "100051"
+                          },
+                          "url": "/fapps/marble/Customer/EditCustomer/findFinancialAccount",
+                          "isAnchorLink": true,
+                          "parameterFromFields": {
+                            "ownerPartyId": "partyId"
+                          }
+                        },
+                        {
+                          "_type": "link",
+                          "urlType": "transition",
+                          "text": "Create Account",
+                          "linkType": "auto",
+                          "icon": "",
+                          "badge": "",
+                          "confirmation": "",
+                          "tooltip": "",
+                          "btnType": "",
+                          "targetWindow": "",
+                          "dynamicLoadId": "",
+                          "parameterMap": {
+                            "ownerPartyId": "100051",
+                            "_openDialog": "NewFinancialAccountDialog",
+                            "partyId": "100051"
+                          },
+                          "url": "/fapps/marble/Customer/EditCustomer/findFinancialAccount",
+                          "isAnchorLink": true,
+                          "parameterFromFields": {
+                            "ownerPartyId": "partyId"
+                          }
+                        }
+                      ],
+                      "body": [
+                        {
+                          "name": "FinancialAccountList",
+                          "_type": "form-list",
+                          "formName": "FinancialAccountList",
+                          "transition": "",
+                          "list": "financialAccountList",
+                          "paginate": "true",
+                          "headerDialog": "",
+                          "selectColumns": "",
+                          "savedFinds": "",
+                          "showCsvButton": "",
+                          "showXlsxButton": "",
+                          "showPageSize": "",
+                          "skipForm": "true",
+                          "editUrl": "editFinancialAccount",
+                          "headerFields": [],
+                          "fields": [
+                            {
+                              "name": "finAccountName",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Account",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "FinancialAccountNameTemplate",
+                                  "linkType": "anchor",
+                                  "icon": "",
+                                  "badge": "",
+                                  "confirmation": "",
+                                  "tooltip": "",
+                                  "btnType": "",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "partyId": "100051"
+                                  },
+                                  "url": "/fapps/marble/Customer/EditCustomer/editFinancialAccount",
+                                  "isAnchorLink": true
+                                }
+                              ]
+                            },
+                            {
+                              "name": "finAccountTypeId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Type",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display-entity",
+                                  "entity-name": "mantle.account.financial.FinancialAccountType",
+                                  "entityName": "mantle.account.financial.FinancialAccountType",
+                                  "keyFieldName": "",
+                                  "alsoHidden": "true",
+                                  "useCache": "true",
+                                  "defaultText": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "organizationPartyId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Organization",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "link",
+                                  "urlType": "transition",
+                                  "text": "PartyNameTemplate",
+                                  "linkType": "anchor",
+                                  "icon": "",
+                                  "badge": "",
+                                  "confirmation": "",
+                                  "tooltip": "",
+                                  "btnType": "",
+                                  "targetWindow": "",
+                                  "dynamicLoadId": "",
+                                  "parameterMap": {
+                                    "partyId": ""
+                                  },
+                                  "url": "/fapps/marble/Customer/EditCustomer",
+                                  "isAnchorLink": true,
+                                  "parameterFromFields": {
+                                    "partyId": "organizationPartyId"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "name": "statusId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Status",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display-entity",
+                                  "entity-name": "moqui.basic.StatusItem",
+                                  "also-hidden": "false",
+                                  "entityName": "moqui.basic.StatusItem",
+                                  "keyFieldName": "",
+                                  "alsoHidden": "false",
+                                  "useCache": "true",
+                                  "defaultText": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "actualBalance",
+                              "from": "",
+                              "hide": "",
+                              "align": "right",
+                              "title": "Balance",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display",
+                                  "currency-unit-field": "currencyUomId",
+                                  "alsoHidden": "true",
+                                  "encode": "true",
+                                  "format": "",
+                                  "currencyUnitField": "currencyUomId"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "availableBalance",
+                              "from": "",
+                              "hide": "",
+                              "align": "right",
+                              "title": "Available",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display",
+                                  "currency-unit-field": "currencyUomId",
+                                  "alsoHidden": "true",
+                                  "encode": "true",
+                                  "format": "",
+                                  "currencyUnitField": "currencyUomId"
+                                }
+                              ]
+                            }
+                          ],
+                          "listData": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "ContentSection",
+                  "_type": "section-include",
+                  "sectionName": "ContentSection",
+                  "widgets": [
+                    {
+                      "_type": "container-box",
+                      "boxTitle": "Content",
+                      "header": [],
+                      "toolbar": [
+                        {
+                          "id": "NewContentDialog",
+                          "_type": "container-dialog",
+                          "buttonText": "Add Content",
+                          "dialogTitle": "",
+                          "width": "",
+                          "icon": "",
+                          "btnType": "",
+                          "children": [
+                            {
+                              "name": "NewContentForm",
+                              "_type": "form-single",
+                              "formName": "NewContentForm",
+                              "transition": "createContent",
+                              "map": "fieldValues",
+                              "fields": [
+                                {
+                                  "name": "partyId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Party ID",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "hidden",
+                                      "defaultValue": ""
+                                    }
+                                  ],
+                                  "currentValue": "100051"
+                                },
+                                {
+                                  "name": "partyContentTypeEnumId",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Content Type",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "drop-down",
+                                      "allow-empty": "${allowEmpty ?: 'false'}",
+                                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                                      "style": "${style?:''}",
+                                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                                      "show-not": "${showNot ?: 'false'}",
+                                      "allowEmpty": "true",
+                                      "allowMultiple": "false",
+                                      "submitOnSelect": "false",
+                                      "current": "selected",
+                                      "showNot": "${showNot ?: 'false'}",
+                                      "options": [
+                                        {
+                                          "key": "PcntBio",
+                                          "text": "Bio"
+                                        },
+                                        {
+                                          "key": "PcntEmplAuthzDocument",
+                                          "text": "Employment Authorization Document"
+                                        },
+                                        {
+                                          "key": "PcntFaceImage",
+                                          "text": "Face Image"
+                                        },
+                                        {
+                                          "key": "PcntIdentityDocument",
+                                          "text": "Identity Document"
+                                        },
+                                        {
+                                          "key": "PcntInternal",
+                                          "text": "Internal Content"
+                                        },
+                                        {
+                                          "key": "PcntInvoiceMessageFrom",
+                                          "text": "Invoice Message - When From Party"
+                                        },
+                                        {
+                                          "key": "PcntInvoiceMessageTo",
+                                          "text": "Invoice Message - When To Party"
+                                        },
+                                        {
+                                          "key": "PcntLogoImage",
+                                          "text": "Logo Image"
+                                        },
+                                        {
+                                          "key": "PcntPaymentSignaturePrimary",
+                                          "text": "Payment Signature Primary"
+                                        },
+                                        {
+                                          "key": "PcntPaymentSignatureSecondary",
+                                          "text": "Payment Signature Secondary"
+                                        },
+                                        {
+                                          "key": "PcntPrimaryImage",
+                                          "text": "Primary Image"
+                                        },
+                                        {
+                                          "key": "PcntUserDefined",
+                                          "text": "User Defined Content"
+                                        },
+                                        {
+                                          "key": "PcntVendorShipping",
+                                          "text": "Vendor Shipping Info"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "contentFile",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Content File",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "file",
+                                      "size": "",
+                                      "maxlength": "",
+                                      "multiple": "false",
+                                      "accept": ""
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "description",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Description",
+                                  "tooltip": "Put text content here or upload",
+                                  "widgets": [
+                                    {
+                                      "_type": "text-area",
+                                      "cols": "80",
+                                      "rows": "3",
+                                      "maxlength": "",
+                                      "readOnly": "false",
+                                      "editorType": "",
+                                      "autogrow": "false"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "submitButton",
+                                  "from": "",
+                                  "hide": "",
+                                  "align": "",
+                                  "title": "Submit Button",
+                                  "tooltip": "",
+                                  "widgets": [
+                                    {
+                                      "_type": "submit",
+                                      "text": "Add",
+                                      "confirmation": "",
+                                      "btnType": "",
+                                      "icon": ""
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "body": [
+                        {
+                          "name": "ContentIterateSection",
+                          "_type": "section-iterate",
+                          "sectionName": "ContentIterateSection",
+                          "iterations": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

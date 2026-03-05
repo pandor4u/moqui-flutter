@@ -1,0 +1,989 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditRateAmounts",
+  "menuTitle": "Rates",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "AddRateAmountDialog",
+          "_type": "container-dialog",
+          "buttonText": "Add Rate Amount",
+          "dialogTitle": "",
+          "width": "700",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "CreateRateAmount",
+              "_type": "form-single",
+              "formName": "CreateRateAmount",
+              "transition": "createRateAmount",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "rateAmountId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Rate Amount ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "timePeriodUomId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Time Period Uom ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "default-value": "TF_hr",
+                      "defaultValue": "TF_hr"
+                    }
+                  ]
+                },
+                {
+                  "name": "rateTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "false",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "RatpDiscounted",
+                          "text": "Discounted"
+                        },
+                        {
+                          "key": "RatpPieceMinWageAdj",
+                          "text": "Min Wage Adj"
+                        },
+                        {
+                          "key": "RatpNoCharge",
+                          "text": "No Charge"
+                        },
+                        {
+                          "key": "RatpPaidNptRrp",
+                          "text": "NPT - RRP"
+                        },
+                        {
+                          "key": "RatpPaidNptStd",
+                          "text": "NPT - STD"
+                        },
+                        {
+                          "key": "RatpOnsite",
+                          "text": "On-site"
+                        },
+                        {
+                          "key": "RatpPaidBreakRrp",
+                          "text": "Paid Break RRP"
+                        },
+                        {
+                          "key": "RatpPaidBreakStd",
+                          "text": "Paid Break STD"
+                        },
+                        {
+                          "key": "RatpHoliday",
+                          "text": "PTO - Holiday"
+                        },
+                        {
+                          "key": "RatpPtoOther",
+                          "text": "PTO - Other"
+                        },
+                        {
+                          "key": "RatpSick",
+                          "text": "PTO - Sick"
+                        },
+                        {
+                          "key": "RatpVacation",
+                          "text": "PTO - Vacation"
+                        },
+                        {
+                          "key": "RatpEvening",
+                          "text": "Shift - Evening"
+                        },
+                        {
+                          "key": "RatpShHoliday",
+                          "text": "Shift - Holiday"
+                        },
+                        {
+                          "key": "RatpNight",
+                          "text": "Shift - Night"
+                        },
+                        {
+                          "key": "RatpWeekend",
+                          "text": "Shift - Weekend"
+                        },
+                        {
+                          "key": "RatpStandard",
+                          "text": "Standard"
+                        },
+                        {
+                          "key": "RatpUnpaid",
+                          "text": "Unpaid"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "ratePurposeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Purpose",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "false",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "RaprClient",
+                          "text": "Client Billing"
+                        },
+                        {
+                          "key": "RaprVendor",
+                          "text": "Worker/Vendor Payment"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "workEffortId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Project",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "100000",
+                          "text": "100000 - Demo Test Project"
+                        },
+                        {
+                          "key": "100001",
+                          "text": "100001 - Demo Test Project"
+                        },
+                        {
+                          "key": "100004",
+                          "text": "100004 - Demo Test Project"
+                        },
+                        {
+                          "key": "100006",
+                          "text": "100006 - Playwright Test Project"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "partyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Person",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getPersonList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "emplPositionClassId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Position Class",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "GeneralManager",
+                          "text": "General Manager"
+                        },
+                        {
+                          "key": "Programmer",
+                          "text": "Programmer"
+                        },
+                        {
+                          "key": "ProjectManager",
+                          "text": "Project Manager"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "workTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Work Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "WktpGeneralLabor",
+                          "text": "General Labor"
+                        },
+                        {
+                          "key": "WktpGeneralOffice",
+                          "text": "General Office"
+                        },
+                        {
+                          "key": "WktpManagement",
+                          "text": "Management"
+                        },
+                        {
+                          "key": "WktpPaidBreak",
+                          "text": "Paid Break"
+                        },
+                        {
+                          "key": "WktpPaidNpt",
+                          "text": "Paid Non-productive Time"
+                        },
+                        {
+                          "key": "WktpProgramming",
+                          "text": "Programming"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "fromDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "thruDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Thru Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "rateAmount",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Rate Amount",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "8",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "rateCurrencyUomId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Currency",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "USD",
+                          "text": "USD"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create Rate Amount",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "EditRateAmounts",
+          "_type": "form-list",
+          "formName": "EditRateAmounts",
+          "transition": "updateRateAmount",
+          "list": "rateAmountList",
+          "paginate": "true",
+          "headerDialog": "",
+          "selectColumns": "",
+          "savedFinds": "",
+          "showCsvButton": "",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "",
+          "headerFields": [
+            {
+              "name": "rateTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "ratePurposeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Purpose",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "workEffortId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Project",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "100000",
+                      "text": "100000"
+                    },
+                    {
+                      "key": "100001",
+                      "text": "100001"
+                    },
+                    {
+                      "key": "100004",
+                      "text": "100004"
+                    },
+                    {
+                      "key": "100006",
+                      "text": "100006"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "partyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Party",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getPersonList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "emplPositionClassId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Position Class",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "GeneralManager",
+                      "text": "General Manager"
+                    },
+                    {
+                      "key": "Programmer",
+                      "text": "Programmer"
+                    },
+                    {
+                      "key": "ProjectManager",
+                      "text": "Project Manager"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "workTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Work Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "rateAmount",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Rate Amount",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "range-find",
+                  "size": "6",
+                  "maxlength": ""
+                }
+              ]
+            },
+            {
+              "name": "rateCurrencyUomId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Currency",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "USD",
+                      "text": "USD"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "findButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "rateAmountId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Rate Amount ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "timePeriodUomId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Time Period Uom ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "default-value": "TF_hr",
+                  "defaultValue": "TF_hr"
+                }
+              ]
+            },
+            {
+              "name": "rateTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "key-field-name": "enumId",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "enumId",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "ratePurposeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Purpose",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "key-field-name": "enumId",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "enumId",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "workEffortId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Project",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.work.effort.WorkEffort",
+                  "text": "${workEffortId} - ${workEffortName}",
+                  "entityName": "mantle.work.effort.WorkEffort",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "partyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Party",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.PartyDetail",
+                  "text": "${organizationName?:''} ${firstName?:''} ${lastName?:''} [${partyId}]",
+                  "entityName": "mantle.party.PartyDetail",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "emplPositionClassId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Position Class",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.humanres.position.EmplPositionClass",
+                  "text": "${title}",
+                  "entityName": "mantle.humanres.position.EmplPositionClass",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "workTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Work Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "fromDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-time",
+                  "dateType": "timestamp",
+                  "format": "",
+                  "minuteStepping": ""
+                }
+              ]
+            },
+            {
+              "name": "thruDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Thru Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-time",
+                  "dateType": "timestamp",
+                  "format": "",
+                  "minuteStepping": ""
+                }
+              ]
+            },
+            {
+              "name": "rateAmount",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Rate Amount",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "8",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ]
+            },
+            {
+              "name": "rateCurrencyUomId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Currency",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Uom",
+                  "key-field-name": "uomId",
+                  "text": "${description}",
+                  "entityName": "moqui.basic.Uom",
+                  "keyFieldName": "uomId",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Update",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "listData": [
+            {
+              "rateAmountId": "NoChargeClient",
+              "timePeriodUomId": "TF_hr",
+              "rateTypeEnumId": "RatpNoCharge",
+              "rateTypeEnumId_display": "No Charge",
+              "ratePurposeEnumId": "RaprClient",
+              "ratePurposeEnumId_display": "Client Billing",
+              "workEffortId": "",
+              "workEffortId_display": "",
+              "partyId": "",
+              "partyId_display": "",
+              "emplPositionClassId": "",
+              "emplPositionClassId_display": "",
+              "workTypeEnumId": "",
+              "workTypeEnumId_display": "",
+              "fromDate": "2010-02-03 02:00",
+              "thruDate": "",
+              "rateAmount": "0",
+              "rateCurrencyUomId": "",
+              "rateCurrencyUomId_display": ""
+            },
+            {
+              "rateAmountId": "EX_JOHN_DOE-NCVN",
+              "timePeriodUomId": "TF_hr",
+              "rateTypeEnumId": "RatpNoCharge",
+              "rateTypeEnumId_display": "No Charge",
+              "ratePurposeEnumId": "RaprVendor",
+              "ratePurposeEnumId_display": "Worker/Vendor Payment",
+              "workEffortId": "",
+              "workEffortId_display": "",
+              "partyId": "EX_JOHN_DOE",
+              "partyId_display": " John Doe [EX_JOHN_DOE]",
+              "emplPositionClassId": "",
+              "emplPositionClassId_display": "",
+              "workTypeEnumId": "",
+              "workTypeEnumId_display": "",
+              "fromDate": "2010-02-03 02:00",
+              "thruDate": "",
+              "rateAmount": "75",
+              "rateCurrencyUomId": "USD",
+              "rateCurrencyUomId_display": "United States Dollar"
+            },
+            {
+              "rateAmountId": "EX_JOHN_DOE-STCL",
+              "timePeriodUomId": "TF_hr",
+              "rateTypeEnumId": "RatpStandard",
+              "rateTypeEnumId_display": "Standard",
+              "ratePurposeEnumId": "RaprClient",
+              "ratePurposeEnumId_display": "Client Billing",
+              "workEffortId": "",
+              "workEffortId_display": "",
+              "partyId": "EX_JOHN_DOE",
+              "partyId_display": " John Doe [EX_JOHN_DOE]",
+              "emplPositionClassId": "",
+              "emplPositionClassId_display": "",
+              "workTypeEnumId": "",
+              "workTypeEnumId_display": "",
+              "fromDate": "2010-02-03 02:00",
+              "thruDate": "",
+              "rateAmount": "120",
+              "rateCurrencyUomId": "USD",
+              "rateCurrencyUomId_display": "United States Dollar"
+            },
+            {
+              "rateAmountId": "EX_JOHN_DOE-STVN",
+              "timePeriodUomId": "TF_hr",
+              "rateTypeEnumId": "RatpStandard",
+              "rateTypeEnumId_display": "Standard",
+              "ratePurposeEnumId": "RaprVendor",
+              "ratePurposeEnumId_display": "Worker/Vendor Payment",
+              "workEffortId": "",
+              "workEffortId_display": "",
+              "partyId": "EX_JOHN_DOE",
+              "partyId_display": " John Doe [EX_JOHN_DOE]",
+              "emplPositionClassId": "",
+              "emplPositionClassId_display": "",
+              "workTypeEnumId": "",
+              "workTypeEnumId_display": "",
+              "fromDate": "2010-02-03 02:00",
+              "thruDate": "",
+              "rateAmount": "75",
+              "rateCurrencyUomId": "USD",
+              "rateCurrencyUomId_display": "United States Dollar"
+            },
+            {
+              "rateAmountId": "UnpaidVendor",
+              "timePeriodUomId": "TF_hr",
+              "rateTypeEnumId": "RatpUnpaid",
+              "rateTypeEnumId_display": "Unpaid",
+              "ratePurposeEnumId": "RaprVendor",
+              "ratePurposeEnumId_display": "Worker/Vendor Payment",
+              "workEffortId": "",
+              "workEffortId_display": "",
+              "partyId": "",
+              "partyId_display": "",
+              "emplPositionClassId": "",
+              "emplPositionClassId_display": "",
+              "workTypeEnumId": "",
+              "workTypeEnumId_display": "",
+              "fromDate": "2010-02-03 02:00",
+              "thruDate": "",
+              "rateAmount": "0",
+              "rateCurrencyUomId": "",
+              "rateCurrencyUomId_display": ""
+            }
+          ],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 5,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 5
+          }
+        }
+      ]
+    }
+  ]
+}

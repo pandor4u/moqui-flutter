@@ -1,0 +1,17 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Payment",
+  "menuTitle": "Payments",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "subscreens-active",
+          "defaultItem": "FindPayment"
+        }
+      ]
+    }
+  ]
+}

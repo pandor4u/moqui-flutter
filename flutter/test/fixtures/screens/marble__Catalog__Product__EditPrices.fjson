@@ -1,0 +1,1615 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditPrices",
+  "menuTitle": "Prices",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "NewPriceDialog",
+          "_type": "container-dialog",
+          "buttonText": "New Price",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "NewPriceForm",
+              "_type": "form-single",
+              "formName": "NewPriceForm",
+              "transition": "createProductPrice",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "productId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Product",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display-entity",
+                      "entity-name": "mantle.product.Product",
+                      "text": "${productName} [${pseudoId}]",
+                      "entityName": "mantle.product.Product",
+                      "keyFieldName": "",
+                      "alsoHidden": "true",
+                      "useCache": "true",
+                      "defaultText": ""
+                    }
+                  ],
+                  "currentValue": "DEMO_1_1"
+                },
+                {
+                  "name": "priceTypeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "false",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "PptAverage",
+                          "text": "Average Cost"
+                        },
+                        {
+                          "key": "PptCompetitive",
+                          "text": "Competitive Price"
+                        },
+                        {
+                          "key": "PptCurrent",
+                          "text": "Current Price"
+                        },
+                        {
+                          "key": "PptList",
+                          "text": "List Price"
+                        },
+                        {
+                          "key": "PptMaximum",
+                          "text": "Maximum Price"
+                        },
+                        {
+                          "key": "PptMinimum",
+                          "text": "Minimum Price"
+                        },
+                        {
+                          "key": "PptPromotional",
+                          "text": "Promotional Price"
+                        },
+                        {
+                          "key": "PptSpecialPromo",
+                          "text": "Special Promo Price"
+                        },
+                        {
+                          "key": "PptWholesale",
+                          "text": "Wholesale Price"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "pricePurposeEnumId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Purpose",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "${allowEmpty ?: 'false'}",
+                      "no-current-selected-key": "${noCurrentSelectedKey?:''}",
+                      "style": "${style?:''}",
+                      "allow-multiple": "${allowMultiple ?: 'false'}",
+                      "show-not": "${showNot ?: 'false'}",
+                      "allowEmpty": "false",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "${showNot ?: 'false'}",
+                      "options": [
+                        {
+                          "key": "PppComponent",
+                          "text": "Component Price"
+                        },
+                        {
+                          "key": "PppPurchase",
+                          "text": "Purchase/Initial"
+                        },
+                        {
+                          "key": "PppRecurring",
+                          "text": "Recurring Charge"
+                        },
+                        {
+                          "key": "PppUsage",
+                          "text": "Usage Charge"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "vendorPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Vendor",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "customerPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Customer",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "otherPartyItemId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Other Party Product ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "25",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "fromDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "thruDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Thru Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "dateType": "timestamp",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "productStoreId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Store",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "POPC_DEFAULT",
+                          "text": "Ziziwork Retail Store [POPC_DEFAULT]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "minQuantity",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Min Quantity",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "10",
+                      "default-value": "1",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "price",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Price",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "10",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "priceUomId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Currency",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "no-current-selected-key": "${ec.user.getPreference('CurrencyDefault') ?: 'USD'}",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "AFA",
+                          "text": "Afghani [AFA]"
+                        },
+                        {
+                          "key": "ALL",
+                          "text": "Albanian Lek [ALL]"
+                        },
+                        {
+                          "key": "DZD",
+                          "text": "Algerian Dinar [DZD]"
+                        },
+                        {
+                          "key": "ADP",
+                          "text": "Andoran peseta [ADP]"
+                        },
+                        {
+                          "key": "AOK",
+                          "text": "Angolan Kwanza [AOK]"
+                        },
+                        {
+                          "key": "ARS",
+                          "text": "Argentina Peso [ARS]"
+                        },
+                        {
+                          "key": "ARA",
+                          "text": "Argentinian Austral [ARA]"
+                        },
+                        {
+                          "key": "AMD",
+                          "text": "Armenian Dram [AMD]"
+                        },
+                        {
+                          "key": "AWG",
+                          "text": "Aruban Guilder [AWG]"
+                        },
+                        {
+                          "key": "AUD",
+                          "text": "Australian Dollar [AUD]"
+                        },
+                        {
+                          "key": "AZM",
+                          "text": "Azerbaijan Manat [AZM]"
+                        },
+                        {
+                          "key": "BSD",
+                          "text": "Bahaman Dollar [BSD]"
+                        },
+                        {
+                          "key": "BHD",
+                          "text": "Bahrain Dinar [BHD]"
+                        },
+                        {
+                          "key": "BDT",
+                          "text": "Bangladesh Taka [BDT]"
+                        },
+                        {
+                          "key": "BBD",
+                          "text": "Barbados Dollar [BBD]"
+                        },
+                        {
+                          "key": "BZD",
+                          "text": "Belize Dollar [BZD]"
+                        },
+                        {
+                          "key": "BYR",
+                          "text": "Belorussian Ruble [BYR]"
+                        },
+                        {
+                          "key": "XOF",
+                          "text": "Benin C.f.A. Franc [XOF]"
+                        },
+                        {
+                          "key": "BMD",
+                          "text": "Bermudan Dollar [BMD]"
+                        },
+                        {
+                          "key": "BTC",
+                          "text": "Bitcoin [BTC]"
+                        },
+                        {
+                          "key": "BOB",
+                          "text": "Bolivian Boliviano [BOB]"
+                        },
+                        {
+                          "key": "BAD",
+                          "text": "Bosnia-Herzogovinian Dinar [BAD]"
+                        },
+                        {
+                          "key": "BWP",
+                          "text": "Botswana Pula [BWP]"
+                        },
+                        {
+                          "key": "BRR",
+                          "text": "Brazil [BRR]"
+                        },
+                        {
+                          "key": "BRL",
+                          "text": "Brazilian Real [BRL]"
+                        },
+                        {
+                          "key": "GBP",
+                          "text": "British Pound [GBP]"
+                        },
+                        {
+                          "key": "BND",
+                          "text": "Brunei Dollar [BND]"
+                        },
+                        {
+                          "key": "BGN",
+                          "text": "Bulgarian Lev [BGN]"
+                        },
+                        {
+                          "key": "BIF",
+                          "text": "Burundi Franc [BIF]"
+                        },
+                        {
+                          "key": "KHR",
+                          "text": "Cambodian Riel [KHR]"
+                        },
+                        {
+                          "key": "CAD",
+                          "text": "Canadian Dollar [CAD]"
+                        },
+                        {
+                          "key": "CVE",
+                          "text": "Cape Verde Escudo [CVE]"
+                        },
+                        {
+                          "key": "KYD",
+                          "text": "Cayman Dollar [KYD]"
+                        },
+                        {
+                          "key": "CLP",
+                          "text": "Chilean Peso [CLP]"
+                        },
+                        {
+                          "key": "CNY",
+                          "text": "Chinese Yuan Renminbi [CNY]"
+                        },
+                        {
+                          "key": "COP",
+                          "text": "Colombian Peso [COP]"
+                        },
+                        {
+                          "key": "KMF",
+                          "text": "Comoros Franc [KMF]"
+                        },
+                        {
+                          "key": "CRC",
+                          "text": "Costa Rica Colon [CRC]"
+                        },
+                        {
+                          "key": "HRD",
+                          "text": "Croatian Dinar [HRD]"
+                        },
+                        {
+                          "key": "CUP",
+                          "text": "Cuban Peso [CUP]"
+                        },
+                        {
+                          "key": "CYP",
+                          "text": "Cyprus Pound [CYP]"
+                        },
+                        {
+                          "key": "CZK",
+                          "text": "Czech Krona [CZK]"
+                        },
+                        {
+                          "key": "DKK",
+                          "text": "Danish Krone [DKK]"
+                        },
+                        {
+                          "key": "DJF",
+                          "text": "Djibouti Franc [DJF]"
+                        },
+                        {
+                          "key": "DOP",
+                          "text": "Dominican Peso [DOP]"
+                        },
+                        {
+                          "key": "DRP",
+                          "text": "Dominican Republic Peso [DRP]"
+                        },
+                        {
+                          "key": "XCD",
+                          "text": "East Carribean Dollar [XCD]"
+                        },
+                        {
+                          "key": "ECS",
+                          "text": "Ecuador Sucre [ECS]"
+                        },
+                        {
+                          "key": "EGP",
+                          "text": "Egyptian Pound [EGP]"
+                        },
+                        {
+                          "key": "SVC",
+                          "text": "El Salvador Colon [SVC]"
+                        },
+                        {
+                          "key": "EEK",
+                          "text": "Estonian Krone [EEK]"
+                        },
+                        {
+                          "key": "ETB",
+                          "text": "Ethiopian Birr [ETB]"
+                        },
+                        {
+                          "key": "EUR",
+                          "text": "Euro [EUR]"
+                        },
+                        {
+                          "key": "FKP",
+                          "text": "Falkland Pound [FKP]"
+                        },
+                        {
+                          "key": "FJD",
+                          "text": "Fiji Dollar [FJD]"
+                        },
+                        {
+                          "key": "XAF",
+                          "text": "Gabon C.f.A Franc [XAF]"
+                        },
+                        {
+                          "key": "GMD",
+                          "text": "Gambian Dalasi [GMD]"
+                        },
+                        {
+                          "key": "GEK",
+                          "text": "Georgian Kupon [GEK]"
+                        },
+                        {
+                          "key": "GHC",
+                          "text": "Ghanian Cedi [GHC]"
+                        },
+                        {
+                          "key": "GIP",
+                          "text": "Gibraltar Pound [GIP]"
+                        },
+                        {
+                          "key": "GTQ",
+                          "text": "Guatemalan Quedzal [GTQ]"
+                        },
+                        {
+                          "key": "GNF",
+                          "text": "Guinea Franc [GNF]"
+                        },
+                        {
+                          "key": "GWP",
+                          "text": "Guinea Peso [GWP]"
+                        },
+                        {
+                          "key": "GYD",
+                          "text": "Guyanese Dollar [GYD]"
+                        },
+                        {
+                          "key": "HTG",
+                          "text": "Haitian Gourde [HTG]"
+                        },
+                        {
+                          "key": "HNL",
+                          "text": "Honduran Lempira [HNL]"
+                        },
+                        {
+                          "key": "HKD",
+                          "text": "Hong Kong Dollar [HKD]"
+                        },
+                        {
+                          "key": "HUF",
+                          "text": "Hungarian forint [HUF]"
+                        },
+                        {
+                          "key": "ISK",
+                          "text": "Iceland Krona [ISK]"
+                        },
+                        {
+                          "key": "INR",
+                          "text": "Indian Rupee [INR]"
+                        },
+                        {
+                          "key": "IDR",
+                          "text": "Indonesian Rupiah [IDR]"
+                        },
+                        {
+                          "key": "IRR",
+                          "text": "Iranian Rial [IRR]"
+                        },
+                        {
+                          "key": "IQD",
+                          "text": "Iraqui Dinar [IQD]"
+                        },
+                        {
+                          "key": "ILS",
+                          "text": "Israeli Scheckel [ILS]"
+                        },
+                        {
+                          "key": "JMD",
+                          "text": "Jamaican Dollar [JMD]"
+                        },
+                        {
+                          "key": "JPY",
+                          "text": "Japanese Yen [JPY]"
+                        },
+                        {
+                          "key": "JOD",
+                          "text": "Jordanian Dinar [JOD]"
+                        },
+                        {
+                          "key": "KZT",
+                          "text": "Kazakhstani Tenge [KZT]"
+                        },
+                        {
+                          "key": "KES",
+                          "text": "Kenyan Shilling [KES]"
+                        },
+                        {
+                          "key": "KIS",
+                          "text": "Kirghizstan Som [KIS]"
+                        },
+                        {
+                          "key": "KWD",
+                          "text": "Kuwaiti Dinar [KWD]"
+                        },
+                        {
+                          "key": "LAK",
+                          "text": "Laotian Kip [LAK]"
+                        },
+                        {
+                          "key": "LVL",
+                          "text": "Latvian Lat [LVL]"
+                        },
+                        {
+                          "key": "LBP",
+                          "text": "Lebanese Pound [LBP]"
+                        },
+                        {
+                          "key": "SLL",
+                          "text": "Leone [SLL]"
+                        },
+                        {
+                          "key": "LSL",
+                          "text": "Lesotho Loti [LSL]"
+                        },
+                        {
+                          "key": "LRD",
+                          "text": "Liberian Dollar [LRD]"
+                        },
+                        {
+                          "key": "LYD",
+                          "text": "Libyan Dinar [LYD]"
+                        },
+                        {
+                          "key": "LTL",
+                          "text": "Lithuanian Lita [LTL]"
+                        },
+                        {
+                          "key": "MOP",
+                          "text": "Macao Pataca [MOP]"
+                        },
+                        {
+                          "key": "MGF",
+                          "text": "Madagascan Franc [MGF]"
+                        },
+                        {
+                          "key": "MWK",
+                          "text": "Malawi Kwacha [MWK]"
+                        },
+                        {
+                          "key": "MYR",
+                          "text": "Malaysian Ringgit [MYR]"
+                        },
+                        {
+                          "key": "MVR",
+                          "text": "Maldive Rufiyaa [MVR]"
+                        },
+                        {
+                          "key": "MTL",
+                          "text": "Maltese Lira [MTL]"
+                        },
+                        {
+                          "key": "MRO",
+                          "text": "Mauritanian Ouguiya [MRO]"
+                        },
+                        {
+                          "key": "MUR",
+                          "text": "Mauritius Rupee [MUR]"
+                        },
+                        {
+                          "key": "MXN",
+                          "text": "Mexican Peso (new) [MXN]"
+                        },
+                        {
+                          "key": "MXP",
+                          "text": "Mexican Peso (old) [MXP]"
+                        },
+                        {
+                          "key": "MDL",
+                          "text": "Moldavian Lei [MDL]"
+                        },
+                        {
+                          "key": "MNT",
+                          "text": "Mongolian Tugrik [MNT]"
+                        },
+                        {
+                          "key": "MAD",
+                          "text": "Moroccan Dirham [MAD]"
+                        },
+                        {
+                          "key": "MZM",
+                          "text": "Mozambique Metical [MZM]"
+                        },
+                        {
+                          "key": "NPR",
+                          "text": "Nepalese Rupee [NPR]"
+                        },
+                        {
+                          "key": "NIS",
+                          "text": "New Israeli Shekel [NIS]"
+                        },
+                        {
+                          "key": "TWD",
+                          "text": "New Taiwan Dollar [TWD]"
+                        },
+                        {
+                          "key": "NZD",
+                          "text": "New Zealand Dollar [NZD]"
+                        },
+                        {
+                          "key": "NIC",
+                          "text": "Nicaragua [NIC]"
+                        },
+                        {
+                          "key": "NIO",
+                          "text": "Nicaraguan Cordoba [NIO]"
+                        },
+                        {
+                          "key": "NGN",
+                          "text": "Nigerian Naira [NGN]"
+                        },
+                        {
+                          "key": "KPW",
+                          "text": "North Korean Won [KPW]"
+                        },
+                        {
+                          "key": "NOK",
+                          "text": "Norwegian Krone [NOK]"
+                        },
+                        {
+                          "key": "OMR",
+                          "text": "Omani Rial [OMR]"
+                        },
+                        {
+                          "key": "PKR",
+                          "text": "Pakistan Rupee [PKR]"
+                        },
+                        {
+                          "key": "PAB",
+                          "text": "Panamanian Balboa [PAB]"
+                        },
+                        {
+                          "key": "PGK",
+                          "text": "Papua New Guinea Kina [PGK]"
+                        },
+                        {
+                          "key": "PYG",
+                          "text": "Paraguayan Guarani [PYG]"
+                        },
+                        {
+                          "key": "SOL",
+                          "text": "Peru [SOL]"
+                        },
+                        {
+                          "key": "PEI",
+                          "text": "Peruvian Inti [PEI]"
+                        },
+                        {
+                          "key": "PES",
+                          "text": "Peruvian Sol [PES]"
+                        },
+                        {
+                          "key": "PEN",
+                          "text": "Peruvian Sol - New [PEN]"
+                        },
+                        {
+                          "key": "PHP",
+                          "text": "Philippino Peso [PHP]"
+                        },
+                        {
+                          "key": "PLZ",
+                          "text": "Poland [PLZ]"
+                        },
+                        {
+                          "key": "PLN",
+                          "text": "Polish Zloty [PLN]"
+                        },
+                        {
+                          "key": "QAR",
+                          "text": "Qatar Riyal [QAR]"
+                        },
+                        {
+                          "key": "ROL",
+                          "text": "Romanian Leu [ROL]"
+                        },
+                        {
+                          "key": "RUR",
+                          "text": "Russian Rouble [RUR]"
+                        },
+                        {
+                          "key": "SUR",
+                          "text": "Russian Ruble (old) [SUR]"
+                        },
+                        {
+                          "key": "RWF",
+                          "text": "Rwanda Franc [RWF]"
+                        },
+                        {
+                          "key": "WST",
+                          "text": "Samoan Tala [WST]"
+                        },
+                        {
+                          "key": "CDP",
+                          "text": "Santo Domiongo [CDP]"
+                        },
+                        {
+                          "key": "STD",
+                          "text": "Sao Tome / Principe Dobra [STD]"
+                        },
+                        {
+                          "key": "SAR",
+                          "text": "Saudi Riyal [SAR]"
+                        },
+                        {
+                          "key": "SCR",
+                          "text": "Seychelles Rupee [SCR]"
+                        },
+                        {
+                          "key": "SGD",
+                          "text": "Singapore Dollar [SGD]"
+                        },
+                        {
+                          "key": "SBD",
+                          "text": "Solomon Islands Dollar [SBD]"
+                        },
+                        {
+                          "key": "SOS",
+                          "text": "Somalian Shilling [SOS]"
+                        },
+                        {
+                          "key": "ZAR",
+                          "text": "South African Rand [ZAR]"
+                        },
+                        {
+                          "key": "KRW",
+                          "text": "South Korean Won [KRW]"
+                        },
+                        {
+                          "key": "LKR",
+                          "text": "Sri Lankan Rupee [LKR]"
+                        },
+                        {
+                          "key": "SHP",
+                          "text": "St.Helena Pound [SHP]"
+                        },
+                        {
+                          "key": "SDP",
+                          "text": "Sudanese Pound [SDP]"
+                        },
+                        {
+                          "key": "SRG",
+                          "text": "Surinam Guilder [SRG]"
+                        },
+                        {
+                          "key": "SZL",
+                          "text": "Swaziland Lilangeni [SZL]"
+                        },
+                        {
+                          "key": "SEK",
+                          "text": "Swedish Krona [SEK]"
+                        },
+                        {
+                          "key": "CHF",
+                          "text": "Swiss Franc [CHF]"
+                        },
+                        {
+                          "key": "SYP",
+                          "text": "Syrian Pound [SYP]"
+                        },
+                        {
+                          "key": "TJR",
+                          "text": "Tadzhikistani Ruble [TJR]"
+                        },
+                        {
+                          "key": "TZS",
+                          "text": "Tanzanian Shilling [TZS]"
+                        },
+                        {
+                          "key": "THB",
+                          "text": "Thailand Baht [THB]"
+                        },
+                        {
+                          "key": "TPE",
+                          "text": "Timor Escudo [TPE]"
+                        },
+                        {
+                          "key": "TOP",
+                          "text": "Tongan Pa'anga [TOP]"
+                        },
+                        {
+                          "key": "TTD",
+                          "text": "Trinidad and Tobago Dollar [TTD]"
+                        },
+                        {
+                          "key": "TND",
+                          "text": "Tunisian Dinar [TND]"
+                        },
+                        {
+                          "key": "TRY",
+                          "text": "Turkish Lira [TRY]"
+                        },
+                        {
+                          "key": "TMM",
+                          "text": "Turkmenistani Manat [TMM]"
+                        },
+                        {
+                          "key": "UGS",
+                          "text": "Ugandan Shilling [UGS]"
+                        },
+                        {
+                          "key": "UAH",
+                          "text": "Ukrainian Hryvnia [UAH]"
+                        },
+                        {
+                          "key": "AED",
+                          "text": "United Arab Emirates Dirham [AED]"
+                        },
+                        {
+                          "key": "USD",
+                          "text": "United States Dollar [USD]"
+                        },
+                        {
+                          "key": "UYU",
+                          "text": "Uruguay [UYU]"
+                        },
+                        {
+                          "key": "UYP",
+                          "text": "Uruguayan New Peso [UYP]"
+                        },
+                        {
+                          "key": "VUV",
+                          "text": "Vanuatu Vatu [VUV]"
+                        },
+                        {
+                          "key": "VEB",
+                          "text": "Venezuelan Bolivar [VEB]"
+                        },
+                        {
+                          "key": "VND",
+                          "text": "Vietnamese Dong [VND]"
+                        },
+                        {
+                          "key": "ANG",
+                          "text": "West Indian Guilder [ANG]"
+                        },
+                        {
+                          "key": "YER",
+                          "text": "Yemeni Ryal [YER]"
+                        },
+                        {
+                          "key": "ZRZ",
+                          "text": "Zaire [ZRZ]"
+                        },
+                        {
+                          "key": "ZMK",
+                          "text": "Zambian Kwacha [ZMK]"
+                        },
+                        {
+                          "key": "ZWD",
+                          "text": "Zimbabwean Dollar [ZWD]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "PricesForm",
+          "_type": "form-list",
+          "formName": "PricesForm",
+          "transition": "updateProductPrice",
+          "list": "priceList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "",
+          "savedFinds": "",
+          "showCsvButton": "",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "",
+          "editUrl": "deleteProductPrice",
+          "headerFields": [
+            {
+              "name": "productId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "priceTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "pricePurposeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Purpose",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                }
+              ]
+            },
+            {
+              "name": "vendorPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Vendor Party ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "customerPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Customer Party ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "fromDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "thruDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Thru Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "minQuantity",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Min Quantity",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "range-find",
+                  "size": "",
+                  "maxlength": ""
+                }
+              ]
+            },
+            {
+              "name": "price",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Price",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "range-find",
+                  "size": "",
+                  "maxlength": ""
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "productPriceId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product Price ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "productId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "hidden",
+                  "defaultValue": ""
+                }
+              ]
+            },
+            {
+              "name": "priceTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "pricePurposeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Purpose",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "vendorPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Vendor",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "customerPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Customer",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "otherPartyItemId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Other Party Product ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "25",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ]
+            },
+            {
+              "name": "fromDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "From Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-time",
+                  "dateType": "timestamp",
+                  "format": "",
+                  "minuteStepping": ""
+                }
+              ]
+            },
+            {
+              "name": "thruDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Thru Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-time",
+                  "dateType": "timestamp",
+                  "format": "",
+                  "minuteStepping": ""
+                }
+              ]
+            },
+            {
+              "name": "productStoreId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Store",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "POPC_DEFAULT",
+                      "text": "Ziziwork Retail Store [POPC_DEFAULT]"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "minQuantity",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Min Quantity",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "8",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ]
+            },
+            {
+              "name": "price",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Price",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-line",
+                  "size": "8",
+                  "format": "#.00",
+                  "inputType": "text",
+                  "maxlength": "",
+                  "mask": "",
+                  "prefix": ""
+                }
+              ]
+            },
+            {
+              "name": "priceUomId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Currency",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Update",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            },
+            {
+              "name": "removeButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Remove Button",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": " ",
+                  "linkType": "auto",
+                  "icon": "fa fa-trash",
+                  "badge": "",
+                  "confirmation": "Delete this Price record?",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "productId": "DEMO_1_1"
+                  },
+                  "url": "/fapps/marble/Catalog/Product/EditPrices/deleteProductPrice",
+                  "isAnchorLink": false
+                }
+              ]
+            }
+          ],
+          "listData": [
+            {
+              "productPriceId": "DEMO_1_1_CS100",
+              "productId": "DEMO_1_1",
+              "priceTypeEnumId": "PptCurrent",
+              "priceTypeEnumId_display": "Current Price",
+              "pricePurposeEnumId": "PppPurchase",
+              "pricePurposeEnumId_display": "Purchase/Initial",
+              "vendorPartyId": "ZiddlemanInc",
+              "customerPartyId": null,
+              "otherPartyItemId": "",
+              "fromDate": "2010-02-03 02:00",
+              "thruDate": "",
+              "productStoreId": null,
+              "minQuantity": "100",
+              "price": "8.00",
+              "priceUomId": "USD",
+              "priceUomId_display": "USD"
+            },
+            {
+              "productPriceId": "DEMO_1_1_CS1",
+              "productId": "DEMO_1_1",
+              "priceTypeEnumId": "PptCurrent",
+              "priceTypeEnumId_display": "Current Price",
+              "pricePurposeEnumId": "PppPurchase",
+              "pricePurposeEnumId_display": "Purchase/Initial",
+              "vendorPartyId": "ZiddlemanInc",
+              "customerPartyId": null,
+              "otherPartyItemId": "",
+              "fromDate": "2010-02-03 02:00",
+              "thruDate": "",
+              "productStoreId": null,
+              "minQuantity": "1",
+              "price": "9.00",
+              "priceUomId": "USD",
+              "priceUomId_display": "USD"
+            },
+            {
+              "productPriceId": "DEMO_1_1_CTL",
+              "productId": "DEMO_1_1",
+              "priceTypeEnumId": "PptCurrent",
+              "priceTypeEnumId_display": "Current Price",
+              "pricePurposeEnumId": "PppPurchase",
+              "pricePurposeEnumId_display": "Purchase/Initial",
+              "vendorPartyId": null,
+              "customerPartyId": null,
+              "otherPartyItemId": "",
+              "fromDate": "2013-01-01 02:00",
+              "thruDate": "2030-01-01 02:00",
+              "productStoreId": "POPC_DEFAULT",
+              "minQuantity": "1",
+              "price": "16.99",
+              "priceUomId": "USD",
+              "priceUomId_display": "USD"
+            },
+            {
+              "productPriceId": "DEMO_1_1_CLT",
+              "productId": "DEMO_1_1",
+              "priceTypeEnumId": "PptCurrent",
+              "priceTypeEnumId_display": "Current Price",
+              "pricePurposeEnumId": "PppPurchase",
+              "pricePurposeEnumId_display": "Purchase/Initial",
+              "vendorPartyId": null,
+              "customerPartyId": null,
+              "otherPartyItemId": "",
+              "fromDate": "2010-02-03 02:00",
+              "thruDate": "",
+              "productStoreId": null,
+              "minQuantity": "1",
+              "price": "18.99",
+              "priceUomId": "USD",
+              "priceUomId_display": "USD"
+            },
+            {
+              "productPriceId": "DEMO_1_1_L",
+              "productId": "DEMO_1_1",
+              "priceTypeEnumId": "PptList",
+              "priceTypeEnumId_display": "List Price",
+              "pricePurposeEnumId": "PppPurchase",
+              "pricePurposeEnumId_display": "Purchase/Initial",
+              "vendorPartyId": null,
+              "customerPartyId": null,
+              "otherPartyItemId": "",
+              "fromDate": "2010-02-03 02:00",
+              "thruDate": "",
+              "productStoreId": null,
+              "minQuantity": "1",
+              "price": "19.99",
+              "priceUomId": "USD",
+              "priceUomId_display": "USD"
+            }
+          ],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 5,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 5
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,718 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FindReturn",
+  "menuTitle": "Returns",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "CreateReturnDialog",
+          "_type": "container-dialog",
+          "buttonText": "Create Customer Return",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "CreateReturn",
+              "_type": "form-single",
+              "formName": "CreateReturn",
+              "transition": "createReturn",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "customerPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Customer",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "vendorPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Vendor Org",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "ZIHR: Ziziwork Human Resources"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "ZICORP: Ziziwork Industries"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "ZISAL: Ziziwork Sales"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "ZISER: Ziziwork Services"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "facilityId",
+                  "from": "facilityId ?: defaultFacilityId",
+                  "hide": "",
+                  "align": "",
+                  "title": "Vendor Warehouse",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getWhFacilitiesByVendor",
+                        "serverSearch": "false",
+                        "minLength": "1",
+                        "dependsOnField": "vendorPartyId",
+                        "dependsOnParameter": ""
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "CreateSupplierReturnDialog",
+          "_type": "container-dialog",
+          "buttonText": "Create Supplier Return",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "CreateSupplierReturn",
+              "_type": "form-single",
+              "formName": "CreateSupplierReturn",
+              "transition": "createReturn",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "vendorPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Supplier",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "customerPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Customer Org",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "ZIHR: Ziziwork Human Resources"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "ZICORP: Ziziwork Industries"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "ZIRET: Ziziwork Retail & Wholesale"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "ZISAL: Ziziwork Sales"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "ZISER: Ziziwork Services"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "facilityId",
+                  "from": "facilityId ?: defaultFacilityId",
+                  "hide": "",
+                  "align": "",
+                  "title": "Facility",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "getFacilityList",
+                        "serverSearch": "true",
+                        "minLength": "0"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ReturnHeaderList",
+          "_type": "form-list",
+          "formName": "ReturnHeaderList",
+          "transition": "",
+          "list": "returnHeaderList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "",
+          "savedFinds": "true",
+          "showCsvButton": "",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "true",
+          "editUrl": "editReturn",
+          "headerFields": [
+            {
+              "name": "returnType",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Return Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "radio",
+                  "no-current-selected-key": "Any",
+                  "noCurrentSelectedKey": "Any",
+                  "options": [
+                    {
+                      "key": "Any",
+                      "text": "Any"
+                    },
+                    {
+                      "key": "Customer",
+                      "text": "Customer"
+                    },
+                    {
+                      "key": "Supplier",
+                      "text": "Supplier"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "returnId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Return ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "hide-options": "true",
+                  "size": "10",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#statusDropDown"
+                }
+              ]
+            },
+            {
+              "name": "entryDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Entry Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "date-period",
+                  "allowEmpty": "true",
+                  "time": "false"
+                }
+              ]
+            },
+            {
+              "name": "vendorPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Vendor",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "customerPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Customer",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "facilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Warehouse",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getFacilityList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "orderId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Order ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "default-operator": "begins",
+                  "hide-options": "true",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "orderDisplayId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Order Display ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "default-operator": "begins",
+                  "hide-options": "true",
+                  "size": "",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "returnId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Return ID",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Return/FindReturn/editReturn",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.StatusItem",
+                  "entityName": "moqui.basic.StatusItem",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "entryDate",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Entry Date",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "vendorPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Vendor",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "PartyNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": ""
+                  },
+                  "url": "/fapps/marble/Return/FindReturn/editParty",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "partyId": "vendorPartyId"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "customerPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Customer",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "PartyNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "partyId": ""
+                  },
+                  "url": "/fapps/marble/Return/FindReturn/editParty",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "partyId": "customerPartyId"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "facilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Warehouse",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "FacilityNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Return/FindReturn/editFacility",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "orderIds",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Order Ids",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "section-iterate",
+                  "name": "OrderListSection",
+                  "list": "returnOrderList",
+                  "entry": "orderInfo"
+                }
+              ]
+            }
+          ],
+          "listData": [
+            {
+              "statusId": "ReturnCreated",
+              "statusId_display": "Created",
+              "entryDate": "1772604000000",
+              "entryDate_display": "2026-03-04 00:00",
+              "orderIds": "",
+              "vendorPartyId": "ORG_ZIZI_CORP",
+              "customerPartyId": "100051",
+              "returnId_linkText": "100003"
+            },
+            {
+              "statusId": "ReturnCreated",
+              "statusId_display": "Created",
+              "entryDate": "1772604000000",
+              "entryDate_display": "2026-03-04 00:00",
+              "orderIds": "",
+              "vendorPartyId": "ORG_ZIZI_CORP",
+              "customerPartyId": "100051",
+              "returnId_linkText": "100004"
+            },
+            {
+              "statusId": "ReturnCreated",
+              "statusId_display": "Created",
+              "entryDate": "1772589742656",
+              "entryDate_display": "2026-03-03 20:02",
+              "orderIds": "",
+              "vendorPartyId": "ORG_ZIZI_CORP",
+              "customerPartyId": "CustJqp",
+              "returnId_linkText": "100002"
+            },
+            {
+              "statusId": "ReturnCreated",
+              "statusId_display": "Created",
+              "entryDate": "1772589655058",
+              "entryDate_display": "2026-03-03 20:00",
+              "orderIds": "",
+              "vendorPartyId": "ORG_ZIZI_CORP",
+              "customerPartyId": "CustJqp",
+              "returnId_linkText": "100001"
+            },
+            {
+              "statusId": "ReturnCreated",
+              "statusId_display": "Created",
+              "entryDate": "1772589592317",
+              "entryDate_display": "2026-03-03 19:59",
+              "orderIds": "",
+              "vendorPartyId": "ORG_ZIZI_CORP",
+              "customerPartyId": "CustJqp",
+              "returnId_linkText": "100000"
+            }
+          ],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 5,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 5
+          }
+        }
+      ]
+    }
+  ]
+}

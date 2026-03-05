@@ -1,0 +1,778 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "EditTimePeriod",
+  "menuTitle": "Time Period",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "condition": "parentPeriod != null",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Parent: ${parentPeriod.periodName}",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "resolvedText": "Parent: ${parentPeriod.periodName}",
+          "url": "editTimePeriod",
+          "isAnchorLink": false,
+          "parameterFromFields": {
+            "timePeriodId": "parentPeriod"
+          }
+        },
+        {
+          "condition": "previousPeriod != null",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Previous: ZICORP FY2026",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "timePeriodId": "100000"
+          },
+          "url": "/fapps/marble/Accounting/TimePeriod/EditTimePeriod/editTimePeriod",
+          "isAnchorLink": true,
+          "parameterFromFields": {
+            "timePeriodId": "previousPeriod"
+          }
+        },
+        {
+          "condition": "nextPeriod != null",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Next: ${nextPeriod.periodName}",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "resolvedText": "Next: ${nextPeriod.periodName}",
+          "url": "editTimePeriod",
+          "isAnchorLink": false,
+          "parameterFromFields": {
+            "timePeriodId": "nextPeriod"
+          }
+        },
+        {
+          "id": "CreateNextDialog",
+          "condition": "nextPeriod == null",
+          "_type": "container-dialog",
+          "buttonText": "Create Next Period",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "CreateNextPeriod",
+              "_type": "form-single",
+              "formName": "CreateNextPeriod",
+              "transition": "createNextTimePeriod",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "previousPeriodId",
+                  "from": "timePeriodId",
+                  "hide": "",
+                  "align": "",
+                  "title": "Previous Period ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "100003"
+                },
+                {
+                  "name": "timePeriodTypeId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "text": "${description}",
+                      "text-map": "timePeriodType",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "",
+                      "resolvedText": "null"
+                    }
+                  ]
+                },
+                {
+                  "name": "fromDate",
+                  "from": "timePeriod.thruDate + 1",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ],
+                  "currentValue": "2028-01-01"
+                },
+                {
+                  "name": "thruDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Thru Date",
+                  "tooltip": "Optional, leave empty to calculate with from date and period type",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "type": "date",
+                      "dateType": "date",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "createBtn",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "condition": "previousPeriod != null",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Previous: ZICORP FY2026",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "",
+          "tooltip": "",
+          "btnType": "",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "timePeriodId": "100000"
+          },
+          "url": "/fapps/marble/Accounting/TimePeriod/EditTimePeriod/editTimePeriod",
+          "isAnchorLink": true,
+          "parameterFromFields": {
+            "timePeriodId": "previousPeriod"
+          }
+        },
+        {
+          "id": "CreatePreviousDialog",
+          "condition": "previousPeriod == null",
+          "_type": "container-dialog",
+          "buttonText": "Create Previous Period",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "CreatePreviousPeriod",
+              "_type": "form-single",
+              "formName": "CreatePreviousPeriod",
+              "transition": "createPreviousTimePeriod",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "nextPeriodId",
+                  "from": "timePeriodId",
+                  "hide": "",
+                  "align": "",
+                  "title": "Next Period ID",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "hidden",
+                      "defaultValue": ""
+                    }
+                  ],
+                  "currentValue": "100003"
+                },
+                {
+                  "name": "timePeriodTypeId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "text": "${description}",
+                      "text-map": "timePeriodType",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": "",
+                      "resolvedText": "null"
+                    }
+                  ]
+                },
+                {
+                  "name": "fromDate",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "From Date",
+                  "tooltip": "Optional, leave empty to calculate with thru date and period type",
+                  "widgets": [
+                    {
+                      "_type": "date-time",
+                      "type": "date",
+                      "dateType": "date",
+                      "format": "",
+                      "minuteStepping": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "thruDate",
+                  "from": "timePeriod.fromDate - 1",
+                  "hide": "",
+                  "align": "",
+                  "title": "Thru Date",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "display",
+                      "alsoHidden": "true",
+                      "encode": "true",
+                      "format": "",
+                      "currencyUnitField": ""
+                    }
+                  ],
+                  "currentValue": "2026-12-31"
+                },
+                {
+                  "name": "createBtn",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "condition": "nextPeriod == null && !childTimePeriodList && timePeriod.isClosed != 'Y'",
+          "_type": "link",
+          "urlType": "transition",
+          "text": "Delete Period",
+          "linkType": "auto",
+          "icon": "",
+          "badge": "",
+          "confirmation": "Delete period ZICORP FY2027?",
+          "tooltip": "",
+          "btnType": "danger",
+          "targetWindow": "",
+          "dynamicLoadId": "",
+          "parameterMap": {
+            "timePeriodId": "100003",
+            "parentPeriodId": "",
+            "previousPeriodId": "100000"
+          },
+          "url": "/fapps/marble/Accounting/TimePeriod/EditTimePeriod/deleteTimePeriod",
+          "isAnchorLink": false,
+          "parameterFromFields": {
+            "timePeriodId": "timePeriodId",
+            "parentPeriodId": "timePeriod",
+            "previousPeriodId": "timePeriod"
+          }
+        },
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "",
+              "md": "5",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "ViewTimePeriod",
+                  "_type": "form-single",
+                  "formName": "ViewTimePeriod",
+                  "transition": "",
+                  "map": "timePeriod",
+                  "fields": [
+                    {
+                      "name": "partyId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Party ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display-entity",
+                          "entity-name": "mantle.party.PartyDetail",
+                          "also-hidden": "false",
+                          "key-field-name": "partyId",
+                          "text": "${organizationName?:''} ${firstName?:''} ${lastName?:''} [${pseudoId}]",
+                          "entityName": "mantle.party.PartyDetail",
+                          "keyFieldName": "partyId",
+                          "alsoHidden": "false",
+                          "useCache": "true",
+                          "defaultText": ""
+                        }
+                      ],
+                      "currentValue": "ORG_ZIZI_CORP"
+                    },
+                    {
+                      "name": "periodName",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Period Name",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "format": "",
+                          "currencyUnitField": ""
+                        }
+                      ],
+                      "currentValue": "ZICORP FY2027"
+                    },
+                    {
+                      "name": "timePeriodTypeId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Type",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display-entity",
+                          "entity-name": "mantle.party.time.TimePeriodType",
+                          "entityName": "mantle.party.time.TimePeriodType",
+                          "keyFieldName": "",
+                          "alsoHidden": "true",
+                          "useCache": "true",
+                          "defaultText": ""
+                        }
+                      ],
+                      "currentValue": "FiscalYear"
+                    },
+                    {
+                      "name": "periodNum",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Period Num",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "format": "####",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "currencyUnitField": ""
+                        }
+                      ],
+                      "currentValue": "2027"
+                    },
+                    {
+                      "name": "fromDate",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "From Date",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "format": "",
+                          "currencyUnitField": ""
+                        }
+                      ],
+                      "currentValue": "2027-01-01"
+                    },
+                    {
+                      "name": "thruDate",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Thru Date",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "format": "",
+                          "currencyUnitField": ""
+                        }
+                      ],
+                      "currentValue": "2027-12-31"
+                    },
+                    {
+                      "name": "isClosed",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Closed",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "display",
+                          "alsoHidden": "true",
+                          "encode": "true",
+                          "format": "",
+                          "currencyUnitField": ""
+                        }
+                      ],
+                      "currentValue": "N"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "lg": "",
+              "md": "7",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "_type": "container-box",
+                  "boxTitle": "Child Periods",
+                  "header": [],
+                  "toolbar": [
+                    {
+                      "id": "CreateChildDialog",
+                      "condition": "!childTimePeriodList && childPeriodTypeList",
+                      "_type": "container-dialog",
+                      "buttonText": "Create First Child",
+                      "dialogTitle": "",
+                      "width": "",
+                      "icon": "",
+                      "btnType": "",
+                      "children": [
+                        {
+                          "name": "CreateChild",
+                          "_type": "form-single",
+                          "formName": "CreateChild",
+                          "transition": "createTimePeriod",
+                          "map": "fieldValues",
+                          "fields": [
+                            {
+                              "name": "parentPeriodId",
+                              "from": "timePeriodId",
+                              "hide": "",
+                              "align": "",
+                              "title": "Parent Period ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ],
+                              "currentValue": "100003"
+                            },
+                            {
+                              "name": "partyId",
+                              "from": "timePeriod.partyId",
+                              "hide": "",
+                              "align": "",
+                              "title": "Party ID",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "hidden",
+                                  "defaultValue": ""
+                                }
+                              ],
+                              "currentValue": "ORG_ZIZI_CORP"
+                            },
+                            {
+                              "name": "fromDate",
+                              "from": "timePeriod.fromDate",
+                              "hide": "",
+                              "align": "",
+                              "title": "From Date",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display",
+                                  "alsoHidden": "true",
+                                  "encode": "true",
+                                  "format": "",
+                                  "currencyUnitField": ""
+                                }
+                              ],
+                              "currentValue": "2027-01-01"
+                            },
+                            {
+                              "name": "periodNum",
+                              "from": "1",
+                              "hide": "",
+                              "align": "",
+                              "title": "Period Num",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "display",
+                                  "alsoHidden": "true",
+                                  "encode": "true",
+                                  "format": "",
+                                  "currencyUnitField": ""
+                                }
+                              ],
+                              "currentValue": "1"
+                            },
+                            {
+                              "name": "timePeriodTypeId",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Type",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "drop-down",
+                                  "allowEmpty": "true",
+                                  "allowMultiple": "false",
+                                  "submitOnSelect": "false",
+                                  "current": "selected",
+                                  "showNot": "false",
+                                  "options": [
+                                    {
+                                      "key": "FiscalQuarter",
+                                      "text": "Fiscal Quarter"
+                                    },
+                                    {
+                                      "key": "FiscalMonth",
+                                      "text": "Fiscal Month"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "thruDate",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Thru Date",
+                              "tooltip": "Optional, leave empty to calculate with from date and period type",
+                              "widgets": [
+                                {
+                                  "_type": "date-time",
+                                  "type": "date",
+                                  "dateType": "date",
+                                  "format": "",
+                                  "minuteStepping": ""
+                                }
+                              ]
+                            },
+                            {
+                              "name": "createBtn",
+                              "from": "",
+                              "hide": "",
+                              "align": "",
+                              "title": "Create",
+                              "tooltip": "",
+                              "widgets": [
+                                {
+                                  "_type": "submit",
+                                  "text": "",
+                                  "confirmation": "",
+                                  "btnType": "",
+                                  "icon": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "bodyNoPad": [
+                    {
+                      "name": "TimePeriodList",
+                      "_type": "form-list",
+                      "formName": "TimePeriodList",
+                      "transition": "",
+                      "list": "childTimePeriodList",
+                      "paginate": "true",
+                      "headerDialog": "",
+                      "selectColumns": "",
+                      "savedFinds": "",
+                      "showCsvButton": "",
+                      "showXlsxButton": "",
+                      "showPageSize": "",
+                      "skipForm": "true",
+                      "editUrl": "editTimePeriod",
+                      "headerFields": [],
+                      "fields": [
+                        {
+                          "name": "periodNum",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Period Num",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "format": "####",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "currencyUnitField": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "periodName",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Period Name",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "link",
+                              "urlType": "transition",
+                              "text": "null",
+                              "linkType": "anchor",
+                              "icon": "",
+                              "badge": "",
+                              "confirmation": "",
+                              "tooltip": "",
+                              "btnType": "",
+                              "targetWindow": "",
+                              "dynamicLoadId": "",
+                              "parameterMap": {
+                                "timePeriodId": "100003"
+                              },
+                              "url": "/fapps/marble/Accounting/TimePeriod/EditTimePeriod/editTimePeriod",
+                              "isAnchorLink": true
+                            }
+                          ]
+                        },
+                        {
+                          "name": "fromDate",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "From Date",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "format": "",
+                              "currencyUnitField": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "thruDate",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Thru Date",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "format": "",
+                              "currencyUnitField": ""
+                            }
+                          ]
+                        },
+                        {
+                          "name": "isClosed",
+                          "from": "",
+                          "hide": "",
+                          "align": "",
+                          "title": "Closed",
+                          "tooltip": "",
+                          "widgets": [
+                            {
+                              "_type": "display",
+                              "alsoHidden": "true",
+                              "encode": "true",
+                              "format": "",
+                              "currencyUnitField": ""
+                            }
+                          ]
+                        }
+                      ],
+                      "listData": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

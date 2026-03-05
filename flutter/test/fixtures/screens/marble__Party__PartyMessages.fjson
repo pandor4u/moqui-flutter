@@ -1,0 +1,17 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "PartyMessages",
+  "menuTitle": "Messages",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "subscreens-active",
+          "defaultItem": "FindMessage"
+        }
+      ]
+    }
+  ]
+}

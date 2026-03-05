@@ -1,0 +1,203 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Asset",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "AssetOuter",
+          "type": "popup",
+          "_type": "subscreens-panel",
+          "menuType": "popup",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "dashboard",
+              "menuTitle": "Dashboard",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "PhysicalInventory",
+              "menuTitle": "Physical Inventory",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Container",
+              "menuTitle": "Containers",
+              "menuIndex": 6,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "AssetPool",
+              "menuTitle": "Pools",
+              "menuIndex": 7,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Asset",
+              "menuTitle": "Asset",
+              "menuIndex": 11,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "dashboard",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "dashboard",
+            "menuTitle": "Dashboard",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "_type": "container",
+                    "containerType": "div",
+                    "children": [
+                      {
+                        "_type": "link",
+                        "urlType": "transition",
+                        "text": "Asset Summary",
+                        "linkType": "auto",
+                        "icon": "",
+                        "badge": "",
+                        "confirmation": "",
+                        "tooltip": "",
+                        "btnType": "",
+                        "targetWindow": "",
+                        "dynamicLoadId": "",
+                        "url": "../Asset/FindSummary",
+                        "isAnchorLink": true
+                      },
+                      {
+                        "_type": "link",
+                        "urlType": "transition",
+                        "text": "Assets",
+                        "linkType": "auto",
+                        "icon": "",
+                        "badge": "",
+                        "confirmation": "",
+                        "tooltip": "",
+                        "btnType": "",
+                        "targetWindow": "",
+                        "dynamicLoadId": "",
+                        "url": "../Asset/FindAsset",
+                        "isAnchorLink": true
+                      },
+                      {
+                        "_type": "link",
+                        "urlType": "transition",
+                        "text": "Move Asset",
+                        "linkType": "auto",
+                        "icon": "",
+                        "badge": "",
+                        "confirmation": "",
+                        "tooltip": "",
+                        "btnType": "",
+                        "targetWindow": "",
+                        "dynamicLoadId": "",
+                        "url": "../Asset/SelectAsset",
+                        "isAnchorLink": true
+                      },
+                      {
+                        "_type": "link",
+                        "urlType": "transition",
+                        "text": "Physical Inventory",
+                        "linkType": "auto",
+                        "icon": "",
+                        "badge": "",
+                        "confirmation": "",
+                        "tooltip": "",
+                        "btnType": "",
+                        "targetWindow": "",
+                        "dynamicLoadId": "",
+                        "url": "../PhysicalInventory",
+                        "isAnchorLink": true
+                      }
+                    ]
+                  },
+                  {
+                    "_type": "container",
+                    "containerType": "div",
+                    "children": [
+                      {
+                        "_type": "link",
+                        "urlType": "transition",
+                        "text": "Containers",
+                        "linkType": "auto",
+                        "icon": "",
+                        "badge": "",
+                        "confirmation": "",
+                        "tooltip": "",
+                        "btnType": "",
+                        "targetWindow": "",
+                        "dynamicLoadId": "",
+                        "url": "../Container",
+                        "isAnchorLink": true
+                      },
+                      {
+                        "_type": "link",
+                        "urlType": "transition",
+                        "text": "Lots",
+                        "linkType": "auto",
+                        "icon": "",
+                        "badge": "",
+                        "confirmation": "",
+                        "tooltip": "",
+                        "btnType": "",
+                        "targetWindow": "",
+                        "dynamicLoadId": "",
+                        "url": "../EditLots",
+                        "isAnchorLink": true
+                      },
+                      {
+                        "_type": "link",
+                        "urlType": "transition",
+                        "text": "Pools",
+                        "linkType": "auto",
+                        "icon": "",
+                        "badge": "",
+                        "confirmation": "",
+                        "tooltip": "",
+                        "btnType": "",
+                        "targetWindow": "",
+                        "dynamicLoadId": "",
+                        "url": "../AssetPool",
+                        "isAnchorLink": true
+                      },
+                      {
+                        "_type": "link",
+                        "urlType": "transition",
+                        "text": "On Hand Report",
+                        "linkType": "auto",
+                        "icon": "",
+                        "badge": "",
+                        "confirmation": "",
+                        "tooltip": "",
+                        "btnType": "",
+                        "targetWindow": "",
+                        "dynamicLoadId": "",
+                        "url": "assetOnHand",
+                        "isAnchorLink": true
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "dashboard"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,394 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Survey",
+  "menuTitle": "Survey",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "SurveyPanel",
+          "type": "tab",
+          "_type": "subscreens-panel",
+          "menuType": "tab",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "EditSurvey",
+              "menuTitle": "Survey",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Fields",
+              "menuTitle": "Fields",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Responses",
+              "menuTitle": "Responses",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "ResponseDetails",
+              "menuTitle": "Response Details",
+              "menuIndex": 4,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "ResponseStats",
+              "menuTitle": "Response Stats",
+              "menuIndex": 5,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "FindSurvey",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "FindSurvey",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "_type": "container-box",
+                    "boxTitle": "Survey",
+                    "header": [],
+                    "toolbar": [
+                      {
+                        "id": "NewSurveyContainer",
+                        "_type": "container-dialog",
+                        "buttonText": "New Survey",
+                        "dialogTitle": "",
+                        "width": "",
+                        "icon": "",
+                        "btnType": "",
+                        "children": [
+                          {
+                            "name": "NewSurveyForm",
+                            "_type": "form-single",
+                            "formName": "NewSurveyForm",
+                            "transition": "createSurvey",
+                            "map": "fieldValues",
+                            "fields": [
+                              {
+                                "name": "purposeEnumId",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Purpose Enum ID",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "hidden",
+                                    "defaultValue": ""
+                                  }
+                                ],
+                                "currentValue": "DbfpSurvey"
+                              },
+                              {
+                                "name": "description",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Description",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "text-line",
+                                    "size": "70",
+                                    "inputType": "text",
+                                    "maxlength": "",
+                                    "mask": "",
+                                    "prefix": ""
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "comments",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Comments",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "text-area",
+                                    "cols": "60",
+                                    "rows": "6",
+                                    "maxlength": "",
+                                    "readOnly": "false",
+                                    "editorType": "",
+                                    "autogrow": "false"
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "submitButton",
+                                "from": "",
+                                "hide": "",
+                                "align": "",
+                                "title": "Create",
+                                "tooltip": "",
+                                "widgets": [
+                                  {
+                                    "_type": "submit",
+                                    "text": "",
+                                    "confirmation": "",
+                                    "btnType": "",
+                                    "icon": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "bodyNoPad": [
+                      {
+                        "name": "SurveyList",
+                        "_type": "form-list",
+                        "formName": "SurveyList",
+                        "transition": "",
+                        "list": "surveyList",
+                        "paginate": "true",
+                        "headerDialog": "true",
+                        "selectColumns": "true",
+                        "savedFinds": "true",
+                        "showCsvButton": "true",
+                        "showXlsxButton": "",
+                        "showPageSize": "",
+                        "skipForm": "true",
+                        "editUrl": "editSurvey",
+                        "headerFields": [
+                          {
+                            "name": "formId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Survey ID",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-find",
+                                "size": "10",
+                                "hide-options": "true",
+                                "maxlength": "",
+                                "ignoreCase": "true",
+                                "defaultOperator": "contains",
+                                "hideOptions": "true"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "description",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Description",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-find",
+                                "size": "25",
+                                "hide-options": "true",
+                                "maxlength": "",
+                                "ignoreCase": "true",
+                                "defaultOperator": "contains",
+                                "hideOptions": "true"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "purposeEnumId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Purpose",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "widget-template-include",
+                                "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "comments",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Comments",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-find",
+                                "size": "25",
+                                "hide-options": "true",
+                                "maxlength": "",
+                                "ignoreCase": "true",
+                                "defaultOperator": "contains",
+                                "hideOptions": "true"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Find",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ],
+                        "fields": [
+                          {
+                            "name": "formId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Survey ID",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "null",
+                                "linkType": "anchor",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "editSurvey",
+                                "isAnchorLink": true
+                              }
+                            ]
+                          },
+                          {
+                            "name": "description",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Description",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "link",
+                                "urlType": "transition",
+                                "text": "null",
+                                "linkType": "anchor",
+                                "icon": "",
+                                "badge": "",
+                                "confirmation": "",
+                                "tooltip": "",
+                                "btnType": "",
+                                "targetWindow": "",
+                                "dynamicLoadId": "",
+                                "url": "editSurvey",
+                                "isAnchorLink": true
+                              }
+                            ]
+                          },
+                          {
+                            "name": "purposeEnumId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Purpose",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "display-entity",
+                                "entity-name": "moqui.basic.Enumeration",
+                                "entityName": "moqui.basic.Enumeration",
+                                "keyFieldName": "",
+                                "alsoHidden": "true",
+                                "useCache": "true",
+                                "defaultText": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "comments",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Comments",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "display",
+                                "text": "${comments}",
+                                "alsoHidden": "true",
+                                "encode": "true",
+                                "format": "",
+                                "currencyUnitField": "",
+                                "resolvedText": "null"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Find",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "display",
+                                "text": " ",
+                                "alsoHidden": "true",
+                                "encode": "true",
+                                "format": "",
+                                "currencyUnitField": "",
+                                "resolvedText": " "
+                              }
+                            ]
+                          }
+                        ],
+                        "listData": [],
+                        "paginateInfo": {
+                          "pageIndex": 0,
+                          "pageSize": 20,
+                          "count": 0,
+                          "pageMaxIndex": 0,
+                          "pageRangeLow": 1,
+                          "pageRangeHigh": 0
+                        },
+                        "exportBaseUrl": "/fapps/marble/Survey"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "FindSurvey"
+        }
+      ]
+    }
+  ]
+}

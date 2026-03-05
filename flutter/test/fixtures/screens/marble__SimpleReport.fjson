@@ -1,0 +1,1989 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "SimpleReport",
+  "menuTitle": "Report Builder",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "SimpleReportPanel",
+          "type": "tab",
+          "_type": "subscreens-panel",
+          "menuType": "tab",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "EditReport",
+              "menuTitle": "Edit Report",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "ViewReport",
+              "menuTitle": "View",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "FindReport",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "FindReport",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "id": "CreateDialog",
+                    "_type": "container-dialog",
+                    "buttonText": "Create Report",
+                    "dialogTitle": "",
+                    "width": "",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "name": "CreateDataDocument",
+                        "_type": "form-single",
+                        "formName": "CreateDataDocument",
+                        "transition": "createDataDocument",
+                        "map": "fieldValues",
+                        "fields": [
+                          {
+                            "name": "dataDocumentId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "ID",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "30",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "documentName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "60",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "primaryEntityName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Primary Entity",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [
+                                  {
+                                    "key": "mantle.ledger.transaction.AcctgTrans",
+                                    "text": "Acctg Trans"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.transaction.AcctgTransEntry",
+                                    "text": "Acctg Trans Entry"
+                                  },
+                                  {
+                                    "key": "mantle.party.agreement.Agreement",
+                                    "text": "Agreement"
+                                  },
+                                  {
+                                    "key": "mantle.party.agreement.AgreementAddendum",
+                                    "text": "Agreement Addendum"
+                                  },
+                                  {
+                                    "key": "mantle.party.agreement.AgreementAssoc",
+                                    "text": "Agreement Assoc"
+                                  },
+                                  {
+                                    "key": "mantle.party.agreement.AgreementContent",
+                                    "text": "Agreement Content"
+                                  },
+                                  {
+                                    "key": "mantle.party.agreement.AgreementItem",
+                                    "text": "Agreement Item"
+                                  },
+                                  {
+                                    "key": "mantle.party.agreement.AgreementItemEmployment",
+                                    "text": "Agreement Item Employment"
+                                  },
+                                  {
+                                    "key": "mantle.party.agreement.AgreementItemGeo",
+                                    "text": "Agreement Item Geo"
+                                  },
+                                  {
+                                    "key": "mantle.party.agreement.AgreementItemParty",
+                                    "text": "Agreement Item Party"
+                                  },
+                                  {
+                                    "key": "mantle.party.agreement.AgreementItemWorkEffort",
+                                    "text": "Agreement Item Work Effort"
+                                  },
+                                  {
+                                    "key": "mantle.party.agreement.AgreementParty",
+                                    "text": "Agreement Party"
+                                  },
+                                  {
+                                    "key": "mantle.party.agreement.AgreementTerm",
+                                    "text": "Agreement Term"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.Asset",
+                                    "text": "Asset"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.AssetDepreciation",
+                                    "text": "Asset Depreciation"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.AssetDetail",
+                                    "text": "Asset Detail"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.AssetGlAppl",
+                                    "text": "Asset Gl Appl"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.AssetIdentification",
+                                    "text": "Asset Identification"
+                                  },
+                                  {
+                                    "key": "mantle.product.issuance.AssetIssuance",
+                                    "text": "Asset Issuance"
+                                  },
+                                  {
+                                    "key": "mantle.product.issuance.AssetIssuanceParty",
+                                    "text": "Asset Issuance Party"
+                                  },
+                                  {
+                                    "key": "mantle.product.maintenance.AssetMaintenance",
+                                    "text": "Asset Maintenance"
+                                  },
+                                  {
+                                    "key": "mantle.product.maintenance.AssetMaintenanceContent",
+                                    "text": "Asset Maintenance Content"
+                                  },
+                                  {
+                                    "key": "mantle.product.maintenance.AssetMaintenanceOrderItem",
+                                    "text": "Asset Maintenance Order Item"
+                                  },
+                                  {
+                                    "key": "mantle.product.maintenance.AssetMeter",
+                                    "text": "Asset Meter"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.AssetPartyAssignment",
+                                    "text": "Asset Party Assignment"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.AssetPaymentMethod",
+                                    "text": "Asset Payment Method"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.AssetPool",
+                                    "text": "Asset Pool"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.AssetPoolParty",
+                                    "text": "Asset Pool Party"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.AssetPoolStore",
+                                    "text": "Asset Pool Store"
+                                  },
+                                  {
+                                    "key": "mantle.product.receipt.AssetReceipt",
+                                    "text": "Asset Receipt"
+                                  },
+                                  {
+                                    "key": "mantle.product.maintenance.AssetRegistration",
+                                    "text": "Asset Registration"
+                                  },
+                                  {
+                                    "key": "mantle.product.issuance.AssetReservation",
+                                    "text": "Asset Reservation"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.AssetStandardCost",
+                                    "text": "Asset Standard Cost"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.AssetTypeGlAccount",
+                                    "text": "Asset Type Gl Account"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.BankAccount",
+                                    "text": "Bank Account"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.BankAccountCheck",
+                                    "text": "Bank Account Check"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.BenefitType",
+                                    "text": "Benefit Type"
+                                  },
+                                  {
+                                    "key": "mantle.account.billing.BillingAccount",
+                                    "text": "Billing Account"
+                                  },
+                                  {
+                                    "key": "mantle.account.billing.BillingAccountParty",
+                                    "text": "Billing Account Party"
+                                  },
+                                  {
+                                    "key": "mantle.account.billing.BillingAccountTerm",
+                                    "text": "Billing Account Term"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.BitcoinWallet",
+                                    "text": "Bitcoin Wallet"
+                                  },
+                                  {
+                                    "key": "mantle.other.budget.Budget",
+                                    "text": "Budget"
+                                  },
+                                  {
+                                    "key": "mantle.other.budget.BudgetItem",
+                                    "text": "Budget Item"
+                                  },
+                                  {
+                                    "key": "mantle.other.budget.BudgetItemDetail",
+                                    "text": "Budget Item Detail"
+                                  },
+                                  {
+                                    "key": "mantle.other.budget.BudgetParty",
+                                    "text": "Budget Party"
+                                  },
+                                  {
+                                    "key": "mantle.other.budget.BudgetReview",
+                                    "text": "Budget Review"
+                                  },
+                                  {
+                                    "key": "mantle.other.budget.BudgetRevision",
+                                    "text": "Budget Revision"
+                                  },
+                                  {
+                                    "key": "mantle.other.budget.BudgetRevisionImpact",
+                                    "text": "Budget Revision Impact"
+                                  },
+                                  {
+                                    "key": "mantle.other.budget.BudgetScenario",
+                                    "text": "Budget Scenario"
+                                  },
+                                  {
+                                    "key": "mantle.other.budget.BudgetScenarioApplication",
+                                    "text": "Budget Scenario Application"
+                                  },
+                                  {
+                                    "key": "mantle.other.budget.BudgetScenarioRule",
+                                    "text": "Budget Scenario Rule"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.carrier.CarrierShipmentBoxType",
+                                    "text": "Carrier Shipment Box Type"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.carrier.CarrierShipmentMethod",
+                                    "text": "Carrier Shipment Method"
+                                  },
+                                  {
+                                    "key": "mantle.party.communication.CommunicationEvent",
+                                    "text": "Communication Event"
+                                  },
+                                  {
+                                    "key": "mantle.party.communication.CommunicationEventContent",
+                                    "text": "Communication Event Content"
+                                  },
+                                  {
+                                    "key": "mantle.party.communication.CommunicationEventParty",
+                                    "text": "Communication Event Party"
+                                  },
+                                  {
+                                    "key": "mantle.party.communication.CommunicationEventProduct",
+                                    "text": "Communication Event Product"
+                                  },
+                                  {
+                                    "key": "mantle.party.communication.CommunicationEventPurpose",
+                                    "text": "Communication Event Purpose"
+                                  },
+                                  {
+                                    "key": "mantle.party.communication.CommunicationEventType",
+                                    "text": "Communication Event Type"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.contact.ContactList",
+                                    "text": "Contact List"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.contact.ContactListCommStatus",
+                                    "text": "Contact List Comm Status"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.contact.ContactListEmail",
+                                    "text": "Contact List Email"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.contact.ContactListParty",
+                                    "text": "Contact List Party"
+                                  },
+                                  {
+                                    "key": "mantle.party.contact.ContactMech",
+                                    "text": "Contact Mech"
+                                  },
+                                  {
+                                    "key": "mantle.party.contact.ContactMechPurpose",
+                                    "text": "Contact Mech Purpose"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.Container",
+                                    "text": "Container"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.CreditCard",
+                                    "text": "Credit Card"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.CreditCardTypeGlAccount",
+                                    "text": "Credit Card Type Gl Account"
+                                  },
+                                  {
+                                    "key": "mantle.account.payment.Deduction",
+                                    "text": "Deduction"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.Deliverable",
+                                    "text": "Deliverable"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.carrier.Delivery",
+                                    "text": "Delivery"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.position.EmplClassResponsibility",
+                                    "text": "Empl Class Responsibility"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.position.EmplPosition",
+                                    "text": "Empl Position"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.position.EmplPositionClass",
+                                    "text": "Empl Position Class"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.position.EmplPositionClassDimension",
+                                    "text": "Empl Position Class Dimension"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.position.EmplPositionClassParty",
+                                    "text": "Empl Position Class Party"
+                                  },
+                                  {
+                                    "key": "mantle.party.EmplPositionClassPtyClsTp",
+                                    "text": "Empl Position Class Pty Cls Tp"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.position.EmplPositionClassSkill",
+                                    "text": "Empl Position Class Skill"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.position.EmplPositionClassWorkType",
+                                    "text": "Empl Position Class Work Type"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.position.EmplPositionParty",
+                                    "text": "Empl Position Party"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.position.EmplPositionResponsibility",
+                                    "text": "Empl Position Responsibility"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.Employee",
+                                    "text": "Employee"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.Employment",
+                                    "text": "Employment"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.EmploymentApplication",
+                                    "text": "Employment Application"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.EmploymentBenefit",
+                                    "text": "Employment Benefit"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.EmploymentLeave",
+                                    "text": "Employment Leave"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.EmploymentPayDetail",
+                                    "text": "Employment Pay Detail"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.EmploymentPayHistory",
+                                    "text": "Employment Pay History"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.EmploymentSalary",
+                                    "text": "Employment Salary"
+                                  },
+                                  {
+                                    "key": "mantle.facility.Facility",
+                                    "text": "Facility"
+                                  },
+                                  {
+                                    "key": "mantle.facility.FacilityBoxType",
+                                    "text": "Facility Box Type"
+                                  },
+                                  {
+                                    "key": "mantle.facility.FacilityCertification",
+                                    "text": "Facility Certification"
+                                  },
+                                  {
+                                    "key": "mantle.facility.FacilityContactMech",
+                                    "text": "Facility Contact Mech"
+                                  },
+                                  {
+                                    "key": "mantle.facility.FacilityContent",
+                                    "text": "Facility Content"
+                                  },
+                                  {
+                                    "key": "mantle.facility.FacilityGlAppl",
+                                    "text": "Facility Gl Appl"
+                                  },
+                                  {
+                                    "key": "mantle.facility.FacilityGroup",
+                                    "text": "Facility Group"
+                                  },
+                                  {
+                                    "key": "mantle.facility.FacilityGroupMember",
+                                    "text": "Facility Group Member"
+                                  },
+                                  {
+                                    "key": "mantle.facility.FacilityGroupParty",
+                                    "text": "Facility Group Party"
+                                  },
+                                  {
+                                    "key": "mantle.facility.FacilityLocation",
+                                    "text": "Facility Location"
+                                  },
+                                  {
+                                    "key": "mantle.facility.FacilityLocationType",
+                                    "text": "Facility Location Type"
+                                  },
+                                  {
+                                    "key": "mantle.facility.FacilityNote",
+                                    "text": "Facility Note"
+                                  },
+                                  {
+                                    "key": "mantle.facility.FacilityParty",
+                                    "text": "Facility Party"
+                                  },
+                                  {
+                                    "key": "mantle.facility.FacilityPrinter",
+                                    "text": "Facility Printer"
+                                  },
+                                  {
+                                    "key": "mantle.account.financial.FinancialAccount",
+                                    "text": "Financial Account"
+                                  },
+                                  {
+                                    "key": "mantle.account.financial.FinancialAccountAuth",
+                                    "text": "Financial Account Auth"
+                                  },
+                                  {
+                                    "key": "mantle.account.financial.FinancialAccountParty",
+                                    "text": "Financial Account Party"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.FinancialAccountReasonGlAccount",
+                                    "text": "Financial Account Reason Gl Account"
+                                  },
+                                  {
+                                    "key": "mantle.account.financial.FinancialAccountTrans",
+                                    "text": "Financial Account Trans"
+                                  },
+                                  {
+                                    "key": "mantle.account.financial.FinancialAccountType",
+                                    "text": "Financial Account Type"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.FinancialAccountTypeGlAccount",
+                                    "text": "Financial Account Type Gl Account"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.GiftCard",
+                                    "text": "Gift Card"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.GiftCardFulfillment",
+                                    "text": "Gift Card Fulfillment"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.account.GlAccount",
+                                    "text": "Gl Account"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.account.GlAccountCategory",
+                                    "text": "Gl Account Category"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.account.GlAccountCategoryMember",
+                                    "text": "Gl Account Category Member"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.account.GlAccountEnumAppl",
+                                    "text": "Gl Account Enum Appl"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.account.GlAccountGroup",
+                                    "text": "Gl Account Group"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.account.GlAccountGroupMember",
+                                    "text": "Gl Account Group Member"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.account.GlAccountOrgTimePeriod",
+                                    "text": "Gl Account Org Time Period"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.account.GlAccountOrganization",
+                                    "text": "Gl Account Organization"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.account.GlAccountParty",
+                                    "text": "Gl Account Party"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.GlAccountTypeDefault",
+                                    "text": "Gl Account Type Default"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.GlAccountTypePartyDefault",
+                                    "text": "Gl Account Type Party Default"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.account.GlBudgetXref",
+                                    "text": "Gl Budget Xref"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.transaction.GlJournal",
+                                    "text": "Gl Journal"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.reconciliation.GlReconciliation",
+                                    "text": "Gl Reconciliation"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.reconciliation.GlReconciliationEntry",
+                                    "text": "Gl Reconciliation Entry"
+                                  },
+                                  {
+                                    "key": "mantle.account.invoice.Invoice",
+                                    "text": "Invoice"
+                                  },
+                                  {
+                                    "key": "mantle.account.invoice.InvoiceContactMech",
+                                    "text": "Invoice Contact Mech"
+                                  },
+                                  {
+                                    "key": "mantle.account.invoice.InvoiceContent",
+                                    "text": "Invoice Content"
+                                  },
+                                  {
+                                    "key": "mantle.account.invoice.InvoiceEmailMessage",
+                                    "text": "Invoice Email Message"
+                                  },
+                                  {
+                                    "key": "mantle.account.invoice.InvoiceItem",
+                                    "text": "Invoice Item"
+                                  },
+                                  {
+                                    "key": "mantle.account.invoice.InvoiceItemAssoc",
+                                    "text": "Invoice Item Assoc"
+                                  },
+                                  {
+                                    "key": "mantle.account.invoice.InvoiceItemDetail",
+                                    "text": "Invoice Item Detail"
+                                  },
+                                  {
+                                    "key": "mantle.account.invoice.InvoiceParty",
+                                    "text": "Invoice Party"
+                                  },
+                                  {
+                                    "key": "mantle.account.invoice.InvoiceSystemMessage",
+                                    "text": "Invoice System Message"
+                                  },
+                                  {
+                                    "key": "mantle.account.invoice.InvoiceTerm",
+                                    "text": "Invoice Term"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.InvoiceTypeTransType",
+                                    "text": "Invoice Type Trans Type"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.ItemTypeGlAccount",
+                                    "text": "Item Type Gl Account"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.Lot",
+                                    "text": "Lot"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.segment.MarketInterest",
+                                    "text": "Market Interest"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.segment.MarketSegment",
+                                    "text": "Market Segment"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.segment.MarketSegmentClassification",
+                                    "text": "Market Segment Classification"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.segment.MarketSegmentDimension",
+                                    "text": "Market Segment Dimension"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.segment.MarketSegmentGeo",
+                                    "text": "Market Segment Geo"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.segment.MarketSegmentParty",
+                                    "text": "Market Segment Party"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.campaign.MarketingCampaign",
+                                    "text": "Marketing Campaign"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.campaign.MarketingCampaignNote",
+                                    "text": "Marketing Campaign Note"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.campaign.MarketingCampaignParty",
+                                    "text": "Marketing Campaign Party"
+                                  },
+                                  {
+                                    "key": "mantle.work.measurement.Measurement",
+                                    "text": "Measurement"
+                                  },
+                                  {
+                                    "key": "mantle.work.measurement.MeasurementType",
+                                    "text": "Measurement Type"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderCommunicationEvent",
+                                    "text": "Order Communication Event"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderContent",
+                                    "text": "Order Content"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderDecision",
+                                    "text": "Order Decision"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderDecisionReason",
+                                    "text": "Order Decision Reason"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderEmailMessage",
+                                    "text": "Order Email Message"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderHeader",
+                                    "text": "Order Header"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderItem",
+                                    "text": "Order Item"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderItemBilling",
+                                    "text": "Order Item Billing"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderItemFormResponse",
+                                    "text": "Order Item Form Response"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderItemParty",
+                                    "text": "Order Item Party"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderItemWorkEffort",
+                                    "text": "Order Item Work Effort"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderNote",
+                                    "text": "Order Note"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderPart",
+                                    "text": "Order Part"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderPartContactMech",
+                                    "text": "Order Part Contact Mech"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderPartParty",
+                                    "text": "Order Part Party"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderPartTerm",
+                                    "text": "Order Part Term"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderPromoCode",
+                                    "text": "Order Promo Code"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderServiceJobRun",
+                                    "text": "Order Service Job Run"
+                                  },
+                                  {
+                                    "key": "mantle.order.OrderSystemMessage",
+                                    "text": "Order System Message"
+                                  },
+                                  {
+                                    "key": "mantle.party.Organization",
+                                    "text": "Organization"
+                                  },
+                                  {
+                                    "key": "mantle.party.Party",
+                                    "text": "Party"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.PartyAcctgPreference",
+                                    "text": "Party Acctg Preference"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartyBadge",
+                                    "text": "Party Badge"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartyBadgeScan",
+                                    "text": "Party Badge Scan"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.carrier.PartyCarrierAccount",
+                                    "text": "Party Carrier Account"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartyClassification",
+                                    "text": "Party Classification"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartyClassificationAppl",
+                                    "text": "Party Classification Appl"
+                                  },
+                                  {
+                                    "key": "mantle.party.contact.PartyContactMech",
+                                    "text": "Party Contact Mech"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartyContent",
+                                    "text": "Party Content"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartyDimension",
+                                    "text": "Party Dimension"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartyGeoPoint",
+                                    "text": "Party Geo Point"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartyIdentification",
+                                    "text": "Party Identification"
+                                  },
+                                  {
+                                    "key": "mantle.sales.need.PartyNeed",
+                                    "text": "Party Need"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartyNote",
+                                    "text": "Party Note"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartyRelationship",
+                                    "text": "Party Relationship"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartyRelationshipSetting",
+                                    "text": "Party Relationship Setting"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartyRole",
+                                    "text": "Party Role"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartySetting",
+                                    "text": "Party Setting"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartySettingType",
+                                    "text": "Party Setting Type"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartySettingTypeRole",
+                                    "text": "Party Setting Type Role"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.ability.PartySkill",
+                                    "text": "Party Skill"
+                                  },
+                                  {
+                                    "key": "mantle.party.PartySystemMessage",
+                                    "text": "Party System Message"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.rate.PayGrade",
+                                    "text": "Pay Grade"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.rate.PayGradeSalary",
+                                    "text": "Pay Grade Salary"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.PayPalAccount",
+                                    "text": "Pay Pal Account"
+                                  },
+                                  {
+                                    "key": "mantle.account.payment.Payment",
+                                    "text": "Payment"
+                                  },
+                                  {
+                                    "key": "mantle.account.payment.PaymentApplication",
+                                    "text": "Payment Application"
+                                  },
+                                  {
+                                    "key": "mantle.account.payment.PaymentBudgetAllocation",
+                                    "text": "Payment Budget Allocation"
+                                  },
+                                  {
+                                    "key": "mantle.account.payment.PaymentContent",
+                                    "text": "Payment Content"
+                                  },
+                                  {
+                                    "key": "mantle.account.payment.PaymentFraudEvidence",
+                                    "text": "Payment Fraud Evidence"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.PaymentGatewayConfig",
+                                    "text": "Payment Gateway Config"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.PaymentGatewayResponse",
+                                    "text": "Payment Gateway Response"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.PaymentInstrumentGlAccount",
+                                    "text": "Payment Instrument Gl Account"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.PaymentMethod",
+                                    "text": "Payment Method"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.PaymentMethodContent",
+                                    "text": "Payment Method Content"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.PaymentMethodFile",
+                                    "text": "Payment Method File"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.PaymentMethodFileType",
+                                    "text": "Payment Method File Type"
+                                  },
+                                  {
+                                    "key": "mantle.account.method.PaymentMethodTrans",
+                                    "text": "Payment Method Trans"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.PaymentTypeGlAccount",
+                                    "text": "Payment Type Gl Account"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.PayrollAdjCalcParameter",
+                                    "text": "Payroll Adj Calc Parameter"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.PayrollAdjCalcService",
+                                    "text": "Payroll Adj Calc Service"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.PayrollAdjustment",
+                                    "text": "Payroll Adjustment"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.PayrollAdjustmentDetail",
+                                    "text": "Payroll Adjustment Detail"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.PayrollAdjustmentExempt",
+                                    "text": "Payroll Adjustment Exempt"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.PayrollAdjustmentFedStts",
+                                    "text": "Payroll Adjustment Fed Stts"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.PayrollAdjustmentStateStts",
+                                    "text": "Payroll Adjustment State Stts"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.PayrollAllowance",
+                                    "text": "Payroll Allowance"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.PayrollGarnishMinWage",
+                                    "text": "Payroll Garnish Min Wage"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.PayrollStdDeduction",
+                                    "text": "Payroll Std Deduction"
+                                  },
+                                  {
+                                    "key": "mantle.party.Person",
+                                    "text": "Person"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.PhysicalInventory",
+                                    "text": "Physical Inventory"
+                                  },
+                                  {
+                                    "key": "mantle.product.asset.PhysicalInventoryCount",
+                                    "text": "Physical Inventory Count"
+                                  },
+                                  {
+                                    "key": "mantle.party.contact.PostalAddress",
+                                    "text": "Postal Address"
+                                  },
+                                  {
+                                    "key": "mantle.product.Product",
+                                    "text": "Product"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductAssoc",
+                                    "text": "Product Assoc"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductCalculatedInfo",
+                                    "text": "Product Calculated Info"
+                                  },
+                                  {
+                                    "key": "mantle.product.category.ProductCategory",
+                                    "text": "Product Category"
+                                  },
+                                  {
+                                    "key": "mantle.product.category.ProductCategoryContent",
+                                    "text": "Product Category Content"
+                                  },
+                                  {
+                                    "key": "mantle.product.feature.ProductCategoryFeatGrpAppl",
+                                    "text": "Product Category Feat Grp Appl"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.ProductCategoryGlAccount",
+                                    "text": "Product Category Gl Account"
+                                  },
+                                  {
+                                    "key": "mantle.product.category.ProductCategoryIdent",
+                                    "text": "Product Category Ident"
+                                  },
+                                  {
+                                    "key": "mantle.product.category.ProductCategoryMember",
+                                    "text": "Product Category Member"
+                                  },
+                                  {
+                                    "key": "mantle.product.category.ProductCategoryParty",
+                                    "text": "Product Category Party"
+                                  },
+                                  {
+                                    "key": "mantle.product.category.ProductCategoryRollup",
+                                    "text": "Product Category Rollup"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductClassContent",
+                                    "text": "Product Class Content"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductClassDimension",
+                                    "text": "Product Class Dimension"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductClassFeature",
+                                    "text": "Product Class Feature"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductClassFeatureGroup",
+                                    "text": "Product Class Feature Group"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductClassUomDimension",
+                                    "text": "Product Class Uom Dimension"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductContent",
+                                    "text": "Product Content"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductDbForm",
+                                    "text": "Product Db Form"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductDimension",
+                                    "text": "Product Dimension"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductDimensionType",
+                                    "text": "Product Dimension Type"
+                                  },
+                                  {
+                                    "key": "mantle.facility.ProductFacility",
+                                    "text": "Product Facility"
+                                  },
+                                  {
+                                    "key": "mantle.facility.ProductFacilityLocation",
+                                    "text": "Product Facility Location"
+                                  },
+                                  {
+                                    "key": "mantle.product.feature.ProductFeature",
+                                    "text": "Product Feature"
+                                  },
+                                  {
+                                    "key": "mantle.product.feature.ProductFeatureAppl",
+                                    "text": "Product Feature Appl"
+                                  },
+                                  {
+                                    "key": "mantle.product.feature.ProductFeatureGroup",
+                                    "text": "Product Feature Group"
+                                  },
+                                  {
+                                    "key": "mantle.product.feature.ProductFeatureGroupAppl",
+                                    "text": "Product Feature Group Appl"
+                                  },
+                                  {
+                                    "key": "mantle.product.feature.ProductFeatureIactn",
+                                    "text": "Product Feature Iactn"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductGeo",
+                                    "text": "Product Geo"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.ProductGlAccount",
+                                    "text": "Product Gl Account"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductGlAppl",
+                                    "text": "Product Gl Appl"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductIdentification",
+                                    "text": "Product Identification"
+                                  },
+                                  {
+                                    "key": "mantle.product.maintenance.ProductMaintenance",
+                                    "text": "Product Maintenance"
+                                  },
+                                  {
+                                    "key": "mantle.product.maintenance.ProductMeter",
+                                    "text": "Product Meter"
+                                  },
+                                  {
+                                    "key": "mantle.product.maintenance.ProductMeterType",
+                                    "text": "Product Meter Type"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductOtherIdentification",
+                                    "text": "Product Other Identification"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductParameter",
+                                    "text": "Product Parameter"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductParameterOption",
+                                    "text": "Product Parameter Option"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductParameterProduct",
+                                    "text": "Product Parameter Product"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductParameterSet",
+                                    "text": "Product Parameter Set"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductParameterValue",
+                                    "text": "Product Parameter Value"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductParty",
+                                    "text": "Product Party"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductPrice",
+                                    "text": "Product Price"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductPriceModify",
+                                    "text": "Product Price Modify"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductPriceModifyParameter",
+                                    "text": "Product Price Modify Parameter"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductReview",
+                                    "text": "Product Review"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStore",
+                                    "text": "Product Store"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreApprove",
+                                    "text": "Product Store Approve"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreApproveParam",
+                                    "text": "Product Store Approve Param"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreCategory",
+                                    "text": "Product Store Category"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreDataDocument",
+                                    "text": "Product Store Data Document"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreEmail",
+                                    "text": "Product Store Email"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreFacility",
+                                    "text": "Product Store Facility"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreGroup",
+                                    "text": "Product Store Group"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreGroupMember",
+                                    "text": "Product Store Group Member"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreGroupParty",
+                                    "text": "Product Store Group Party"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreParty",
+                                    "text": "Product Store Party"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStorePaymentGateway",
+                                    "text": "Product Store Payment Gateway"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreProduct",
+                                    "text": "Product Store Product"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStorePromoCode",
+                                    "text": "Product Store Promo Code"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStorePromoCodeParty",
+                                    "text": "Product Store Promo Code Party"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStorePromoParameter",
+                                    "text": "Product Store Promo Parameter"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStorePromoProduct",
+                                    "text": "Product Store Promo Product"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStorePromotion",
+                                    "text": "Product Store Promotion"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreSetting",
+                                    "text": "Product Store Setting"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreShipOption",
+                                    "text": "Product Store Ship Option"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreShippingGateway",
+                                    "text": "Product Store Shipping Gateway"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreWikiContent",
+                                    "text": "Product Store Wiki Content"
+                                  },
+                                  {
+                                    "key": "mantle.product.store.ProductStoreWikiSpace",
+                                    "text": "Product Store Wiki Space"
+                                  },
+                                  {
+                                    "key": "mantle.product.subscription.ProductSubscriptionResource",
+                                    "text": "Product Subscription Resource"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductUomDimension",
+                                    "text": "Product Uom Dimension"
+                                  },
+                                  {
+                                    "key": "mantle.product.ProductWorkEffort",
+                                    "text": "Product Work Effort"
+                                  },
+                                  {
+                                    "key": "mantle.work.estimate.ProductionEstimate",
+                                    "text": "Production Estimate"
+                                  },
+                                  {
+                                    "key": "mantle.work.estimate.ProductionEstimateAsset",
+                                    "text": "Production Estimate Asset"
+                                  },
+                                  {
+                                    "key": "mantle.work.estimate.ProductionEstimateWorkEff",
+                                    "text": "Production Estimate Work Eff"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.rate.RateAmount",
+                                    "text": "Rate Amount"
+                                  },
+                                  {
+                                    "key": "mantle.request.Request",
+                                    "text": "Request"
+                                  },
+                                  {
+                                    "key": "mantle.request.RequestCategory",
+                                    "text": "Request Category"
+                                  },
+                                  {
+                                    "key": "mantle.request.RequestCommEvent",
+                                    "text": "Request Comm Event"
+                                  },
+                                  {
+                                    "key": "mantle.request.RequestContent",
+                                    "text": "Request Content"
+                                  },
+                                  {
+                                    "key": "mantle.request.RequestEmailMessage",
+                                    "text": "Request Email Message"
+                                  },
+                                  {
+                                    "key": "mantle.request.RequestItem",
+                                    "text": "Request Item"
+                                  },
+                                  {
+                                    "key": "mantle.request.RequestItemAssoc",
+                                    "text": "Request Item Assoc"
+                                  },
+                                  {
+                                    "key": "mantle.request.RequestItemOrder",
+                                    "text": "Request Item Order"
+                                  },
+                                  {
+                                    "key": "mantle.request.RequestNote",
+                                    "text": "Request Note"
+                                  },
+                                  {
+                                    "key": "mantle.request.RequestParty",
+                                    "text": "Request Party"
+                                  },
+                                  {
+                                    "key": "mantle.request.RequestWorkEffort",
+                                    "text": "Request Work Effort"
+                                  },
+                                  {
+                                    "key": "mantle.request.requirement.Requirement",
+                                    "text": "Requirement"
+                                  },
+                                  {
+                                    "key": "mantle.request.requirement.RequirementBudgetAllocation",
+                                    "text": "Requirement Budget Allocation"
+                                  },
+                                  {
+                                    "key": "mantle.request.requirement.RequirementOrderItem",
+                                    "text": "Requirement Order Item"
+                                  },
+                                  {
+                                    "key": "mantle.request.requirement.RequirementParty",
+                                    "text": "Requirement Party"
+                                  },
+                                  {
+                                    "key": "mantle.request.requirement.RequirementRequestItem",
+                                    "text": "Requirement Request Item"
+                                  },
+                                  {
+                                    "key": "mantle.order.return.ReturnContactMech",
+                                    "text": "Return Contact Mech"
+                                  },
+                                  {
+                                    "key": "mantle.order.return.ReturnHeader",
+                                    "text": "Return Header"
+                                  },
+                                  {
+                                    "key": "mantle.order.return.ReturnItem",
+                                    "text": "Return Item"
+                                  },
+                                  {
+                                    "key": "mantle.order.return.ReturnItemBilling",
+                                    "text": "Return Item Billing"
+                                  },
+                                  {
+                                    "key": "mantle.order.return.ReturnSystemMessage",
+                                    "text": "Return System Message"
+                                  },
+                                  {
+                                    "key": "mantle.party.RoleGroupMember",
+                                    "text": "Role Group Member"
+                                  },
+                                  {
+                                    "key": "mantle.party.RoleType",
+                                    "text": "Role Type"
+                                  },
+                                  {
+                                    "key": "mantle.sales.forecast.SalesForecast",
+                                    "text": "Sales Forecast"
+                                  },
+                                  {
+                                    "key": "mantle.sales.forecast.SalesForecastDetail",
+                                    "text": "Sales Forecast Detail"
+                                  },
+                                  {
+                                    "key": "mantle.sales.opportunity.SalesOpportunity",
+                                    "text": "Sales Opportunity"
+                                  },
+                                  {
+                                    "key": "mantle.sales.opportunity.SalesOpportunityCompetitor",
+                                    "text": "Sales Opportunity Competitor"
+                                  },
+                                  {
+                                    "key": "mantle.sales.opportunity.SalesOpportunityOrder",
+                                    "text": "Sales Opportunity Order"
+                                  },
+                                  {
+                                    "key": "mantle.sales.opportunity.SalesOpportunityParty",
+                                    "text": "Sales Opportunity Party"
+                                  },
+                                  {
+                                    "key": "mantle.sales.opportunity.SalesOpportunityStage",
+                                    "text": "Sales Opportunity Stage"
+                                  },
+                                  {
+                                    "key": "mantle.sales.opportunity.SalesOpportunityTracking",
+                                    "text": "Sales Opportunity Tracking"
+                                  },
+                                  {
+                                    "key": "mantle.sales.opportunity.SalesOpportunityWorkEffort",
+                                    "text": "Sales Opportunity Work Effort"
+                                  },
+                                  {
+                                    "key": "mantle.account.invoice.SettlementTerm",
+                                    "text": "Settlement Term"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.Shipment",
+                                    "text": "Shipment"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.ShipmentBoxType",
+                                    "text": "Shipment Box Type"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.ShipmentContactMech",
+                                    "text": "Shipment Contact Mech"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.ShipmentContent",
+                                    "text": "Shipment Content"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.ShipmentEmailMessage",
+                                    "text": "Shipment Email Message"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.ShipmentItem",
+                                    "text": "Shipment Item"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.ShipmentItemSource",
+                                    "text": "Shipment Item Source"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.ShipmentPackage",
+                                    "text": "Shipment Package"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.ShipmentPackageContent",
+                                    "text": "Shipment Package Content"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.ShipmentPackageRouteSeg",
+                                    "text": "Shipment Package Route Seg"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.ShipmentParty",
+                                    "text": "Shipment Party"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.ShipmentRouteSegment",
+                                    "text": "Shipment Route Segment"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.ShipmentSystemMessage",
+                                    "text": "Shipment System Message"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.carrier.ShippingGatewayBoxType",
+                                    "text": "Shipping Gateway Box Type"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.carrier.ShippingGatewayCarrier",
+                                    "text": "Shipping Gateway Carrier"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.carrier.ShippingGatewayConfig",
+                                    "text": "Shipping Gateway Config"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.carrier.ShippingGatewayMethod",
+                                    "text": "Shipping Gateway Method"
+                                  },
+                                  {
+                                    "key": "mantle.shipment.carrier.ShippingGatewayOption",
+                                    "text": "Shipping Gateway Option"
+                                  },
+                                  {
+                                    "key": "mantle.product.subscription.Subscription",
+                                    "text": "Subscription"
+                                  },
+                                  {
+                                    "key": "mantle.product.subscription.SubscriptionDelivery",
+                                    "text": "Subscription Delivery"
+                                  },
+                                  {
+                                    "key": "mantle.product.subscription.SubscriptionResource",
+                                    "text": "Subscription Resource"
+                                  },
+                                  {
+                                    "key": "mantle.other.tax.TaxAuthority",
+                                    "text": "Tax Authority"
+                                  },
+                                  {
+                                    "key": "mantle.other.tax.TaxAuthorityAssoc",
+                                    "text": "Tax Authority Assoc"
+                                  },
+                                  {
+                                    "key": "mantle.other.tax.TaxAuthorityCategory",
+                                    "text": "Tax Authority Category"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.TaxAuthorityGlAccount",
+                                    "text": "Tax Authority Gl Account"
+                                  },
+                                  {
+                                    "key": "mantle.other.tax.TaxAuthorityParty",
+                                    "text": "Tax Authority Party"
+                                  },
+                                  {
+                                    "key": "mantle.other.tax.TaxGatewayConfig",
+                                    "text": "Tax Gateway Config"
+                                  },
+                                  {
+                                    "key": "mantle.other.tax.TaxStatement",
+                                    "text": "Tax Statement"
+                                  },
+                                  {
+                                    "key": "mantle.party.contact.TelecomNumber",
+                                    "text": "Telecom Number"
+                                  },
+                                  {
+                                    "key": "mantle.work.time.TimeEntry",
+                                    "text": "Time Entry"
+                                  },
+                                  {
+                                    "key": "mantle.party.time.TimePeriod",
+                                    "text": "Time Period"
+                                  },
+                                  {
+                                    "key": "mantle.party.time.TimePeriodType",
+                                    "text": "Time Period Type"
+                                  },
+                                  {
+                                    "key": "mantle.work.time.Timesheet",
+                                    "text": "Timesheet"
+                                  },
+                                  {
+                                    "key": "mantle.work.time.TimesheetParty",
+                                    "text": "Timesheet Party"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.tracking.TrackingCode",
+                                    "text": "Tracking Code"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.tracking.TrackingCodeOrder",
+                                    "text": "Tracking Code Order"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.tracking.TrackingCodeOrderReturn",
+                                    "text": "Tracking Code Order Return"
+                                  },
+                                  {
+                                    "key": "mantle.marketing.tracking.TrackingCodeVisit",
+                                    "text": "Tracking Code Visit"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.UnemploymentClaim",
+                                    "text": "Unemployment Claim"
+                                  },
+                                  {
+                                    "key": "mantle.ledger.config.VarianceReasonGlAccount",
+                                    "text": "Variance Reason Gl Account"
+                                  },
+                                  {
+                                    "key": "mantle.party.communication.WikiPageCommunicationEvent",
+                                    "text": "Wiki Page Communication Event"
+                                  },
+                                  {
+                                    "key": "mantle.request.WikiPageRequest",
+                                    "text": "Wiki Page Request"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WikiPageWorkEffort",
+                                    "text": "Wiki Page Work Effort"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffort",
+                                    "text": "Work Effort"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortAssetAssign",
+                                    "text": "Work Effort Asset Assign"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortAssetNeeded",
+                                    "text": "Work Effort Asset Needed"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortAssoc",
+                                    "text": "Work Effort Assoc"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortBilling",
+                                    "text": "Work Effort Billing"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortCategory",
+                                    "text": "Work Effort Category"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortCategoryAppl",
+                                    "text": "Work Effort Category Appl"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortCommEvent",
+                                    "text": "Work Effort Comm Event"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortContactMech",
+                                    "text": "Work Effort Contact Mech"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortContent",
+                                    "text": "Work Effort Content"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortDeliverableProd",
+                                    "text": "Work Effort Deliverable Prod"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortEmplPosition",
+                                    "text": "Work Effort Empl Position"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortFacility",
+                                    "text": "Work Effort Facility"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortInvoice",
+                                    "text": "Work Effort Invoice"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortNote",
+                                    "text": "Work Effort Note"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortParty",
+                                    "text": "Work Effort Party"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortProduct",
+                                    "text": "Work Effort Product"
+                                  },
+                                  {
+                                    "key": "mantle.work.effort.WorkEffortSkillStandard",
+                                    "text": "Work Effort Skill Standard"
+                                  },
+                                  {
+                                    "key": "mantle.request.requirement.WorkRequirementFulfillment",
+                                    "text": "Work Requirement Fulfillment"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.WorkTypeGlOverride",
+                                    "text": "Work Type Gl Override"
+                                  },
+                                  {
+                                    "key": "mantle.humanres.employment.WorkTypeRiskClass",
+                                    "text": "Work Type Risk Class"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "userGroupId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "User Group",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [
+                                  {
+                                    "key": "ADMIN",
+                                    "text": "Administrators (full access)"
+                                  },
+                                  {
+                                    "key": "ADMIN_ADV",
+                                    "text": "Administrators - Advanced"
+                                  },
+                                  {
+                                    "key": "ALL_USERS",
+                                    "text": "All Users (all users members by default)"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Create",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "DataDocumentList",
+                    "_type": "form-list",
+                    "formName": "DataDocumentList",
+                    "transition": "",
+                    "list": "dataDocumentList",
+                    "paginate": "true",
+                    "headerDialog": "true",
+                    "selectColumns": "",
+                    "savedFinds": "",
+                    "showCsvButton": "",
+                    "showXlsxButton": "",
+                    "showPageSize": "",
+                    "skipForm": "true",
+                    "editUrl": "editReport",
+                    "headerFields": [
+                      {
+                        "name": "dataDocumentId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "hide-options": "true",
+                            "size": "",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "documentName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "hide-options": "true",
+                            "size": "",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "primaryEntityName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Primary Entity",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "mantle.account.invoice.Invoice",
+                                "text": "Invoice"
+                              },
+                              {
+                                "key": "mantle.account.invoice.InvoiceItem",
+                                "text": "Invoice Item"
+                              },
+                              {
+                                "key": "mantle.facility.Facility",
+                                "text": "Facility"
+                              },
+                              {
+                                "key": "mantle.order.OrderItem",
+                                "text": "Order Item"
+                              },
+                              {
+                                "key": "mantle.order.OrderPart",
+                                "text": "Order Part"
+                              },
+                              {
+                                "key": "mantle.party.communication.CommunicationEvent",
+                                "text": "Communication Event"
+                              },
+                              {
+                                "key": "mantle.party.Party",
+                                "text": "Party"
+                              },
+                              {
+                                "key": "mantle.product.asset.Asset",
+                                "text": "Asset"
+                              },
+                              {
+                                "key": "mantle.product.Product",
+                                "text": "Product"
+                              },
+                              {
+                                "key": "mantle.request.Request",
+                                "text": "Request"
+                              },
+                              {
+                                "key": "mantle.work.effort.WorkEffort",
+                                "text": "Work Effort"
+                              },
+                              {
+                                "key": "mantle.work.effort.WorkEffortProduct",
+                                "text": "Work Effort Product"
+                              },
+                              {
+                                "key": "mantle.work.estimate.ProductionEstimate",
+                                "text": "Production Estimate"
+                              },
+                              {
+                                "key": "moqui.resource.wiki.WikiPage",
+                                "text": "Wiki Page"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "findButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find Button",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "submit",
+                            "text": "",
+                            "confirmation": "",
+                            "btnType": "",
+                            "icon": ""
+                          }
+                        ]
+                      }
+                    ],
+                    "fields": [
+                      {
+                        "name": "dataDocumentId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editReport",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "documentName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editReport",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "primaryEntityName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Primary Entity",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "text": "${org.moqui.util.StringUtilities.camelCaseToPretty(primaryEntityName.substring(primaryEntityName.lastIndexOf('.')+1))}",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "resolvedText": "${org.moqui.util.StringUtilities.camelCaseToPretty(primaryEntityName.substring(primaryEntityName.lastIndexOf('.')+1))}"
+                          }
+                        ]
+                      }
+                    ],
+                    "listData": [],
+                    "paginateInfo": {
+                      "pageIndex": 0,
+                      "pageSize": 20,
+                      "count": 0,
+                      "pageMaxIndex": 0,
+                      "pageRangeLow": 1,
+                      "pageRangeHigh": 0
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "FindReport"
+        }
+      ]
+    }
+  ]
+}

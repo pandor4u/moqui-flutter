@@ -1,0 +1,20 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FacilityCalendar",
+  "menuTitle": "Calendar",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "text",
+          "textType": "html,vuet,qvt",
+          "location": "",
+          "template": "true",
+          "content": "<div id=\"calendar\"></div>\n                <script src=\"https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js\" type=\"text/javascript\"></script>\n                <script src=\"https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/locale-all.js\" type=\"text/javascript\"></script>\n                <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css\" type=\"text/css\"/>\n                <script>\n    $('#calendar').fullCalendar({ timezone: false, defaultView: 'agendaWeek',\n        header: { left: 'prev,next today', center: 'title', right: 'month,agendaWeek,agendaDay' },\n        eventSources: [ { url: \"${sri.buildUrl('getCalendarEvents').url}\", type: 'POST', data: { moquiSessionToken:'${ec.web.sessionToken}', facilityId: '${facilityId}' } } ]\n    });\n                </script>"
+        }
+      ]
+    }
+  ]
+}

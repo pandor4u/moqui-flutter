@@ -1,0 +1,309 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "dashboard",
+  "menuTitle": "Dashboard",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "container-row",
+          "columns": [
+            {
+              "lg": "",
+              "md": "6",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Picklists",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Shipping/Picklist/FindPicklist",
+                  "isAnchorLink": true
+                },
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Pick Location Moves",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Shipping/PickLocationMoves",
+                  "isAnchorLink": true
+                },
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Move Assets",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Shipping/dashboard/selectAsset",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "lg": "",
+              "md": "6",
+              "sm": "",
+              "xs": "",
+              "style": "",
+              "children": [
+                {
+                  "name": "PackShipmentForm",
+                  "_type": "form-single",
+                  "formName": "PackShipmentForm",
+                  "transition": "packShipment",
+                  "map": "fieldValues",
+                  "fieldLayout": {
+                    "_type": "field-layout",
+                    "rows": [
+                      {
+                        "_type": "field-row-big"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "name": "shipmentId",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Shipment ID",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "text-line",
+                          "size": "20",
+                          "inputType": "text",
+                          "maxlength": "",
+                          "mask": "",
+                          "prefix": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "packButton",
+                      "from": "",
+                      "hide": "",
+                      "align": "",
+                      "title": "Pack Shipment",
+                      "tooltip": "",
+                      "widgets": [
+                        {
+                          "_type": "submit",
+                          "text": "",
+                          "confirmation": "",
+                          "btnType": "",
+                          "icon": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FacilitySummary",
+          "_type": "form-list",
+          "formName": "FacilitySummary",
+          "transition": "",
+          "list": "facilitySummaryList",
+          "paginate": "true",
+          "headerDialog": "",
+          "selectColumns": "",
+          "savedFinds": "",
+          "showCsvButton": "",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "true",
+          "editUrl": "findOrder",
+          "headerFields": [],
+          "fields": [
+            {
+              "name": "pseudoId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "FacilityNameTemplate",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": "null: "
+                }
+              ]
+            },
+            {
+              "name": "shipmentMethodSequenceNum",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Ship Method",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "${shipmentMethodSequenceNum != null ? shipmentMethodSequenceNum + ' - ' : ''}${shipMethEnum?.description ?: ''}",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": ""
+                }
+              ]
+            },
+            {
+              "name": "carrierPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Carrier",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.Party",
+                  "text": "${carrierPartyId == '_NA_' ? 'N/A' : pseudoId}",
+                  "entityName": "mantle.party.Party",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "quantityTotal",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Appr Order Qty",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "${ec.l10n.format(quantityTotal, '#,##0.###')}",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "resolvedText": "${ec.l10n.format(quantityTotal, '#,##0.###')}",
+                  "parameterMap": {
+                    "orderType": "Sales",
+                    "carrierPartyId": "",
+                    "facilityId": "",
+                    "shipmentMethodEnumId": "",
+                    "statusId": "OrderApproved"
+                  },
+                  "url": "/fapps/marble/Shipping/dashboard/findOrder",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "facilityId": "facilityId",
+                    "shipmentMethodEnumId": "shipmentMethodEnumId",
+                    "carrierPartyId": "carrierPartyId"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "quantityNotAvailable",
+              "from": "resSummary?.quantityNotAvailable",
+              "hide": "",
+              "align": "",
+              "title": "Not Avail",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "quantityNotIssued",
+              "from": "resSummary?.quantityNotIssued",
+              "hide": "",
+              "align": "",
+              "title": "Not Issued",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "resPickQuantity",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Pick Loc Qty",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "style": "${(resPickQuantity == resQuantity) ? 'text-success' : 'text-danger'}",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            }
+          ],
+          "listData": [],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 0,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 0
+          }
+        }
+      ]
+    }
+  ]
+}

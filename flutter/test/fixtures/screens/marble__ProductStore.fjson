@@ -1,0 +1,449 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "ProductStore",
+  "menuTitle": "Stores",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "type": "strong",
+          "condition": "productStore",
+          "_type": "label",
+          "text": "${productStoreId}: ${productStore.storeName}",
+          "resolvedText": "${productStoreId}: ${productStore.storeName}",
+          "labelType": "strong",
+          "encode": "true"
+        },
+        {
+          "id": "StorePanel",
+          "type": "tab",
+          "_type": "subscreens-panel",
+          "menuType": "tab",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "EditProductStore",
+              "menuTitle": "Product Store",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "Promotion",
+              "menuTitle": "Promotions",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "FindProductStoreEmails",
+              "menuTitle": "Emails",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "FindProductStoreCategory",
+              "menuTitle": "Categories",
+              "menuIndex": 4,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "FindProductStoreParty",
+              "menuTitle": "Parties",
+              "menuIndex": 5,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "FindProductStoreFacility",
+              "menuTitle": "Facilities",
+              "menuIndex": 6,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "FindProductStoreSettings",
+              "menuTitle": "Settings",
+              "menuIndex": 6,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "FindProductStore",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "FindProductStore",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "id": "NewStoreDialog",
+                    "_type": "container-dialog",
+                    "buttonText": "New Store",
+                    "dialogTitle": "",
+                    "width": "",
+                    "icon": "",
+                    "btnType": "",
+                    "children": [
+                      {
+                        "name": "NewStoreForm",
+                        "_type": "form-single",
+                        "formName": "NewStoreForm",
+                        "transition": "createStore",
+                        "map": "fieldValues",
+                        "fields": [
+                          {
+                            "name": "productStoreId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "ID",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "20",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "storeName",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Name",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "text-line",
+                                "size": "40",
+                                "inputType": "text",
+                                "maxlength": "",
+                                "mask": "",
+                                "prefix": ""
+                              }
+                            ]
+                          },
+                          {
+                            "name": "organizationPartyId",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Organization Party",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "drop-down",
+                                "allowEmpty": "true",
+                                "allowMultiple": "false",
+                                "submitOnSelect": "false",
+                                "current": "selected",
+                                "showNot": "false",
+                                "options": [
+                                  {
+                                    "key": "ORG_ZIZI_HR",
+                                    "text": "ZIHR: Ziziwork Human Resources"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_CORP",
+                                    "text": "ZICORP: Ziziwork Industries"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_RETAIL",
+                                    "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_SALES",
+                                    "text": "ZISAL: Ziziwork Sales"
+                                  },
+                                  {
+                                    "key": "ORG_ZIZI_SERVICES",
+                                    "text": "ZISER: Ziziwork Services"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "submitButton",
+                            "from": "",
+                            "hide": "",
+                            "align": "",
+                            "title": "Create",
+                            "tooltip": "",
+                            "widgets": [
+                              {
+                                "_type": "submit",
+                                "text": "",
+                                "confirmation": "",
+                                "btnType": "",
+                                "icon": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Payment Gateways",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "/fapps/marble/Gateway/Payment/FindPaymentGateway",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "_type": "link",
+                    "urlType": "transition",
+                    "text": "Shipping Gateways",
+                    "linkType": "auto",
+                    "icon": "",
+                    "badge": "",
+                    "confirmation": "",
+                    "tooltip": "",
+                    "btnType": "",
+                    "targetWindow": "",
+                    "dynamicLoadId": "",
+                    "url": "/fapps/marble/Gateway/Shipping/FindShippingGateway",
+                    "isAnchorLink": true
+                  },
+                  {
+                    "name": "StoresForm",
+                    "_type": "form-list",
+                    "formName": "StoresForm",
+                    "transition": "",
+                    "list": "storeList",
+                    "paginate": "true",
+                    "headerDialog": "true",
+                    "selectColumns": "true",
+                    "savedFinds": "true",
+                    "showCsvButton": "true",
+                    "showXlsxButton": "",
+                    "showPageSize": "",
+                    "skipForm": "true",
+                    "editUrl": "editStore",
+                    "headerFields": [
+                      {
+                        "name": "productStoreId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "10",
+                            "hide-options": "true",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "storeName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "25",
+                            "hide-options": "true",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "organizationPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Organization",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "25",
+                            "hide-options": "true",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "submitButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "submit",
+                            "text": "",
+                            "confirmation": "",
+                            "btnType": "",
+                            "icon": ""
+                          }
+                        ]
+                      }
+                    ],
+                    "fields": [
+                      {
+                        "name": "productStoreId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editStore",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "storeName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editStore",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "organizationPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Organization",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "PartyNameTemplate",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "partyId": ""
+                            },
+                            "url": "editParty",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "partyId": "organizationPartyId"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "submitButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "text": " ",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "resolvedText": " "
+                          }
+                        ]
+                      }
+                    ],
+                    "listData": [
+                      {
+                        "submitButton": "",
+                        "submitButton_display": " ",
+                        "organizationPartyId": "ORG_ZIZI_RETAIL",
+                        "productStoreId_linkText": "POPC_DEFAULT",
+                        "storeName_linkText": "Ziziwork Retail Store"
+                      }
+                    ],
+                    "paginateInfo": {
+                      "pageIndex": 0,
+                      "pageSize": 20,
+                      "count": 1,
+                      "pageMaxIndex": 0,
+                      "pageRangeLow": 1,
+                      "pageRangeHigh": 1
+                    },
+                    "exportBaseUrl": "/fapps/marble/ProductStore"
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "FindProductStore"
+        }
+      ]
+    }
+  ]
+}

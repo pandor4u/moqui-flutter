@@ -1,0 +1,3423 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "Order",
+  "menuTitle": "Orders",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "type": "strong",
+          "condition": "orderId",
+          "_type": "label",
+          "text": "Order null",
+          "resolvedText": "Order null",
+          "labelType": "strong",
+          "encode": "true"
+        },
+        {
+          "id": "OrderPanel",
+          "type": "tab",
+          "_type": "subscreens-panel",
+          "menuType": "tab",
+          "noMenu": "false",
+          "subscreens": [
+            {
+              "name": "OrderDetail",
+              "menuTitle": "Order Detail",
+              "menuIndex": 1,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "OrderItems",
+              "menuTitle": "Items",
+              "menuIndex": 2,
+              "menuInclude": true,
+              "disabled": false
+            },
+            {
+              "name": "QuickItems",
+              "menuTitle": "Quick Items",
+              "menuIndex": 3,
+              "menuInclude": true,
+              "disabled": false
+            }
+          ],
+          "defaultItem": "FindOrder",
+          "activeSubscreen": {
+            "_type": "screen",
+            "renderMode": "fjson",
+            "screenName": "FindOrder",
+            "menuTitle": "Find Order",
+            "widgets": [
+              {
+                "_type": "widgets",
+                "children": [
+                  {
+                    "_type": "container-row",
+                    "columns": [
+                      {
+                        "lg": "",
+                        "md": "5",
+                        "sm": "",
+                        "xs": "",
+                        "style": "",
+                        "children": [
+                          {
+                            "id": "CreateSalesOrderDialog",
+                            "_type": "container-dialog",
+                            "buttonText": "Create Sales Order",
+                            "dialogTitle": "",
+                            "width": "",
+                            "icon": "",
+                            "btnType": "",
+                            "children": [
+                              {
+                                "name": "CreateSalesOrder",
+                                "_type": "form-single",
+                                "formName": "CreateSalesOrder",
+                                "transition": "createOrder",
+                                "map": "fieldValues",
+                                "fields": [
+                                  {
+                                    "name": "productStoreId",
+                                    "from": "productStoreId ?: defaultProductStoreId",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Store",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "drop-down",
+                                        "allow-empty": "true",
+                                        "allowEmpty": "true",
+                                        "allowMultiple": "false",
+                                        "submitOnSelect": "false",
+                                        "current": "selected",
+                                        "showNot": "false",
+                                        "options": [
+                                          {
+                                            "key": "POPC_DEFAULT",
+                                            "text": "POPC_DEFAULT: Ziziwork Retail Store"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "vendorPartyId",
+                                    "from": "",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Vendor Org",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "drop-down",
+                                        "allowEmpty": "true",
+                                        "allowMultiple": "false",
+                                        "submitOnSelect": "false",
+                                        "current": "selected",
+                                        "showNot": "false",
+                                        "options": [],
+                                        "dynamicOptions": {
+                                          "transition": "getStoreOrgOrAllOrgInternal",
+                                          "serverSearch": "false",
+                                          "minLength": "1",
+                                          "dependsOnField": "productStoreId",
+                                          "dependsOnParameter": ""
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "facilityId",
+                                    "from": "facilityId ?: (!defaultProductStoreId ? defaultFacilityId : null)",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Facility",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "drop-down",
+                                        "allowEmpty": "true",
+                                        "allowMultiple": "false",
+                                        "submitOnSelect": "false",
+                                        "current": "selected",
+                                        "showNot": "false",
+                                        "options": [],
+                                        "dynamicOptions": {
+                                          "transition": "getWhFacilitiesByOwner",
+                                          "serverSearch": "false",
+                                          "minLength": "1",
+                                          "dependsOnField": "vendorPartyId",
+                                          "dependsOnParameter": "",
+                                          "dependsOnList": [
+                                            {
+                                              "field": "vendorPartyId",
+                                              "parameter": ""
+                                            },
+                                            {
+                                              "field": "productStoreId",
+                                              "parameter": ""
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "customerPartyId",
+                                    "from": "",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Customer",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "drop-down",
+                                        "allow-empty": "true",
+                                        "allowEmpty": "true",
+                                        "allowMultiple": "false",
+                                        "submitOnSelect": "false",
+                                        "current": "selected",
+                                        "showNot": "false",
+                                        "options": [],
+                                        "dynamicOptions": {
+                                          "transition": "searchPartyList",
+                                          "serverSearch": "true",
+                                          "minLength": "2"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "otherPartyOrderId",
+                                    "from": "",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Their Order ID",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "text-line",
+                                        "size": "40",
+                                        "inputType": "text",
+                                        "maxlength": "",
+                                        "mask": "",
+                                        "prefix": ""
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "priority",
+                                    "from": "",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Priority",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "radio",
+                                        "no-current-selected-key": "5",
+                                        "noCurrentSelectedKey": "5",
+                                        "options": [
+                                          {
+                                            "key": "1",
+                                            "text": "1"
+                                          },
+                                          {
+                                            "key": "2",
+                                            "text": "2"
+                                          },
+                                          {
+                                            "key": "3",
+                                            "text": "3"
+                                          },
+                                          {
+                                            "key": "4",
+                                            "text": "4"
+                                          },
+                                          {
+                                            "key": "5",
+                                            "text": "5"
+                                          },
+                                          {
+                                            "key": "6",
+                                            "text": "6"
+                                          },
+                                          {
+                                            "key": "7",
+                                            "text": "7"
+                                          },
+                                          {
+                                            "key": "8",
+                                            "text": "8"
+                                          },
+                                          {
+                                            "key": "9",
+                                            "text": "9"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "shipBeforeDate",
+                                    "from": "",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Ship Before Date",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "date-time",
+                                        "dateType": "timestamp",
+                                        "format": "",
+                                        "minuteStepping": ""
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "estimatedDeliveryDate",
+                                    "from": "",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Delivery Date",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "date-time",
+                                        "dateType": "timestamp",
+                                        "format": "",
+                                        "minuteStepping": ""
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "submitButton",
+                                    "from": "",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Create",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "submit",
+                                        "text": "",
+                                        "confirmation": "",
+                                        "btnType": "",
+                                        "icon": ""
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "Sales Analysis Report",
+                            "linkType": "auto",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "customerPartyId": ""
+                            },
+                            "url": "../SalesAnalysis",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "customerPartyId": "customerPartyId"
+                            }
+                          },
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "Sales Summary Charts",
+                            "linkType": "auto",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "customerPartyIds": ""
+                            },
+                            "url": "../SalesSummary",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "customerPartyIds": "customerPartyId"
+                            }
+                          },
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "Issued and Invoiced Report",
+                            "linkType": "auto",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "customerPartyId": ""
+                            },
+                            "url": "../OrderIssuedInvoiced",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "customerPartyId": "customerPartyId"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "lg": "",
+                        "md": "7",
+                        "sm": "",
+                        "xs": "",
+                        "style": "text-right",
+                        "children": [
+                          {
+                            "name": "ApproveOrdersSection",
+                            "condition": "partStatusId && (partStatusId.contains('OrderPlaced') ||                     partStatusId.contains('OrderProcessing') || partStatusId.contains('OrderHold'))",
+                            "_type": "section",
+                            "sectionName": "ApproveOrdersSection"
+                          },
+                          {
+                            "name": "CloseOrdersSection",
+                            "condition": "partStatusId && (partStatusId.contains('OrderOpen') ||                     partStatusId.contains('OrderProposed') || partStatusId.contains('OrderPlaced') || partStatusId.contains('OrderProcessing') ||                     partStatusId.contains('OrderHold') || partStatusId.contains('OrderApproved') || partStatusId.contains('OrderSent'))",
+                            "_type": "section",
+                            "sectionName": "CloseOrdersSection"
+                          },
+                          {
+                            "id": "CreatePurchaseOrderDialog",
+                            "_type": "container-dialog",
+                            "buttonText": "Create Purchase Order",
+                            "dialogTitle": "",
+                            "width": "",
+                            "icon": "",
+                            "btnType": "",
+                            "children": [
+                              {
+                                "name": "CreatePurchaseOrder",
+                                "_type": "form-single",
+                                "formName": "CreatePurchaseOrder",
+                                "transition": "createOrder",
+                                "map": "fieldValues",
+                                "fields": [
+                                  {
+                                    "name": "vendorPartyId",
+                                    "from": "",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Supplier",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "drop-down",
+                                        "allow-empty": "true",
+                                        "allowEmpty": "true",
+                                        "allowMultiple": "false",
+                                        "submitOnSelect": "false",
+                                        "current": "selected",
+                                        "showNot": "false",
+                                        "options": [],
+                                        "dynamicOptions": {
+                                          "transition": "searchPartyList",
+                                          "serverSearch": "true",
+                                          "minLength": "0"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "customerPartyId",
+                                    "from": "",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Customer Org",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "drop-down",
+                                        "allowEmpty": "true",
+                                        "allowMultiple": "false",
+                                        "submitOnSelect": "false",
+                                        "current": "selected",
+                                        "showNot": "false",
+                                        "options": [
+                                          {
+                                            "key": "ORG_ZIZI_HR",
+                                            "text": "ZIHR: Ziziwork Human Resources"
+                                          },
+                                          {
+                                            "key": "ORG_ZIZI_CORP",
+                                            "text": "ZICORP: Ziziwork Industries"
+                                          },
+                                          {
+                                            "key": "ORG_ZIZI_RETAIL",
+                                            "text": "ZIRET: Ziziwork Retail & Wholesale"
+                                          },
+                                          {
+                                            "key": "ORG_ZIZI_SALES",
+                                            "text": "ZISAL: Ziziwork Sales"
+                                          },
+                                          {
+                                            "key": "ORG_ZIZI_SERVICES",
+                                            "text": "ZISER: Ziziwork Services"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "facilityId",
+                                    "from": "facilityId ?: defaultFacilityId",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Facility",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "drop-down",
+                                        "allowEmpty": "true",
+                                        "allowMultiple": "false",
+                                        "submitOnSelect": "false",
+                                        "current": "selected",
+                                        "showNot": "false",
+                                        "options": [],
+                                        "dynamicOptions": {
+                                          "transition": "getFacilityList",
+                                          "serverSearch": "true",
+                                          "minLength": "0"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "shipBeforeDate",
+                                    "from": "",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Ship Before Date",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "date-time",
+                                        "dateType": "timestamp",
+                                        "format": "",
+                                        "minuteStepping": ""
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "estimatedDeliveryDate",
+                                    "from": "",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Delivery Date",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "date-time",
+                                        "dateType": "timestamp",
+                                        "format": "",
+                                        "minuteStepping": ""
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "submitButton",
+                                    "from": "",
+                                    "hide": "",
+                                    "align": "",
+                                    "title": "Create",
+                                    "tooltip": "",
+                                    "widgets": [
+                                      {
+                                        "_type": "submit",
+                                        "text": "",
+                                        "confirmation": "",
+                                        "btnType": "",
+                                        "icon": ""
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "OrderList",
+                    "_type": "form-list",
+                    "formName": "OrderList",
+                    "transition": "",
+                    "list": "orderList",
+                    "paginate": "true",
+                    "headerDialog": "true",
+                    "selectColumns": "true",
+                    "savedFinds": "true",
+                    "showCsvButton": "true",
+                    "showXlsxButton": "true",
+                    "showPageSize": "",
+                    "skipForm": "true",
+                    "editUrl": "orderDetail",
+                    "columns": [
+                      {
+                        "style": "",
+                        "fieldRefs": [
+                          "orderId",
+                          "otherPartyOrderId",
+                          "salesChannelEnumId"
+                        ]
+                      },
+                      {
+                        "style": "",
+                        "fieldRefs": [
+                          "partStatusId",
+                          "priority",
+                          "partTotal"
+                        ]
+                      },
+                      {
+                        "style": "",
+                        "fieldRefs": [
+                          "entryDate",
+                          "placedDate",
+                          "shipBeforeDate"
+                        ]
+                      },
+                      {
+                        "style": "",
+                        "fieldRefs": [
+                          "facilityId",
+                          "productStoreId",
+                          "shippingInstructions"
+                        ]
+                      },
+                      {
+                        "style": "",
+                        "fieldRefs": [
+                          "vendorPartyId",
+                          "customerPartyId",
+                          "otherParties"
+                        ]
+                      },
+                      {
+                        "style": "",
+                        "fieldRefs": [
+                          "shipmentMethodEnumId",
+                          "carrierPartyId",
+                          "shipments"
+                        ]
+                      }
+                    ],
+                    "headerFields": [
+                      {
+                        "name": "orderType",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Order Type",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "radio",
+                            "no-current-selected-key": "Any",
+                            "noCurrentSelectedKey": "Any",
+                            "options": [
+                              {
+                                "key": "Any",
+                                "text": "Any"
+                              },
+                              {
+                                "key": "Sales",
+                                "text": "Sales"
+                              },
+                              {
+                                "key": "Purchase",
+                                "text": "Purchase"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "onlyPartlyShipped",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Shipped",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "check",
+                            "noCurrentSelectedKey": "",
+                            "allChecked": "false",
+                            "options": [
+                              {
+                                "key": "true",
+                                "text": "Only Partly Shipped"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "inventoryAvailable",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Inventory Available",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "radio",
+                            "no-current-selected-key": "any",
+                            "noCurrentSelectedKey": "any",
+                            "options": [
+                              {
+                                "key": "any",
+                                "text": "Any"
+                              },
+                              {
+                                "key": "all",
+                                "text": "All"
+                              },
+                              {
+                                "key": "notall",
+                                "text": "Partial/None"
+                              },
+                              {
+                                "key": "partial",
+                                "text": "Partial"
+                              },
+                              {
+                                "key": "none",
+                                "text": "None"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "onlyProductQuantity",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Quantity",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "check",
+                            "noCurrentSelectedKey": "",
+                            "allChecked": "false",
+                            "options": [
+                              {
+                                "key": "true",
+                                "text": "Only count Product"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "onlyRecurring",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Recurring",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "check",
+                            "noCurrentSelectedKey": "",
+                            "allChecked": "false",
+                            "options": [
+                              {
+                                "key": "true",
+                                "text": "Only Recurring"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "orderId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Order",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "20",
+                            "hide-options": "true",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "otherPartyOrderId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Their Order",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "20",
+                            "hide-options": "true",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "salesChannelEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Source",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "widget-template-include",
+                            "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "orderName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Order Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "40",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "false"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "priority",
+                        "from": "",
+                        "hide": "",
+                        "align": "center",
+                        "title": "Priority",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "range-find",
+                            "size": "",
+                            "maxlength": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "entryDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Entry Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "date-period",
+                            "allowEmpty": "true",
+                            "time": "false"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "placedDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Placed Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "date-period",
+                            "allowEmpty": "true",
+                            "time": "false"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "shipAfterDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Ship After Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "date-period",
+                            "allowEmpty": "true",
+                            "time": "false"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "shipBeforeDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Ship Before Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "date-period",
+                            "allowEmpty": "true",
+                            "time": "false"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "partStatusId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Status",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "widget-template-include",
+                            "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#statusDropDown"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "facilityId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Facility",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getFacilityList",
+                              "serverSearch": "true",
+                              "minLength": "0"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "productStoreId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Store",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "POPC_DEFAULT",
+                                "text": "POPC_DEFAULT: Ziziwork Retail Store"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "shippingInstructions",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Shipping Instructions",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "size": "40",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "contains",
+                            "hideOptions": "false"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "vendorPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Vendor",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "searchPartyList",
+                              "serverSearch": "true",
+                              "minLength": "0"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "customerPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Customer",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "searchPartyList",
+                              "serverSearch": "true",
+                              "minLength": "2"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "customerClassificationId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Customer Class",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allow-multiple": "true",
+                            "show-not": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "true",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "true",
+                            "options": [
+                              {
+                                "key": "CustBroker",
+                                "text": "Broker"
+                              },
+                              {
+                                "key": "CustConsumer",
+                                "text": "Consumer"
+                              },
+                              {
+                                "key": "CustDistributor",
+                                "text": "Distributor"
+                              },
+                              {
+                                "key": "CustDistributorPref",
+                                "text": "Distributor Preferred"
+                              },
+                              {
+                                "key": "CustEmployee",
+                                "text": "Employee"
+                              },
+                              {
+                                "key": "CustEnterprise",
+                                "text": "Enterprise"
+                              },
+                              {
+                                "key": "CustWholesale",
+                                "text": "Wholesale"
+                              },
+                              {
+                                "key": "CustProfessional",
+                                "text": "Wholesale - Professional"
+                              },
+                              {
+                                "key": "CustRetailStore",
+                                "text": "Wholesale - Retail Store"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "otherPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Other Party",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "searchPartyList",
+                              "serverSearch": "true",
+                              "minLength": "2"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "otherRoleTypeId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Other Role",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "Affiliate",
+                                "text": "Affiliate"
+                              },
+                              {
+                                "key": "Agent",
+                                "text": "Agent"
+                              },
+                              {
+                                "key": "Buyer",
+                                "text": "Buyer"
+                              },
+                              {
+                                "key": "Carrier",
+                                "text": "Carrier"
+                              },
+                              {
+                                "key": "Cashier",
+                                "text": "Cashier"
+                              },
+                              {
+                                "key": "ClientBilling",
+                                "text": "Client Billing Rep"
+                              },
+                              {
+                                "key": "Competitor",
+                                "text": "Competitor"
+                              },
+                              {
+                                "key": "Customer",
+                                "text": "Customer"
+                              },
+                              {
+                                "key": "CustomerBillTo",
+                                "text": "Customer - Bill To"
+                              },
+                              {
+                                "key": "CustomerEndUser",
+                                "text": "Customer - End User"
+                              },
+                              {
+                                "key": "CustomerPlacing",
+                                "text": "Customer - Placing"
+                              },
+                              {
+                                "key": "CustomerShipTo",
+                                "text": "Customer - Ship To"
+                              },
+                              {
+                                "key": "OrderClerk",
+                                "text": "Order Clerk"
+                              },
+                              {
+                                "key": "Partner",
+                                "text": "Partner"
+                              },
+                              {
+                                "key": "Referrer",
+                                "text": "Referrer"
+                              },
+                              {
+                                "key": "Account",
+                                "text": "Sales Account"
+                              },
+                              {
+                                "key": "SalesRepresentative",
+                                "text": "Sales Representative"
+                              },
+                              {
+                                "key": "Supplier",
+                                "text": "Supplier"
+                              },
+                              {
+                                "key": "Vendor",
+                                "text": "Vendor"
+                              },
+                              {
+                                "key": "VendorBillFrom",
+                                "text": "Vendor - Bill From"
+                              },
+                              {
+                                "key": "VendorPickUpFrom",
+                                "text": "Vendor - Pick Up From"
+                              },
+                              {
+                                "key": "VendorShipFrom",
+                                "text": "Vendor - Ship From"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "shipmentMethodEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Ship Method",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "widget-template-include",
+                            "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#enumDropDown"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "carrierPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Carrier",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-multiple": "true",
+                            "show-not": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "true",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "true",
+                            "options": [
+                              {
+                                "key": "_NA_",
+                                "text": "N/A"
+                              },
+                              {
+                                "key": "DHLX",
+                                "text": "DHLX: DHL Express"
+                              },
+                              {
+                                "key": "FedEx",
+                                "text": "FedEx: FedEx Corporation"
+                              },
+                              {
+                                "key": "UPS",
+                                "text": "UPS: United Parcel Service"
+                              },
+                              {
+                                "key": "USPS",
+                                "text": "USPS: United States Postal Service"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "countryGeoId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Country",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "false",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "AFG",
+                                "text": "Afghanistan"
+                              },
+                              {
+                                "key": "ALB",
+                                "text": "Albania"
+                              },
+                              {
+                                "key": "DZA",
+                                "text": "Algeria"
+                              },
+                              {
+                                "key": "ASM",
+                                "text": "American Samoa"
+                              },
+                              {
+                                "key": "AND",
+                                "text": "Andorra"
+                              },
+                              {
+                                "key": "AGO",
+                                "text": "Angola"
+                              },
+                              {
+                                "key": "AIA",
+                                "text": "Anguilla"
+                              },
+                              {
+                                "key": "ATA",
+                                "text": "Antarctica"
+                              },
+                              {
+                                "key": "ATG",
+                                "text": "Antigua And Barbuda"
+                              },
+                              {
+                                "key": "ARG",
+                                "text": "Argentina"
+                              },
+                              {
+                                "key": "ARM",
+                                "text": "Armenia"
+                              },
+                              {
+                                "key": "ABW",
+                                "text": "Aruba"
+                              },
+                              {
+                                "key": "AUS",
+                                "text": "Australia"
+                              },
+                              {
+                                "key": "AUT",
+                                "text": "Austria"
+                              },
+                              {
+                                "key": "AZE",
+                                "text": "Azerbaijan"
+                              },
+                              {
+                                "key": "BHS",
+                                "text": "Bahamas"
+                              },
+                              {
+                                "key": "BHR",
+                                "text": "Bahrain"
+                              },
+                              {
+                                "key": "BGD",
+                                "text": "Bangladesh"
+                              },
+                              {
+                                "key": "BRB",
+                                "text": "Barbados"
+                              },
+                              {
+                                "key": "BLR",
+                                "text": "Belarus"
+                              },
+                              {
+                                "key": "BEL",
+                                "text": "Belgium"
+                              },
+                              {
+                                "key": "BLZ",
+                                "text": "Belize"
+                              },
+                              {
+                                "key": "BEN",
+                                "text": "Benin"
+                              },
+                              {
+                                "key": "BMU",
+                                "text": "Bermuda"
+                              },
+                              {
+                                "key": "BTN",
+                                "text": "Bhutan"
+                              },
+                              {
+                                "key": "BOL",
+                                "text": "Bolivia"
+                              },
+                              {
+                                "key": "BIH",
+                                "text": "Bosnia And Herzegowina"
+                              },
+                              {
+                                "key": "BWA",
+                                "text": "Botswana"
+                              },
+                              {
+                                "key": "BVT",
+                                "text": "Bouvet Island"
+                              },
+                              {
+                                "key": "BRA",
+                                "text": "Brazil"
+                              },
+                              {
+                                "key": "IOT",
+                                "text": "British Indian Ocean Territory"
+                              },
+                              {
+                                "key": "BRN",
+                                "text": "Brunei Darussalam"
+                              },
+                              {
+                                "key": "BGR",
+                                "text": "Bulgaria"
+                              },
+                              {
+                                "key": "BFA",
+                                "text": "Burkina Faso"
+                              },
+                              {
+                                "key": "BDI",
+                                "text": "Burundi"
+                              },
+                              {
+                                "key": "KHM",
+                                "text": "Cambodia"
+                              },
+                              {
+                                "key": "CMR",
+                                "text": "Cameroon"
+                              },
+                              {
+                                "key": "CAN",
+                                "text": "Canada"
+                              },
+                              {
+                                "key": "CPV",
+                                "text": "Cape Verde"
+                              },
+                              {
+                                "key": "CYM",
+                                "text": "Cayman Islands"
+                              },
+                              {
+                                "key": "CAF",
+                                "text": "Central African Republic"
+                              },
+                              {
+                                "key": "TCD",
+                                "text": "Chad"
+                              },
+                              {
+                                "key": "CHL",
+                                "text": "Chile"
+                              },
+                              {
+                                "key": "CHN",
+                                "text": "China"
+                              },
+                              {
+                                "key": "CXR",
+                                "text": "Christmas Island"
+                              },
+                              {
+                                "key": "CCK",
+                                "text": "Cocos (keeling) Islands"
+                              },
+                              {
+                                "key": "COL",
+                                "text": "Colombia"
+                              },
+                              {
+                                "key": "COM",
+                                "text": "Comoros"
+                              },
+                              {
+                                "key": "COG",
+                                "text": "Congo"
+                              },
+                              {
+                                "key": "COD",
+                                "text": "Congo, The Democratic Republic Of The"
+                              },
+                              {
+                                "key": "COK",
+                                "text": "Cook Islands"
+                              },
+                              {
+                                "key": "CRI",
+                                "text": "Costa Rica"
+                              },
+                              {
+                                "key": "CIV",
+                                "text": "Cote D'ivoire"
+                              },
+                              {
+                                "key": "HRV",
+                                "text": "Croatia (local Name: Hrvatska)"
+                              },
+                              {
+                                "key": "CUB",
+                                "text": "Cuba"
+                              },
+                              {
+                                "key": "CYP",
+                                "text": "Cyprus"
+                              },
+                              {
+                                "key": "CZE",
+                                "text": "Czech Republic"
+                              },
+                              {
+                                "key": "DNK",
+                                "text": "Denmark"
+                              },
+                              {
+                                "key": "DJI",
+                                "text": "Djibouti"
+                              },
+                              {
+                                "key": "DMA",
+                                "text": "Dominica"
+                              },
+                              {
+                                "key": "DOM",
+                                "text": "Dominican Republic"
+                              },
+                              {
+                                "key": "TLS",
+                                "text": "East Timor"
+                              },
+                              {
+                                "key": "ECU",
+                                "text": "Ecuador"
+                              },
+                              {
+                                "key": "EGY",
+                                "text": "Egypt"
+                              },
+                              {
+                                "key": "SLV",
+                                "text": "El Salvador"
+                              },
+                              {
+                                "key": "GNQ",
+                                "text": "Equatorial Guinea"
+                              },
+                              {
+                                "key": "ERI",
+                                "text": "Eritrea"
+                              },
+                              {
+                                "key": "EST",
+                                "text": "Estonia"
+                              },
+                              {
+                                "key": "ETH",
+                                "text": "Ethiopia"
+                              },
+                              {
+                                "key": "FLK",
+                                "text": "Falkland Islands (malvinas)"
+                              },
+                              {
+                                "key": "FRO",
+                                "text": "Faroe Islands"
+                              },
+                              {
+                                "key": "FJI",
+                                "text": "Fiji"
+                              },
+                              {
+                                "key": "FIN",
+                                "text": "Finland"
+                              },
+                              {
+                                "key": "FRA",
+                                "text": "France"
+                              },
+                              {
+                                "key": "FXX",
+                                "text": "France, Metropolitan"
+                              },
+                              {
+                                "key": "GUF",
+                                "text": "French Guiana"
+                              },
+                              {
+                                "key": "PYF",
+                                "text": "French Polynesia"
+                              },
+                              {
+                                "key": "ATF",
+                                "text": "French Southern Territories"
+                              },
+                              {
+                                "key": "GAB",
+                                "text": "Gabon"
+                              },
+                              {
+                                "key": "GMB",
+                                "text": "Gambia"
+                              },
+                              {
+                                "key": "GEO",
+                                "text": "Georgia"
+                              },
+                              {
+                                "key": "DEU",
+                                "text": "Germany"
+                              },
+                              {
+                                "key": "GHA",
+                                "text": "Ghana"
+                              },
+                              {
+                                "key": "GIB",
+                                "text": "Gibraltar"
+                              },
+                              {
+                                "key": "GRC",
+                                "text": "Greece"
+                              },
+                              {
+                                "key": "GRL",
+                                "text": "Greenland"
+                              },
+                              {
+                                "key": "GRD",
+                                "text": "Grenada"
+                              },
+                              {
+                                "key": "GLP",
+                                "text": "Guadeloupe"
+                              },
+                              {
+                                "key": "GUM",
+                                "text": "Guam"
+                              },
+                              {
+                                "key": "GTM",
+                                "text": "Guatemala"
+                              },
+                              {
+                                "key": "GIN",
+                                "text": "Guinea"
+                              },
+                              {
+                                "key": "GNB",
+                                "text": "Guinea-bissau"
+                              },
+                              {
+                                "key": "GUY",
+                                "text": "Guyana"
+                              },
+                              {
+                                "key": "HTI",
+                                "text": "Haiti"
+                              },
+                              {
+                                "key": "HMD",
+                                "text": "Heard And Mc Donald Islands"
+                              },
+                              {
+                                "key": "VAT",
+                                "text": "Holy See (vatican City State)"
+                              },
+                              {
+                                "key": "HND",
+                                "text": "Honduras"
+                              },
+                              {
+                                "key": "HKG",
+                                "text": "Hong Kong"
+                              },
+                              {
+                                "key": "HUN",
+                                "text": "Hungary"
+                              },
+                              {
+                                "key": "ISL",
+                                "text": "Iceland"
+                              },
+                              {
+                                "key": "IND",
+                                "text": "India"
+                              },
+                              {
+                                "key": "IDN",
+                                "text": "Indonesia"
+                              },
+                              {
+                                "key": "IRN",
+                                "text": "Iran (islamic Republic Of)"
+                              },
+                              {
+                                "key": "IRQ",
+                                "text": "Iraq"
+                              },
+                              {
+                                "key": "IRL",
+                                "text": "Ireland"
+                              },
+                              {
+                                "key": "ISR",
+                                "text": "Israel"
+                              },
+                              {
+                                "key": "ITA",
+                                "text": "Italy"
+                              },
+                              {
+                                "key": "JAM",
+                                "text": "Jamaica"
+                              },
+                              {
+                                "key": "JPN",
+                                "text": "Japan"
+                              },
+                              {
+                                "key": "JOR",
+                                "text": "Jordan"
+                              },
+                              {
+                                "key": "KAZ",
+                                "text": "Kazakhstan"
+                              },
+                              {
+                                "key": "KEN",
+                                "text": "Kenya"
+                              },
+                              {
+                                "key": "KIR",
+                                "text": "Kiribati"
+                              },
+                              {
+                                "key": "PRK",
+                                "text": "Korea, Democratic People's Republic Of"
+                              },
+                              {
+                                "key": "KOR",
+                                "text": "Korea, Republic Of"
+                              },
+                              {
+                                "key": "KWT",
+                                "text": "Kuwait"
+                              },
+                              {
+                                "key": "KGZ",
+                                "text": "Kyrgyzstan"
+                              },
+                              {
+                                "key": "LAO",
+                                "text": "Lao People's Democratic Republic"
+                              },
+                              {
+                                "key": "LVA",
+                                "text": "Latvia"
+                              },
+                              {
+                                "key": "LBN",
+                                "text": "Lebanon"
+                              },
+                              {
+                                "key": "LSO",
+                                "text": "Lesotho"
+                              },
+                              {
+                                "key": "LBR",
+                                "text": "Liberia"
+                              },
+                              {
+                                "key": "LBY",
+                                "text": "Libyan Arab Jamahiriya"
+                              },
+                              {
+                                "key": "LIE",
+                                "text": "Liechtenstein"
+                              },
+                              {
+                                "key": "LTU",
+                                "text": "Lithuania"
+                              },
+                              {
+                                "key": "LUX",
+                                "text": "Luxembourg"
+                              },
+                              {
+                                "key": "MAC",
+                                "text": "Macau"
+                              },
+                              {
+                                "key": "MKD",
+                                "text": "Macedonia, The Former Yugoslav Republic Of"
+                              },
+                              {
+                                "key": "MDG",
+                                "text": "Madagascar"
+                              },
+                              {
+                                "key": "MWI",
+                                "text": "Malawi"
+                              },
+                              {
+                                "key": "MYS",
+                                "text": "Malaysia"
+                              },
+                              {
+                                "key": "MDV",
+                                "text": "Maldives"
+                              },
+                              {
+                                "key": "MLI",
+                                "text": "Mali"
+                              },
+                              {
+                                "key": "MLT",
+                                "text": "Malta"
+                              },
+                              {
+                                "key": "MHL",
+                                "text": "Marshall Islands"
+                              },
+                              {
+                                "key": "MTQ",
+                                "text": "Martinique"
+                              },
+                              {
+                                "key": "MRT",
+                                "text": "Mauritania"
+                              },
+                              {
+                                "key": "MUS",
+                                "text": "Mauritius"
+                              },
+                              {
+                                "key": "MYT",
+                                "text": "Mayotte"
+                              },
+                              {
+                                "key": "MEX",
+                                "text": "Mexico"
+                              },
+                              {
+                                "key": "FSM",
+                                "text": "Micronesia, Federated States Of"
+                              },
+                              {
+                                "key": "MDA",
+                                "text": "Moldova, Republic Of"
+                              },
+                              {
+                                "key": "MCO",
+                                "text": "Monaco"
+                              },
+                              {
+                                "key": "MNG",
+                                "text": "Mongolia"
+                              },
+                              {
+                                "key": "MNE",
+                                "text": "Montenegro"
+                              },
+                              {
+                                "key": "MSR",
+                                "text": "Montserrat"
+                              },
+                              {
+                                "key": "MAR",
+                                "text": "Morocco"
+                              },
+                              {
+                                "key": "MOZ",
+                                "text": "Mozambique"
+                              },
+                              {
+                                "key": "MMR",
+                                "text": "Myanmar"
+                              },
+                              {
+                                "key": "NAM",
+                                "text": "Namibia"
+                              },
+                              {
+                                "key": "NRU",
+                                "text": "Nauru"
+                              },
+                              {
+                                "key": "NPL",
+                                "text": "Nepal"
+                              },
+                              {
+                                "key": "NLD",
+                                "text": "Netherlands"
+                              },
+                              {
+                                "key": "ANT",
+                                "text": "Netherlands Antilles"
+                              },
+                              {
+                                "key": "NCL",
+                                "text": "New Caledonia"
+                              },
+                              {
+                                "key": "NZL",
+                                "text": "New Zealand"
+                              },
+                              {
+                                "key": "NIC",
+                                "text": "Nicaragua"
+                              },
+                              {
+                                "key": "NER",
+                                "text": "Niger"
+                              },
+                              {
+                                "key": "NGA",
+                                "text": "Nigeria"
+                              },
+                              {
+                                "key": "NIU",
+                                "text": "Niue"
+                              },
+                              {
+                                "key": "NFK",
+                                "text": "Norfolk Island"
+                              },
+                              {
+                                "key": "MNP",
+                                "text": "Northern Mariana Islands"
+                              },
+                              {
+                                "key": "NOR",
+                                "text": "Norway"
+                              },
+                              {
+                                "key": "OMN",
+                                "text": "Oman"
+                              },
+                              {
+                                "key": "PAK",
+                                "text": "Pakistan"
+                              },
+                              {
+                                "key": "PLW",
+                                "text": "Palau"
+                              },
+                              {
+                                "key": "PSE",
+                                "text": "Palestinian Territory, Occupied"
+                              },
+                              {
+                                "key": "PAN",
+                                "text": "Panama"
+                              },
+                              {
+                                "key": "PNG",
+                                "text": "Papua New Guinea"
+                              },
+                              {
+                                "key": "PRY",
+                                "text": "Paraguay"
+                              },
+                              {
+                                "key": "PER",
+                                "text": "Peru"
+                              },
+                              {
+                                "key": "PHL",
+                                "text": "Philippines"
+                              },
+                              {
+                                "key": "PCN",
+                                "text": "Pitcairn"
+                              },
+                              {
+                                "key": "POL",
+                                "text": "Poland"
+                              },
+                              {
+                                "key": "PRT",
+                                "text": "Portugal"
+                              },
+                              {
+                                "key": "PRI",
+                                "text": "Puerto Rico"
+                              },
+                              {
+                                "key": "QAT",
+                                "text": "Qatar"
+                              },
+                              {
+                                "key": "REU",
+                                "text": "Reunion"
+                              },
+                              {
+                                "key": "ROU",
+                                "text": "Romania"
+                              },
+                              {
+                                "key": "RUS",
+                                "text": "Russian Federation"
+                              },
+                              {
+                                "key": "RWA",
+                                "text": "Rwanda"
+                              },
+                              {
+                                "key": "KNA",
+                                "text": "Saint Kitts And Nevis"
+                              },
+                              {
+                                "key": "LCA",
+                                "text": "Saint Lucia"
+                              },
+                              {
+                                "key": "VCT",
+                                "text": "Saint Vincent And The Grenadines"
+                              },
+                              {
+                                "key": "WSM",
+                                "text": "Samoa"
+                              },
+                              {
+                                "key": "SMR",
+                                "text": "San Marino"
+                              },
+                              {
+                                "key": "STP",
+                                "text": "Sao Tome And Principe"
+                              },
+                              {
+                                "key": "SAU",
+                                "text": "Saudi Arabia"
+                              },
+                              {
+                                "key": "SEN",
+                                "text": "Senegal"
+                              },
+                              {
+                                "key": "SRB",
+                                "text": "Serbia"
+                              },
+                              {
+                                "key": "SYC",
+                                "text": "Seychelles"
+                              },
+                              {
+                                "key": "SLE",
+                                "text": "Sierra Leone"
+                              },
+                              {
+                                "key": "SGP",
+                                "text": "Singapore"
+                              },
+                              {
+                                "key": "SVK",
+                                "text": "Slovakia (slovak Republic)"
+                              },
+                              {
+                                "key": "SVN",
+                                "text": "Slovenia"
+                              },
+                              {
+                                "key": "SLB",
+                                "text": "Solomon Islands"
+                              },
+                              {
+                                "key": "SOM",
+                                "text": "Somalia"
+                              },
+                              {
+                                "key": "ZAF",
+                                "text": "South Africa"
+                              },
+                              {
+                                "key": "SGS",
+                                "text": "South Georgia And The South Sandwich Islands"
+                              },
+                              {
+                                "key": "ESP",
+                                "text": "Spain"
+                              },
+                              {
+                                "key": "LKA",
+                                "text": "Sri Lanka"
+                              },
+                              {
+                                "key": "SHN",
+                                "text": "St. Helena"
+                              },
+                              {
+                                "key": "SPM",
+                                "text": "St. Pierre And Miquelon"
+                              },
+                              {
+                                "key": "SDN",
+                                "text": "Sudan"
+                              },
+                              {
+                                "key": "SUR",
+                                "text": "Suriname"
+                              },
+                              {
+                                "key": "SJM",
+                                "text": "Svalbard And Jan Mayen Islands"
+                              },
+                              {
+                                "key": "SWZ",
+                                "text": "Swaziland"
+                              },
+                              {
+                                "key": "SWE",
+                                "text": "Sweden"
+                              },
+                              {
+                                "key": "CHE",
+                                "text": "Switzerland"
+                              },
+                              {
+                                "key": "SYR",
+                                "text": "Syrian Arab Republic"
+                              },
+                              {
+                                "key": "TWN",
+                                "text": "Taiwan"
+                              },
+                              {
+                                "key": "TJK",
+                                "text": "Tajikistan"
+                              },
+                              {
+                                "key": "TZA",
+                                "text": "Tanzania, United Republic Of"
+                              },
+                              {
+                                "key": "THA",
+                                "text": "Thailand"
+                              },
+                              {
+                                "key": "TGO",
+                                "text": "Togo"
+                              },
+                              {
+                                "key": "TKL",
+                                "text": "Tokelau"
+                              },
+                              {
+                                "key": "TON",
+                                "text": "Tonga"
+                              },
+                              {
+                                "key": "TTO",
+                                "text": "Trinidad And Tobago"
+                              },
+                              {
+                                "key": "TUN",
+                                "text": "Tunisia"
+                              },
+                              {
+                                "key": "TUR",
+                                "text": "Turkey"
+                              },
+                              {
+                                "key": "TKM",
+                                "text": "Turkmenistan"
+                              },
+                              {
+                                "key": "TCA",
+                                "text": "Turks And Caicos Islands"
+                              },
+                              {
+                                "key": "TUV",
+                                "text": "Tuvalu"
+                              },
+                              {
+                                "key": "UGA",
+                                "text": "Uganda"
+                              },
+                              {
+                                "key": "UKR",
+                                "text": "Ukraine"
+                              },
+                              {
+                                "key": "ARE",
+                                "text": "United Arab Emirates"
+                              },
+                              {
+                                "key": "GBR",
+                                "text": "United Kingdom"
+                              },
+                              {
+                                "key": "USA",
+                                "text": "United States"
+                              },
+                              {
+                                "key": "UMI",
+                                "text": "United States Minor Outlying Islands"
+                              },
+                              {
+                                "key": "URY",
+                                "text": "Uruguay"
+                              },
+                              {
+                                "key": "UZB",
+                                "text": "Uzbekistan"
+                              },
+                              {
+                                "key": "VUT",
+                                "text": "Vanuatu"
+                              },
+                              {
+                                "key": "VEN",
+                                "text": "Venezuela"
+                              },
+                              {
+                                "key": "VNM",
+                                "text": "Viet Nam"
+                              },
+                              {
+                                "key": "VGB",
+                                "text": "Virgin Islands (british)"
+                              },
+                              {
+                                "key": "VIR",
+                                "text": "Virgin Islands (u.s.)"
+                              },
+                              {
+                                "key": "WLF",
+                                "text": "Wallis And Futuna Islands"
+                              },
+                              {
+                                "key": "ESH",
+                                "text": "Western Sahara"
+                              },
+                              {
+                                "key": "YEM",
+                                "text": "Yemen"
+                              },
+                              {
+                                "key": "YUG",
+                                "text": "Yugoslavia"
+                              },
+                              {
+                                "key": "ZMB",
+                                "text": "Zambia"
+                              },
+                              {
+                                "key": "ZWE",
+                                "text": "Zimbabwe"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "stateProvinceGeoId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "State/Province",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-empty": "true",
+                            "allow-multiple": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "true",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getGeoCountryStates",
+                              "serverSearch": "false",
+                              "minLength": "1",
+                              "dependsOnField": "countryGeoId",
+                              "dependsOnParameter": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "partTotal",
+                        "from": "",
+                        "hide": "",
+                        "align": "right",
+                        "title": "Total",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "range-find",
+                            "size": "",
+                            "maxlength": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "quantityTotal",
+                        "from": "",
+                        "hide": "",
+                        "align": "right",
+                        "title": "Quantity Total",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "range-find",
+                            "size": "",
+                            "maxlength": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "findQuantity",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Item Quantity",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "range-find",
+                            "size": "",
+                            "maxlength": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "purchaseItemTypeEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Purchase Item Type",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-multiple": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "true",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "ItemExpAdvertising",
+                                "text": "Advertising"
+                              },
+                              {
+                                "key": "ItemAdjAdvertising",
+                                "text": "Advertising"
+                              },
+                              {
+                                "key": "ItemAsset",
+                                "text": "Asset - Fixed Asset"
+                              },
+                              {
+                                "key": "ItemInventory",
+                                "text": "Asset - Inventory"
+                              },
+                              {
+                                "key": "ItemExpCharitable",
+                                "text": "Charitable Contribution"
+                              },
+                              {
+                                "key": "ItemCommissionAdj",
+                                "text": "Commission Adjustment"
+                              },
+                              {
+                                "key": "ItemCommission",
+                                "text": "Commission Line Item"
+                              },
+                              {
+                                "key": "ItemExpCommissionFee",
+                                "text": "Commission/Fee"
+                              },
+                              {
+                                "key": "ItemExpCommCellular",
+                                "text": "Communication Cellular"
+                              },
+                              {
+                                "key": "ItemExpCommNetwork",
+                                "text": "Communication Network"
+                              },
+                              {
+                                "key": "ItemExpCommTelephone",
+                                "text": "Communication Telephone"
+                              },
+                              {
+                                "key": "ItemExpHosting",
+                                "text": "Computer Server Hosting"
+                              },
+                              {
+                                "key": "ItemDiscount",
+                                "text": "Discount - Promotional"
+                              },
+                              {
+                                "key": "ItemFee",
+                                "text": "Fee"
+                              },
+                              {
+                                "key": "ItemExpInsBusiness",
+                                "text": "Insurance Business"
+                              },
+                              {
+                                "key": "ItemExpInsEquipment",
+                                "text": "Insurance Equipment"
+                              },
+                              {
+                                "key": "ItemExpInsHealth",
+                                "text": "Insurance Health"
+                              },
+                              {
+                                "key": "ItemExpInsOther",
+                                "text": "Insurance Other"
+                              },
+                              {
+                                "key": "ItemExpInsRealEst",
+                                "text": "Insurance Real Estate"
+                              },
+                              {
+                                "key": "ItemExpInsVehicle",
+                                "text": "Insurance Vehicle"
+                              },
+                              {
+                                "key": "ItemExpInterestEquip",
+                                "text": "Interest Equipment"
+                              },
+                              {
+                                "key": "ItemExpInterestOther",
+                                "text": "Interest Other"
+                              },
+                              {
+                                "key": "ItemExpInterestReal",
+                                "text": "Interest Real Estate"
+                              },
+                              {
+                                "key": "ItemExpInterestVehi",
+                                "text": "Interest Vehicle"
+                              },
+                              {
+                                "key": "ItemAdjJointAdv",
+                                "text": "Joint Advertising"
+                              },
+                              {
+                                "key": "ItemExpLeaseEquip",
+                                "text": "Lease/Rent Equipment"
+                              },
+                              {
+                                "key": "ItemExpLeaseOther",
+                                "text": "Lease/Rent Other"
+                              },
+                              {
+                                "key": "ItemExpLeaseRealEst",
+                                "text": "Lease/Rent Real Estate"
+                              },
+                              {
+                                "key": "ItemExpLeaseVehicle",
+                                "text": "Lease/Rent Vehicle"
+                              },
+                              {
+                                "key": "ItemExpMaintEquip",
+                                "text": "Maintenance/Repair Equipment"
+                              },
+                              {
+                                "key": "ItemExpMaintOther",
+                                "text": "Maintenance/Repair Other"
+                              },
+                              {
+                                "key": "ItemExpMaintRealEst",
+                                "text": "Maintenance/Repair Real Estate"
+                              },
+                              {
+                                "key": "ItemExpMaintVehicle",
+                                "text": "Maintenance/Repair Vehicle"
+                              },
+                              {
+                                "key": "ItemExpMedical",
+                                "text": "Medical and Health Care"
+                              },
+                              {
+                                "key": "ItemMiscCharge",
+                                "text": "Miscellaneous Charge"
+                              },
+                              {
+                                "key": "ItemExpOfficePostage",
+                                "text": "Office Postage"
+                              },
+                              {
+                                "key": "ItemExpOfficeSup",
+                                "text": "Office Supplies"
+                              },
+                              {
+                                "key": "ItemExpOther",
+                                "text": "Other"
+                              },
+                              {
+                                "key": "ItemShippingOther",
+                                "text": "Other Shipping (Non-Inventory)"
+                              },
+                              {
+                                "key": "ItemRentalDeposit",
+                                "text": "Rental Deposit"
+                              },
+                              {
+                                "key": "ItemExpRoyalties",
+                                "text": "Royalties"
+                              },
+                              {
+                                "key": "ItemSalesTax",
+                                "text": "Sales Tax"
+                              },
+                              {
+                                "key": "ItemExpServAccount",
+                                "text": "Services Accounting"
+                              },
+                              {
+                                "key": "ItemExpServLabor",
+                                "text": "Services Labor"
+                              },
+                              {
+                                "key": "ItemExpServLegal",
+                                "text": "Services Legal"
+                              },
+                              {
+                                "key": "ItemShipping",
+                                "text": "Shipping and Handling"
+                              },
+                              {
+                                "key": "ItemSlottingFees",
+                                "text": "Slotting Fees"
+                              },
+                              {
+                                "key": "ItemExpSupplies",
+                                "text": "Supplies"
+                              },
+                              {
+                                "key": "ItemExpTaxesLic",
+                                "text": "Taxes and Licenses"
+                              },
+                              {
+                                "key": "ItemTimeEntry",
+                                "text": "Time Entry"
+                              },
+                              {
+                                "key": "ItemExpTravAir",
+                                "text": "Travel Air"
+                              },
+                              {
+                                "key": "ItemExpTravCarRental",
+                                "text": "Travel Car Rental"
+                              },
+                              {
+                                "key": "ItemExpTravLocal",
+                                "text": "Travel Local/Parking/Tolls"
+                              },
+                              {
+                                "key": "ItemExpTravLodging",
+                                "text": "Travel Lodging"
+                              },
+                              {
+                                "key": "ItemExpTravMealsEnt",
+                                "text": "Travel Meals/Entertainment"
+                              },
+                              {
+                                "key": "ItemExpTravOther",
+                                "text": "Travel Other"
+                              },
+                              {
+                                "key": "ItemExpUtilElec",
+                                "text": "Utilities Electricity"
+                              },
+                              {
+                                "key": "ItemExpUtilHeating",
+                                "text": "Utilities Heating"
+                              },
+                              {
+                                "key": "ItemExpUtilTrash",
+                                "text": "Utilities Trash/Recycle"
+                              },
+                              {
+                                "key": "ItemExpUtilVehFuel",
+                                "text": "Utilities Vehicle Fuel"
+                              },
+                              {
+                                "key": "ItemExpUtilWater",
+                                "text": "Utilities Water/Sewer"
+                              },
+                              {
+                                "key": "ItemVatTax",
+                                "text": "VAT Tax (not added to totals)"
+                              },
+                              {
+                                "key": "ItemWorkEffort",
+                                "text": "Work Effort"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "salesItemTypeEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Sales Item Type",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-multiple": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "true",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [
+                              {
+                                "key": "ItemAddtlFeature",
+                                "text": "Additional Feature"
+                              },
+                              {
+                                "key": "ItemAdjAdvertising",
+                                "text": "Advertising"
+                              },
+                              {
+                                "key": "ItemChargebackAdjust",
+                                "text": "Chargeback"
+                              },
+                              {
+                                "key": "ItemComplianceFee",
+                                "text": "Compliance Fee"
+                              },
+                              {
+                                "key": "ItemCouponCredit",
+                                "text": "Coupons and Credits"
+                              },
+                              {
+                                "key": "ItemDiscountAppease",
+                                "text": "Discount - Appeasement"
+                              },
+                              {
+                                "key": "ItemDiscount",
+                                "text": "Discount - Promotional"
+                              },
+                              {
+                                "key": "ItemSupplierDiscount",
+                                "text": "Discount - Supplier"
+                              },
+                              {
+                                "key": "ItemDonation",
+                                "text": "Donation"
+                              },
+                              {
+                                "key": "ItemFee",
+                                "text": "Fee"
+                              },
+                              {
+                                "key": "ItemFreeFills",
+                                "text": "Free Fills"
+                              },
+                              {
+                                "key": "ItemAdjJointAdv",
+                                "text": "Joint Advertising"
+                              },
+                              {
+                                "key": "ItemLateCharge",
+                                "text": "Late Payment Charge"
+                              },
+                              {
+                                "key": "ItemMkgtPkgAdj",
+                                "text": "Marketing Package Adjustment"
+                              },
+                              {
+                                "key": "ItemMiscCharge",
+                                "text": "Miscellaneous Charge"
+                              },
+                              {
+                                "key": "ItemProduct",
+                                "text": "Product"
+                              },
+                              {
+                                "key": "ItemPromoDiscount",
+                                "text": "Promotional Discounts"
+                              },
+                              {
+                                "key": "ItemPromptDiscount",
+                                "text": "Prompt Payment Discount"
+                              },
+                              {
+                                "key": "ItemRental",
+                                "text": "Rental"
+                              },
+                              {
+                                "key": "ItemRentalDeposit",
+                                "text": "Rental Deposit"
+                              },
+                              {
+                                "key": "ItemReplacement",
+                                "text": "Replacement"
+                              },
+                              {
+                                "key": "ItemReturnAdjust",
+                                "text": "Return"
+                              },
+                              {
+                                "key": "ItemSalesTax",
+                                "text": "Sales Tax"
+                              },
+                              {
+                                "key": "ItemServiceProduct",
+                                "text": "Service Product"
+                              },
+                              {
+                                "key": "ItemShipping",
+                                "text": "Shipping and Handling"
+                              },
+                              {
+                                "key": "ItemShrinkage",
+                                "text": "Shrinkage"
+                              },
+                              {
+                                "key": "ItemSlottingFees",
+                                "text": "Slotting Fees"
+                              },
+                              {
+                                "key": "ItemSurcharge",
+                                "text": "Surcharge"
+                              },
+                              {
+                                "key": "ItemSalesThirdParty",
+                                "text": "Third Party"
+                              },
+                              {
+                                "key": "ItemTimeEntry",
+                                "text": "Time Entry"
+                              },
+                              {
+                                "key": "ItemVatTax",
+                                "text": "VAT Tax (not added to totals)"
+                              },
+                              {
+                                "key": "ItemWarranty",
+                                "text": "Warranty"
+                              },
+                              {
+                                "key": "ItemWorkEffort",
+                                "text": "Work Effort"
+                              },
+                              {
+                                "key": "ItemWriteOff",
+                                "text": "Write-off"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "findProductId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Product",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "drop-down",
+                            "allow-multiple": "true",
+                            "allowEmpty": "true",
+                            "allowMultiple": "true",
+                            "submitOnSelect": "false",
+                            "current": "selected",
+                            "showNot": "false",
+                            "options": [],
+                            "dynamicOptions": {
+                              "transition": "getProductList",
+                              "serverSearch": "true",
+                              "minLength": "0"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "externalId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "External ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "hide-options": "true",
+                            "default-operator": "begins",
+                            "size": "",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "begins",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "displayId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Display ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "text-find",
+                            "hide-options": "true",
+                            "default-operator": "begins",
+                            "size": "",
+                            "maxlength": "",
+                            "ignoreCase": "true",
+                            "defaultOperator": "begins",
+                            "hideOptions": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "submitButton",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Find",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "submit",
+                            "text": "",
+                            "confirmation": "",
+                            "btnType": "",
+                            "icon": ""
+                          }
+                        ]
+                      }
+                    ],
+                    "fields": [
+                      {
+                        "name": "orderId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Order",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "condition": "orderId",
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "null:null",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "orderDetail",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "otherPartyOrderId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Their Order",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "salesChannelEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Source",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.Enumeration",
+                            "entityName": "moqui.basic.Enumeration",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "orderName",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Order Name",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "priority",
+                        "from": "",
+                        "hide": "",
+                        "align": "center",
+                        "title": "Priority",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "text": "${priority == 1 ? '-- ' : (priority == 2 || priority == 3 ? '- ' : '')}${priority?:''}${priority == 1 ? ' --' : (priority == 2 || priority == 3 ? ' -' : '')}",
+                            "style": "${priority == 1 ? 'text-strong text-danger' : (priority == 2 || priority == 3 ? 'text-strong text-warning' : '')}",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "resolvedText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "entryDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Entry Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "placedDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Placed Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "shipAfterDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Ship After Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "shipBeforeDate",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Ship Before Date",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "partStatusId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Status",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.StatusItem",
+                            "entityName": "moqui.basic.StatusItem",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "facilityId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Facility",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "FacilityNameTemplate",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "url": "editFacility",
+                            "isAnchorLink": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "productStoreId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Store",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "mantle.product.store.ProductStore",
+                            "text": "${productStoreId}: ${storeName}",
+                            "entityName": "mantle.product.store.ProductStore",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "shippingInstructions",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Shipping Instructions",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "text": "${shippingInstructions?.take(35)?:''}${shippingInstructions?.length() > 35 ? '...' : ''}",
+                            "style": "text-strong",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "resolvedText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "vendorPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Vendor",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "PartyNameTemplate",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "partyId": ""
+                            },
+                            "url": "editSupplier",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "partyId": "vendorPartyId"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "customerPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Customer",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "link",
+                            "urlType": "transition",
+                            "text": "PartyNameTemplate",
+                            "linkType": "anchor",
+                            "icon": "",
+                            "badge": "",
+                            "confirmation": "",
+                            "tooltip": "",
+                            "btnType": "",
+                            "targetWindow": "",
+                            "dynamicLoadId": "",
+                            "parameterMap": {
+                              "partyId": ""
+                            },
+                            "url": "editCustomer",
+                            "isAnchorLink": true,
+                            "parameterFromFields": {
+                              "partyId": "customerPartyId"
+                            }
+                          },
+                          {
+                            "condition": "custPcaaList",
+                            "_type": "label",
+                            "text": " - ${custPcaaList*.description.join(', ')}",
+                            "resolvedText": " - ${custPcaaList*.description.join(', ')}",
+                            "labelType": "span",
+                            "encode": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "otherParties",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Other Parties",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "section-iterate",
+                            "name": "OtherPartyListSection",
+                            "list": "partPartyList",
+                            "entry": "partParty"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "shipmentMethodEnumId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Ship Method",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.Enumeration",
+                            "entityName": "moqui.basic.Enumeration",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "carrierPartyId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Carrier",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "mantle.party.Party",
+                            "text": "${carrierPartyId == '_NA_' ? 'N/A' : pseudoId}",
+                            "entityName": "mantle.party.Party",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "shipments",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Shipments",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "section-iterate",
+                            "name": "ShipmentListSection",
+                            "list": "oissList",
+                            "entry": "oiss"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "countryGeoId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Country",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.Geo",
+                            "text": "${geoCodeAlpha3}",
+                            "entityName": "moqui.basic.Geo",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "stateProvinceGeoId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "State/Province",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display-entity",
+                            "entity-name": "moqui.basic.Geo",
+                            "text": "${geoCodeAlpha2 ?: geoCodeAlpha3}",
+                            "entityName": "moqui.basic.Geo",
+                            "keyFieldName": "",
+                            "alsoHidden": "true",
+                            "useCache": "true",
+                            "defaultText": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "partTotal",
+                        "from": "",
+                        "hide": "",
+                        "align": "right",
+                        "title": "Total",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "currency-unit-field": "currencyUomId",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "currencyUomId",
+                            "showTotal": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "quantityTotal",
+                        "from": "",
+                        "hide": "",
+                        "align": "right",
+                        "title": "Quantity Total",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "showTotal": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "quantityNotAvailable",
+                        "from": "",
+                        "hide": "",
+                        "align": "right",
+                        "title": "Qty Not Avail",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "showTotal": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "issuedQuantity",
+                        "from": "",
+                        "hide": "",
+                        "align": "right",
+                        "title": "Qty Shipped",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": "",
+                            "showTotal": "true"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "externalId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "External ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      },
+                      {
+                        "name": "displayId",
+                        "from": "",
+                        "hide": "",
+                        "align": "",
+                        "title": "Display ID",
+                        "tooltip": "",
+                        "widgets": [
+                          {
+                            "_type": "display",
+                            "alsoHidden": "true",
+                            "encode": "true",
+                            "format": "",
+                            "currencyUnitField": ""
+                          }
+                        ]
+                      }
+                    ],
+                    "listData": [],
+                    "paginateInfo": {
+                      "pageIndex": 0,
+                      "pageSize": 20,
+                      "count": 0,
+                      "pageMaxIndex": 0,
+                      "pageRangeLow": 1,
+                      "pageRangeHigh": 0
+                    },
+                    "exportBaseUrl": "/fapps/marble/Order"
+                  }
+                ]
+              }
+            ]
+          },
+          "activeSubscreenName": "FindOrder"
+        }
+      ]
+    }
+  ]
+}

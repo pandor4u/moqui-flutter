@@ -1,0 +1,28 @@
+# Build artifacts
+/build/
+/lib/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+*.swp
+
+# Logs
+*.log
+
+# Debug/test artifacts
+*.png
+*.jpg
+
+# Python virtual environments
+.venv/
+__pycache__/
+*.pyc
+
+# E2E test output
+flutter/test/e2e/*.json
+flutter/test/e2e/*.html

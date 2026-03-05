@@ -1,0 +1,578 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "PickLocationMoves",
+  "menuTitle": "Pick Location Moves",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "name": "PickMoveList",
+          "_type": "form-list",
+          "formName": "PickMoveList",
+          "transition": "",
+          "list": "pickMoveList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "true",
+          "savedFinds": "true",
+          "showCsvButton": "true",
+          "showXlsxButton": "true",
+          "showPageSize": "true",
+          "skipForm": "true",
+          "editUrl": "editProduct",
+          "columns": [
+            {
+              "style": "",
+              "fieldRefs": [
+                "productId",
+                "facilityId"
+              ]
+            },
+            {
+              "style": "",
+              "fieldRefs": [
+                "upca"
+              ]
+            },
+            {
+              "style": "",
+              "fieldRefs": [
+                "locationSeqId",
+                "locationTypeEnumId"
+              ]
+            },
+            {
+              "style": "",
+              "fieldRefs": [
+                "quantityOnHandTotal"
+              ]
+            },
+            {
+              "style": "",
+              "fieldRefs": [
+                "quantity",
+                "reservationCount"
+              ]
+            },
+            {
+              "style": "",
+              "fieldRefs": [
+                "needQuantity"
+              ]
+            },
+            {
+              "style": "",
+              "fieldRefs": [
+                "recLocations"
+              ]
+            },
+            {
+              "style": "",
+              "fieldRefs": [
+                "moveDialog"
+              ]
+            },
+            {
+              "style": "",
+              "fieldRefs": [
+                "moveLink"
+              ]
+            },
+            {
+              "style": "",
+              "fieldRefs": [
+                "assetSummaryLink"
+              ]
+            }
+          ],
+          "headerFields": [
+            {
+              "name": "productId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-multiple": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "true",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getProductList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "facilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "getFacilityList",
+                    "serverSearch": "true",
+                    "minLength": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "areaId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Area",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "default-operator": "begins",
+                  "size": "10",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "aisleId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Aisle",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "default-operator": "begins",
+                  "size": "10",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "begins",
+                  "hideOptions": "false"
+                }
+              ]
+            },
+            {
+              "name": "submitButton",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "productId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Product",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "ProductNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Shipping/PickLocationMoves/editProduct",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "upca",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "UPC-A",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "${upcaProdIdent?.idValue?:''}",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": ""
+                }
+              ]
+            },
+            {
+              "name": "facilityId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Facility",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "FacilityNameTemplate",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Shipping/PickLocationMoves/editFacility",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "locationSeqId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Location",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "${description?:''} ${areaId?:' '}:${aisleId?:' '}:${sectionId?:' '}:${levelId?:' '}:${positionId?:' '}",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": "  : : : : "
+                }
+              ]
+            },
+            {
+              "name": "locationTypeEnumId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Loc Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.Enumeration",
+                  "entityName": "moqui.basic.Enumeration",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "containerId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Container",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.product.asset.Container",
+                  "text": "ContainerNameTemplate",
+                  "entityName": "mantle.product.asset.Container",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "lotId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Lot",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.product.asset.LotAndMfgParty",
+                  "text": "LotNameTemplate",
+                  "entityName": "mantle.product.asset.LotAndMfgParty",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "assetId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Asset",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "null",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Shipping/PickLocationMoves/assetDetail",
+                  "isAnchorLink": true
+                }
+              ]
+            },
+            {
+              "name": "quantityOnHandTotal",
+              "from": "(quantityOnHandTotal ?: 0.0) / (reservationCount ?: 1.0)",
+              "hide": "",
+              "align": "",
+              "title": "QOH",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "reservationCount",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Res Cnt",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "quantity",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Res Qty",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "needQuantity",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Need Qty",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "text": "${ec.l10n.format(needQuantity, '#,##0.##')} (Pick ATP ${ec.l10n.format(pickAtpTotal, '#,##0.##')})",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "",
+                  "resolvedText": " (Pick ATP )"
+                }
+              ]
+            },
+            {
+              "name": "recLocations",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Pick Location(s)",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "section-iterate",
+                  "name": "RecLocList",
+                  "list": "pickLocList",
+                  "entry": "recLoc"
+                }
+              ]
+            },
+            {
+              "name": "moveDialog",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Move Dialog",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "id": "QuickMoveDialog",
+                  "_type": "dynamic-dialog",
+                  "dialogId": "QuickMoveDialog",
+                  "buttonText": "Move",
+                  "transition": "QuickMove",
+                  "dialogTitle": "",
+                  "width": "",
+                  "height": "",
+                  "icon": ""
+                }
+              ]
+            },
+            {
+              "name": "moveLink",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Move Link",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Move Screen",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "quantity": ""
+                  },
+                  "url": "/fapps/marble/Shipping/PickLocationMoves/selectAsset",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "quantity": "quantity"
+                  }
+                },
+                {
+                  "condition": "assetId",
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Move Asset",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "quantity": ""
+                  },
+                  "url": "/fapps/marble/Shipping/PickLocationMoves/moveAsset",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "quantity": "quantity"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "assetSummaryLink",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Assets Link",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Product Assets",
+                  "linkType": "anchor",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "parameterMap": {
+                    "productId": "",
+                    "facilityId": ""
+                  },
+                  "url": "/fapps/marble/Shipping/PickLocationMoves/findSummary",
+                  "isAnchorLink": true,
+                  "parameterFromFields": {
+                    "productId": "productId",
+                    "facilityId": "facilityId"
+                  }
+                }
+              ]
+            }
+          ],
+          "listData": [],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 0,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 0
+          },
+          "exportBaseUrl": "/fapps/marble/Shipping/PickLocationMoves"
+        }
+      ]
+    }
+  ]
+}

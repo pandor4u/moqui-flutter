@@ -1,0 +1,17 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FeatureGroup",
+  "menuTitle": "Feature Groups",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "_type": "subscreens-active",
+          "defaultItem": "FindFeatureGroup"
+        }
+      ]
+    }
+  ]
+}

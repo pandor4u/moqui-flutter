@@ -1,0 +1,617 @@
+{
+  "_type": "screen",
+  "renderMode": "fjson",
+  "screenName": "FindFinancialAccount",
+  "widgets": [
+    {
+      "_type": "widgets",
+      "children": [
+        {
+          "id": "NewFinancialAccountDialog",
+          "_type": "container-dialog",
+          "buttonText": "New Financial Account",
+          "dialogTitle": "",
+          "width": "",
+          "icon": "",
+          "btnType": "",
+          "children": [
+            {
+              "name": "NewFinancialAccountForm",
+              "_type": "form-single",
+              "formName": "NewFinancialAccountForm",
+              "transition": "createFinancialAccount",
+              "map": "fieldValues",
+              "fields": [
+                {
+                  "name": "finAccountTypeId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Type",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "CustomerCredit",
+                          "text": "Customer Credit"
+                        },
+                        {
+                          "key": "DepositAccount",
+                          "text": "Deposit"
+                        },
+                        {
+                          "key": "Replenish",
+                          "text": "Deposit Replenish"
+                        },
+                        {
+                          "key": "EmployeeAdvance",
+                          "text": "Employee Advance"
+                        },
+                        {
+                          "key": "GiftCard",
+                          "text": "Gift Card"
+                        },
+                        {
+                          "key": "GiftCertificate",
+                          "text": "Gift Certificate"
+                        },
+                        {
+                          "key": "LoanAccount",
+                          "text": "Loan"
+                        },
+                        {
+                          "key": "ServiceCredit",
+                          "text": "Service Credit"
+                        },
+                        {
+                          "key": "SupplierDeposit",
+                          "text": "Supplier Deposit"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "organizationPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Organization",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [
+                        {
+                          "key": "ORG_ZIZI_HR",
+                          "text": "Ziziwork Human Resources   [ZIHR]"
+                        },
+                        {
+                          "key": "ORG_ZIZI_CORP",
+                          "text": "Ziziwork Industries   [ZICORP]"
+                        },
+                        {
+                          "key": "ORG_ZIZI_RETAIL",
+                          "text": "Ziziwork Retail & Wholesale   [ZIRET]"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SALES",
+                          "text": "Ziziwork Sales   [ZISAL]"
+                        },
+                        {
+                          "key": "ORG_ZIZI_SERVICES",
+                          "text": "Ziziwork Services   [ZISER]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "ownerPartyId",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Account Owner",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "drop-down",
+                      "allow-empty": "true",
+                      "allowEmpty": "true",
+                      "allowMultiple": "false",
+                      "submitOnSelect": "false",
+                      "current": "selected",
+                      "showNot": "false",
+                      "options": [],
+                      "dynamicOptions": {
+                        "transition": "searchPartyList",
+                        "serverSearch": "true",
+                        "minLength": "2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "finAccountName",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Account Name",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "50",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "finAccountCode",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Account #",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "20",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "finAccountPin",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "PIN",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "text-line",
+                      "size": "8",
+                      "inputType": "text",
+                      "maxlength": "",
+                      "mask": "",
+                      "prefix": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "submitButton",
+                  "from": "",
+                  "hide": "",
+                  "align": "",
+                  "title": "Create",
+                  "tooltip": "",
+                  "widgets": [
+                    {
+                      "_type": "submit",
+                      "text": "",
+                      "confirmation": "",
+                      "btnType": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FinancialAccountList",
+          "_type": "form-list",
+          "formName": "FinancialAccountList",
+          "transition": "",
+          "list": "financialAccountList",
+          "paginate": "true",
+          "headerDialog": "true",
+          "selectColumns": "true",
+          "savedFinds": "true",
+          "showCsvButton": "true",
+          "showXlsxButton": "",
+          "showPageSize": "",
+          "skipForm": "true",
+          "editUrl": "editFinancialAccount",
+          "headerFields": [
+            {
+              "name": "finAccountTypeId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "CustomerCredit",
+                      "text": "Customer Credit"
+                    },
+                    {
+                      "key": "DepositAccount",
+                      "text": "Deposit"
+                    },
+                    {
+                      "key": "Replenish",
+                      "text": "Deposit Replenish"
+                    },
+                    {
+                      "key": "EmployeeAdvance",
+                      "text": "Employee Advance"
+                    },
+                    {
+                      "key": "GiftCard",
+                      "text": "Gift Card"
+                    },
+                    {
+                      "key": "GiftCertificate",
+                      "text": "Gift Certificate"
+                    },
+                    {
+                      "key": "LoanAccount",
+                      "text": "Loan"
+                    },
+                    {
+                      "key": "ServiceCredit",
+                      "text": "Service Credit"
+                    },
+                    {
+                      "key": "SupplierDeposit",
+                      "text": "Supplier Deposit"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "organizationPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Organization",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [
+                    {
+                      "key": "ORG_ZIZI_HR",
+                      "text": "Ziziwork Human Resources   [ZIHR]"
+                    },
+                    {
+                      "key": "ORG_ZIZI_CORP",
+                      "text": "Ziziwork Industries   [ZICORP]"
+                    },
+                    {
+                      "key": "ORG_ZIZI_RETAIL",
+                      "text": "Ziziwork Retail & Wholesale   [ZIRET]"
+                    },
+                    {
+                      "key": "ORG_ZIZI_SALES",
+                      "text": "Ziziwork Sales   [ZISAL]"
+                    },
+                    {
+                      "key": "ORG_ZIZI_SERVICES",
+                      "text": "Ziziwork Services   [ZISER]"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "ownerPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Account Owner",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "drop-down",
+                  "allow-empty": "true",
+                  "allowEmpty": "true",
+                  "allowMultiple": "false",
+                  "submitOnSelect": "false",
+                  "current": "selected",
+                  "showNot": "false",
+                  "options": [],
+                  "dynamicOptions": {
+                    "transition": "searchPartyList",
+                    "serverSearch": "true",
+                    "minLength": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "widget-template-include",
+                  "location": "component://webroot/template/screen/BasicWidgetTemplates.xml#statusDropDown"
+                }
+              ]
+            },
+            {
+              "name": "finAccountName",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Account Name",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "text-find",
+                  "size": "20",
+                  "hide-options": "true",
+                  "maxlength": "",
+                  "ignoreCase": "true",
+                  "defaultOperator": "contains",
+                  "hideOptions": "true"
+                }
+              ]
+            },
+            {
+              "name": "editFinancialAccountLink",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "submit",
+                  "text": "",
+                  "confirmation": "",
+                  "btnType": "",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "finAccountTypeId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Type",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.account.financial.FinancialAccountType",
+                  "entityName": "mantle.account.financial.FinancialAccountType",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "organizationPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Organization",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.PartyDetail",
+                  "text": "${organizationName?:''}${firstName?:''} ${lastName?:''} [${pseudoId}]",
+                  "entityName": "mantle.party.PartyDetail",
+                  "keyFieldName": "",
+                  "alsoHidden": "true",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "ownerPartyId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Account Owner",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "mantle.party.PartyDetail",
+                  "also-hidden": "false",
+                  "key-field-name": "partyId",
+                  "text": "${organizationName?:''}${firstName?:''} ${lastName?:''} [${pseudoId}]",
+                  "entityName": "mantle.party.PartyDetail",
+                  "keyFieldName": "partyId",
+                  "alsoHidden": "false",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "statusId",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Status",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display-entity",
+                  "entity-name": "moqui.basic.StatusItem",
+                  "also-hidden": "false",
+                  "entityName": "moqui.basic.StatusItem",
+                  "keyFieldName": "",
+                  "alsoHidden": "false",
+                  "useCache": "true",
+                  "defaultText": ""
+                }
+              ]
+            },
+            {
+              "name": "finAccountName",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Account Name",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": ""
+                }
+              ]
+            },
+            {
+              "name": "actualBalance",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Balance",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "currency-unit-field": "currencyUomId",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "currencyUomId"
+                }
+              ]
+            },
+            {
+              "name": "availableBalance",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Available",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "display",
+                  "currency-unit-field": "currencyUomId",
+                  "alsoHidden": "true",
+                  "encode": "true",
+                  "format": "",
+                  "currencyUnitField": "currencyUomId"
+                }
+              ]
+            },
+            {
+              "name": "editFinancialAccountLink",
+              "from": "",
+              "hide": "",
+              "align": "",
+              "title": "Find",
+              "tooltip": "",
+              "widgets": [
+                {
+                  "_type": "link",
+                  "urlType": "transition",
+                  "text": "Edit null",
+                  "linkType": "auto",
+                  "icon": "",
+                  "badge": "",
+                  "confirmation": "",
+                  "tooltip": "",
+                  "btnType": "",
+                  "targetWindow": "",
+                  "dynamicLoadId": "",
+                  "url": "/fapps/marble/Accounting/FinancialAccount/FindFinancialAccount/editFinancialAccount",
+                  "isAnchorLink": true
+                }
+              ]
+            }
+          ],
+          "listData": [
+            {
+              "finAccountTypeId": "DepositAccount",
+              "finAccountTypeId_display": "Deposit",
+              "organizationPartyId": "ORG_ZIZI_CORP",
+              "organizationPartyId_display": "Ziziwork Industries  [ZICORP]",
+              "ownerPartyId_display": "Joe Public [CustJqp]",
+              "statusId_display": "Active",
+              "finAccountName": "Demo Account",
+              "finAccountName_display": "Demo Account",
+              "actualBalance": "0",
+              "actualBalance_display": "$0.00",
+              "availableBalance": "0",
+              "availableBalance_display": "$0.00",
+              "editFinancialAccountLink_linkText": "Edit 100000"
+            },
+            {
+              "finAccountTypeId": "DepositAccount",
+              "finAccountTypeId_display": "Deposit",
+              "organizationPartyId": "ORG_ZIZI_CORP",
+              "organizationPartyId_display": "Ziziwork Industries  [ZICORP]",
+              "ownerPartyId_display": "Joe Public [CustJqp]",
+              "statusId_display": "Active",
+              "finAccountName": "Demo Account",
+              "finAccountName_display": "Demo Account",
+              "actualBalance": "0",
+              "actualBalance_display": "$0.00",
+              "availableBalance": "0",
+              "availableBalance_display": "$0.00",
+              "editFinancialAccountLink_linkText": "Edit 100001"
+            }
+          ],
+          "paginateInfo": {
+            "pageIndex": 0,
+            "pageSize": 20,
+            "count": 2,
+            "pageMaxIndex": 0,
+            "pageRangeLow": 1,
+            "pageRangeHigh": 2
+          },
+          "exportBaseUrl": "/fapps/marble/Accounting/FinancialAccount/FindFinancialAccount"
+        }
+      ]
+    }
+  ]
+}
